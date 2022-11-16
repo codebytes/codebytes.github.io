@@ -92,7 +92,7 @@ gallery:
     title: "cert"
 ---
 
-![HeadShot]({{ site.baseurl }}assets/images/bio-photo.jpg){:width="50%"}
+![HeadShot]({{ site.baseurl }}/assets/images/bio-photo.jpg){:width="50%"}
 
 My name is Chris Ayers.  I'm a Senior Customer Engineer on the Fast Track for Azure team at Microsoft. I'm a speaker, blogger, and presenter.  I like to help people understand technology.  I love Azure, DevOps, and development.  My goal is to deliver value to end users faster, develop features more quickly, with higher quality, and more confidence.
 
