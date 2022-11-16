@@ -1,0 +1,16 @@
+# main links
+main:
+  - title: "About"
+    url: about
+  - title: "Speaking"
+    url: speaking
+  - title: "Posts"
+    url: year-archive
+  - title: "Categories"
+    url: categories
+  - title: "Tags"
+    url: tags
+  # - title: "Sample Collections"
+  #   url: /collection-archive/
+  # - title: "Sitemap"
+  #   url: /sitemap/
