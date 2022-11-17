@@ -1,5 +1,4 @@
 ---
-#layout: post
 title: Scripting Winget
 date: 2021-08-01 10:21:12.000000000 +00:00
 type: post
@@ -11,12 +10,6 @@ tags:
 - Microsoft
 - PowerShell
 - scripts
-author:
-  login: chrislayers
-  email: clayers@gmail.com
-  display_name: Chris Ayers
-  first_name: Chris
-  last_name: Ayers
 permalink: "/2021/08/01/scripting-winget/"
 ---
 When I reset my PC or setup a new test machine, I always have to download a lot of software. In the past, I've used Chocolatey, Boxstarter, or just installed everything by hand.
@@ -31,25 +24,25 @@ WinGet is the cli tool for the Windows Package Manager, found [here](https://git
 
 Winget allows you to easily search for and install software. You can upgrade and remove software as well.
 
-![Winget Options]({{ site.baseurl }}/assets/2021/08/winget.png)
+![Winget Options]({{ site.url }}{{ site.baseurl }}/assets/2021/08/winget.png)
 
 #### Searching for Packages
 
 Let's say i'm not sure what packages there are. I can run `winget search` and get a full list of available packages, or I can filter that by searching for a package name or partial name.
 
-![Winget search]({{ site.baseurl }}/assets/2021/08/winget-search-1.png)
+![Winget search]({{ site.url }}{{ site.baseurl }}/assets/2021/08/winget-search-1.png)
 
 #### Showing Package information
 
 You can then show more details about a package, including publisher, url, and hash.
 
-![Winget show]({{ site.baseurl }}/assets/2021/08/winget-show.png)
+![Winget show]({{ site.url }}{{ site.baseurl }}/assets/2021/08/winget-show.png)
 
 #### Installing, Uninstalling and Updating Packages
 
 Installing packages is very easy, typically I just `winget install X`. This are options for using monikers (vscode) or full ids (Microsoft.VSCode) as well.
 
-![Winget install]({{ site.baseurl }}/assets/2021/08/winget-install.png)
+![Winget install]({{ site.url }}{{ site.baseurl }}/assets/2021/08/winget-install.png)
 
 For some apps there might be popups or gui installers. I usually use `winget install --silent X` when installing multiple apps. It prevents the popups on most installers.
 
@@ -139,7 +132,6 @@ Finally I built up a list of packages to install. I'm using the `winget` command
             Write-host "Skipping Install of " $app.name
         }
     }
-    
 
 ### Removing Packages
 
@@ -154,7 +146,6 @@ We can also remove unused windows applications that are installed by default. I 
       Write-host "Uninstalling:" $app
       Get-AppxPackage -allusers $app | Remove-AppxPackage
     }
-    
 
 ### Running the script
 

@@ -8,7 +8,7 @@ tags:
 - speaking
 permalink: "/2022/01/02/presenting-best-practices-part-1/"
 ---
-[![]({{ site.baseurl }}/assets/2022/01/51382972555_0ceb282aee_o.jpg)](https://chrislayers.files.wordpress.com/2022/01/51382972555_0ceb282aee_o.jpg)  
+![]({{ site.url }}{{ site.baseurl }}/assets/2022/01/51382972555_0ceb282aee_o.jpg)
 
 Presenting at THAT Conference 2020
 

@@ -16,12 +16,12 @@ I'm running on a Windows Insider Slow build so that I can leverage [WSL 2](https
 
 I'm also using the latest version of Docker Desktop, with WSL2 support. What this means is that instead of using Hyper-V to run a Moby Linux VM, [docker runs directly on WSL2](https://docs.docker.com/docker-for-windows/wsl-tech-preview/). It also has built in Kubernetes support.
 
-![]({{ site.baseurl }}/assets/2020/01/vertical_large1.png)
+![]({{ site.url }}{{ site.baseurl }}/assets/2020/01/vertical_large1.png)
 
 If you haven't guessed, I've been doing some container development. The experience so far as been great, with [VS Code](https://code.visualstudio.com/) and the [Remote Development Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) pack. I recently ran into some issues though. Here are some examples from bug posts opened about it:
 
 *   While updating Ubuntu: E: Release file for http://security.ubuntu.com/ubuntu/dists/bionic-security/InRelease is not valid yet (invalid for another 14h 47min 54s). Updates for this repository will not be applied.
-*   Getting metadata from plugin failed with error: invalid\_grant: Invalid JWT: Token must be a short-lived token (60 minutes) and in a reasonable timeframe. Check your iat and exp values and use a clock with skew to account for clock differences between systems.
+*   Getting metadata from plugin failed with error: invalid_grant: Invalid JWT: Token must be a short-lived token (60 minutes) and in a reasonable timeframe. Check your iat and exp values and use a clock with skew to account for clock differences between systems.
 *   kubectl x509 certificate has expired or is not yet valid #1152
 *   Az storage blob copy start failed #9995
 

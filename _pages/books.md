@@ -34,6 +34,10 @@ gallery:
   image_path: /assets/books/deepwork.jpg
   alt: Deep Work
   title: "Deep Work: Rules for Focused Success in a Distracted World"
+- url: https://www.radicalcandor.com/the-book/
+  image_path: /assets/books/radical-candor.png
+  alt: Radical Candor
+  title: "Radical Candor: Fully Revised & Updated Edition: Be a Kick-Ass Boss Without Losing Your Humanity"
 - url: https://www.whentheywinyouwin.com/
   image_path: /assets/books/when-they-win-you-win.png
   alt: When They Win, You Win
