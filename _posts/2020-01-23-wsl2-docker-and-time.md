@@ -16,7 +16,7 @@ I'm running on a Windows Insider Slow build so that I can leverage [WSL 2](https
 
 I'm also using the latest version of Docker Desktop, with WSL2 support. What this means is that instead of using Hyper-V to run a Moby Linux VM, [docker runs directly on WSL2](https://docs.docker.com/docker-for-windows/wsl-tech-preview/). It also has built in Kubernetes support.
 
-![]({{ site.url }}{{ site.baseurl }}/assets/2020/01/vertical_large1.png)
+{% include figure image_path="/assets/2020/01/docker-logo.png" alt="Docker Logo" caption="Docker Logo" %}
 
 If you haven't guessed, I've been doing some container development. The experience so far as been great, with [VS Code](https://code.visualstudio.com/) and the [Remote Development Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) pack. I recently ran into some issues though. Here are some examples from bug posts opened about it:
 

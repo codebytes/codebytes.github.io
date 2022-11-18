@@ -9,7 +9,8 @@ tags:
 - DevOps
 permalink: "/2021/06/05/devops-the-stakeholders/"
 ---
-![]({{ site.url }}{{ site.baseurl }}/assets/2021/06/devops.png)
+
+{% include figure image_path="/assets/2021/06/devops.png" alt="DevOps" caption="DevOps" %}
 
 When I talk about DevOps, I usually don't focus on the things like pipelines or automation. While these topics and activities can be _part_ of DevOps, there is so much more to it. I'm sure this will be a multipart blog series so lets get started.
 

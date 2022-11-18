@@ -16,3 +16,11 @@ main:
   #   url: /collection-archive/
   # - title: "Sitemap"
   #   url: /sitemap/
+side:
+  - title: "All Posts"
+    url: year-archive
+  - title: Tags
+    url: tags
+  - title: Categories
+    url: categories
+     

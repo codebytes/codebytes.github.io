@@ -24,25 +24,25 @@ WinGet is the cli tool for the Windows Package Manager, found [here](https://git
 
 Winget allows you to easily search for and install software. You can upgrade and remove software as well.
 
-![Winget Options]({{ site.url }}{{ site.baseurl }}/assets/2021/08/winget.png)
+{% include figure image_path="/assets/2021/08/winget.png" alt="Winget Options" caption="Winget Options" %}
 
 #### Searching for Packages
 
 Let's say i'm not sure what packages there are. I can run `winget search` and get a full list of available packages, or I can filter that by searching for a package name or partial name.
 
-![Winget search]({{ site.url }}{{ site.baseurl }}/assets/2021/08/winget-search-1.png)
+{% include figure image_path="/assets/2021/08/winget-search-1.png" alt="Winget search" caption="Winget search" %}
 
 #### Showing Package information
 
 You can then show more details about a package, including publisher, url, and hash.
 
-![Winget show]({{ site.url }}{{ site.baseurl }}/assets/2021/08/winget-show.png)
+{% include figure image_path="/assets/2021/08/winget-show.png" alt="Winget show" caption="Winget show" %}
 
 #### Installing, Uninstalling and Updating Packages
 
 Installing packages is very easy, typically I just `winget install X`. This are options for using monikers (vscode) or full ids (Microsoft.VSCode) as well.
 
-![Winget install]({{ site.url }}{{ site.baseurl }}/assets/2021/08/winget-install.png)
+{% include figure image_path="/assets/2021/08/winget-install.png" alt="Winget install" caption="Winget install" %}
 
 For some apps there might be popups or gui installers. I usually use `winget install --silent X` when installing multiple apps. It prevents the popups on most installers.
 
@@ -61,6 +61,7 @@ Please keep reading though if you find scripting and automation interesting. The
 
 While scripting the install, I ran into a few issues. For older versions of Windows, the latest versions from GitHub would not install due to missing dependencies. I also had to install the [VC++ v14 Desktop Framework Package](https://docs.microsoft.com/en-us/troubleshoot/cpp/c-runtime-packages-desktop-bridge#how-to-install-and-update-desktop-framework-packages). Both of those steps are handled by the setup script below.
 
+```powershell
     #Install WinGet
     #Based on this gist: https://gist.github.com/crutkas/6c2096eae387e544bd05cde246f23901
     $hasPackageManager = Get-AppPackage -name 'Microsoft.DesktopAppInstaller'
@@ -80,10 +81,11 @@ While scripting the install, I ran into a few issues. For older versions of Wind
     else {
         "winget already installed"
     }
-    
+```
 
 After getting it installed, I added some configuration to support the windows store. This is an experimental setting documented on GitHub. https://github.com/microsoft/winget-cli/blob/master/doc/Settings.md
 
+```powershell
     #Configure WinGet
     Write-Output "Configuring winget"
     
@@ -99,10 +101,11 @@ After getting it installed, I added some configuration to support the windows st
         }
     "@;
     $settingsJson | Out-File $settingsPath -Encoding utf8
-    
+```    
 
 Finally I built up a list of packages to install. I'm using the `winget` command to install the packages. I originally had a simple list of packages, but added the optional source parameter to support installing from the Windows Store. Winget also doesn't short circuit the install if the package is already installed, so I added a check for that. Winget today doesn't output PowerShell objects or easily parseable output, so I just joined all the lines into 1 string and checked the contents.
 
+```powershell
     #Install New apps
     $apps = @(
         @{name = "Microsoft.AzureCLI" }, 
@@ -132,11 +135,13 @@ Finally I built up a list of packages to install. I'm using the `winget` command
             Write-host "Skipping Install of " $app.name
         }
     }
+```
 
 ### Removing Packages
 
 We can also remove unused windows applications that are installed by default. I combined some of the script found here as well: [Uninstalling windows store apps using PowerShell](https://www.cloudappie.nl/uninstall-windows-store-apps-powershell/). I don't usually use the 3d printing apps, or the mixed reality stuff so they can go. And I don't care about the solitaire collection.
 
+```powershell
     #Remove Apps
     Write-Output "Removing Apps"
     
@@ -146,6 +151,7 @@ We can also remove unused windows applications that are installed by default. I 
       Write-host "Uninstalling:" $app
       Get-AppxPackage -allusers $app | Remove-AppxPackage
     }
+```
 
 ### Running the script
 
@@ -155,7 +161,8 @@ I learned how to run PowerShell from a gist from this great article: [Run a Powe
 
 You can get and run the entire script on a new machine by invoking the following command.
 
+```powershell
     PowerShell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://gist.githubusercontent.com/Codebytes/29bf18015f6e93fca9421df73c6e512c/raw/'))"
-    
+```    
 
 *   Note: After running this, you might need to restart your terminal or reboot the computer.

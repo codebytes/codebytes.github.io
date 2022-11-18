@@ -6,7 +6,9 @@ categories:
 tags:
 - kubernetes
 - tools
-permalink: "/2022/11/17/tools-for-working-with-kubernetes/"
+header:
+  image: /assets/2022/11/kubernetes-logo.png
+permalink: /2022/11/17/tools-for-working-with-kubernetes/
 k9s-gallery:
 - url: /assets/2022/11/k9s-pulses.png
   image_path: /assets/2022/11/k9s-pulses.png
@@ -26,7 +28,7 @@ k9s-gallery:
   title: k9s rbac
 ---
 
-I've been in a number of internal and external calls where tooling to help work with Kubernetes keeps coming up. I thought I would share some of these cool tools incase you weren't aware of them.
+I've been in a number of internal and external calls where tooling to help work with Kubernetes keeps coming up. I thought I would share some of these cool tools in case you weren't aware of them. 
 
 ## Tools
 
@@ -48,22 +50,22 @@ You can find k9s at [https://github.com/ahmetb/kubectx](https://github.com/ahmet
 
 kubectx can show you the multiple contexts available, switch between them quickly, and create aliases.
 
-![kubectx]({{ site.url }}{{ site.baseurl }}/assets/2022/11/kubectx-demo.gif)
+{% include figure image_path="/assets/2022/11/kubectx-demo.gif" alt="kubectx" caption="kubectx" %}
 
 kubens can show you the multiple namespaces available, switch between them quickly, and create aliases.
 
-![kubens]({{ site.url }}{{ site.baseurl }}/assets/2022/11/kubens-demo.gif)
+{% include figure image_path="/assets/2022/11/kubens-demo.gif" alt="kubens" caption="kubens" %}
 
 ### fzf
 
 fzf is a different type of tool. This makes your other tools better. It works on a variety of platforms but what is allows you to do is get an interactive filter.  kubectx and kubens will show the list and let you pick what you want instead of runnig multiple commands.
 You can leverage fzf to pick files to edit more quickly.
 
-![fzf]({{ site.url }}{{ site.baseurl }}/assets/2022/11/fzf.gif)
+{% include figure image_path="/assets/2022/11/fzf.gif" alt="fzf" caption="fzf" %}
 
 It works with lots of things, like vi.
 
-!["fzf-vi"]({{ site.url }}{{ site.baseurl }}/assets/2022/11/fzf-vi.gif)
+{% include figure image_path="/assets/2022/11/fzf-vi.gif" alt="fzf-vi" caption="fzf-vi" %}
 
 ## Conclusion
 

@@ -24,7 +24,7 @@ The hypervisor is software that creates and runs VMs. The hypervisor gives each 
 
 Workloads or applications running on a VM contain the entire operating system (Linux, Windows, ...) as well as all the services, dependencies, and libraries needed to run and administer applications or workloads. Because VM images contain the entire operating system, they can range in size from hundred of megabytes up to several gigabytes. Starting a VM or application can also take several seconds to minutes
 
-![VMs]({{ site.url }}{{ site.baseurl }}/assets/2021/08/containers-vms.png)
+{% include figure image_path="/assets/2021/08/containers-vms.png" alt="VMs" caption="VMs" %}
 
 #### Pros
 
@@ -45,7 +45,7 @@ Workloads or applications running on a VM contain the entire operating system (L
 
 Containers are lightweight, isolated, packages of software. The containers bundle libraries, configuration, scripts, and application binaries. There is a standard for containers images, The Open Container Initiative - OCI, for allowing interoperability of different container engines. Containers run on top of an OS and a Container Engine, like Docker, CRI-O, or LXD. The Container Engine pulls images from a container registry and runs applications.
 
-![Containers]({{ site.url }}{{ site.baseurl }}/assets/2021/08/containers-containers.png)
+{% include figure image_path="/assets/2021/08/containers-containers.png" alt="Containers" caption="Containers" %}
 
 #### Pros
 

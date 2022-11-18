@@ -7,13 +7,13 @@ tags:
 - presenting
 - speaking
 permalink: "/2022/01/02/presenting-best-practices-part-1/"
+excerpt_separator: <!--more-->
 ---
-![]({{ site.url }}{{ site.baseurl }}/assets/2022/01/51382972555_0ceb282aee_o.jpg)
 
-Presenting at THAT Conference 2020
+{% include figure image_path="/assets/2022/01/51382972555_0ceb282aee_o.jpg" alt="Presenting at THAT Conference 2020" caption="Presenting at THAT Conference 2020" %}
 
 Presenting and speaking are skills that require practice to hone. I was a consultant for many years presenting to clients and customers of all levels and sizes. In addition, I started speaking and presenting at meetups, user groups, and conferences. Over the years, I practiced, I read, and I gave a lot of presentations. I'd like to share some of the learnings and best practices I've found in that time. I plan multiple posts, starting with Preparation. I'll have more on slide design, and presentation tips.
-
+<!--more-->
 ## Preparation
 
 If you are building a presentation for a conference or work, it is tempting to just dive in and put everything on a few slides. But you need to prepare by understanding the audience and the message. Presentations should _**support**_ your communication, not _**BE**_ your communication. It is important to know not only WHAT you want to say, but WHO you are saying it to. It all starts with knowing your audience.
@@ -42,15 +42,21 @@ So, you know who you are presenting to and a high-level idea of what you are try
 
 What is the intent of the presentation? Is it to inform, to persuade, or to instruct the audience? Each of these types of presentations has a different flow, style, and outcome.
 
+##### Informational
+
 For instance, an informational presentation aims to inform the audience about a specific topic. Think of it as a written report presented verbally. In business, these are the most common types of presentations. The goal is to share information, with an emphasis on clear and concise communication. **You should limit your presentation to 3-4 key messages.** Any more than that can be too much information and overload the audience.
 
-https://www.youtube.com/watch?v=cFdCzN7RYbw
+##### Persuasive
 
 A persuasive speech aims to move, motivate, or change the audience. You want the audience to perform a certain action or convince them to adopt the belief or opinion of the speaker. This might be a sales pitch, a recommendation for an architectural approach, or adopting a new practice. Persuasion has been studied by experts and they have observed what works and what doesn’t.
 
-https://youtu.be/cDA3\_5982h8
+{% include video id="cFdCzN7RYbw" provider="youtube" %}
 
-If it is an instructional presentation, how much detail do you need to put into the presentation? A fun example is this great YouTube video, [Exact Instructions Challenge - THIS is why my kids hate me. | Josh Darnit](https://youtu.be/cDA3_5982h8), where a father is trying to follow the exact instructions for how to make a peanut butter and jelly sandwich. **Finding the right level of detail in the instructions is important and knowing your audience can help.**
+##### Instructional
+
+If it is an instructional presentation, how much detail do you need to put into the presentation? A fun example is this great YouTube video, [Exact Instructions Challenge - THIS is why my kids hate me. Josh Darnit](https://youtu.be/cDA3_5982h8), where a father is trying to follow the exact instructions for how to make a peanut butter and jelly sandwich. **Finding the right level of detail in the instructions is important and knowing your audience can help.**
+
+{% include video id="cDA3_5982h8" provider="youtube" %}
 
 #### Level of Content
 

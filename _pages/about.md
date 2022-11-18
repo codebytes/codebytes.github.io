@@ -94,7 +94,7 @@ gallery:
 
 ![HeadShot]({{ site.url }}{{ site.baseurl }}/assets/images/bio-photo.jpg){:width="50%"}
 
-My name is Chris Ayers.  I'm a Senior Customer Engineer on the Fast Track for Azure team at Microsoft. I'm a speaker, blogger, and presenter.  I like to help people understand technology.  I love Azure, DevOps, and development.  My goal is to deliver value to end users faster, develop features more quickly, with higher quality, and more confidence.
+My name is Chris Ayers.  I'm a Senior Customer Engineer on the Fast Track for Azure team at Microsoft. I'm a father, speaker, gamer, nerd, blogger, and presenter.  I like to help people understand technology.  I love Azure, DevOps, and development.  My goal is to deliver value to end users faster, develop features more quickly, with higher quality, and more confidence.
 
 I've been developing software of some kind since second grade.  I've worn several hats over the years, Technical Support, DBA, System Administrator, Network Administrator, Network Engineer, Software Engineer, Architect, and Consultant. As a developer I always tried to learn and share industry best practices around software development, software architecture, and agile practices.  My latest hat uses all the skills I've learned over my career.
 

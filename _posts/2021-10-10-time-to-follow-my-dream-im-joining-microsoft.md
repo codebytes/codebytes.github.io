@@ -7,10 +7,13 @@ categories: []
 tags:
 - Microsoft
 permalink: "/2021/10/10/time-to-follow-my-dream-im-joining-microsoft/"
+excerpt_separator: <!--more-->
 ---
-![]({{ site.url }}{{ site.baseurl }}/assets/2021/10/mslogo.png)
+
+{% include figure image_path="/assets/2021/10/mslogo.png" alt="Microsoft" caption="Microsoft" %}
 
 I'm so excited to announce that I'm joining Microsoft! I'll be joining the Fast Track for Azure - Apps team as a Senior Customer Engineer. My first day will be October 25th, the 20th anniversary of the release of Windows XP. It's been quite a journey to get here.
+<!--more-->
 
 I've been enthralled with technology since my parents brought home our first computer in the mid 1980's. I've had lots of different roles over the years, though it feels like the last 5-6 years really started me on the trajectory to Microsoft.
 

@@ -9,13 +9,15 @@ tags:
 - DevOps
 permalink: "/2020/02/24/snake-oil-devops-beware/"
 ---
-![]({{ site.url }}{{ site.baseurl }}/assets/2020/02/image-10.png)
+
 
 As a DevOps Consultant a lot of what I do is spent on People and Processes. If you remember the definition of DevOps that I love is from [Donovan Brown](http://donovanbrown.com/post/what-is-devops), “DevOps is the union of **People**, **Processes**, and **Products** to _continuously deliver **value**_ to our end users”. I want to keep reiterating this, _continuously deliver value to our end users_. I bring this up because my job as a DevOps Consultant is to delivering value to my end users. But not all of us do. My amazing coworker ([@\_s\_hari](https://twitter.com/_s_hari)) and I have discussions about this quite a bit. As far as I know, he coined the term and gave me his blessing to blog about it.
 
+![]({{ site.url }}{{ site.baseurl }}/assets/2020/02/devops-pie.png)
+
 A lot of what I do is focused on enablement. I don't want to come in and setup 2 pipelines for a user, or just do board customizations on 3 board. I want to educate my end users. I want them to learn and apply it after I'm gone. I want to see the lightbulb go off, and the gears turning. I want them to continue on their journey and call me back at the next roadblock miles down the road, not the same one 5 feet away. I might focusing on training, or streamlining the workflow. Whatever is going to help them the most at that point in time.
 
-![]({{ site.url }}{{ site.baseurl }}/assets/2020/02/220px-clark_stanleys_snake_oil_liniment1.png)  
+![]({{ site.url }}{{ site.baseurl }}/assets/2020/02/snake-oil.png)
 
 Snake Oil
 
