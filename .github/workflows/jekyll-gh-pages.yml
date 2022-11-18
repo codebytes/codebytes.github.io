@@ -30,7 +30,7 @@ jobs:
       - name: update _config.yaml
         uses: mikefarah/yq@master
         with: 
-          cmd: yq -i '.appinsights="${{ secrets.APP_INSIGHTS_CONNECTION_STRING }}" | .analytics.provider="google" | .analytics.google.tracking_id="${{ secrets.GOOGLE_TRACKING_ID }}"' _config.yml
+          cmd: yq -i '.appinsights="${{ secrets.APP_INSIGHTS_CONNECTION_STRING }}" | .analytics.provider="${{ secrets.ANALYTICS_PROVIDER }}" | .analytics.google.tracking_id="${{ secrets.GOOGLE_TRACKING_ID }}"' _config.yml
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Build with Jekyll
