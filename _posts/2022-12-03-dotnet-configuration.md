@@ -9,6 +9,7 @@ tags:
 permalink: /2022/12/03/validating-dotnet-configuration
 ---
 
+![image-left](/assets/2022/12/csadvent logo.png){: .align-left}
 **This blog was posted as part of the [C# Advent Calendar 2022](https://www.csadvent.christmas/). I really want to thank [Matthew D. Groves](https://twitter.com/mgroves) and [Calvin Allen](https://twitter.com/_calvinallen) for helping set this up! Look for #csadvent on Twitter! Make sure to check out everyone else's work when you're done here**
 
 One of the great things about the configuration system in .NET is the type safety, dependency injection, and model binding. Something we can take advantage of is to validate our configuration on startup and fail if it doesn't pass validation. Having that fast failure is awesome when working with containers and applications that have liveness and readiness probes.
