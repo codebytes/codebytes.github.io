@@ -34,6 +34,7 @@ teaser: # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # logo                     : "/assets/images/apple-touch-icon.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 # masthead_title           : "Chris's Blog" # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
+future: true
 words_per_minute: 200
 comments:
   provider: # false (default), "disqus", "discourse", "facebook", "staticman", "utterances", "giscus", "custom"
@@ -115,7 +116,7 @@ author:
       url: "https://www.linkedin.com/in/chris-l-ayers/"
     - label: "Mastodon"
       icon: "fab fa-brands fa-mastodon"
-      url: "https://mastodon.online/@cayers"
+      url: "https://hachyderm.io/@Chrisayers"
 # Site Footer
 footer:
   links:
@@ -130,7 +131,7 @@ footer:
       url: "https://www.linkedin.com/in/chris-l-ayers/"
     - label: "Mastodon"
       icon: "fab fa-brands fa-mastodon"
-      url: "https://mastodon.online/@cayers"
+      url: "https://hachyderm.io/@Chrisayers"
 # Reading Files
 include:
   - .htaccess
