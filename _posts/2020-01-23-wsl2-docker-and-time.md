@@ -27,7 +27,7 @@ If you haven't guessed, I've been doing some container development. The experien
 
 I tried resolving the issue by syncing my time clock and restarting but I kept having issues. I figured it out today. Turns out, WSL2 has a issue (being worked on) with skewed clocks. Even though my Windows time was correct, the time in my WSL was off. It was not syncing with local system time and was probably based on the first time I powered it up.
 
-There are a few open issues on github regarding the problem, so I know they're aware and working on a fix.
+There are a few open issues on GitHub regarding the problem, so I know they're aware and working on a fix.
 
 *   Time not synced in WSL2 - causing TLS issues - [https://github.com/microsoft/WSL/issues/4149](https://github.com/microsoft/WSL/issues/4149)
 *   system date is not same with windows (WSL 2) - [https://github.com/microsoft/WSL/issues/4245](https://github.com/microsoft/WSL/issues/4245)
