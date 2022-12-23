@@ -24,7 +24,9 @@
 			"extensions": [
 				"rebornix.ruby",
 				"wingrunr21.vscode-ruby",
-				"sissel.shopify-liquid"
+				"sissel.shopify-liquid",
+				"GitHub.copilot",
+				"GitHub.vscode-pull-request-github"
 			]
 		}
 	}
