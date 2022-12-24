@@ -152,9 +152,11 @@ Finally, I reviewed each image and cleaned up the references.
 
 The theme [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/docs/helpers/#figure) has great helpers for figures and images. I converted the html to markdown using the figure helper like this:
 
+{% raw %}
 ```md
 {% include figure image_path="/assets/2019/05/newresourcegroup-3.png" alt="A new Azure Resource Group." caption="A new Azure Resource Group." %}
 ```
+{% endraw %}
 
 I spent a few hours, fixed all the front matter and naming, converted all html to markdown, then removed and renamed old images. 
 
