@@ -62,4 +62,13 @@ graph TD;
 
 I've done a few other minor customizations so far. Like adding some custom css and some javascript for app insights. Both of those involved a similar process of adding head/custom.html and assets/css/custom.css. 
 
+I used a few different sources to get things to work for me. Please check those out as well to see if they can help you:
+
+- [https://it-journey.dev/docs/jekyll-diagram-with-mermaid](https://it-journey.dev/docs/jekyll-diagram-with-mermaid)
+- [https://github.com/jasonbellamy/jekyll-mermaid](https://github.com/jasonbellamy/jekyll-mermaid)
+- [https://jojozhuang.github.io/tutorial/jekyll-diagram-with-mermaid](https://jojozhuang.github.io/tutorial/jekyll-diagram-with-mermaid)
+- [https://github.com/kitian616/jekyll-TeXt-theme/blob/master/_includes/markdown-enhancements/mermaid.html](https://github.com/kitian616/jekyll-TeXt-theme/blob/master/_includes/markdown-enhancements/mermaid.html)
+- [https://stackoverflow.com/questions/53883747/how-to-make-github-pages-markdown-support-mermaid-diagram](https://stackoverflow.com/questions/53883747/how-to-make-github-pages-markdown-support-mermaid-diagram)
+- [https://github.com/mtrienis/jekyll-mermaid-blog](https://github.com/mtrienis/jekyll-mermaid-blog)
+
 Thanks for following along on this journey. I hope this helps those starting their Jekyll journey or hosting on GitHub Pages.

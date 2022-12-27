@@ -152,9 +152,18 @@ Finally, I reviewed each image and cleaned up the references.
 
 The theme [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/docs/helpers/#figure) has great helpers for figures and images. I converted the html to markdown using the figure helper like this:
 
+{% raw %}
 ```md
 {% include figure image_path="/assets/2019/05/newresourcegroup-3.png" alt="A new Azure Resource Group." caption="A new Azure Resource Group." %}
 ```
+{% endraw %}
+
+** Update
+I didn't realize this was rendering wrong, i had to turn off liquid rendering with:<br />
+&#123;% raw %&#125;<br />
+&#123;% endraw %&#125;:<br />
+Or you could replace { with &amp;#123; and } with &amp;#125; to get the same effect.
+{: .notice--info }
 
 I spent a few hours, fixed all the front matter and naming, converted all html to markdown, then removed and renamed old images. 
 
@@ -162,6 +171,7 @@ I was able to test locally by running running ```jekyll serve``` and checking ho
 ```bash
 bundle exec jekyll serve
 ```
+
 
 As part of setting up things with GitHub Pages, there is also a workflow that helps build and release the jeykll site to GitHub pages.
 
