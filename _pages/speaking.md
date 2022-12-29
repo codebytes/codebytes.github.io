@@ -10,16 +10,24 @@ My [Sessionize profile](https://sessionize.com/ChrisAyers/) has all my current t
 
 ## Upcoming Events
 
-- Festive Tech Calendar 2022 Dev 1-31 2022
-- HashiTalks: Deploy - Dev 7-8 2022
 - CodeMash 2023 - Jan 10-13 2023
+  - Building in the Cloud with Bicep
+  - CI/CD with Github Actions
 - NDC Security 2023 Jan 16-19 2023
+  - Securely deploying Infrastructure as Code
 
 ## Past Events
 
+- Festive Tech Calendar 2022 Dev 29 2022
+  - Securely deploying Infrastructure as Code
 - Tech Bash 2022 - Nov 8-10 2022 
+  - Building in the Cloud with Bicep
+  - Feature Flags - The Art of the IF and Deployment
+  - CI/CD with Github Actions
 - Granite State Code Camp 2022 - Nov 12 2022
+  - Dev Containers in VS Code
 - .NET Conf 2022 - Nov 10 2022
+  - .NET Configuration In Depth
 - Momentum Conf 2022 - Oct 20, 2022
   - Feature Flags - The Art of the IF and Deployment
 - TampaCC - Oct 8, 2022
