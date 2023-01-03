@@ -1,5 +1,5 @@
 ---
-title: Securing Terraform - Part 1 - tfsec
+title: Secure Terraform - Part 1 - tfsec
 type: post
 categories:
 - Development
@@ -12,7 +12,9 @@ tags:
 - github
 - FestiveTechCalendar2022
 mermaid: true
-permalink: /2022/12/29/securing-terraform-part1-tfsec
+permalink: /2022/12/29/secure-terraform-part1-tfsec
+redirect_from:
+  - /2022/12/29/securing-terraform-part1-tfsec
 ---
 
 **This blog was posted as part of the [Festive Tech Calendar 2022](https://festivetechcalendar.com/). I really want to thank the organizers for helping set this up!**
