@@ -27,7 +27,7 @@ redirect_from:
 
 **Look for the hashtag #FestiveTechCalendar2022 on social media! Make sure to check out everyone else's work when you're done here**
 
-# Securing Terraform - Part 1 - tfsec
+# Secure Terraform - Part 1 - tfsec
 
 Securing Terraform starts before we even deploy anything. Our tooling is a great place to start! We can leverage one or more static code analyzers to look for misconfigurations, security issues, and other problems. Many of these great tools not only plug into our CI/CD pipeline, they also work within our IDEs. This allows us to catch issues while we work. We can also leverage pre-commit hooks to catch things before we even commit our code. With Cloud infrastructure, its easy to make mistakes, and these tools can help us catch them.
 

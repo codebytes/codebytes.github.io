@@ -1,5 +1,5 @@
 ---
-title: Secure Terraform - Part 1 - tfsec
+title: Secure Terraform - Part 2 - tfsec Customization
 type: post
 categories:
 - Development
@@ -15,7 +15,7 @@ mermaid: true
 permalink: /2023/01/29/secure-terraform-part2-tfsec-customization
 ---
 
-# Securing Terraform - Part 2 - tfsec Customization
+# Secure Terraform - Part 2 - tfsec Customization
 
 In the previous article, we discussed tfsec, a static code analysis tool for Terraform. You can go back and read that here: [Secure Terraform - Part 1 - tfsec](/2022/12/29/secure-terraform-part1-tfsec) We also learned how to use it in VSCode and GitHub Actions to scan our Terraform code. We learned how to override the severity of rules. In this article, we will learn how to customize the rules and add our own rules.
 
