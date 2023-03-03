@@ -26,7 +26,8 @@
 				"wingrunr21.vscode-ruby",
 				"sissel.shopify-liquid",
 				"GitHub.copilot",
-				"GitHub.vscode-pull-request-github"
+				"GitHub.vscode-pull-request-github",
+				"streetsidesoftware.code-spell-checker"
 			]
 		}
 	},
