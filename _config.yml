@@ -103,7 +103,7 @@ appinsights:
 # Site Author
 author:
   name: "Chris Ayers"
-  avatar: "/assets/images/bio-photo.jpg"
+  avatar: "/assets/headshot/floating-head.png"
   bio: "I am a **father**, **nerd**, **gamer**, and **speaker**."
   location: "Tampa, FL"
   links:

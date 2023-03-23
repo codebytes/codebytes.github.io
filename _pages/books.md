@@ -42,8 +42,14 @@ gallery:
   image_path: /assets/books/when-they-win-you-win.png
   alt: When They Win, You Win
   title: "When They Win, You Win: Being a Great Manager Is Simpler Than You Think"
+- url: https://www.buildingasecondbrain.com/
+  image_path: /assets/books/basb.jpg
+  alt: Building a Second Brain
+  title: "Building a Second Brain"
 
 ---
+
+I read a lot of books, you can see some of them on [goodreads](https://www.goodreads.com/user/show/3301743-chris-ayers). Below are some of my absolute favorite books.
 
 {% include gallery caption="A few **amazing** books." %}
 

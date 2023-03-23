@@ -5,7 +5,17 @@ categories: []
 tags: []
 permalink: "/about/"
 
-gallery:
+headshots:
+  - url: /assets/images/bio-photo.jpg
+    image_path: /assets/images/bio-photo.jpg
+    alt: "headshot"
+    title: "Chris Ayers Headshot"
+  - url: /assets/headshot/head-shoulders.png
+    image_path: /assets/headshot/head-shoulders.png
+    alt: "headshot"
+    title: "Chris Ayers Headshot"
+
+cert-badges:
   - url: /assets/badges/terraform-certified-associate.png
     image_path: /assets/badges/terraform-certified-associate.png
     alt: "cert"
@@ -92,7 +102,7 @@ gallery:
     title: "cert"
 ---
 
-![HeadShot]({{ site.url }}{{ site.baseurl }}/assets/images/bio-photo.jpg){:width="50%"}
+{% include gallery id="headshots" caption="This is a gallery of headshots." %}
 
 My name is Chris Ayers.  I'm a Senior Customer Engineer on the Fast Track for Azure team at Microsoft. I'm a father, speaker, gamer, nerd, blogger, and presenter.  I like to help people understand technology.  I love Azure, DevOps, and development.  My goal is to deliver value to end users faster, develop features more quickly, with higher quality, and more confidence.
 
@@ -134,6 +144,5 @@ View my verified Certifications at [Credly](https://www.credly.com/users/chris-a
 - 70-480 - Programming in HTML5 with JavaScript and CSS3
 - 70-483 - Programming in C#
 
-{% include gallery caption="This is a sample gallery with **Markdown support**." %}
+{% include gallery id="cert-badges" caption="This is a gallery of my badges." %}
 
-This is some text after the gallery just to make sure that everything aligns properly.

@@ -10,14 +10,32 @@ My [Sessionize profile](https://sessionize.com/ChrisAyers/) has all my current t
 
 ## Upcoming Events
 
-- CodeMash 2023 - Jan 10-13 2023
-  - Building in the Cloud with Bicep
+- Python Web Conf 2023 March 13 2023
   - CI/CD with Github Actions
-- NDC Security 2023 Jan 16-19 2023
+- Orlando Code Camp 2023 March 25 2023
+  - Starting an Allyship Journey
+- PowerShell + DevOps Summit 2023 April 24-27 2023
+  - CI/CD with Github Actions
+- Devoxx Greece 2023 May 4-6 2023
+  - Starting an Allyship Journey
+- NDC Oslo 2023 May 22-26 2023
+  - Kubernetes Resiliency
+- DWX Developer Week '23 June  26-30 2023
+  - .NET Configuration In Depth
+  - CI/CD with Github Actions
   - Securely deploying Infrastructure as Code
 
 ## Past Events
 
+- Come Cloud With Us March 2 2023
+  - Building in the Cloud with Bicep
+- Developer Week Feb 21-23 2023
+  - Feature Flags - The Art of the IF and Deployment
+- NDC Security 2023 Jan 16-19 2023
+  - Securely deploying Infrastructure as Code
+- CodeMash 2023 - Jan 10-13 2023
+  - Building in the Cloud with Bicep
+  - CI/CD with Github Actions
 - Festive Tech Calendar 2022 Dev 29 2022
   - Securely deploying Infrastructure as Code
 - Tech Bash 2022 - Nov 8-10 2022 
@@ -30,6 +48,8 @@ My [Sessionize profile](https://sessionize.com/ChrisAyers/) has all my current t
   - .NET Configuration In Depth
 - Momentum Conf 2022 - Oct 20, 2022
   - Feature Flags - The Art of the IF and Deployment
+- Conf42: DevSecOps 2022
+  - CI/CD with Github Actions
 - TampaCC - Oct 8, 2022
   - Building in the Cloud with Bicep
   - Dev Containers in VS Code
