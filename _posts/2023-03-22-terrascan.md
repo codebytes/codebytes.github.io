@@ -68,37 +68,43 @@ Integrating Terrascan into your CI/CD pipeline is an essential step in ensuring 
 Here's an example of how to integrate Terrascan into a GitHub Actions pipeline:
 
 ```yaml
-name: Terrascan
-
+name: terrascan
 on:
   push:
     branches:
       - main
   pull_request:
-    branches:
-      - main
+
+permissions:
+  checks: write
+  pull-requests: write
 
 jobs:
-  terrascan:
+  terrascan_job:
     runs-on: ubuntu-latest
-
+    name: terrascan-action
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-
-    - name: Set up Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: 1.16
-
-    - name: Install Terrascan
-      run: |
-        curl -L "https://github.com/accurics/terrascan/releases/download/v1.8.1/terrascan_1.8.1_linux_amd64.tar.gz" -o terrascan.tar.gz
-        tar -xvf terrascan.tar.gz
-        sudo mv terrascan /usr/local/bin/
-
     - name: Run Terrascan
-      run: terrascan scan -f path/to/terraform/files
+      id: terrascan
+      uses: tenable/terrascan-action@main
+      with:
+        iac_type: 'terraform'
+        #iac_version: 'v14'
+        #policy_type: 'azure'
+        only_warn: false
+        #scm_token: ${{ secrets.ACCESS_TOKEN }}
+        verbose: true
+        sarif_upload: true
+        #non_recursive:
+        #iac_dir: demos
+        #policy_path:
+        #skip_rules:
+        #config_path:
+        #find_vulnerabilities:
+        #webhook_url:
+        #webhook_token:
 ```
 
 In this example, the workflow is triggered on push and pull_request events for the main branch. The workflow checks out the repository, sets up Go, installs Terrascan, and then runs a scan on the specified Terraform files.
