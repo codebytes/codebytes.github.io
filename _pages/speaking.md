@@ -10,23 +10,35 @@ My [Sessionize profile](https://sessionize.com/ChrisAyers/) has all my current t
 
 ## Upcoming Events
 
-- Python Web Conf 2023 March 13 2023
-  - CI/CD with Github Actions
 - Orlando Code Camp 2023 March 25 2023
   - Starting an Allyship Journey
+  - Securely deploying Terraform
 - PowerShell + DevOps Summit 2023 April 24-27 2023
   - CI/CD with Github Actions
+  - Continuous Load Testing with GitHub Actions
 - Devoxx Greece 2023 May 4-6 2023
   - Starting an Allyship Journey
+  - DevContainers in VS Code
 - NDC Oslo 2023 May 22-26 2023
   - Kubernetes Resiliency
-- DWX Developer Week '23 June  26-30 2023
+- DevSum 2023 May 24-26 2023
+  - Securely deploying Infrastructure as Code
+- Prairie Dev Con Winnipeg 2023 June 12-13 2023
+  - Kubernetes Resiliency
+  - Securely deploying Infrastructure as Code
+- KCD 2023 June 21-23 2023
+  - Securely deploying Infrastructure as Code
+- DWX Developer Week '23 June 26-30 2023
   - .NET Configuration In Depth
   - CI/CD with Github Actions
   - Securely deploying Infrastructure as Code
 
 ## Past Events
 
+- Azure SaaS Academy
+  - Azure SaaS Dev Toolkit
+- Python Web Conf 2023 March 13 2023
+  - CI/CD with Github Actions
 - Come Cloud With Us March 2 2023
   - Building in the Cloud with Bicep
 - Developer Week Feb 21-23 2023

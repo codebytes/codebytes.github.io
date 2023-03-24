@@ -39,6 +39,8 @@ This is part 1 of the Secure Terraform series. You can read the series of articl
 
 Securing Terraform starts before we even deploy anything. Our tooling is a great place to start! We can leverage one or more static code analyzers to look for misconfigurations, security issues, and other problems. Many of these great tools not only plug into our CI/CD pipeline, they also work within our IDEs. This allows us to catch issues while we work. We can also leverage pre-commit hooks to catch things before we even commit our code. With Cloud infrastructure, its easy to make mistakes, and these tools can help us catch them.
 
+![terraform logo](/assets/images/terraform-logo.png)
+
 Today we are going to look at a one of these tools, tfsec, and how we can leverage it to secure our Terraform code. I'll work through the rest of the ones in the list in follow on posts, but there are many more out there. I encourage you to check them out and see which ones work best for you.
 
 - [tfsec](https://github.com/aquasecurity/tfsec) - [docs](https://tfsec.dev/)
