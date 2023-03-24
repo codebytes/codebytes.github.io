@@ -8,6 +8,9 @@ categories:
 tags:
 - DevOps
 permalink: "/2020/02/23/what-is-devops/"
+header:
+  teaser: /assets/images/whatisdevops.png
+  og_image: /assets/images/whatisdevops.png
 ---
 ### What _Isn’t_ DevOps?
 

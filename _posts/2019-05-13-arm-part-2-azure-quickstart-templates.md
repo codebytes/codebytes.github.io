@@ -12,6 +12,9 @@ tags:
 - functions
 - json
 permalink: "/2019/05/13/arm-part-2-azure-quickstart-templates/"
+header:
+  teaser: /assets/images/arm-logo.png
+  og_image: /assets/images/arm-logo.png
 ---
 ## Time to Dive in
 

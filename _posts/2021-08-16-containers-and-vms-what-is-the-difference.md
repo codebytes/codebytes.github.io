@@ -11,6 +11,10 @@ tags:
 - containers
 - vms
 permalink: "/2021/08/16/containers-and-vms-what-is-the-difference/"
+header:
+  teaser: /assets/images/containers-teaser.jpg
+  og_image: /assets/images/containers-teaser.jpg
+
 ---
 Containers are a very big topic right now, but they also cause a lot of confusion for people. Before we discuss containers, containerization, and container orchestration; we should address the question of how containers differ from virtual machines (VMs).
 

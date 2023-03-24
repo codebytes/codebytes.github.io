@@ -11,6 +11,9 @@ tags:
 - git
 - terminal
 permalink: "/2020/02/23/some-tools-to-help-present-git/"
+header:
+  teaser: /assets/images/git-logo.png
+  og_image: /assets/images/git-logo.png
 ---
 
 {% include figure image_path="/assets/images/git-logo.png" alt="Git logo" caption="Git Logo" %}

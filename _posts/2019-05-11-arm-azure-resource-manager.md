@@ -14,6 +14,9 @@ tags:
 - PowerShell
 - scripts
 permalink: "/2019/05/11/arm-azure-resource-manager/"
+header:
+  teaser: /assets/images/arm-logo.png
+  og_image: /assets/images/arm-logo.png
 ---
 ### The Journey Begins
 

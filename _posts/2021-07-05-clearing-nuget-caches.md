@@ -10,6 +10,10 @@ tags:
 - DevOps
 - dotnet
 permalink: "/2021/07/05/clearing-nuget-caches/"
+header:
+  teaser: /assets/images/nuget-logo.png
+  og_image: /assets/images/nuget-logo.png
+
 ---
 ## What is NuGet?
 

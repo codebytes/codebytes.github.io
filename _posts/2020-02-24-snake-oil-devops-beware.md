@@ -8,6 +8,9 @@ categories:
 tags: 
 - DevOps
 permalink: "/2020/02/24/snake-oil-devops-beware/"
+header:
+  teaser: /assets/images/snake-oil.png
+  og_image: /assets/images/snake-oil.png
 ---
 
 

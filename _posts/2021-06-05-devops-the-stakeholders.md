@@ -8,6 +8,9 @@ categories:
 tags:
 - DevOps
 permalink: "/2021/06/05/devops-the-stakeholders/"
+header:
+  teaser: /assets/images/devops.png
+  og_image: /assets/images/devops.png
 ---
 
 {% include figure image_path="/assets/images/devops.png" alt="DevOps" caption="DevOps" %}

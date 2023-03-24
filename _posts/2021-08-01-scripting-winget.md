@@ -11,6 +11,9 @@ tags:
 - PowerShell
 - scripts
 permalink: "/2021/08/01/scripting-winget/"
+header:
+  teaser: /assets/images/winget-logo.png
+  og_image: /assets/images/winget-logo.png
 ---
 When I reset my PC or setup a new test machine, I always have to download a lot of software. In the past, I've used Chocolatey, Boxstarter, or just installed everything by hand.
 

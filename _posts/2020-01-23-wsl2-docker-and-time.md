@@ -11,6 +11,9 @@ tags:
 - windows
 - wsl
 permalink: "/2020/01/23/wsl2-docker-and-time/"
+header:
+  teaser: /assets/images/docker-logo.png
+  og_image: /assets/images/docker-logo.png
 ---
 I'm running on a Windows Insider Slow build so that I can leverage [WSL 2](https://docs.microsoft.com/en-us/windows/wsl/wsl2-index), the Windows Subsystem for Linux v 2. Its pretty incredible, because there's now a Linux kernel inside Windows. Ubuntu is fast, its a wonderful development experience all my favorite linux tools. I can't wait for this to be out of preview this year and in the mainstream windows releases.
 

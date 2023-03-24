@@ -13,6 +13,9 @@ tags:
 - solid
 - testing
 permalink: "/2019/12/01/dependency-injection-architecture-and-testing/"
+header:
+  teaser: /assets/images/dotnet-logo.png
+  og_image: /assets/images/dotnet-logo.png
 ---
 
 **This blog was posted as part of the [Third Annual C# Advent](https://crosscuttingconcerns.com/The-Third-Annual-csharp-Advent). Make sure to check out everyone else's work when you're done here**

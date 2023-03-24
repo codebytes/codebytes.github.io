@@ -8,6 +8,9 @@ categories:
 tags:
 - DevOps
 permalink: "/2020/02/27/shared-focus/"
+header:
+  teaser: /assets/images/silos.jpg
+  og_image: /assets/images/silos.jpg
 ---
 A common issue I see when discussing DevOps with teams or organizations is the presence of Organizational Silos. Organizational Silos are made up of all types of people. Sometimes its a job type, like developers, qa, or infrastructure. Sometimes its a department, like accounting, or hr. Whatever the composition of these silos, they usually impact organizational performance and the ability to deliver value to end users.
 
