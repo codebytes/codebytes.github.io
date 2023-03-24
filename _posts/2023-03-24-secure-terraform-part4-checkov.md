@@ -11,10 +11,12 @@ tags:
 - terrascan
 - github
 mermaid: true
-permalink: /2023/03/22/secure-terraform-part3-terrascan
+permalink: /2023/03/24/secure-terraform-part4-checkov
+teaser: /assets/images/checkov-logo.png
+og_image: /assets/images/checkov-logo.png
 ---
 
-This is part 3 of the Secure Terraform series. You can read the series of articles here: 
+This is part 4 of the Secure Terraform series. You can read the series of articles here: 
 - [Secure Terraform - Part 1 - tfsec](/2022/12/29/secure-terraform-part1-tfsec) 
 - [Secure Terraform - Part 2 - tfsec customization](/2023/01/29/secure-terraform-part2-tfsec-customization)
 - [Secure Terraform - Part 3 - terrascan](/2023/03/22/secure-terraform-part3-terrascan)
@@ -23,6 +25,8 @@ This is part 3 of the Secure Terraform series. You can read the series of articl
 # Secure Terraform - Part 4 - Checkov
 
 In this fourth installment of our Secure Terraform series, we'll discuss Checkov, a powerful open-source static code analysis tool supported by Bridgecrew. Checkov supports Terraform, Kubernetes, Dockerfiles, AWS CloudFormation, and other Infrastructure as Code (IaC) frameworks. It focuses on security best practices, policy compliance, and industry standards. You can find Checkov's documentation and samples at https://www.checkov.io/.
+
+![checkov-logo](/assets/images/checkov-logo.png)
 
 ## Checkov Installation and CLI
 
@@ -40,7 +44,7 @@ Once installed, Checkov provides a command-line interface (CLI) to scan your IaC
 
 Checkov will then analyze your Terraform files, checking for security and compliance issues. It will output the results, including the test status (PASSED or FAILED), file paths, resource types, and relevant information about the issue.
 
-![checkov](/assets/2023/03/checkov.png)
+![checkov](/assets/images/checkov.png)
 
 You can customize the output format using the --output flag. Checkov supports various output formats, including JSON, JUnit XML, and SARIF:
 
@@ -52,21 +56,21 @@ Checkov provides extensions for VS Code and other IDEs, allowing you to scan you
 
 To install the Checkov extension for VS Code, search for "Checkov" in the Extensions tab or install it from the [marketplace](https://marketplace.visualstudio.com/items?itemName=Bridgecrew.checkov).
 
-![checkov-vscode](/assets/2023/03/checkov-vscode.png)
+![checkov-vscode](/assets/images/checkov-vscode.png)
 
 You can scan your code and view the results in the Checkov Output tab. You can also view the results in the Problems tab, which provides a convenient way to navigate to the specific line of code that caused the issue.
 
-![checkov-vscode-output](/assets/2023/03/checkov-vscode-output.png)
+![checkov-vscode-output](/assets/images/checkov-vscode-output.png)
 
 And if you hold your cursor over the issue, you can see the violations and links to the related checks.
 
-![checkov-vscode-problems](/assets/2023/03/checkov-vscode-problems.png)
+![checkov-vscode-problems](/assets/images/checkov-vscode-problems.png)
 
 If you click on the check, you'll get a pop-up and follow the link to the Checkov documentation.
 
-![checkov-vscode-check](/assets/2023/03/checkov-vscode-check.png)
+![checkov-vscode-check](/assets/images/checkov-vscode-check.png)
 
-![checkov-vscode-check-doc](/assets/2023/03/checkov-vscode-check-doc.png)
+![checkov-vscode-check-doc](/assets/images/checkov-vscode-check-doc.png)
 
 This is an amazing developer experience, allowing you to scan your code as you write it and fix any issues immediately.
 

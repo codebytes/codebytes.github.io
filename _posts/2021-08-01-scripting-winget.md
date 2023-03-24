@@ -24,25 +24,25 @@ WinGet is the cli tool for the Windows Package Manager, found [here](https://git
 
 Winget allows you to easily search for and install software. You can upgrade and remove software as well.
 
-{% include figure image_path="/assets/2021/08/winget.png" alt="Winget Options" caption="Winget Options" %}
+{% include figure image_path="/assets/images/winget.png" alt="Winget Options" caption="Winget Options" %}
 
 #### Searching for Packages
 
 Let's say i'm not sure what packages there are. I can run `winget search` and get a full list of available packages, or I can filter that by searching for a package name or partial name.
 
-{% include figure image_path="/assets/2021/08/winget-search-1.png" alt="Winget search" caption="Winget search" %}
+{% include figure image_path="/assets/images/winget-search-1.png" alt="Winget search" caption="Winget search" %}
 
 #### Showing Package information
 
 You can then show more details about a package, including publisher, url, and hash.
 
-{% include figure image_path="/assets/2021/08/winget-show.png" alt="Winget show" caption="Winget show" %}
+{% include figure image_path="/assets/images/winget-show.png" alt="Winget show" caption="Winget show" %}
 
 #### Installing, Uninstalling and Updating Packages
 
 Installing packages is very easy, typically I just `winget install X`. This are options for using monikers (vscode) or full ids (Microsoft.VSCode) as well.
 
-{% include figure image_path="/assets/2021/08/winget-install.png" alt="Winget install" caption="Winget install" %}
+{% include figure image_path="/assets/images/winget-install.png" alt="Winget install" caption="Winget install" %}
 
 For some apps there might be popups or gui installers. I usually use `winget install --silent X` when installing multiple apps. It prevents the popups on most installers.
 

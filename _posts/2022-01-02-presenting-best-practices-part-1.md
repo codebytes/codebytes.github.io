@@ -10,7 +10,7 @@ permalink: "/2022/01/02/presenting-best-practices-part-1/"
 excerpt_separator: <!--more-->
 ---
 
-{% include figure image_path="/assets/2022/01/51382972555_0ceb282aee_o.jpg" alt="Presenting at THAT Conference 2020" caption="Presenting at THAT Conference 2020" %}
+{% include figure image_path="/assets/images/51382972555_0ceb282aee_o.jpg" alt="Presenting at THAT Conference 2020" caption="Presenting at THAT Conference 2020" %}
 
 Presenting and speaking are skills that require practice to hone. I was a consultant for many years presenting to clients and customers of all levels and sizes. In addition, I started speaking and presenting at meetups, user groups, and conferences. Over the years, I practiced, I read, and I gave a lot of presentations. I'd like to share some of the learnings and best practices I've found in that time. I plan multiple posts, starting with Preparation. I'll have more on slide design, and presentation tips.
 <!--more-->

@@ -11,7 +11,7 @@ permalink: "/2020/02/27/shared-focus/"
 ---
 A common issue I see when discussing DevOps with teams or organizations is the presence of Organizational Silos. Organizational Silos are made up of all types of people. Sometimes its a job type, like developers, qa, or infrastructure. Sometimes its a department, like accounting, or hr. Whatever the composition of these silos, they usually impact organizational performance and the ability to deliver value to end users.
 
-{% include figure image_path="/assets/2020/02/silos.jpg" alt="Silos" caption="Silos" %}
+{% include figure image_path="/assets/images/silos.jpg" alt="Silos" caption="Silos" %}
 
 This happens over time, with members of the silo identifying with each other, viewing those not in the silos as outsiders. Depending on the business, the silos can lose trust in the business overall and tighten ranks around their silo. The silos can turn into walled fortresses. When the silos get in the way, the silos are more focused on their own success than the success of the organization.
 
