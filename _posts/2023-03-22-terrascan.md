@@ -16,8 +16,9 @@ permalink: /2023/03/22/secure-terraform-part3-terrascan
 
 This is part 3 of the Secure Terraform series. You can read the series of articles here: 
 - [Secure Terraform - Part 1 - tfsec](/2022/12/29/secure-terraform-part1-tfsec) 
-- [Secure Terraform - Part 2 - tfsec](/2023/01/29/secure-terraform-part2-tfsec-customization)
+- [Secure Terraform - Part 2 - tfsec customization](/2023/01/29/secure-terraform-part2-tfsec-customization)
 - [Secure Terraform - Part 3 - terrascan](/2023/03/22/secure-terraform-part3-terrascan)
+- [Secure Terraform - Part 4 - checkov](/2023/03/24/secure-terraform-part4-checkov)
 
 # Secure Terraform - Part 3 - terrascan
 
@@ -46,6 +47,8 @@ By default, Terrascan will scan all Terraform files in the current directory and
 `terrascan scan --path=path/to/terraform/files`
 
 Terrascan will output a list of violations that it found in your code. Each violation will have a rule ID, a description, and a severity level. The severity level can be either HIGH, MEDIUM, or LOW. The output will also include the filename, line number, and column number where the violation was found.
+
+![terrascan output](/assets/2023/03/terrascan.png)
 
 You can specify a different output format using the `--format` option. Terrascan supports a number of output formats, including JSON, YAML, and JUnit. Here's an example of how to output the results in JSON format:
 
