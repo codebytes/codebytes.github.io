@@ -12,6 +12,8 @@ tags:
 - github
 mermaid: true
 permalink: /2023/03/22/secure-terraform-part3-terrascan
+teaser: /assets/images/terrascan-logo.png
+og_image: /assets/images/terrascan-logo.png
 ---
 
 This is part 3 of the Secure Terraform series. You can read the series of articles here: 
@@ -23,6 +25,8 @@ This is part 3 of the Secure Terraform series. You can read the series of articl
 # Secure Terraform - Part 3 - terrascan
 
 Terrascan is another great tool for terraform security from tenable. 
+
+![terrascan](/assets/images/terrascan-logo.png)
 
 Terrascan is an open-source static code analysis tool for security compliance of your Infrastructure as Code (IaC). It has rules for various platforms, including Kubernetes, Dockerfile, AWS, Azure, GCP, and Terraform. It is built in GoLang and has a CLI, API, and Jenkins plugin. Terrascan can be used to scan your IaC files for security vulnerabilities and policy violations. It can help you identify security issues before you deploy your code, and it can also help you enforce compliance policies.
 
@@ -48,7 +52,7 @@ By default, Terrascan will scan all Terraform files in the current directory and
 
 Terrascan will output a list of violations that it found in your code. Each violation will have a rule ID, a description, and a severity level. The severity level can be either HIGH, MEDIUM, or LOW. The output will also include the filename, line number, and column number where the violation was found.
 
-![terrascan output](/assets/2023/03/terrascan.png)
+![terrascan output](/assets/images/terrascan.png)
 
 You can specify a different output format using the `--format` option. Terrascan supports a number of output formats, including JSON, YAML, and JUnit. Here's an example of how to output the results in JSON format:
 
@@ -157,7 +161,7 @@ To create a custom policy, follow these steps:
 
     If there are errors, you should get output like the following:
 
-    ![terrascan violation](/assets/2023/03/customer-terrascan-violation.png)
+    ![terrascan violation](/assets/images/customer-terrascan-violation.png)
 
 ## Conclusion
 

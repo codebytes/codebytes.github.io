@@ -7,23 +7,23 @@ tags:
 - kubernetes
 - tools
 header:
-  image: /assets/2022/11/kubernetes-logo.png
+  image: /assets/images/kubernetes-logo.png
 permalink: /2022/11/17/tools-for-working-with-kubernetes/
 k9s-gallery:
-- url: /assets/2022/11/k9s-pulses.png
-  image_path: /assets/2022/11/k9s-pulses.png
+- url: /assets/images/k9s-pulses.png
+  image_path: /assets/images/k9s-pulses.png
   alt: k9s pulses
   title: k9s pulses
-- url: /assets/2022/11/k9s-logs.png
-  image_path: /assets/2022/11/k9s-logs.png
+- url: /assets/images/k9s-logs.png
+  image_path: /assets/images/k9s-logs.png
   alt: k9s logs
   title: k9s logs
-- url: /assets/2022/11/k9s-pods.png
-  image_path: /assets/2022/11/k9s-pods.png
+- url: /assets/images/k9s-pods.png
+  image_path: /assets/images/k9s-pods.png
   alt: k9s pods
   title: k9s pods
-- url: /assets/2022/11/k9s-rbac.png
-  image_path: /assets/2022/11/k9s-rbac.png
+- url: /assets/images/k9s-rbac.png
+  image_path: /assets/images/k9s-rbac.png
   alt: k9s rbac
   title: k9s rbac
 ---
@@ -50,22 +50,22 @@ You can find k9s at [https://github.com/ahmetb/kubectx](https://github.com/ahmet
 
 kubectx can show you the multiple contexts available, switch between them quickly, and create aliases.
 
-{% include figure image_path="/assets/2022/11/kubectx-demo.gif" alt="kubectx" caption="kubectx" %}
+{% include figure image_path="/assets/images/kubectx-demo.gif" alt="kubectx" caption="kubectx" %}
 
 kubens can show you the multiple namespaces available, switch between them quickly, and create aliases.
 
-{% include figure image_path="/assets/2022/11/kubens-demo.gif" alt="kubens" caption="kubens" %}
+{% include figure image_path="/assets/images/kubens-demo.gif" alt="kubens" caption="kubens" %}
 
 ### fzf
 
 fzf is a different type of tool. This makes your other tools better. It works on a variety of platforms but what is allows you to do is get an interactive filter.  kubectx and kubens will show the list and let you pick what you want instead of runnig multiple commands.
 You can leverage fzf to pick files to edit more quickly.
 
-{% include figure image_path="/assets/2022/11/fzf.gif" alt="fzf" caption="fzf" %}
+{% include figure image_path="/assets/images/fzf.gif" alt="fzf" caption="fzf" %}
 
 It works with lots of things, like vi.
 
-{% include figure image_path="/assets/2022/11/fzf-vi.gif" alt="fzf-vi" caption="fzf-vi" %}
+{% include figure image_path="/assets/images/fzf-vi.gif" alt="fzf-vi" caption="fzf-vi" %}
 
 ## Conclusion
 

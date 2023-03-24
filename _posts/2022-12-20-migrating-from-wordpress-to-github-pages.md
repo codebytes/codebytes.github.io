@@ -47,10 +47,10 @@ bundle install
 ```
 
 On Wordpress.com I exported all my posts via the export functionality.
-![Export Menu](/assets/2022/12/wordpress-export-tools.png)
+![Export Menu](/assets/images/wordpress-export-tools.png)
 
 I then Exported everything which downloads as a single file.
-![Export Option](/assets/2022/12/wordpress-export.png)
+![Export Option](/assets/images/wordpress-export.png)
 
 This provides an download that's a zip file with an xml file.  I ran the import command:
 
@@ -146,7 +146,7 @@ Finally, I reviewed each image and cleaned up the references.
 
 ```html
 <p><!-- wp:image {"id":151} --></p>
-<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/2019/05/newresourcegroup-3.png?w=936" alt="" class="wp-image-151" /></figure>
+<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/images/newresourcegroup-3.png?w=936" alt="" class="wp-image-151" /></figure>
 <p><!-- /wp:image --></p>
 ```
 
@@ -154,7 +154,7 @@ The theme [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/docs/h
 
 {% raw %}
 ```md
-{% include figure image_path="/assets/2019/05/newresourcegroup-3.png" alt="A new Azure Resource Group." caption="A new Azure Resource Group." %}
+{% include figure image_path="/assets/images/newresourcegroup-3.png" alt="A new Azure Resource Group." caption="A new Azure Resource Group." %}
 ```
 {% endraw %}
 

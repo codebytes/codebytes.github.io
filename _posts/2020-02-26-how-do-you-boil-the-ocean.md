@@ -12,7 +12,7 @@ permalink: "/2020/02/26/how-do-you-boil-the-ocean/"
 ---
 This is a phrase I end up using a lot while talking with clients. I used to use a different phrase about elephants but moved away from that language to be more respectful. Let's start with what it means, at least in the context I use it, and why this phrase is so useful when talking about Devops.
 
-{% include figure image_path="/assets/2020/02/sunrise_at_ocean.jpg" alt="Sunrise over the ocean" caption="Sunrise over the ocean" %}
+{% include figure image_path="/assets/images/sunrise_at_ocean.jpg" alt="Sunrise over the ocean" caption="Sunrise over the ocean" %}
 
 ## The Meaning
 

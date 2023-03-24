@@ -13,7 +13,7 @@ permalink: "/2021/07/05/clearing-nuget-caches/"
 ---
 ## What is NuGet?
 
-{% include figure image_path="/assets/2021/07/nuget-logo.png" alt="NuGet" caption="NuGet" %}
+{% include figure image_path="/assets/images/nuget-logo.png" alt="NuGet" caption="NuGet" %}
 
 NuGet is an essential packaging tool used in the .NET ecosystem. NuGet is how packages for .NET are created, hosted, and consumed, along with the tools for each of those roles. For many, NuGet is used through Visual Studio to install and manage packages.  
 The dotnet CLI also provides functionality for adding packages, updating packages, and creating packages.
@@ -57,7 +57,7 @@ To clear the caches, you can pick the method that works best for you.
 
 In Visual Studio 2019, there is a button in the NuGet section of the options dialog (Tools->Options):  
 
-{% include figure image_path="/assets/2021/07/visual-studio-options.png" alt="Visual Studio Options" caption="Visual Studio Options" %}
+{% include figure image_path="/assets/images/visual-studio-options.png" alt="Visual Studio Options" caption="Visual Studio Options" %}
 
 Using the dotnet CLI, the command is:
 
@@ -71,7 +71,7 @@ Using the NuGet CLI, the command is:
 nuget locals all -clear
 ```
 
-{% include figure image_path="/assets/2021/07/command-output.png" alt="Command output" caption="Command output" %}
+{% include figure image_path="/assets/images/command-output.png" alt="Command output" caption="Command output" %}
 
 ### Installing NuGet.exe
 

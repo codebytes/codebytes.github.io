@@ -15,6 +15,8 @@ mermaid: true
 permalink: /2022/12/29/secure-terraform-part1-tfsec
 redirect_from:
   - /2022/12/29/securing-terraform-part1-tfsec
+teaser: /assets/images/terraform-logo.png
+og_image: /assets/images/terraform-logo.png
 ---
 
 **This blog was posted as part of the [Festive Tech Calendar 2022](https://festivetechcalendar.com/). I really want to thank the organizers for helping set this up!**
@@ -45,6 +47,8 @@ Today we are going to look at a one of these tools, tfsec, and how we can levera
 - [snyk](https://snyk.io/) - [docs](https://docs.snyk.io/products/snyk-infrastructure-as-code/getting-started-snyk-iac)
 
 ## tfsec
+
+![tfsec logo](/assets/images/tfsec-logo.png)
 
 Let's start with tfsec by aquasecurity. Aquasecurity supports multiple amazing tools like [trivy](https://trivy.dev/) and [tfsec](https://tfsec.dev). Tfsec is an open-source tool available on GitHub at [https://github.com/aquasecurity/tfsec](https://github.com/aquasecurity/tfsec). The docs are hosted at: [https://aquasecurity.github.io/tfsec/](https://aquasecurity.github.io/tfsec/). There are some great guides for installing it and configuring it for GitHub Actions. Tfsec even has an integration with GitHub Advanced security to show the results of the scan in the security tab of the repo.
 
@@ -140,7 +144,7 @@ I've got a few simple misconfigurations checked into my sample repo at [secure-t
 
 What about adding tfsec to VSCode? Well, we can install the [tfsec extension](https://marketplace.visualstudio.com/items?itemName=tfsec.tfsec). This will use the installed version of tfsec to scan our code. It will also show the results so we can see them right in our editor and go to the line where the issue is.
 
-{%  include figure image_path="/assets/2022/12/tfsec-extension-errors.png" alt="tfsec extension in vscode" caption="tfsec extension in vscode" %}
+{%  include figure image_path="/assets/images/tfsec-extension-errors.png" alt="tfsec extension in vscode" caption="tfsec extension in vscode" %}
 
 Great! Now we can see the issues right in our editor. But what if we forget to check the problems? How do we catch the issues and resolve them in our pipeline? 
 
@@ -175,7 +179,7 @@ All of the available options and parameters are documented on the actions page.
 
 This will run tfsec against our repo on every check-in to main and every pull request. If we have insecure code, it will fail the workflow.
 
-{% include figure image_path="/assets/2022/12/tfsec-workflow-errors.png" alt="Failing build on GitHub" caption="Failing build on GitHub" %}
+{% include figure image_path="/assets/images/tfsec-workflow-errors.png" alt="Failing build on GitHub" caption="Failing build on GitHub" %}
 
 There is another action, [tfsec-pr-commenter-action](https://github.com/marketplace/actions/run-tfsec-pr-commenter) that is supposed to automatically add comments to the pull request with the results of the scan. I haven't been able to get it to work because of my file nesting, but I'm sure it will be fixed soon. 
 

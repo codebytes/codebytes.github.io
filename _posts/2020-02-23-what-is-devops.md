@@ -15,7 +15,7 @@ Before I define DevOps, let’s get started with what DevOps isn’t. DevOps isn
 
 ### What _Is_ DevOps?
 
-{% include figure image_path="/assets/2020/02/devops.png" alt="DevOps" caption="DevOps" %}
+{% include figure image_path="/assets/images/whatisdevops.png" alt="DevOps" caption="DevOps" %}
 
 The best definition I’ve seen is from [Donovan Brown](http://donovanbrown.com/post/what-is-devops), "DevOps is the union of **People**, **Processes**, and **Products** to _continuously deliver **value**_ to our end users". Donovan breaks down his word choice and what it means to him. To me, DevOps is a mindset that should be adopted company wide. Because of delivering value to our end users, you need a Production-First mindset. It’s not about delivering story points, delivering user stories, or deploying to qa.
 

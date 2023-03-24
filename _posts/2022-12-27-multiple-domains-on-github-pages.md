@@ -47,11 +47,11 @@ First, we need to setup Cloudflare. This is a pretty simple process. You just ne
 
 I decided that my primary domain would be [https://chris-ayers.com](https://chris-ayers.com). As part of the normal GitHub Pages DNS setup, you add the domain name to GitHub Pages then add A records to your DNS domain. The directions are [here](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain). I've added the needed A records to my domain on CloudFlare.
 
-{% include figure image_path="/assets/2022/12/chrisayerscom-dns.png" alt="A Record Entries on Cloudflare" caption="A Record Entries on Cloudflare" %}
+{% include figure image_path="/assets/images/chrisayerscom-dns.png" alt="A Record Entries on Cloudflare" caption="A Record Entries on Cloudflare" %}
 
 Next I need to setup my other domains. For each domain, I added it to Cloudflare. I then setup 3 CNAME entries. Let's look at my configuration for chrisayers.dev as an example. I setup the following CNAME entries:
 
-{% include figure image_path="/assets/2022/12/chrisayersdev-cnames.png" alt="CNAME Entries on Cloudflare" caption="CNAME Entries on Cloudflare" %}
+{% include figure image_path="/assets/images/chrisayersdev-cnames.png" alt="CNAME Entries on Cloudflare" caption="CNAME Entries on Cloudflare" %}
 
 With this configuration, I'm saying that pretty much everything should point to [https://chris-ayers.com](https://chris-ayers.com). 
 
@@ -67,9 +67,9 @@ Now I need to setup the Page Rules. These are main thing that makes it all work.
 
 This is where it gets a little more complicated. Continuing with my example before, adding chrisayers.dev, I setup the following Page Rules:
 
-{% include figure image_path="/assets/2022/12/chrisayersdev-page-rules1.png" alt="Page Rules on Cloudflare" caption="Page Rules on Cloudflare" %}
+{% include figure image_path="/assets/images/chrisayersdev-page-rules1.png" alt="Page Rules on Cloudflare" caption="Page Rules on Cloudflare" %}
 
-{% include figure image_path="/assets/2022/12/chrisayersdev-page-rules2.png" alt="Page Rules on Cloudflare" caption="Page Rules on Cloudflare" %}
+{% include figure image_path="/assets/images/chrisayersdev-page-rules2.png" alt="Page Rules on Cloudflare" caption="Page Rules on Cloudflare" %}
 
 The main thing is to note the special characters (*) and variables in the rules.
 

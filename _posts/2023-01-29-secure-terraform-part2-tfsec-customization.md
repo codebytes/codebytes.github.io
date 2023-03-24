@@ -12,6 +12,8 @@ tags:
 - github
 mermaid: true
 permalink: /2023/01/29/secure-terraform-part2-tfsec-customization
+teaser: /assets/images/tfsec-logo.png
+og_image: /assets/images/tfsec-logo.png
 ---
 
 This is part 2 of the Secure Terraform series. You can read the series of articles here: 
@@ -23,6 +25,8 @@ This is part 2 of the Secure Terraform series. You can read the series of articl
 # Secure Terraform - Part 2 - tfsec Customization
 
 In the previous article, we discussed tfsec, a static code analysis tool for Terraform. We also learned how to use it in VSCode and GitHub Actions to scan our Terraform code. We learned how to override the severity of rules. In this article, we will learn how to customize the rules and add our own rules.
+
+![tfsec logo](/assets/images/tfsec-logo.png)
 
 ## Customizing tfsec Rules
 
@@ -86,11 +90,11 @@ I've changed the name to `tags-resources` to make it more descriptive. I've also
 
 This is saved to ```.tfsec/custom_tfchecks.yaml```. The tfsec vscode extension we installed before will automatically pick up the new rule. We can see it highlighting the code with an issue and showing up in the results screen.
 
-![tfsec vscode extension](/assets/2023/01/custom-tfsec-tag.png)
+![tfsec vscode extension](/assets/images/custom-tfsec-tag.png)
 
 Issues also show up as problems at the bottom of the screen for you to see, click on, and navigate to the right code section.
 
-![tfsec problems](/assets/2023/01/custom-tfsec-problems.png)
+![tfsec problems](/assets/images/custom-tfsec-problems.png)
 
 ## A Custom Rule for Naming
 
