@@ -15,8 +15,9 @@ mermaid: true
 permalink: /2022/12/29/secure-terraform-part1-tfsec
 redirect_from:
   - /2022/12/29/securing-terraform-part1-tfsec
-teaser: /assets/images/terraform-logo.png
-og_image: /assets/images/terraform-logo.png
+header:
+  teaser: /assets/images/terraform-logo.png
+  og_image: /assets/images/terraform-logo.png
 ---
 
 **This blog was posted as part of the [Festive Tech Calendar 2022](https://festivetechcalendar.com/). I really want to thank the organizers for helping set this up!**

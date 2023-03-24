@@ -10,6 +10,10 @@ tags:
 - markdown
 - ruby
 permalink: /2022/12/20/migrating-from-wordpress-to-github-pages
+header:
+  teaser: /assets/images/jekyll-logo.png
+  og_image: /assets/images/jekyll-logo.png
+
 ---
 
 I’ve been hosting on WordPress for a while. I wanted something that worked pretty well and was easy to work with. I picked a decent theme, added some plugins, pointed my domains and was up and running. I would work on blogs in MarkDown, and then paste the txt into a MarkDown. I could upload a few images and move them around in a wysiwyg.

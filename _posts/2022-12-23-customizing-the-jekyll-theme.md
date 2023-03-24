@@ -14,7 +14,9 @@ mermaid: true
 permalink: /2022/12/23/customizing-the-jekyll-theme
 redirect_from:
   - /2022/12/23/customizing-my-chosen-jekyll-theme-minimal-mistakes
-
+header:
+  teaser: /assets/images/mermaid-logo.png
+  og_image: /assets/images/mermaid-logo.png
 ---
 
 I haven't done a lot with jekyll in the past, but I'm a big fan of MarkDown everything. For me that usually means I'm taking notes in markdown [Obsidian](https://obsidian.md]), doing diagrams in mermaid in Azure DevOps or [https://mermaid.live/](https://mermaid.live/). I've even started turning my talk slides into MarkDown with a tool called [MARP](https://marp.app/).

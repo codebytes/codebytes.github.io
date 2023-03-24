@@ -10,6 +10,10 @@ tags:
 - tools
 mermaid: true
 permalink: /2022/12/27/multiple-domains-on-github-pages
+header:
+  teaser: /assets/images/github-logo.png
+  og_image: /assets/images/github-logo.png
+
 ---
 
 Something I found out after moving from Wordpress to GitHub Pages is that out of the box you can only host a single domain for a repo with GitHub Pages. This is a problem for me because I have a number of domains I was hosting at WordPress that I wanted to point at my GitHub Pages. 

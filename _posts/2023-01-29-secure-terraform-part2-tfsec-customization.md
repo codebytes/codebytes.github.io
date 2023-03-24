@@ -12,8 +12,9 @@ tags:
 - github
 mermaid: true
 permalink: /2023/01/29/secure-terraform-part2-tfsec-customization
-teaser: /assets/images/tfsec-logo.png
-og_image: /assets/images/tfsec-logo.png
+header:
+  teaser: /assets/images/tfsec-logo.png
+  og_image: /assets/images/tfsec-logo.png
 ---
 
 This is part 2 of the Secure Terraform series. You can read the series of articles here: 

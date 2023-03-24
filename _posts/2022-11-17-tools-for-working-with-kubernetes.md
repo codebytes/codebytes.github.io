@@ -26,6 +26,10 @@ k9s-gallery:
   image_path: /assets/images/k9s-rbac.png
   alt: k9s rbac
   title: k9s rbac
+header:
+  teaser: /assets/images/kubernetes-logo.png
+  og_image: /assets/images/kubernetes-logo.png
+
 ---
 
 I've been in a number of internal and external calls where tooling to help work with Kubernetes keeps coming up. I thought I would share some of these cool tools in case you weren't aware of them. 

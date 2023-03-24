@@ -7,6 +7,9 @@ tags:
 - dotnet
 - configuration
 permalink: /2022/12/03/validating-dotnet-configuration
+header:
+  teaser: /assets/images/dotnet-logo.png
+  og_image: /assets/images/dotnet-logo.png
 ---
 
 ![image-left](/assets/images/csadvent logo.png){: .align-left}

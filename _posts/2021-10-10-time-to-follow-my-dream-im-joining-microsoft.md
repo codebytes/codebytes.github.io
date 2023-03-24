@@ -8,6 +8,10 @@ tags:
 - Microsoft
 permalink: "/2021/10/10/time-to-follow-my-dream-im-joining-microsoft/"
 excerpt_separator: <!--more-->
+header:
+  teaser: /assets/images/microsoft-logo.png
+  og_image: /assets/images/microsoft-logo.png
+
 ---
 
 {% include figure image_path="/assets/images/mslogo.png" alt="Microsoft" caption="Microsoft" %}

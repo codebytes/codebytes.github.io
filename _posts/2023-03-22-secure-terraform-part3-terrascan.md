@@ -12,8 +12,9 @@ tags:
 - github
 mermaid: true
 permalink: /2023/03/22/secure-terraform-part3-terrascan
-teaser: /assets/images/terrascan-logo.png
-og_image: /assets/images/terrascan-logo.png
+header:
+  teaser: /assets/images/terrascan-logo.png
+  og_image: /assets/images/terrascan-logo.png
 ---
 
 This is part 3 of the Secure Terraform series. You can read the series of articles here: 
