@@ -1,5 +1,5 @@
 ---
-title: Marp
+title: Marp - Create Presentations with Markdown
 type: post
 categories:
 - Development
@@ -8,7 +8,7 @@ tags:
 - github
 - markdown
 mermaid: true
-permalink: /2023/03/26/marp
+permalink: /2023/03/26/marp-create-presentations-with-markdown
 header:
   teaser: /assets/images/marp-logo.png
   og_image: /assets/images/marp-logo.png
