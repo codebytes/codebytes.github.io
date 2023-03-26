@@ -12,11 +12,14 @@ permalink: /2023/03/26/marp-create-presentations-with-markdown
 header:
   teaser: /assets/images/marp-logo.png
   og_image: /assets/images/marp-logo.png
+excerpt_separator: <!--more-->
 ---
 
 # Marp: Create Presentations with Markdown
 
 Marp is a powerful and user-friendly presentation framework that simplifies the process of creating visually appealing slide decks using Markdown. In this blog post, we'll explore what Marp is, why you might want to use it, how to get started. I'll share my process and show you how you can automate hosting your presentations on GitHub Pages using GitHub Actions.
+
+<!--more-->
 
 ## What is Marp?
 
