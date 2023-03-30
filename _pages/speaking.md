@@ -9,6 +9,7 @@ permalink: "/speaking/"
 Feel free to check out my [Sessionize profile](https://sessionize.com/ChrisAyers/) for all my current talks and engagements.
 
 ## Upcoming Events
+
 | Event | Date | Talks |
 |-------|------|-------|
 | PowerShell + DevOps Summit 2023 | April 24-27 2023 | CI/CD with Github Actions<br>Continuous Load Testing with GitHub Actions |
@@ -20,6 +21,7 @@ Feel free to check out my [Sessionize profile](https://sessionize.com/ChrisAyers
 | DWX Developer Week '23 | June 26-30 2023 | .NET Configuration In Depth<br>CI/CD with Github Actions<br>Securely deploying Infrastructure as Code |
 
 ## Past Events
+
 | Event | Date | Talks |
 |-------|------|-------|
 | Orlando Code Camp 2023 | March 25 2023 | Starting an Allyship Journey<br>Securely deploying Terraform |
