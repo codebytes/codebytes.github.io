@@ -8,10 +8,9 @@ permalink: "/speaking/"
 
 My [Sessionize profile](https://sessionize.com/ChrisAyers/) has all my current talks and many current engagements.
 
+## Upcoming Events
 | Event | Date | Talks |
 |-------|------|-------|
-| **Upcoming Events** | | |
-| Orlando Code Camp 2023 | March 25 2023 | Starting an Allyship Journey<br>Securely deploying Terraform |
 | PowerShell + DevOps Summit 2023 | April 24-27 2023 | CI/CD with Github Actions<br>Continuous Load Testing with GitHub Actions |
 | Devoxx Greece 2023 | May 4-6 2023 | Starting an Allyship Journey<br>DevContainers in VS Code |
 | NDC Oslo 2023 | May 22-26 2023 | Kubernetes Resiliency |
@@ -19,7 +18,11 @@ My [Sessionize profile](https://sessionize.com/ChrisAyers/) has all my current t
 | Prairie Dev Con Winnipeg 2023 | June 12-13 2023 | Kubernetes Resiliency, Securely deploying Infrastructure as Code |
 | KCD 2023 | June 21-23 2023 | Securely deploying Infrastructure as Code |
 | DWX Developer Week '23 | June 26-30 2023 | .NET Configuration In Depth<br>CI/CD with Github Actions<br>Securely deploying Infrastructure as Code |
-| **Past Events** | | |
+
+## Past Events
+| Event | Date | Talks |
+|-------|------|-------|
+| Orlando Code Camp 2023 | March 25 2023 | Starting an Allyship Journey<br>Securely deploying Terraform |
 | Azure SaaS Academy | March 27 2023 | Azure SaaS Dev Toolkit |
 | Python Web Conf 2023 | March 13 2023 | CI/CD with Github Actions |
 | Come Cloud With Us | March 2 2023 | Building in the Cloud with Bicep |
@@ -40,7 +43,7 @@ My [Sessionize profile](https://sessionize.com/ChrisAyers/) has all my current t
 | Microsoft Azure + AI Conference Spring 2022 | April 5-  7 2022 | Feature Flags - The Art of the IF and Deployment<br>CI/CD with GitHub Actions |
 | CodeStock 2022 | April 7-8 2022 | Feature Flags - The Art of the IF and Deployment<br>Monitoring and Troubleshooting with Application Insights |
 | THAT Conference - TX | May 23 - May 26, 2022 | Feature Flags - The Art of the IF and Deployment |
-| JonnyChipz - In Conversations with Chris Ayers | | |
+| JonnyChipz - In Conversations with Chris Ayers | April 4 2022 |  |
 | Cloud with Chris | | Feature Flags - The Art of the IF and Deployment |
 | DeveloperWeek 2022 | Feb 7 - Feb 9, 2022 (Virtual Only Due to COVID-19) | Feature Flags - The Art of the IF and Deployment |
 | Azure Advent Calendar | Dec 15, 2021 | CI/CD with GitHub Actions |
