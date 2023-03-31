@@ -316,8 +316,7 @@ Note that out of the box, VS Code doesn't support Mermaid diagrams with a previe
 
 In conclusion, Marp is a powerful and flexible presentation tool that can help you create stunning slides with ease. Unlike traditional presentation tools like PowerPoint, Marp uses Markdown, a lightweight markup language that allows you to focus on your content without getting bogged down in formatting details. With Marp, you can easily customize your presentations with custom themes, images, CSS, and other features, making your slides truly stand out. Additionally, Marp is free and open-source, so you don't have to worry about licensing fees or vendor lock-in. Overall, Marp is a fantastic alternative to traditional presentation tools, and we encourage you to give it a try!
 
-
-Happy presenting!
+Get started today by using the [Marp Slides Template](https://github.com/codebytes/marp-slides-template) to create your own Marp presentation!
 
 ## References
 
