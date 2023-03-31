@@ -325,7 +325,7 @@ Marp comes with a built-in speaker mode that allows presenters to view their not
 
 ![](/assets/images/mapr-speaker-mode.png)
 
-## 3. Adding Speaker Notes
+### Adding Speaker Notes
 
 To add speaker notes to your Marp slides, use the following syntax:
 
