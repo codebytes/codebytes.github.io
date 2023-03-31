@@ -2,16 +2,17 @@
 title: Unleash Your Creativity with Marp Presentation Customization
 type: post
 categories:
-- Development
+- Tools
 tags:
-- tools
-- github
+- vscode
+- marp
 - markdown
+- mermaid
 mermaid: true
 permalink: /2023/03/31/customizing-marp
 header:
-  teaser: /assets/images/marp-logo.png
-  og_image: /assets/images/marp-logo.png
+  teaser: /assets/images/marp-bg-full.png
+  og_image: /assets/images/marp-bg-full.png
 excerpt_separator: <!--more-->
 ---
 
