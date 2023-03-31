@@ -311,6 +311,37 @@ And we get the following:
 
 Note that out of the box, VS Code doesn't support Mermaid diagrams with a preview, but you can add this feature using the [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) extension. This extension adds support for Mermaid diagrams in the preview pane of VS Code.
 
+## Speaker Mode
+
+Marp comes with a built-in speaker mode that allows presenters to view their notes and upcoming slides while giving a presentation. To enable speaker mode:
+
+- Export your presentation to html (you can also use my template and leverage GitHub Pages).
+- Open your Marp presentation file in your browser.
+- Press "P" on your keyboard or click on the icon for speaker mode.
+
+![](/assets/images/marp-speaker.png)
+
+- A new window will open, displaying the current slide, next slide, and speaker notes.
+
+![](/assets/images/mapr-speaker-mode.png)
+
+## 3. Adding Speaker Notes
+
+To add speaker notes to your Marp slides, use the following syntax:
+
+```markdown
+---
+<!-- Your speaker notes go here. -->
+
+<!-- 
+Or Your speaker
+notes go here.
+-->
+
+---
+```
+
+This will create a hidden area for your speaker notes, which will be visible only in speaker mode. You can also export them to PowerPoints and PDF.
 
 ## Conclusion
 
