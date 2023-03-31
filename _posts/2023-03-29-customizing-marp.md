@@ -86,9 +86,78 @@ Another option is to specify a percentage, like if you wanted the image to only 
 
 There are also a bunch of filters that you can apply to your images to get various styles, like grayscale, sepia, blur, and opacity.
 
+![](/assets/images/marp-bg-right-grayscale.png)
+![](/assets/images/marp-bg-right-sepia.png)
+![](/assets/images/marp-bg-right-blur.png)
+![](/assets/images/marp-bg-right-opacity.png)
+
+These filters apply to not only backgrounds, but regular images. You can also combine them.
+
+![](/assets/images/marp-image-filters.png)
 
 You can also add background colors and gradients using CSS.
 
+## Inline CSS
+
+Another thing I've done is add inline css to my slides. I've also enabled html tags in my slides, so I can use divs and classes besides the standard markdown syntax. To do this, you can use the following syntax in your frontmatter. 
+
+```css
+---
+marp: true
+theme: default
+style: |
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+---
+```
+
+We can then use these classes in our slides and mix and match markdown and html if needed.
+
+```markdown
+
+---
+
+## Slide 5
+
+<div class="columns">
+<div>
+
+## Left
+
+- 1
+- 2
+
+</div>
+<div>
+
+## Right
+
+- 3
+- 4
+
+</div>
+</div>
+
+```
+
+In this example, I'm adding a grid layout to my slides. You can add any css you want here.
+
+## Font Awesome
+
+You can also add Font Awesome icons to your slides. To do this, you can use the following syntax in your frontmatter.
+
+```css
+---
+marp: true
+theme: default
+footer: 'https://example.com'
+style: |
+  @import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css'
+---
+```
 
 ## Conclusion
 
