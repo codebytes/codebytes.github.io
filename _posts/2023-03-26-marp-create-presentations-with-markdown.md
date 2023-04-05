@@ -2,9 +2,11 @@
 title: Marp - Create Presentations with Markdown
 type: post
 categories:
-- Development
+- Tools
 tags:
 - tools
+- vscode
+- marp
 - github
 - markdown
 mermaid: true

@@ -2,13 +2,13 @@
 title: Secure Terraform - Part 4 - checkov
 type: post
 categories:
-- Development
+- DevOps
 tags:
 - terraform
 - security
 - tools
 - vscode
-- terrascan
+- checkov
 - github
 mermaid: true
 permalink: /2023/03/24/secure-terraform-part4-checkov

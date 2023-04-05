@@ -2,7 +2,7 @@
 title: Secure Terraform - Part 3 - terrascan
 type: post
 categories:
-- Development
+- DevOps
 tags:
 - terraform
 - security

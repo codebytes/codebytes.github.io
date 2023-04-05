@@ -2,7 +2,7 @@
 title: Secure Terraform - Part 1 - tfsec
 type: post
 categories:
-- Development
+- DevOps
 tags:
 - terraform
 - security
