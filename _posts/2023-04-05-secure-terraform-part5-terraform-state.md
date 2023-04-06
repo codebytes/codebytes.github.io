@@ -8,13 +8,20 @@ tags:
 - security
 - tools
 mermaid: true
-permalink: /2022/04/05/secure-terraform-part5-terraform-state
+permalink: /2023/04/05/secure-terraform-part5-terraform-state
 redirect_from:
-  - /2022/04/05/secure-terraform-part5-terraform-state
+  - /2023/04/05/secure-terraform-part5-terraform-state
 header:
   teaser: /assets/images/terraform-logo.png
   og_image: /assets/images/terraform-logo.png
 ---
+
+This is part 5 of the Secure Terraform series. You can read the series of articles here: 
+- [Secure Terraform - Part 1 - tfsec](/2022/12/29/secure-terraform-part1-tfsec) 
+- [Secure Terraform - Part 2 - tfsec customization](/2023/01/29/secure-terraform-part2-tfsec-customization)
+- [Secure Terraform - Part 3 - terrascan](/2023/03/22/secure-terraform-part3-terrascan)
+- [Secure Terraform - Part 4 - checkov](/2023/03/24/secure-terraform-part4-checkov)
+- [Secure Terraform - Part 5 - terraform state](/2023/04/05/secure-terraform-part5-terraform-state)
 
 ![terraform-logo](/assets/images/terraform-logo.png)
 

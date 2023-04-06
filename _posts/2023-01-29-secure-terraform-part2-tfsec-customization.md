@@ -22,6 +22,7 @@ This is part 2 of the Secure Terraform series. You can read the series of articl
 - [Secure Terraform - Part 2 - tfsec customization](/2023/01/29/secure-terraform-part2-tfsec-customization)
 - [Secure Terraform - Part 3 - terrascan](/2023/03/22/secure-terraform-part3-terrascan)
 - [Secure Terraform - Part 4 - checkov](/2023/03/24/secure-terraform-part4-checkov)
+- [Secure Terraform - Part 5 - terraform state](/2023/04/05/secure-terraform-part5-terraform-state)
 
 # Secure Terraform - Part 2 - tfsec Customization
 
