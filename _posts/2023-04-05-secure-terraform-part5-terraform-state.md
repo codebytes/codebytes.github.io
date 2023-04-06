@@ -10,7 +10,7 @@ tags:
 mermaid: true
 permalink: /2023/04/05/secure-terraform-part5-terraform-state
 redirect_from:
-  - /2023/04/05/secure-terraform-part5-terraform-state
+  - /2022/04/05/secure-terraform-part5-terraform-state
 header:
   teaser: /assets/images/terraform-logo.png
   og_image: /assets/images/terraform-logo.png
