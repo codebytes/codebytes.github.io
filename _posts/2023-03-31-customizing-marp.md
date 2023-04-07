@@ -27,7 +27,9 @@ Marp is a powerful Markdown presentation framework that enables you to create st
 
 Marp comes with [three built-in themes](https://github.com/marp-team/marp-core/tree/main/themes) that you can use to get started. The three themes, Default, Gaia, and Uncover, are shown below along with the frontmatter to use them and a few inverted examples.
 
-### Default
+### Default Theme
+
+#### Default - Normal
 
 ```yaml
 ---
@@ -36,8 +38,9 @@ theme: default
 ---
 ```
 
-Default
-![](/assets/images/marp-default.png)
+{% include figure image_path="/assets/images/marp-default.png" alt="Marp default theme" caption="Marp default theme" %}
+
+#### Default - Inverted
 
 ```yaml
 ---
@@ -48,10 +51,11 @@ class:
 ---
 ```
 
-Default - Invert
-![](/assets/images/marp-default-invert.png)
+{% include figure image_path="/assets/images/marp-default-invert.png" alt="Marp default theme - Invert" caption="Marp default theme - Invert" %}
 
-### Gaia
+### Gaia Theme
+
+#### Gaia Normal
 
 ```yaml
 ---
@@ -60,8 +64,9 @@ theme: gaia
 ---
 ```
 
-Gaia
-![](/assets/images/marp-gaia.png)
+{% include figure image_path="/assets/images/marp-gaia.png" alt="Marp gaia theme" caption="Marp gaia theme" %}
+
+#### Gaia - Lead / Invert
 
 ```yaml
 ---
@@ -72,10 +77,12 @@ class:
   - lead
 ---
 ```
-Gaia - Lead / Invert
-![](/assets/images/marp-gaia-lead-invert.png)
+
+{% include figure image_path="/assets/images/marp-gaia-lead-invert.png" alt="Marp gaia theme - Lead/Invert" caption="Marp gaia theme - Lead/Invert" %}
 
 ### Uncover
+
+#### Uncover Normal
 
 ```yaml
 ---
@@ -83,7 +90,8 @@ marp: true
 theme: uncover
 ---
 ```
-![](/assets/images/marp-uncover.png)
+
+{% include figure image_path="/assets/images/marp-uncover.png" alt="Marp uncover theme" caption="Marp uncover theme" %}
 
 
 ## Directives
@@ -138,7 +146,7 @@ Adding custom backgrounds and images can make your presentation more engaging an
 ![bg](path/to/your/background-image.jpg)
 ```
 
-![](/assets/images/marp-bg-full.png)
+{% include figure image_path="/assets/images/marp-bg-full.png" alt="Marp full background" caption="Marp full background" %}
 
 You can also use keywords to control how the background shows up. For instance, you can you left or right:
 
@@ -146,7 +154,7 @@ You can also use keywords to control how the background shows up. For instance, 
 ![bg right](path/to/your/background-image.jpg)
 ```
 
-![](/assets/images/marp-bg-right.png)
+{% include figure image_path="/assets/images/marp-bg-right.png" alt="Marp right background" caption="Marp right background" %}
 
 or
 
@@ -154,7 +162,7 @@ or
 ![bg left](path/to/your/background-image.jpg)
 ```
 
-![](/assets/images/marp-bg-left.png)
+{% include figure image_path="/assets/images/marp-bg-left.png" alt="Marp left background" caption="Marp left background" %}
 
 Another option is to specify a percentage, like if you wanted the image to only take up a smaller percentage.
 
@@ -162,18 +170,18 @@ Another option is to specify a percentage, like if you wanted the image to only 
 ![bg left:35%](path/to/your/background-image.jpg)
 ```
 
-![](/assets/images/marp-bg-left-35.png)
+{% include figure image_path="/assets/images/marp-bg-left-35.png" alt="Marp left background - 35%" caption="Marp left background - 35%" %}
 
 There are also a bunch of filters that you can apply to your images to get various styles, like grayscale, sepia, blur, and opacity.
 
-![](/assets/images/marp-bg-right-grayscale.png)
-![](/assets/images/marp-bg-right-sepia.png)
-![](/assets/images/marp-bg-right-blur.png)
-![](/assets/images/marp-bg-right-opacity.png)
+{% include figure image_path="/assets/images/marp-bg-right-grayscale.png" alt="Marp right background grayscale" caption="Marp right background grayscale" %}
+{% include figure image_path="/assets/images/marp-bg-right-sepia.png" alt="Marp right background sepia" caption="Marp right background sepia" %}
+{% include figure image_path="/assets/images/marp-bg-right-blur.png" alt="Marp right background blur" caption="Marp right background blur" %}
+{% include figure image_path="/assets/images/marp-bg-right-opacity.png" alt="Marp right background opacity" caption="Marp right background opacity" %}
 
 These filters apply to not only backgrounds, but regular images. You can also combine them.
 
-![](/assets/images/marp-image-filters.png)
+{% include figure image_path="/assets/images/marp-image-filters.png" alt="Marp image multiple filters" caption="Marp image multiple filters" %}
 
 You can also add background colors and gradients using CSS.
 
@@ -226,14 +234,13 @@ We can then use these classes in our slides and mix and match markdown and html 
 
 In this example, I'm adding a grid layout to my slides so I have have split columns. You can add any css you want here.
 
-![](/assets/images/marp-html-css.png)
-
+{% include figure image_path="/assets/images/marp-html-css.png" alt="Marp html and custom css" caption="Marp html and custom css" %}
 
 ## Font Awesome
 
 [Font Awesome](https://fontawesome.com/) is a great resource for designers, developers, and content creators who want to add visual elements to their projects without having to create them from scratch. Font Awesome provides a library of over [2,000 free icons](https://fontawesome.com/search?o=r&m=free) that you can use to enhance your presentations.
 
-![](/assets/images/marp-fa-icons.png)
+{% include figure image_path="/assets/images/marp-fa-icons.png" alt="Marp Font Awesome icons" caption="Marp Font Awesome icons" %}
 
 To do this, you can use the following syntax in your frontmatter to import and style icons.
 
@@ -249,7 +256,6 @@ style: |
   @import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css'
 ---
 ```
-
 
 And then in your slides, you can use the following syntax to add icons.
 
@@ -292,7 +298,7 @@ graph TD;
 
 ```
 
-![](/assets/images/marp-mermaid.png)
+{% include figure image_path="/assets/images/marp-mermaid.png" alt="Marp mermaid diagrams" caption="Marp mermaid diagrams" %}
 
 Marp will automatically convert this code into a diagram, which you can then style using CSS. By default, Mermaid diagrams are quite small, but you can adjust their size using CSS. This CSS code will make your Mermaid diagrams larger and easier to read. You can add this code to the frontmatter section of your Markdown file.
 
@@ -307,7 +313,7 @@ Marp will automatically convert this code into a diagram, which you can then sty
 
 And we get the following:
 
-![](/assets/images/marp-mermaid-styled.png)
+{% include figure image_path="/assets/images/marp-mermaid-styled.png" alt="Marp mermaid diagrams - with css" caption="Marp mermaid diagrams - with css" %}
 
 Note that out of the box, VS Code doesn't support Mermaid diagrams with a preview, but you can add this feature using the [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) extension. This extension adds support for Mermaid diagrams in the preview pane of VS Code.
 
@@ -319,11 +325,11 @@ Marp comes with a built-in speaker mode that allows presenters to view their not
 - Open your Marp presentation file in your browser.
 - Press "P" on your keyboard or click on the icon for speaker mode.
 
-![](/assets/images/marp-speaker.png)
+{% include figure image_path="/assets/images/marp-speaker.png" alt="Marp Speaker options" caption="Marp Speaker options" %}
 
 - A new window will open, displaying the current slide, next slide, and speaker notes.
 
-![](/assets/images/mapr-speaker-mode.png)
+{% include figure image_path="/assets/images/marp-speaker-mode.png" alt="Marp Speaker mode" caption="Marp Speaker mode" %}
 
 ### Adding Speaker Notes
 

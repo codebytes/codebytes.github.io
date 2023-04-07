@@ -54,7 +54,7 @@ By default, Terrascan will scan all Terraform files in the current directory and
 
 Terrascan will output a list of violations that it found in your code. Each violation will have a rule ID, a description, and a severity level. The severity level can be either HIGH, MEDIUM, or LOW. The output will also include the filename, line number, and column number where the violation was found.
 
-![terrascan output](/assets/images/terrascan.png)
+{% include figure image_path="/assets/images/terrascan.png" alt="terrascan output" caption="terrascan output" %}
 
 You can specify a different output format using the `--format` option. Terrascan supports a number of output formats, including JSON, YAML, and JUnit. Here's an example of how to output the results in JSON format:
 
@@ -163,7 +163,7 @@ To create a custom policy, follow these steps:
 
     If there are errors, you should get output like the following:
 
-    ![terrascan violation](/assets/images/customer-terrascan-violation.png)
+    {% include figure image_path="/assets/images/customer-terrascan-violation.png" alt="terrascan violation" caption="terrascan violation" %}
 
 ## Conclusion
 

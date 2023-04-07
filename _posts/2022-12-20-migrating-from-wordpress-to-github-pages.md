@@ -57,10 +57,12 @@ bundle install
 ```
 
 On Wordpress.com I exported all my posts via the export functionality.
-![Export Menu](/assets/images/wordpress-export-tools.png)
+
+{% include figure image_path="/assets/images/wordpress-export-tools.png" alt="Export Menu" caption="Export Menu" %}
 
 I then Exported everything which downloads as a single file.
-![Export Option](/assets/images/wordpress-export.png)
+
+{% include figure image_path="/assets/images/wordpress-export.png" alt="Export Option" caption="Export Option" %}
 
 This provides an download that's a zip file with an xml file.  I ran the import command:
 

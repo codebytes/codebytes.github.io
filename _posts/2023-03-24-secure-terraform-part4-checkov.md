@@ -46,7 +46,7 @@ Once installed, Checkov provides a command-line interface (CLI) to scan your IaC
 
 Checkov will then analyze your Terraform files, checking for security and compliance issues. It will output the results, including the test status (PASSED or FAILED), file paths, resource types, and relevant information about the issue.
 
-![checkov](/assets/images/checkov.png)
+{% include figure image_path="assets/images/checkov.png" alt="checkov" caption="checkov" %}
 
 You can customize the output format using the --output flag. Checkov supports various output formats, including JSON, JUnit XML, and SARIF:
 
@@ -58,21 +58,21 @@ Checkov provides extensions for VS Code and other IDEs, allowing you to scan you
 
 To install the Checkov extension for VS Code, search for "Checkov" in the Extensions tab or install it from the [marketplace](https://marketplace.visualstudio.com/items?itemName=Bridgecrew.checkov).
 
-![checkov-vscode](/assets/images/checkov-vscode.png)
+{% include figure image_path="/assets/images/checkov-vscode.png" alt="checkov-vscode" caption="checkov-vscode" %}
 
 You can scan your code and view the results in the Checkov Output tab. You can also view the results in the Problems tab, which provides a convenient way to navigate to the specific line of code that caused the issue.
 
-![checkov-vscode-output](/assets/images/checkov-vscode-output.png)
+{% include figure image_path="/assets/images/checkov-vscode-output.png" alt="checkov-vscode-output" caption="checkov-vscode-output" %}
 
 And if you hold your cursor over the issue, you can see the violations and links to the related checks.
 
-![checkov-vscode-problems](/assets/images/checkov-vscode-problems.png)
+{% include figure image_path="/assets/images/checkov-vscode-problems.png" alt="checkov-vscode-problems" caption="checkov-vscode-problems" %}
 
 If you click on the check, you'll get a pop-up and follow the link to the Checkov documentation.
 
-![checkov-vscode-check](/assets/images/checkov-vscode-check.png)
+{% include figure image_path="/assets/images/checkov-vscode-check.png" alt="checkov-vscode-check" caption="checkov-vscode-check" %}
 
-![checkov-vscode-check-doc](/assets/images/checkov-vscode-check-doc.png)
+{% include figure image_path="/assets/images/checkov-vscode-check-doc.png" alt="checkov-vscode-check-doc" caption="checkov-vscode-check-doc" %}
 
 This is an amazing developer experience, allowing you to scan your code as you write it and fix any issues immediately.
 

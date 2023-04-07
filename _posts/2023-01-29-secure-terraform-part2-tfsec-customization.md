@@ -92,11 +92,11 @@ I've changed the name to `tags-resources` to make it more descriptive. I've also
 
 This is saved to ```.tfsec/custom_tfchecks.yaml```. The tfsec vscode extension we installed before will automatically pick up the new rule. We can see it highlighting the code with an issue and showing up in the results screen.
 
-![tfsec vscode extension](/assets/images/custom-tfsec-tag.png)
+{% include figure image_path="/assets/images/custom-tfsec-tag.png" alt="tfsec vscode extension" caption="tfsec vscode extension" %}
 
 Issues also show up as problems at the bottom of the screen for you to see, click on, and navigate to the right code section.
 
-![tfsec problems](/assets/images/custom-tfsec-problems.png)
+{% include figure image_path="/assets/images/custom-tfsec-problems.png" alt="tfsec problems" caption="tfsec problems" %}
 
 ## A Custom Rule for Naming
 

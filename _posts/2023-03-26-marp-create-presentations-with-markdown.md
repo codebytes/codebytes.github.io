@@ -25,7 +25,7 @@ Marp is a powerful and user-friendly presentation framework that simplifies the 
 
 ## What is Marp?
 
-![Marp Logo](/assets/images/marp-logo.png)
+{% include figure image_path="/assets/images/marp-logo.png" alt="Marp Logo" caption="Marp Logo" %}
 
 Marp is an open-source presentation framework that allows you to create beautiful, customizable slide decks using the simplicity and flexibility of Markdown. By harnessing the power of Markdown, Marp enables you to focus on your content and message without getting bogged down in complex formatting and design choices. Marp has CLI and VS Code extensions, and it supports exporting presentations to various formats, including HTML, PDF, and PowerPoint. 
 
@@ -38,13 +38,14 @@ There are several reasons why you might want to consider using Marp for your pre
 - **Customizable:** Marp offers a range of customization options, allowing you to create presentations that align with your personal style and preferences.
 - **Integration with Visual Studio Code:** Marp seamlessly integrates with the popular Visual Studio Code editor, providing real-time previews and a smooth workflow for creating and editing presentations.
 - **Export options:** Marp supports exporting presentations to various formats, including HTML, PDF, and PowerPoint.
-![marp export](/assets/images/vscode-marp-export.png)
+
+{% include figure image_path="/assets/images/vscode-marp-export.png" alt="Marp export" caption="Marp export" %}
 
 ## Working with Marp
 
 For me, the ideal way to interact and work with Marp is through the [Marp for VS Code extension](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode). This extension provides a seamless workflow for creating and editing presentations in Visual Studio Code. It also offers real-time previews, allowing you to see your presentation as you write it. 
 
-![vscode editing marp](/assets/images/vscode-editing-marp.png)
+{% include figure image_path="/assets/images/vscode-editing-marp.png" alt="vscode editing marp" caption="vscode editing marp" %}
 
 To get started, install the [Marp for VS Code extension](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode) and open a new Markdown file. You can then start writing your presentation. A sample presentation is shown below:
 
@@ -88,7 +89,7 @@ marp: true
 
 Once you've added the content to VSCode with Marp, your presentation will look like this:
 
-![vscode editing marp](/assets/images/vscode-marp-sample.png)
+{% include figure image_path="/assets/images/vscode-marp-sample.png" alt="vscode editing marp" caption="vscode editing marp" %}
 
 ## Official Themes and Resources
 
