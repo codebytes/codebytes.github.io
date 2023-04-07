@@ -89,8 +89,8 @@ We can see what happens if I mangle my configuration and try to start my applica
 
 Running the application fails with this error.
 
-*Unhandled exception. Microsoft.Extensions.Options.OptionsValidationException: DataAnnotation validation failed for 'WebHookSettings' members: 'WebhookUrl' with the error: 'The WebhookUrl field is required.'.*
-
+Unhandled exception. Microsoft.Extensions.Options.OptionsValidationException: DataAnnotation validation failed for 'WebHookSettings' members: 'WebhookUrl' with the error: 'The WebhookUrl field is required.'.
+{: .notice--warning }
 
 Now its complaining about the field being blank while required.  What if we populate the url field with a bad value that isn't a Url?
 
@@ -104,7 +104,8 @@ Now its complaining about the field being blank while required.  What if we popu
 
 We we run the app with this value, we get a different validation error.
 
-*Unhandled exception. Microsoft.Extensions.Options.OptionsValidationException: DataAnnotation validation failed for 'WebHookSettings' members: 'WebhookUrl' with the error: 'The WebhookUrl field is not a valid fully-qualified http, https, or ftp URL.'.*
+Unhandled exception. Microsoft.Extensions.Options.OptionsValidationException: DataAnnotation validation failed for 'WebHookSettings' members: 'WebhookUrl' with the error: 'The WebhookUrl field is not a valid fully-qualified http, https, or ftp URL.'.
+{: .notice--warning }
 
 We can take this a step further, with additional custom validation if we choose.  Let's reset our configuration to something reasonable, but insecure..
 
@@ -132,8 +133,8 @@ builder.Services.AddOptions<WebHookSettings>()
 
 Now we can validate the normal DataAnnotations as well as any custom validation logic we would like to include on startup!
 
-*Unhandled exception. Microsoft.Extensions.Options.OptionsValidationException: WebHookUrl must start with https://*
-
+Unhandled exception. Microsoft.Extensions.Options.OptionsValidationException: WebHookUrl must start with https://
+{: .notice--warning }
 
 If we fix everything with our validation, like so...
 

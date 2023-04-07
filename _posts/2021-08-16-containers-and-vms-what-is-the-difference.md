@@ -30,20 +30,13 @@ Workloads or applications running on a VM contain the entire operating system (L
 
 {% include figure image_path="/assets/images/containers-vms.png" alt="VMs" caption="VMs" %}
 
-#### Pros
-
-*   VMs offer the ability to run multiple applications requiring different OSs on a single piece of infrastructure
-*   VMs emulate an entire computing environment: cpu, memory, storage, networking
-*   VMs simplify the portability and migration between on-premises and cloud-based platforms
-*   VMs can provide more isolation and security between systems
-*   There is a vast, established VM ecosystem and marketplace with industry leaders such as VMware, Microsoft Hyper-V, Nutanix, Linux KVM, Azure, AWS, Google, Oracle and many more.
-
-#### Cons
-
-*   VM images typically consume gigabytes and thus take longer to backup or migrate between platforms
-*   Multiple VMs in a system can have many duplicate copies of the same files (OS or Libraries)
-*   Because they encapsulate the entire server including OS, a physical server can support fewer VMs than containers
-*   VM start-up time can take minutes because the entire OS and kernel need to start up.
+| Pros | Cons |
+| --- | --- |
+| VMs offer the ability to run multiple applications requiring different OSs on a single piece of infrastructure | VM images typically consume gigabytes and thus take longer to backup or migrate between platforms |
+| VMs emulate an entire computing environment: cpu, memory, storage, networking | Multiple VMs in a system can have many duplicate copies of the same files (OS or Libraries) |
+| VMs simplify the portability and migration between on-premises and cloud-based platforms | Because they encapsulate the entire server including OS, a physical server can support fewer VMs than containers |
+| VMs can provide more isolation and security between systems | VM start-up time can take minutes because the entire OS and kernel need to start up. |
+|  There is a vast, established VM ecosystem and marketplace with industry leaders such as VMware, Microsoft Hyper-V, Nutanix, Linux KVM, Azure, AWS, Google, Oracle and many more. | |
 
 ## What are Containers?
 
@@ -51,20 +44,13 @@ Containers are lightweight, isolated, packages of software. The containers bundl
 
 {% include figure image_path="/assets/images/containers-containers.png" alt="Containers" caption="Containers" %}
 
-#### Pros
-
-*   Containers are more lightweight than VMs, as their images are measured in megabytes rather than gigabytes
-*   Containers are extremely portable, able to run on prem, public cloud, hybrid cloud, or private cloud.
-*   Containers require fewer IT resources to deploy, run, and manage
-*   Containers spin up in seconds
-*   A single system can host many more containers as compared to VMs
-
-#### Cons
-
-*   Containers have a steeper learning curve
-*   All containers must run atop the same OS, you can't mix and match OSs or versions (Windows, Linux, Unix)
-*   Containers may be less secure than VMs since the underlying OS is shared
-*   Containers are a newer technology, and the ecosystem is still evolving
+| Pros | Cons |
+| --- | --- |
+| Containers are more lightweight than VMs, as their images are measured in megabytes rather than gigabytes | Containers have a steeper learning curve |
+| Containers are extremely portable, able to run on prem, public cloud, hybrid cloud, or private cloud. | All containers must run atop the same OS, you can't mix and match OSs or versions (Windows, Linux, Unix) |
+| Containers require fewer IT resources to deploy, run, and manage | Containers may be less secure than VMs since the underlying OS is shared |
+| Containers spin up in seconds | Containers are a newer technology, and the ecosystem is still evolving |
+| A single system can host many more containers as compared to VMs | |
 
 ## Next Steps
 
