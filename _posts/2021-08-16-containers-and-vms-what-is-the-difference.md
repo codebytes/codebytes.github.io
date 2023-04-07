@@ -30,13 +30,13 @@ Workloads or applications running on a VM contain the entire operating system (L
 
 {% include figure image_path="/assets/images/containers-vms.png" alt="VMs" caption="VMs" %}
 
-| Pros | Cons |
+| Advantages | Disadvantages |
 | --- | --- |
-| VMs offer the ability to run multiple applications requiring different OSs on a single piece of infrastructure | VM images typically consume gigabytes and thus take longer to backup or migrate between platforms |
-| VMs emulate an entire computing environment: cpu, memory, storage, networking | Multiple VMs in a system can have many duplicate copies of the same files (OS or Libraries) |
-| VMs simplify the portability and migration between on-premises and cloud-based platforms | Because they encapsulate the entire server including OS, a physical server can support fewer VMs than containers |
-| VMs can provide more isolation and security between systems | VM start-up time can take minutes because the entire OS and kernel need to start up. |
-|  There is a vast, established VM ecosystem and marketplace with industry leaders such as VMware, Microsoft Hyper-V, Nutanix, Linux KVM, Azure, AWS, Google, Oracle and many more. | |
+| VMs support diverse OS requirements for multiple applications on a single infrastructure | VM image size results in longer backup or migration durations between platforms |
+| VMs replicate comprehensive computing environments, easing portability and migration between on-premises and cloud platforms | Duplicate copies of files (OS or libraries) are common among multiple VMs on a system |
+| VMs provide superior isolation and security across systems | Limited VM support on a physical server compared to containers, due to full server encapsulation |
+| A robust VM ecosystem and marketplace exists, featuring industry leaders | VM start-up times can be lengthy, as the OS and kernel need to fully initialize |
+
 
 ## What are Containers?
 
@@ -44,13 +44,12 @@ Containers are lightweight, isolated, packages of software. The containers bundl
 
 {% include figure image_path="/assets/images/containers-containers.png" alt="Containers" caption="Containers" %}
 
-| Pros | Cons |
+| Advantages | Disadvantages |
 | --- | --- |
-| Containers are more lightweight than VMs, as their images are measured in megabytes rather than gigabytes | Containers have a steeper learning curve |
-| Containers are extremely portable, able to run on prem, public cloud, hybrid cloud, or private cloud. | All containers must run atop the same OS, you can't mix and match OSs or versions (Windows, Linux, Unix) |
-| Containers require fewer IT resources to deploy, run, and manage | Containers may be less secure than VMs since the underlying OS is shared |
-| Containers spin up in seconds | Containers are a newer technology, and the ecosystem is still evolving |
-| A single system can host many more containers as compared to VMs | |
+| Containers are lightweight with images in megabytes, compared to VMs in gigabytes | Steeper learning curve for containers |
+| Containers offer high portability across on-premises and cloud environments | Containers require a uniform OS, limiting OS diversity or version mixing |
+| Reduced IT resources needed for container deployment, operation, and management | Potential security concerns due to shared OS in containers compared to VMs |
+| Rapid container start-up times in seconds | Containers are a newer technology with an evolving ecosystem |
 
 ## Next Steps
 
