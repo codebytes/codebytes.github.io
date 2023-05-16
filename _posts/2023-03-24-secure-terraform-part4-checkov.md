@@ -24,7 +24,7 @@ This is part 4 of the Secure Terraform series. You can read the series of articl
 - [Secure Terraform - Part 4 - checkov](/2023/03/24/secure-terraform-part4-checkov)
 - [Secure Terraform - Part 5 - terraform state](/2023/04/05/secure-terraform-part5-terraform-state)
 
-# Secure Terraform - Part 4 - Checkov
+## Introduction
 
 In this fourth installment of our Secure Terraform series, we'll discuss Checkov, a powerful open-source static code analysis tool supported by Bridgecrew. Checkov supports Terraform, Kubernetes, Dockerfiles, AWS CloudFormation, and other Infrastructure as Code (IaC) frameworks. It focuses on security best practices, policy compliance, and industry standards. You can find Checkov's documentation and samples at https://www.checkov.io/.
 

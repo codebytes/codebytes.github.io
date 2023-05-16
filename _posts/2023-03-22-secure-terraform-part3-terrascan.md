@@ -24,7 +24,7 @@ This is part 3 of the Secure Terraform series. You can read the series of articl
 - [Secure Terraform - Part 4 - checkov](/2023/03/24/secure-terraform-part4-checkov)
 - [Secure Terraform - Part 5 - terraform state](/2023/04/05/secure-terraform-part5-terraform-state)
 
-# Secure Terraform - Part 3 - terrascan
+## Introduction
 
 Terrascan is another great tool for terraform security from tenable. 
 
