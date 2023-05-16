@@ -25,7 +25,7 @@ This is part 5 of the Secure Terraform series. You can read the series of articl
 
 ![terraform-logo](/assets/images/terraform-logo.png)
 
-# Securing Terraform State: Why It Matters and How to Do It
+## Introduction
 
 Terraform is an immensely popular Infrastructure as Code (IaC) tool that allows you to manage and provision infrastructure resources using configuration files and automation tools. 
 
