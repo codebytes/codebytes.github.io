@@ -8,38 +8,42 @@ permalink: "/speaking/"
 
 Feel free to check out my [Sessionize profile](https://sessionize.com/ChrisAyers/) for all my current talks and engagements.
 
+If you're interested in having me speak at your event, please connect and reach out to me social media (LinkedIn, Twitter, Mastodon).
+
 ## Upcoming Events
 
 | Event | Date | Talks |
 | --- | --- | --- |
-| PowerShell + DevOps Summit 2023 | April 24-27, 2023 | CI/CD with Github Actions<br>Continuous Load Testing with GitHub Actions |
-| Devoxx Greece 2023 | May 4-6, 2023 | Starting an Allyship Journey<br>DevContainers in VS Code |
 | NDC Oslo 2023 | May 22-26, 2023 | Kubernetes Resiliency |
-| DevSum 2023 | May 24-26, 2023 | Securely deploying Infrastructure as Code |
+| DevSum 2023 | May 24-26, 2023 | Kubernetes Resiliency |
 | Prairie Dev Con Winnipeg 2023 | June 12-13, 2023 | Kubernetes Resiliency<br>Securely deploying Infrastructure as Code |
-| KCD 2023 | June 21-23, 2023 | Securely deploying Infrastructure as Code |
-| DWX Developer Week '23 | June 26-30, 2023 | .NET Configuration In Depth<br>CI/CD with Github Actions<br>Securely deploying Infrastructure as Code |
+| KCDC 2023 | June 21-23, 2023 | Securely deploying Infrastructure as Code |
+| DWX Developer Week '23 | June 26-30, 2023 | .NET Configuration In Depth<br>CI/CD with GitHub Actions<br>Securely deploying Infrastructure as Code |
 | THAT Conference - WI 2023 | July 24-27, 2023 | .NET Configuration In Depth |
+| DevOps Days Tampa Bay 2023 | Sept 21, 2023 | Organizer - CFP: https://sessionize.com/devopsdays-tampa-bay-2023 |
+| TechBash 2023 | Nov 7, 2023 | CI/CD with GitHub Actions (Workshop)<br>Securely developing Infrastructure as Code (Workshop) |
 
 ## Past Events
 
 | Event | Date | Talks |
 | --- | --- | --- |
+| Devoxx Greece 2023 | May 4-6, 2023 | Starting an Allyship Journey<br>DevContainers in VS Code |
+| PowerShell + DevOps Summit 2023 | April 24-27, 2023 | CI/CD with GitHub Actions<br>Continuous Load Testing with GitHub Actions |
 | Orlando Code Camp 2023 | March 25, 2023 | Starting an Allyship Journey<br>Securely deploying Terraform |
 | Azure SaaS Academy | March 27, 2023 | Azure SaaS Dev Toolkit |
-| Python Web Conf 2023 | March 13, 2023 | CI/CD with Github Actions |
+| Python Web Conf 2023 | March 13, 2023 | CI/CD with GitHub Actions |
 | Come Cloud With Us | March 2, 2023 | Building in the Cloud with Bicep |
 | Developer Week | Feb 21-23, 2023 | Feature Flags - The Art of the IF and Deployment |
 | NDC Security 2023 | Jan 16-19, 2023 | Securely deploying Infrastructure as Code |
-| CodeMash 2023 | Jan 10-13, 2023 | Building in the Cloud with Bicep<br>CI/CD with Github Actions |
+| CodeMash 2023 | Jan 10-13, 2023 | Building in the Cloud with Bicep<br>CI/CD with GitHub Actions |
 | Festive Tech Calendar 2022 | Dec 29, 2022 | Securely deploying Infrastructure as Code |
-| Tech Bash 2022 | Nov 8-10, 2022 | Building in the Cloud with Bicep<br>Feature Flags - The Art of the IF and Deployment<br>CI/CD with Github Actions |
+| Tech Bash 2022 | Nov 8-10, 2022 | Building in the Cloud with Bicep<br>Feature Flags - The Art of the IF and Deployment<br>CI/CD with GitHub Actions |
 | Granite State Code Camp 2022 | Nov 12, 2022 | Dev Containers in VS Code |
 | .NET Conf 2022 | Nov 10, 2022 | .NET Configuration In Depth |
 | Momentum Conf 2022 | Oct 20, 2022 | Feature Flags - The Art of the IF and Deployment |
-| Conf42: DevSecOps 2022 | | CI/CD with Github Actions |
+| Conf42: DevSecOps 2022 | | CI/CD with GitHub Actions |
 | TampaCC | Oct 8, 2022 | Building in the Cloud with Bicep<br>Dev Containers in VS Code |
-| Code PaLOUsa 2022 | Aug 17-19, 2022 | Feature Flags - The Art of the IF and Deployment<br>CI/CD with Github Actions |
+| Code PaLOUsa 2022 | Aug 17-19, 2022 | Feature Flags - The Art of the IF and Deployment<br>CI/CD with GitHub Actions |
 | KCDC 2022 | Aug 8-10, 2022 | .NET Configuration In Depth<br>Feature Flags - The Art of the IF and Deployment |
 | THAT Conference - WI | July 25-28, 2022 | Building in the Cloud with Bicep |
 | Azure Day Rome 2022 | Jun 24, 2022 | Building in the Cloud with Bicep |
@@ -52,7 +56,7 @@ Feel free to check out my [Sessionize profile](https://sessionize.com/ChrisAyers
 | Azure Advent Calendar | Dec 15, 2021 | CI/CD with GitHub Actions |
 | Automation and DevOps Summit 2021 | Nov 15-17, 2021 | Feature Flags - The Art of the IF and Deployment<br>Git Good with Advanced Git |
 | Cloud Lunch and Learn | Nov 10, 2021 | Monitoring and Troubleshooting with Application Insights |
-| KCDC 2021 | Sept 15-17, 2021 | Hands-On with Docker and Kubernetes (Workshop)<br>CI/CD with Github Actions |
+| KCDC 2021 | Sept 15-17, 2021 | Hands-On with Docker and Kubernetes (Workshop)<br>CI/CD with GitHub Actions |
 | Music City Tech 2021 | Sept 15-17, 2021 | Feature Flags - The Art of the IF and Deployment |
 | Code PaLOUsa 2021 | Aug 18-20, 2021 | Git Good with Advanced Git<br>Feature Flags - The Art of the IF and Deployment |
 | THAT Conference | July 27, 2021 | Feature Flags - The Art of the IF and Deployment |
