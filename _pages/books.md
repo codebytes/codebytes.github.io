@@ -22,6 +22,10 @@ gallery:
   image_path: /assets/books/the-devops-handbook.jpeg
   alt: The DevOps Handbook
   title: The DevOps Handbook
+- url: https://teamtopologies.com/
+  image_path: /assets/books/team-topologies.jpg
+  alt: Team Topologies
+  title: Team Topologies
 - url: https://docsfordevelopers.com/
   image_path: /assets/books/docs-for-developer.jpg
   alt: Docs for Developers
