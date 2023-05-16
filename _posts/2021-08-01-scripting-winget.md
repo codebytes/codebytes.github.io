@@ -128,10 +128,10 @@ Finally I built up a list of packages to install. I'm using the `winget` command
         if (![String]::Join("", $listApp).Contains($app.name)) {
             Write-host "Installing:" $app.name
             if ($app.source -ne $null) {
-                winget install --exact --silent $app.name --source $app.source
+                winget install --exact --silent $app.name --source $app.source --accept-package-agreements
             }
             else {
-                winget install --exact --silent $app.name 
+                winget install --exact --silent $app.name --accept-package-agreements 
             }
         }
         else {
