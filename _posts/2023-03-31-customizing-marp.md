@@ -16,7 +16,9 @@ header:
 excerpt_separator: <!--more-->
 ---
 
-# Unleash Your Creativity with Marp Presentation Customization
+This is part 2 of the [MARP](https://github.com/marp-team/marp) series. You can read the series of articles here: 
+- [Marp - Create Presentations with Markdown](/2023/03/26/marp-create-presentations-with-markdown) 
+- [Unleash Your Creativity with Marp Presentation Customization](/2023/03/31/customizing-marp)
 
 ## Introduction
 

@@ -37,7 +37,7 @@ This is part 1 of the Secure Terraform series. You can read the series of articl
 - [Secure Terraform - Part 4 - checkov](/2023/03/24/secure-terraform-part4-checkov)
 - [Secure Terraform - Part 5 - terraform state](/2023/04/05/secure-terraform-part5-terraform-state)
 
-# Secure Terraform - Part 1 - tfsec
+## Introduction
 
 Securing Terraform starts before we even deploy anything. Our tooling is a great place to start! We can leverage one or more static code analyzers to look for misconfigurations, security issues, and other problems. Many of these great tools not only plug into our CI/CD pipeline, they also work within our IDEs. This allows us to catch issues while we work. We can also leverage pre-commit hooks to catch things before we even commit our code. With Cloud infrastructure, its easy to make mistakes, and these tools can help us catch them.
 

@@ -24,7 +24,7 @@ This is part 2 of the Secure Terraform series. You can read the series of articl
 - [Secure Terraform - Part 4 - checkov](/2023/03/24/secure-terraform-part4-checkov)
 - [Secure Terraform - Part 5 - terraform state](/2023/04/05/secure-terraform-part5-terraform-state)
 
-# Secure Terraform - Part 2 - tfsec Customization
+## Introduction
 
 In the previous article, we discussed tfsec, a static code analysis tool for Terraform. We also learned how to use it in VSCode and GitHub Actions to scan our Terraform code. We learned how to override the severity of rules. In this article, we will learn how to customize the rules and add our own rules.
 

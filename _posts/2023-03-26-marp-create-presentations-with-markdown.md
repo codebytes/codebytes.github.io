@@ -17,7 +17,12 @@ header:
 excerpt_separator: <!--more-->
 ---
 
-# Marp: Create Presentations with Markdown
+This is part 1 of the [MARP](https://github.com/marp-team/marp) series. You can read the series of articles here: 
+- [Marp - Create Presentations with Markdown](/2023/03/26/marp-create-presentations-with-markdown) 
+- [Unleash Your Creativity with Marp Presentation Customization](/2023/03/31/customizing-marp)
+
+
+## Introduction
 
 Marp is a powerful and user-friendly presentation framework that simplifies the process of creating visually appealing slide decks using Markdown. In this blog post, we'll explore what Marp is, why you might want to use it, how to get started. I'll share my process and show you how you can automate hosting your presentations on GitHub Pages using GitHub Actions.
 
