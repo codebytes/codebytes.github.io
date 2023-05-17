@@ -11,7 +11,7 @@ Feel free to check out my [Sessionize profile](https://sessionize.com/ChrisAyers
 If you're interested in having me speak at your event, please connect and reach out to me social media (LinkedIn, Twitter, Mastodon).
 
 
-You can find some of my previous talks and online engagements on YouTube:
+You can find some of my previous talks and online engagements on YouTube at the following [playlist](https://www.youtube.com/playlist?list=PLwaSWcZSuko7QvN0zXuHGlhh_Dxp3UmyP):
 {% include video id="videoseries?list=PLwaSWcZSuko7QvN0zXuHGlhh_Dxp3UmyP" provider="youtube" %}
 
 ## Upcoming Events
@@ -26,6 +26,7 @@ You can find some of my previous talks and online engagements on YouTube:
 | THAT Conference - WI 2023 | July 24-27, 2023 | .NET Configuration In Depth |
 | DevOps Days Tampa Bay 2023 | Sept 21, 2023 | Organizer - CFP: https://sessionize.com/devopsdays-tampa-bay-2023 |
 | TechBash 2023 | Nov 7, 2023 | CI/CD with GitHub Actions (Workshop)<br>Securely developing Infrastructure as Code (Workshop) |
+| Agile + DevOps East 2023 | Nov 9, 2023 | Securely developing Infrastructure as Code |
 
 ## Past Events
 
