@@ -10,6 +10,10 @@ Feel free to check out my [Sessionize profile](https://sessionize.com/ChrisAyers
 
 If you're interested in having me speak at your event, please connect and reach out to me social media (LinkedIn, Twitter, Mastodon).
 
+
+You can find some of my previous talks and online engagements on YouTube:
+{% include video id="videoseries?list=PLwaSWcZSuko7QvN0zXuHGlhh_Dxp3UmyP" provider="youtube" %}
+
 ## Upcoming Events
 
 | Event | Date | Talks |

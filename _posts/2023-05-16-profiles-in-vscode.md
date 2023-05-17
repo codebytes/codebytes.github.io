@@ -10,12 +10,11 @@ permalink: /2023/05/16/profiles-in-vscode
 header:
   teaser: /assets/images/vscode-logo.png
   og_image: /assets/images/vscode-logo.png
+excerpt_separator: <!--more-->
 ---
 
-## Introduction
-
 Visual Studio Code (VS Code) is a popular code editor that offers a wide range of extensions to enhance its functionality. However, having too many extensions installed can increase the startup time of the editor, which can be very annoying. In this blog post, we'll explore how to optimize the startup time of VS Code by using profiles, a feature introduced in VS Code earlier this year.
-
+<!--more-->
 ![vscode logo](/assets/images/vscode-logo.png){: .align-center}
 
 ## What are VS Code Profiles?
