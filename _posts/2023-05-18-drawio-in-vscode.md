@@ -16,7 +16,7 @@ header:
 excerpt_separator: <!--more-->
 ---
 
-If you're like me, you love discovering new ways to boost your productivity and workflows. One of my favorire tools is [Draw.io](https://draw.io). I've used the desktop tool and the website, but I found a new integration that has significantly elevated my VSCode experience: the [`hediet.vscode-drawio`](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) extension.
+If you're like me, you love discovering new ways to boost your productivity and workflows. One of my favorire tools is [Draw.io](https://draw.io). I've used the desktop tool and the website, but I found a new integration that has significantly elevated my VSCode experience: the [Draw.io Integration extension](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) extension.
 <!--more-->
 
 ![draw.io logo](/assets/images/drawio-logo.png){: .img-30}  
