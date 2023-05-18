@@ -16,27 +16,40 @@ header:
 excerpt_separator: <!--more-->
 ---
 
-If you're like me and love discovering new ways to boost your productivity in VSCode, then you're in for a treat today. Let's talk about a tool that has significantly elevated my VSCode experience: [Draw.io](https://draw.io) and the [`hediet.vscode-drawio`](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) extension.
+If you're like me, you love discovering new ways to boost your productivity and workflows. One of my favorire tools is [Draw.io](https://draw.io). I've used the desktop tool and the website, but I found a new integration that has significantly elevated my VSCode experience: the [`hediet.vscode-drawio`](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) extension.
 <!--more-->
+
+![draw.io logo](/assets/images/drawio-logo.png){: .img-30}  
 
 ## Draw.io
 
-Draw.io is no ordinary diagram software. It's a powerful platform that lets us turn abstract ideas and intricate workflows into clear, easy-to-understand diagrams. And the best part? We can now integrate this fantastic tool directly into our VSCode environment, thanks to the [`hediet.vscode-drawio`](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) extension. This extension is a game-changer, enabling us to create and edit diagrams right within our favorite code editor.
+In the world of diagramming software, Draw.io really shines. It enables users to convert complex concepts and detailed workflows into clear, easy-to-understand diagrams. Its user-friendly interface combined with a wide-ranging set of features makes it an ideal choice for anyone needing to visually represent information.
 
-![draw.io demo](/assets/images/drawio-demo.gif)
+Draw.io provides a wide variety of diagramming options. Whether you're creating a basic flowchart, process diagram, org chart, UML, ER diagram, or network diagram, Draw.io has got you covered. Its versatility is one of the many reasons why it's a reliable tool for users with diverse needs.
 
-## The `hediet.vscode-drawio` Extension
+Draw.io is also incredibly user-friendly. Regardless of whether you're new to diagramming or a seasoned pro, Draw.io is accessible and straightforward to navigate. It's designed to help you quickly and accurately capture your ideas without requiring extensive training or having to navigate a steep learning curve.
 
-Draw.io is known for its ease of use and a comprehensive range of features, enabling users to create flowcharts, process diagrams, org charts, UML, ER diagrams, network diagrams, and much more. The `hediet.vscode-drawio` extension transports this rich functionality right into your VSCode environment, allowing you to create and edit diagrams without the need to toggle between your code editor and a separate diagramming tool. This integration not only boosts productivity but also sustains the momentum of your workflow.
+Another significant aspect of Draw.io is its collaborative capabilities. It's a fantastic choice for team projects as it allows you to share your diagrams and collaborate with others, fostering a cooperative environment and ensuring everyone stays on the same page.
 
-One of the standout features of the `hediet.vscode-drawio` extension is its unique approach to saving diagrams. Diagrams can be saved as `drawio.png` or `drawio.svg` files. These file formats store the diagram as an image and keep the diagram data intact within the image metadata. This innovative feature allows you to share diagrams as images, viewable using any standard image viewer. If the recipients also use Draw.io or the `hediet.vscode-drawio` extension, they can even edit the diagrams, thanks to the original diagram data preserved in the image file.
+And the cherry on top? All these fantastic features come at no cost. Draw.io is free to use, making it a universally accessible tool for individuals and teams.
+
+## The Draw.io Integration Extension by Henning Dieterichs
+
+Draw.io's reputation for ease of use and an extensive set of features is well-deserved. The [Draw.io Integration extension](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) brings this powerful functionality right into your VSCode environment, allowing you to create and edit diagrams without needing to switch back and forth between your code editor and a separate diagramming tool. This integration is a productivity booster, maintaining the flow of your workflow.
+
+{% include figure image_path="/assets/images/drawio-demo.gif" alt="draw.io extension demo" caption="draw.io extension demo" %}
+
+A standout feature of the [Draw.io Integration extension](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) is its unique approach to saving diagrams. You can save diagrams as drawio.png or drawio.svg files. These formats not only store the diagram as an image but also preserve the diagram data within the image metadata. This innovative feature means you can share diagrams as images viewable in any standard image viewer. If the recipients also use Draw.io or the hediet.vscode-drawio extension, they can even edit the diagrams, thanks to the original diagram data preserved in the image file.
+
+{% include figure image_path="/assets/images/drawio-png.gif" alt="drawio.png demo" caption="drawio.png demo" %}
 
 ## Tips
 
 To truly maximize the use of Draw.io within VSCode, you should not only leverage the diagramming functionality but also manage and integrate your diagrams effectively into your projects. Here are a few tips and tricks:
 
 - **Save diagrams as `drawio.png` or `drawio.svg` files**: Regularly saving your diagrams in these formats ensures you don't lose your work. These formats also allow you (or others) to edit the diagrams later, courtesy of the diagram data stored within the image metadata.
- ![Sample drawio.png](/assets/diagrams/sample.drawio.png)
+ 
+{% include figure image_path="/assets/diagrams/sample.drawio.png" alt="Sample drawio.png" caption="Sample drawio.png" %}
 
 - **Integrate diagrams into your Git repository**: After saving your diagrams as `drawio.png` or `drawio.svg` files, you can conveniently add them to your Git repository. This integration allows you to version control your diagrams alongside your code and share them with others through the repository.
 
@@ -50,7 +63,7 @@ By adopting these tips and tricks, you can effectively manage your diagrams and 
 
 ## Other Features
 
-Besides the features I've covered so far, the [`hediet.vscode-drawio`](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) extension also provides a host of other functionalities. These include:
+Besides the features I've covered so far, the [Draw.io Integration extension](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) extension also provides a host of other functionalities. These include:
 - Offline support: By default, the extension uses an offline version of Draw.io.
 
 - Themes: Multiple Draw.io themes are available for users to choose from.
@@ -61,4 +74,4 @@ Besides the features I've covered so far, the [`hediet.vscode-drawio`](https://m
 
 ## Conclusion
 
-In conclusion, the [`hediet.vscode-drawio`](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) extension facilitates the integration of Draw.io into VSCode, providing a powerful and efficient way to create and manipulate diagrams. This feature-rich extension enables developers and other professionals to visualize their ideas and workflows without leaving their coding environment. Furthermore, the unique `drawio.png` and `drawio.svg` file formats ensure that your diagrams remain visually accessible and editable, making sharing and collaboration easier. This integration is a shining example of the flexibility and extensibility of the VSCode platform, demonstrating its ability to cater to a wide range of user needs, well beyond just writing code.
+The [Draw.io Integration extension](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) extension supports the integration of Draw.io into VSCode, providing a powerful and efficient way to create and manipulate diagrams. This feature-rich extension enables developers and other professionals to visualize their ideas and workflows without leaving their coding environment. Furthermore, the unique `drawio.png` and `drawio.svg` file formats ensure that your diagrams remain visually accessible and editable, making sharing and collaboration easier. This integration is a shining example of the flexibility and extensibility of the VSCode platform, demonstrating its ability to cater to a wide range of user needs, well beyond just writing code.
