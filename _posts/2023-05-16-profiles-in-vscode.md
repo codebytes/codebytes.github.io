@@ -61,13 +61,12 @@ Overall, VS Code Profiles provide a convenient way to manage and switch between 
 To create a new profile in VS Code, you can use two different methods.
 
 1) Via the Settings Menu you can create, delete, export, and import profiles
-    ![image.png](/assets/images/vscode-profiles-manage.png)
+{% include figure image_path="/assets/images/vscode-profiles-manage.png" alt="Profiles in the Manage menu" caption="Profiles in the Manage menu" %}
 
 2) Via the Command Palette, follow these steps:
-
-    1. Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS) and search for the "Profile:" command.
-    2. You can create, delete, export, and more from here.
-    ![Palette](/assets/images/vscode-profiles-palette.png)
+  1. Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS) and search for the "Profile:" command.
+  2. You can create, delete, export, and more from here.
+{% include figure image_path="/assets/images/vscode-profiles-palette.png" alt="Profiles in the Command Palette" caption="Profiles in the Command Palette" %}
 
 To switch between profiles, use the "Profile: Switch Profile" command from the Manage menu or Command Palette and select the desired profile. This will activate the selected profile and reload the editor with the specified extensions and settings.
 
