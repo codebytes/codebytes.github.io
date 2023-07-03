@@ -18,13 +18,10 @@ You can find some of my previous talks and online engagements on YouTube at the 
 
 | Event | Date | Talks |
 | --- | --- | --- |
-| NDC Oslo 2023 | May 22-26, 2023 | Kubernetes Resiliency |
-| DevSum 2023 | May 24-26, 2023 | Kubernetes Resiliency |
-| Prairie Dev Con Winnipeg 2023 | June 12-13, 2023 | Kubernetes Resiliency<br>Securely deploying Infrastructure as Code |
-| KCDC 2023 | June 21-23, 2023 | Securely deploying Infrastructure as Code |
-| DWX Developer Week '23 | June 26-30, 2023 | .NET Configuration In Depth<br>CI/CD with GitHub Actions<br>Securely deploying Infrastructure as Code |
 | THAT Conference - WI 2023 | July 24-27, 2023 | .NET Configuration In Depth |
-| DevOps Days Tampa Bay 2023 | Sept 21, 2023 | Organizer - CFP: https://sessionize.com/devopsdays-tampa-bay-2023 |
+| DevOps Days Tampa Bay 2023 | Sept 21, 2023 | Lead Organizer: https://devopsdays.org/events/2023-tampa/welcome/ |
+| Techorama Netherlands 2023 | Oct 9-11, 2023 | SRE, Devops, and Platform Engineering: Unraveling the Differences<br>Kubernetes Resiliency |
+| NDC Porto | Oct 16-20, 2023 | Continuous Load Testing with GitHub Actions |
 | TechBash 2023 | Nov 7, 2023 | CI/CD with GitHub Actions (Workshop)<br>Securely developing Infrastructure as Code (Workshop) |
 | Agile + DevOps East 2023 | Nov 9, 2023 | Securely developing Infrastructure as Code |
 
@@ -32,10 +29,15 @@ You can find some of my previous talks and online engagements on YouTube at the 
 
 | Event | Date | Talks |
 | --- | --- | --- |
+| DWX Developer Week '23 | June 26-30, 2023 | .NET Configuration In Depth<br>Securely deploying Infrastructure as Code |
+| KCDC 2023 | June 21-23, 2023 | Securely deploying Infrastructure as Code |
+| Prairie Dev Con Winnipeg 2023 | June 12-13, 2023 | Kubernetes Resiliency<br>Securely deploying Infrastructure as Code |
+| DevSum 2023 | May 24-26, 2023 | Kubernetes Resiliency |
+| NDC Oslo 2023 | May 22-26, 2023 | Kubernetes Resiliency |
 | Devoxx Greece 2023 | May 4-6, 2023 | Starting an Allyship Journey<br>DevContainers in VS Code |
 | PowerShell + DevOps Summit 2023 | April 24-27, 2023 | CI/CD with GitHub Actions<br>Continuous Load Testing with GitHub Actions |
-| Orlando Code Camp 2023 | March 25, 2023 | Starting an Allyship Journey<br>Securely deploying Terraform |
 | Azure SaaS Academy | March 27, 2023 | Azure SaaS Dev Toolkit |
+| Orlando Code Camp 2023 | March 25, 2023 | Starting an Allyship Journey<br>Securely deploying Terraform |
 | Python Web Conf 2023 | March 13, 2023 | CI/CD with GitHub Actions |
 | Come Cloud With Us | March 2, 2023 | Building in the Cloud with Bicep |
 | Developer Week | Feb 21-23, 2023 | Feature Flags - The Art of the IF and Deployment |
