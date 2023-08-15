@@ -33,7 +33,9 @@ You can find some of my previous talks and online engagements on YouTube at the 
 
 | Event | Date | Talks |
 | --- | --- | --- |
+| HashiConf: Build | Aug 10, 2023 | Securely deploying Terraform |
 | THAT Conference - WI 2023 | Jul 24-27, 2023 | .NET Configuration In Depth |
+| How to Human | July 14, 2023 | Beginning an Allyship Journey with guest Chris Ayers |
 | DWX Developer Week '23 | Jun 26-30, 2023 | .NET Configuration In Depth<br>Securely deploying Infrastructure as Code |
 | KCDC 2023 | Jun 21-23, 2023 | Securely deploying Infrastructure as Code |
 | Prairie Dev Con Winnipeg 2023 | Jun 12-13, 2023 | Kubernetes Resiliency<br>Securely deploying Infrastructure as Code |
