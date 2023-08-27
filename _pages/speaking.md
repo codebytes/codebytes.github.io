@@ -24,7 +24,6 @@ You can find some of my previous talks and online engagements on YouTube at the 
 | DevOps Days Tampa Bay 2023 | Sep 21, 2023 | Lead Organizer: https://devopsdays.org/events/2023-tampa/welcome/ |
 | Techorama Netherlands 2023 | Oct 9-11, 2023 | SRE, Devops, and Platform Engineering: Unraveling the Differences<br>Kubernetes Resiliency |
 | NDC Porto | Oct 16-20, 2023 | Continuous Load Testing with GitHub Actions |
-| DevSpace Conference | Oct 23-24, 2023 |  Starting an Allyship Journey<br>SRE, DevOps, and Platform Engineering: Unraveling the Differences |
 | Longhorn PHP 2023 | Nov 2-4, 2023 | Working with DevContainers |
 | TechBash 2023 | Nov 7, 2023 | CI/CD with GitHub Actions (Workshop)<br>Securely developing Infrastructure as Code (Workshop) |
 | Agile + DevOps East 2023 | Nov 9, 2023 | Securely developing Infrastructure as Code |
