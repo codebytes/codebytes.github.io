@@ -18,6 +18,8 @@ excerpt_separator: <!--more-->
 
 In today's dynamic software development landscape, every second counts. Maximizing efficiency and ensuring error-free processes are top priorities for developers. GitHub Actions has already revolutionized workflow automation, and the game has just been upped with the introduction of its new Visual Studio Code (VSCode) extension. This article will explore these innovative features, shedding light on how they can supercharge your development workflow.
 
+![GitHub Actions VSCode Extension](/assets/images/vscode-ghactions.png){: .align-center}
+
 ## GitHub Actions: Automating Software Workflows Efficiently
 
 GitHub Actions stands as one of the most versatile tools in the developer's toolkit, allowing for comprehensive automation of software workflows. Its strength lies in its seamless integration with GitHub, offering flexible and potent Continuous Integration/Continuous Deployment (CI/CD) capabilities without the reliance on external platforms. This integration ensures that developers can focus on coding while GitHub Actions takes care of the build, test, and deployment processes. From facilitating automated build checks to executing comprehensive test suites and ensuring smooth deployments, GitHub Actions is the one-stop solution for developers looking to enhance their CI/CD workflows.
@@ -63,4 +65,4 @@ Combining GitHub Actions with VSCode simplifies a developer's workflow, making i
 ## References & Further Reading
 
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
-- [VSCode Extension for GitHub](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
+- [VSCode Extension for GitHub](https://marketplace.visualstudio.com/items?itemName=github.vscode-github-actions)
