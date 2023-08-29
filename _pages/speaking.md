@@ -32,6 +32,7 @@ You can find some of my previous talks and online engagements on YouTube at the 
 
 | Event | Date | Talks |
 | --- | --- | --- |
+| Capital Area .NET Users Group | Aug 29, 2023 | .NET Configuration In Depth |
 | HashiConf: Build | Aug 10, 2023 | Securely deploying Terraform |
 | THAT Conference - WI 2023 | Jul 24-27, 2023 | .NET Configuration In Depth |
 | How to Human | July 14, 2023 | Beginning an Allyship Journey with guest Chris Ayers |
@@ -81,12 +82,12 @@ You can find some of my previous talks and online engagements on YouTube at the 
 | 2020 South Florida Software Developer Conference | Feb 29, 2020 | Git Good with Advanced Git<br>DevOps Is More Than A Title |
 | Azure Advent Calendar | Dec 15, 2020 | |
 | Tampa Code Camp 2019 | Oct 26, 2019 | Automate Azure DevOps<br>DevOps Is More Than A Title |
-| Philly Code Camp 2019.2 | Oct 19, 2019 | Automate Azure DevOps<br>ASP.Net Core - Shift Left and Start Out Right |
+| Philly Code Camp 2019.2 | Oct 19, 2019 | Automate Azure DevOps<br>ASP.NET Core - Shift Left and Start Out Right |
 | Tampa Bar Camp 2019 | Oct 5, 2019 | What is DevOps? |
 | DevOps Global Bootcamp | Jun 15, 2019 | Local Keynote, Orlando |
 | Azure Global Bootcamp | Apr 27, 2019 | Azure DevOps |
 | Orlando Code Camp | Mar 30, 2019 | Application Insights |
-| The .NETwork | Feb 19, 2019 | Dependency Injection and Unit Testing in .Net Core |
+| The .NETwork | Feb 19, 2019 | Dependency Injection and Unit Testing in .NET Core |
 | Tampa Azure Meetup | Sep 13, 2018 | Application Insights - A Deep Dive |
 | Tampa Code Camp 2018 | Oct 20, 2018 | Functional Programming<br>Good Software Development Practices |
 | Tampa Code Camp 2017 | Oct 28, 2017 | Dependency Injection<br>Unit Testing |
