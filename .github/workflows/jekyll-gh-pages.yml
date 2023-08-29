@@ -32,14 +32,14 @@ jobs:
         with: 
           cmd: yq -i '.appinsights="${{ secrets.APP_INSIGHTS_CONNECTION_STRING }}" | .analytics.provider="${{ secrets.ANALYTICS_PROVIDER }}" | .analytics.google.tracking_id="${{ secrets.GOOGLE_TRACKING_ID }}" | .clarity="${{ secrets.CLARITY_CODE }}"' _config.yml
       - name: Setup Pages
-        uses: actions/configure-pages@v2
+        uses: actions/configure-pages@v3
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./
           destination: ./_site
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
 
   # Deployment job
   deploy:
@@ -51,4 +51,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2
