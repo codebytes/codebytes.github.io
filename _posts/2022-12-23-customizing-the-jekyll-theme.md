@@ -19,7 +19,7 @@ header:
   og_image: /assets/images/mermaid-logo.png
 ---
 
-I haven't done a lot with jekyll in the past, but I'm a big fan of MarkDown everything. For me that usually means I'm taking notes in markdown [Obsidian](https://obsidian.md]), doing diagrams in mermaid in Azure DevOps or [https://mermaid.live/](https://mermaid.live/). I've even started turning my talk slides into MarkDown with a tool called [MARP](https://marp.app/).
+I haven't done a lot with jekyll in the past, but I'm a big fan of MarkDown everything. For me that usually means I'm taking notes in markdown [Obsidian](https://obsidian.md), doing diagrams in mermaid in Azure DevOps or [https://mermaid.live/](https://mermaid.live/). I've even started turning my talk slides into MarkDown with a tool called [MARP](https://marp.app/).
 
 Understanding when I use standard MarkDown or some sort of templating language (jekyll uses Liquid) has been fun. I'll do something in html or MarkDown, then find out that Jekyll or my theme already has helpers to render that (like gists, videos, and figures). Sometimes rendering more advanced things takes a little tweaking of Jekyll and the theme.
 
