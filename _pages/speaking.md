@@ -18,18 +18,20 @@ You can find some of my previous talks and online engagements on YouTube at the 
 
 | Event | Date | Talks |
 | --- | --- | --- |
-| BSides Orlando 2023 | Oct 6, 2023 | Securely Deploying Infrastructure as Code | 
-| Techorama Netherlands 2023 | Oct 9-11, 2023 | SRE, Devops, and Platform Engineering: Unraveling the Differences<br>Kubernetes Resiliency |
-| NDC Porto | Oct 16-20, 2023 | Continuous Load Testing with GitHub Actions |
+| 2023 All Day DevOps | 26 Oct 2023 | Working with DevContainers |
 | Longhorn PHP 2023 | Nov 2-4, 2023 | Working with DevContainers |
 | TechBash 2023 | Nov 7, 2023 | CI/CD with GitHub Actions (Workshop)<br>Securely developing Infrastructure as Code (Workshop) |
 | Agile + DevOps East 2023 | Nov 9, 2023 | Securely developing Infrastructure as Code |
-| Live360! Orlando | Nov 13-17, 2023 | Achieving SRE (Site Resiliency Engineering) with Azure<br>Master Azure Resources Like Marvel's Lord Chaos |
+| .NET Conf 2023 | Nov 16, 2023 | .NET Configuration In Depth |
+| Live360! Orlando | Nov 13-17, 2023 | Achieving SRE (Site Resiliency Engineering) with Azure<br>Master Azure Resources Like Marvel's Lord Chaos<br>Cloud & Containers Live! Panel Discussion: Past the Hype: Cloud in the Mainstream |
 
 ## Past Events
 
 | Event | Date | Talks |
 | --- | --- | --- |
+| NDC Porto | Oct 16-20, 2023 | Continuous Load Testing with GitHub Actions |
+| Techorama Netherlands 2023 | Oct 9-11, 2023 | SRE, Devops, and Platform Engineering: Unraveling the Differences<br>Kubernetes Resiliency |
+| BSides Orlando 2023 | Oct 6, 2023 | Securely Deploying Infrastructure as Code | 
 | DevOps Days Tampa Bay 2023 | Sep 21, 2023 | Lead Organizer: https://devopsdays.org/events/2023-tampa/welcome/ |
 | Atlanta Developer Conference 2023 | Sep 9, 2023 | Working with Dev Containers |
 | AutomationSTAR Online | Sep 15, 2023 | Testing with Playwright |
