@@ -18,7 +18,8 @@ You can find some of my previous talks and online engagements on YouTube at the 
 
 | Event | Date | Talks |
 | --- | --- | --- |
-| 2023 All Day DevOps | 26 Oct 2023 | Working with DevContainers |
+| 2023 All Day DevOps | Oct 26, 2023 | Working with DevContainers |
+| Tampa Code Camp 2023 | Oct 28, 2023 | Working with DevContainers<br>Starting An Allyship Journey |
 | Longhorn PHP 2023 | Nov 2-4, 2023 | Working with DevContainers |
 | TechBash 2023 | Nov 7, 2023 | CI/CD with GitHub Actions (Workshop)<br>Securely developing Infrastructure as Code (Workshop) |
 | Agile + DevOps East 2023 | Nov 9, 2023 | Securely developing Infrastructure as Code |
