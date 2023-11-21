@@ -22,8 +22,7 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"rebornix.ruby",
-				"wingrunr21.vscode-ruby",
+				"shopify.ruby-lsp",
 				"sissel.shopify-liquid",
 				"GitHub.copilot",
 				"GitHub.vscode-pull-request-github",
