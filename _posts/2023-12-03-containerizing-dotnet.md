@@ -1,5 +1,5 @@
 ---
-title: Containerizing .NET
+title: Containerizing .NET - Part 1
 type: post
 categories:
 - Development
@@ -9,7 +9,7 @@ tags:
 - containers
 - docker
 - devops
-permalink: /2023/12/03/containerizing-dotnet
+permalink: /2023/12/03/containerizing-dotnet-part-1
 header:
   teaser: /assets/images/dotnet-logo.png
   og_image: /assets/images/dotnet-logo.png
@@ -18,7 +18,7 @@ excerpt_separator: <!--more-->
 
 ![.NET]({{ site.url }}{{ site.baseurl }}/assets/images/dotnet-logo.png)
 
-# Containerizing .NET: Part 1 - A Guide to Dockerizing .NET Applications
+# Containerizing .NET: Part 1 - A Guide to Containerizing .NET Applications
 
 > This article is part of C# Advent 2023. For more articles in the series by other authors, visit [https://www.csadvent.christmas/](https://www.csadvent.christmas/).
 
