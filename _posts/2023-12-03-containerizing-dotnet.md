@@ -62,7 +62,7 @@ I won't go into all the details of a dockerfile or registries right now. We'll c
 
 ## Containerizing .NET with dotnet publish
 
-.NET has a built-in mechanism for building and packaging applications into Docker images. This approach is ideal for those who want to focus on application development rather than managing Docker images. We'll explore how to containerize .NET applications using `dotnet publish`. This method doesn't require a Dockerfile. This approach is ideal for those who want to focus on application development rather than managing Docker images.
+.NET has a built-in mechanism for building and packaging applications into Docker images. This approach is ideal for those who want to focus on application development rather than managing Docker images. We'll explore how to containerize .NET applications using `dotnet publish`. This method doesn't require a Dockerfile. Instead, it uses a set of publish properties to build and package applications into Docker images. 
 
 Starting from scratch, we'll containerize a simple dotnet application using the dotnet CLI. 
 
@@ -109,7 +109,7 @@ To make our images smaller, we have a few options. The first is to choose a smal
 
 By introducing the `-p:ContainerFamily` parameter, we can specify the image family; And the `-p:ContainerRepository` parameter we can name our image. By leveraging image families like Alpine and Ubuntu Chiseled, we can significantly reduce the final image size without trimming or optimizing via Native AOT (Ahead of Time compilation). We'll cover those optimization techniques in a future article.
 
-### Alpine
+## Alpine
 
 Alpine Linux is a highly favored choice for container images, known for its lightweight nature and security-focused architecture. Its minimal footprint significantly enhances efficiency in resource usage, making it ideal for streamlined container images. This results in reduced overhead and improved performance in containerized applications. However, it's important to consider certain aspects when using Alpine:
 
@@ -241,7 +241,7 @@ This method eliminates the need to specify publish properties each time, as they
 
 Publishing .NET console apps as container images offers a range of options, like targeting specific Linux distributions or families. Each method has unique benefits in terms of size, security, compliance, composability, compatibility, and support. This approach signifies a move towards more specialized, purpose-built container images, shaping the future of cloud applications.
 
-Thank you for joining me on this exploration of .NET and containers. Stay tuned for more insights and guides in on Containerizing .NET!
+Thank you for joining me on this exploration of .NET and containers. Stay tuned for more insights and guides on containerizing .NET!
 
 ## Resources
 
