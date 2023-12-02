@@ -17,6 +17,7 @@ excerpt_separator: <!--more-->
 ---
 
 ![.NET]({{ site.url }}{{ site.baseurl }}/assets/images/dotnet-logo.png)
+
 # Containerizing .NET: Part 1 - A Guide to Dockerizing .NET Applications
 
 > This article is part of C# Advent 2023. For more articles in the series by other authors, visit [https://www.csadvent.christmas/](https://www.csadvent.christmas/).
@@ -247,5 +248,6 @@ Thank you for joining me on this exploration of .NET and containers. Stay tuned 
 - https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8#containers
 - https://learn.microsoft.com/en-us/dotnet/core/docker/build-container
 - https://learn.microsoft.com/en-us/dotnet/core/docker/publish-as-container
+- https://devblogs.microsoft.com/dotnet/announcing-dotnet-chiseled-containers/
 - https://canonical.com/blog/chiselled-ubuntu-ga
 - https://ubuntu.com/containers/chiselled/dotnet
