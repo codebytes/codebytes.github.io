@@ -20,6 +20,8 @@ excerpt_separator: <!--more-->
 
 # Dev Containers in Development Workflows
 
+> This article is part of the Festive Tech Calendar 2023. For more articles in the series by other authors, visit [https://festivetechcalendar.com/](https://festivetechcalendar.com/).
+
 Dev Containers can revolutionize the way we approach development environments, offering a fast, consistent setup across different projects. As a developer who uses Dev Containers in VS Code for various projects, I've experienced firsthand the benefits of having an environment that's ready to go as soon as I clone a project.
 
 I use Dev Containers in VS Code or GitHub Codespaces for all my development work. I have a Dev Container for each project I work on. This ensures that I have a consistent environment for each project. It also allows me to quickly get up and running with a new project. I don't have to worry about installing dependencies or setting up my environment. I can simply clone the project and start coding.
