@@ -24,6 +24,10 @@ excerpt_separator: <!--more-->
 
 This is the first in a series of articles on containerizing .NET applications. We'll explore how to containerize .NET applications using Dockerfiles and `dotnet publish`. Containers have become an essential part of the DevOps ecosystem, offering a lightweight, portable, and scalable solution for deploying applications. This process is crucial for developers looking to streamline app deployment in containerized environments, focusing on efficiency, security, compliance, and more.
 
+You can read the series of articles here:
+- [Containerizing .NET: Part 1 - A Guide to Containerizing .NET Applications](/2023/12/03/containerizing-dotnet-part-1)
+- [Containerizing .NET: Part 2 - Considerations](/2024/2/19/containerizing-dotnet-part-2)
+
 ## What are Containers?
 
 Containers are a lightweight, virtualized environment that provide an isolated space for running applications. Unlike traditional virtual machines that require a full-fledged operating system, containers share the host system's kernel but encapsulate an application's code, dependencies, and libraries in a self-contained unit. This encapsulation ensures uniform and consistent application performance across different computing environments.
