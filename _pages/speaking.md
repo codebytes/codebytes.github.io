@@ -18,18 +18,27 @@ You can find some of my previous talks and online engagements on YouTube at the 
 
 | Event | Date | Talks |
 | --- | --- | --- |
-| BSides Orlando 2023 | Oct 6, 2023 | Securely Deploying Infrastructure as Code | 
-| Techorama Netherlands 2023 | Oct 9-11, 2023 | SRE, Devops, and Platform Engineering: Unraveling the Differences<br>Kubernetes Resiliency |
-| NDC Porto | Oct 16-20, 2023 | Continuous Load Testing with GitHub Actions |
-| Longhorn PHP 2023 | Nov 2-4, 2023 | Working with DevContainers |
-| TechBash 2023 | Nov 7, 2023 | CI/CD with GitHub Actions (Workshop)<br>Securely developing Infrastructure as Code (Workshop) |
-| Agile + DevOps East 2023 | Nov 9, 2023 | Securely developing Infrastructure as Code |
-| Live360! Orlando | Nov 13-17, 2023 | Achieving SRE (Site Resiliency Engineering) with Azure<br>Master Azure Resources Like Marvel's Lord Chaos |
+| 90 Days of DevOps | Dec, 2023 | Working with DevContainers |
+| NDC Sydney 2024 | Feb 12-16, 2024 | NET in a Box: Containerizing .NET Applications |
+| Orlando Code Camp 2024 | Feb 24, 2024 | NET in a Box: Containerizing .NET Applications |
+| PowerShell + DevOps Summit 2024 | Apr 8-11, 2024 | CI/CD With GitHub Actions<br/>SRE, DevOps, and Platform Engineering: Unraveling the Differences |
 
 ## Past Events
 
 | Event | Date | Talks |
 | --- | --- | --- |
+| Festive Tech Calendar | Dec 27, 2023 | Dev Containers in VS Code |
+| Granite State Code Camp 2023 | Dec 2, 2023 | CI/CD with Github Actions |
+| Live360! Orlando | Nov 13-17, 2023 | Achieving SRE (Site Resiliency Engineering) with Azure<br>Master Azure Resources Like Marvel's Lord Chaos<br>Cloud & Containers Live! Panel Discussion: Past the Hype: Cloud in the Mainstream |
+| .NET Conf 2023 | Nov 16, 2023 | .NET Configuration In Depth |
+| Agile + DevOps East 2023 | Nov 9, 2023 | Securely developing Infrastructure as Code |
+| TechBash 2023 | Nov 7, 2023 | CI/CD with GitHub Actions (Workshop)<br>Securely developing Infrastructure as Code (Workshop) |
+| Longhorn PHP 2023 | Nov 2-4, 2023 | Working with DevContainers |
+| Tampa Code Camp 2023 | Oct 28, 2023 | Working with DevContainers<br>Starting An Allyship Journey |
+| 2023 All Day DevOps | Oct 26, 2023 | Working with DevContainers |
+| NDC Porto | Oct 16-20, 2023 | Continuous Load Testing with GitHub Actions |
+| Techorama Netherlands 2023 | Oct 9-11, 2023 | SRE, Devops, and Platform Engineering: Unraveling the Differences<br>Kubernetes Resiliency |
+| BSides Orlando 2023 | Oct 6, 2023 | Securely Deploying Infrastructure as Code | 
 | DevOps Days Tampa Bay 2023 | Sep 21, 2023 | Lead Organizer: https://devopsdays.org/events/2023-tampa/welcome/ |
 | Atlanta Developer Conference 2023 | Sep 9, 2023 | Working with Dev Containers |
 | AutomationSTAR Online | Sep 15, 2023 | Testing with Playwright |
