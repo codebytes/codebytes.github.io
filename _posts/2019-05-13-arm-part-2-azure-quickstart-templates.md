@@ -30,13 +30,13 @@ If you missed [part 1](http://chris-ayers.com/arm-azure-resource-manager), read 
 
 ## Let's Write an ARM Template
 
-I know what I want to do, write an ARM Template. Do I have any idea what I'm doing or where to start at this point? **No.** Fortunately for me, Microsoft provides a **BUNCH** of resources to get you started. There is an [entire searchable quickstart page](https://azure.microsoft.com/en-us/resources/templates/) with examples (backed by a [github repo](https://www.github.com/Azure/azure-quickstart-templates)) as well the [Microsoft Docs on ARM Templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates).
+I know what I want to do, write an ARM Template. Do I have any idea what I'm doing or where to start at this point? **No.** Fortunately for me, Microsoft provides a **BUNCH** of resources to get you started. There is an [entire searchable quickstart page](https://azure.microsoft.com/en-us/resources/templates/) with examples (backed by a [GitHub repo](https://www.github.com/Azure/azure-quickstart-templates)) as well the [Microsoft Docs on ARM Templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates).
 
 Well, I found one in the quickstart: [https://learn.microsoft.com/en-us/azure/app-service/quickstart-arm-template?pivots=platform-windows](https://learn.microsoft.com/en-us/azure/app-service/quickstart-arm-template?pivots=platform-windows). From this quickstart, I can click Deploy to Azure, fill out some information and I've got an App Service Plan and a Web App. **This is so cool.** Now to tear this thing apart and figure out what it is.
 
 ## Ok, Lets play with an ARM Template
 
-In the [github repo](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-basic-windows) it looks like there are 2 or 3 files that make up the ARM Template.
+In the [GitHub repo](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-basic-windows) it looks like there are 2 or 3 files that make up the ARM Template.
 
 ### Dissection
 

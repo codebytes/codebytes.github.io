@@ -227,7 +227,7 @@ vscode ➜ /workspaces/secure-terraform-on-azure/ (main) $ tfsec --print-rego-in
 }
 ```
 
-I used this output to develop the policy. I had a few issues with the samples from the docs, and there is an open github issue. To run the rego policies with tfsec, you have to pass the `--rego-policy-dir` command like this:
+I used this output to develop the policy. I had a few issues with the samples from the docs, and there is an open GitHub issue. To run the rego policies with tfsec, you have to pass the `--rego-policy-dir` command like this:
 
 ```bash
 vscode ➜ /workspaces/secure-terraform-on-azure (main) $ tfsec --rego-policy-dir ./tfsec_rego_policies/ ./custom_checks_examples/keyvault/ 

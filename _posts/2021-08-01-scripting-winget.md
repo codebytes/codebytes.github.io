@@ -21,7 +21,7 @@ I've played with winget, as part of the Windows Insider program. It was first an
 
 ## What is Winget?
 
-WinGet is the cli tool for the Windows Package Manager, found [here](https://github.com/microsoft/winget-cli). For a while, the only way to install it was to be a Windows Insider. I've also been able to use `winget` after fully updating a Windows 10 machine. You can also install it directly from GitHub.
+WinGet is the command-line tool for the Windows Package Manager, found [here](https://github.com/microsoft/winget-cli). For a while, the only way to install it was to be a Windows Insider. I've also been able to use `winget` after fully updating a Windows 10 machine. You can also install it directly from GitHub.
 
 ### What can Winget do?
 
@@ -37,13 +37,13 @@ Let's say i'm not sure what packages there are. I can run `winget search` and ge
 
 #### Showing Package information
 
-You can then show more details about a package, including publisher, url, and hash.
+You can then show more details about a package, including publisher, URL, and hash.
 
 {% include figure image_path="/assets/images/winget-show.png" alt="Winget show" caption="Winget show" %}
 
 #### Installing, Uninstalling and Updating Packages
 
-Installing packages is very easy, typically I just `winget install X`. This are options for using monikers (vscode) or full ids (Microsoft.VSCode) as well.
+Installing packages is very easy, typically I just `winget install X`. This are options for using monikers (vscode) or full IDs (Microsoft.VSCode) as well.
 
 {% include figure image_path="/assets/images/winget-install.png" alt="Winget install" caption="Winget install" %}
 
@@ -142,7 +142,7 @@ Finally I built up a list of packages to install. I'm using the `winget` command
 
 ### Removing Packages
 
-We can also remove unused windows applications that are installed by default. I combined some of the script found here as well: [Uninstalling windows store apps using PowerShell](https://www.cloudappie.nl/uninstall-windows-store-apps-powershell/). I don't usually use the 3d printing apps, or the mixed reality stuff so they can go. And I don't care about the solitaire collection.
+We can also remove unused windows applications that are installed by default. I combined some of the script found here as well: [Uninstalling windows store apps using PowerShell](https://www.cloudappie.nl/uninstall-windows-store-apps-powershell/). I don't usually use the 3D printing apps, or the mixed reality stuff so they can go. And I don't care about the solitaire collection.
 
 ```powershell
     #Remove Apps
