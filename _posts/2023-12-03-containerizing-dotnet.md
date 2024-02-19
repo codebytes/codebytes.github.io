@@ -251,9 +251,9 @@ Thank you for joining me on this exploration of .NET and containers. Stay tuned 
 
 ## Resources
 
-- https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8#containers
-- https://learn.microsoft.com/en-us/dotnet/core/docker/build-container
-- https://learn.microsoft.com/en-us/dotnet/core/docker/publish-as-container
-- https://devblogs.microsoft.com/dotnet/announcing-dotnet-chiseled-containers/
-- https://canonical.com/blog/chiselled-ubuntu-ga
-- https://ubuntu.com/containers/chiselled/dotnet
+- [https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8#containers](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8#containers)
+- [https://learn.microsoft.com/en-us/dotnet/core/docker/build-container](https://learn.microsoft.com/en-us/dotnet/core/docker/build-container)
+- [https://learn.microsoft.com/en-us/dotnet/core/docker/publish-as-container](https://learn.microsoft.com/en-us/dotnet/core/docker/publish-as-container)
+- [https://devblogs.microsoft.com/dotnet/announcing-dotnet-chiseled-containers/](https://devblogs.microsoft.com/dotnet/announcing-dotnet-chiseled-containers/)
+- [https://canonical.com/blog/chiselled-ubuntu-ga](https://canonical.com/blog/chiselled-ubuntu-ga)
+- [https://ubuntu.com/containers/chiselled/dotnet](https://ubuntu.com/containers/chiselled/dotnet)

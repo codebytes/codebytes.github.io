@@ -28,7 +28,7 @@ header:
 - [Simon Lee](https://twitter.com/smoon_lee)
 - [Lisa Hoving](https://twitter.com/Lizaard08)
 
-**Look for the hashtag #FestiveTechCalendar2022 on social media! Make sure to check out everyone else's work when you're done here**
+**Look for the hashtag `#FestiveTechCalendar2022` on social media! Make sure to check out everyone else's work when you're done here**
 
 This is part 1 of the Secure Terraform series. You can read the series of articles here:
 

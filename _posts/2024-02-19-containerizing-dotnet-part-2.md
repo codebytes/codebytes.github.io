@@ -140,6 +140,8 @@ In the realm of containerization, adherence to stringent security and compliance
 
 ### Distributed Application Runtime (DAPR)
 
+![DAPR]({{ site.url }}{{ site.baseurl }}/assets/images/dapr-logo.png)
+
 DAPR (Distributed Application Runtime) has emerged as a transformative tool, simplifying the development of distributed applications. DAPR abstracts complex tasks such as state management, service discovery, and messaging into straightforward, consistent APIs, enabling developers to focus on business logic rather than infrastructure concerns. This abstraction is particularly beneficial in a containerized environment, where applications must be flexible, scalable, and capable of running across diverse platforms.
 
 DAPR's cloud-agnostic design ensures seamless integration with various cloud services, including Azure, without locking developers into a specific ecosystem. It supports dynamic configuration and facilitates local development, mirroring cloud environments on developers' machines. By decoupling application logic from infrastructure intricacies, DAPR enhances portability and eases the transition of .NET applications into the cloud-native landscape, making it an indispensable tool for developers navigating the complexities of modern application development.

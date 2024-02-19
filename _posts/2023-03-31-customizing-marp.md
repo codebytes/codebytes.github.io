@@ -126,7 +126,7 @@ section {
 }
 ```
 
-The crucial aspect for the Marp theme engine is the theme directive: /* @theme custom-default */. This theme name is what you'll use in your slides. To link it to your Markdown file, apply the theme option in the front matter:
+The crucial aspect for the Marp theme engine is the theme directive: `@theme custom-default`. This theme name is what you'll use in your slides. To link it to your Markdown file, apply the theme option in the front matter:
 
 ```markdown
 ---
@@ -288,7 +288,7 @@ To use Mermaid diagrams in your Marp presentation, you need to add the following
 
 You can then create Mermaid diagrams using the div element with the mermaid class. For example:
 
-```
+```md
 # Mermaid
 
 <div class="mermaid">
