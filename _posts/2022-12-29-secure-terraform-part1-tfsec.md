@@ -28,10 +28,11 @@ header:
 - [Simon Lee](https://twitter.com/smoon_lee)
 - [Lisa Hoving](https://twitter.com/Lizaard08)
 
-**Look for the hashtag #FestiveTechCalendar2022 on social media! Make sure to check out everyone else's work when you're done here**
+**Look for the hashtag `#FestiveTechCalendar2022` on social media! Make sure to check out everyone else's work when you're done here**
 
-This is part 1 of the Secure Terraform series. You can read the series of articles here: 
-- [Secure Terraform - Part 1 - tfsec](/2022/12/29/secure-terraform-part1-tfsec) 
+This is part 1 of the Secure Terraform series. You can read the series of articles here:
+
+- [Secure Terraform - Part 1 - tfsec](/2022/12/29/secure-terraform-part1-tfsec)
 - [Secure Terraform - Part 2 - tfsec customization](/2023/01/29/secure-terraform-part2-tfsec-customization)
 - [Secure Terraform - Part 3 - terrascan](/2023/03/22/secure-terraform-part3-terrascan)
 - [Secure Terraform - Part 4 - checkov](/2023/03/24/secure-terraform-part4-checkov)
@@ -54,13 +55,13 @@ Today we are going to look at a one of these tools, tfsec, and how we can levera
 
 ![tfsec logo](/assets/images/tfsec-logo.png)
 
-Let's start with tfsec by aquasecurity. Aquasecurity supports multiple amazing tools like [trivy](https://trivy.dev/) and [tfsec](https://tfsec.dev). Tfsec is an open-source tool available on GitHub at [https://github.com/aquasecurity/tfsec](https://github.com/aquasecurity/tfsec). The docs are hosted at: [https://aquasecurity.github.io/tfsec/](https://aquasecurity.github.io/tfsec/). There are some great guides for installing it and configuring it for GitHub Actions. Tfsec even has an integration with GitHub Advanced security to show the results of the scan in the security tab of the repo.
+Let's start with tfsec by aquasecurity. Aquasecurity supports multiple amazing tools like [trivy](https://trivy.dev/) and [tfsec](https://tfsec.dev). Tfsec is an open-source tool available on GitHub at [https://github.com/aquasecurity/tfsec](https://github.com/aquasecurity/tfsec). The docs are hosted at: [https://aquasecurity.github.io/tfsec/](https://aquasecurity.github.io/tfsec/). There are some great guides for installing it and configuring it for GitHub Actions. Tfsec even has an integration with GitHub Advanced security to show the results of the scan in the security tab of the repository.
 
 ### Installation
 
-We can run tfsec from a docker container or we can install it locally via homebrew, chocolatey, go, or the [releases page](https://github.com/aquasecurity/tfsec/releases). 
+We can run tfsec from a docker container or we can install it locally via homebrew, chocolatey, go, or the [releases page](https://github.com/aquasecurity/tfsec/releases).
 
-After tfsec is installed (or docker is setup), we can run it against our Terraform code. Running it with defaults is quite easy, just invoking the command `tfsec` will run it against the current directory. If it finds files it will scan them and output the results. By default it checks all rules and outputs all severities found. 
+After tfsec is installed (or docker is setup), we can run it against our Terraform code. Running it with defaults is quite easy, just invoking the command `tfsec` will run it against the current directory. If it finds files it will scan them and output the results. By default it checks all rules and outputs all severities found.
 
 ### Running tfsec
 
@@ -130,11 +131,11 @@ Result #1 CRITICAL Storage account uses an insecure TLS version.
   7 passed, 1 potential problem(s) detected.
   ```
 
-As you can see, tfsec found a potential problem with the TLS version being used. This could be a critical issue and should be addressed. We can see the ID of the rule, the impact, and the resolution. We can also see a link to the documentation for the rule and the link to the documentation for the resource. 
+As you can see, tfsec found a potential problem with the TLS version being used. This could be a critical issue and should be addressed. We can see the ID of the rule, the impact, and the resolution. We can also see a link to the documentation for the rule and the link to the documentation for the resource.
 
-I can also apply a custom configuration to tfsec to fine tune how I want to scan my code. This can be either a file I pass to tfsec or a config.json or config.yml inside a .tfsec directory. We could override the minimum severity to only show critical issues, or we could ignore a specific rule. 
+I can also apply a custom configuration to tfsec to fine tune how I want to scan my code. This can be either a file I pass to tfsec or a config.json or config.yml inside a .tfsec directory. We could override the minimum severity to only show critical issues, or we could ignore a specific rule.
 
-If I had misconfigured my storage account to accept traffic on http instead of https, tfsec would have found that as well. But maybe I don't agree with the default severity of that rule. I can override the severity of the rule to be critical instead of high. 
+If I had misconfigured my storage account to accept traffic on http instead of HTTPS, tfsec would have found that as well. But maybe I don't agree with the default severity of that rule. I can override the severity of the rule to be critical instead of high.
 
 ```yml
 severity_overrides:
@@ -142,7 +143,7 @@ severity_overrides:
 minimum_severity: MEDIUM
 ```
 
-I've got a few simple misconfigurations checked into my sample repo at [secure-terraform-on-azure](https://github.com/Codebytes/secure-terraform-on-azure). They aren't on the main branch, but the [demos](https://github.com/Codebytes/secure-terraform-on-azure/tree/demos) branch.
+I've got a few simple misconfigurations checked into my sample repository at [secure-terraform-on-azure](https://github.com/Codebytes/secure-terraform-on-azure). They aren't on the main branch, but the [demos](https://github.com/Codebytes/secure-terraform-on-azure/tree/demos) branch.
 
 ### VSCode
 
@@ -150,11 +151,11 @@ What about adding tfsec to VSCode? Well, we can install the [tfsec extension](ht
 
 {%  include figure image_path="/assets/images/tfsec-extension-errors.png" alt="tfsec extension in vscode" caption="tfsec extension in vscode" %}
 
-Great! Now we can see the issues right in our editor. But what if we forget to check the problems? How do we catch the issues and resolve them in our pipeline? 
+Great! Now we can see the issues right in our editor. But what if we forget to check the problems? How do we catch the issues and resolve them in our pipeline?
 
 ### GitHub Actions
 
-Aquasecurity has provided a few GitHub Actions and sample workflows to scan our terraform during every pull request. We can use the [tfsec-action](https://github.com/marketplace/actions/tfsec-action) to scan our code. 
+Aquasecurity has provided a few GitHub Actions and sample workflows to scan our terraform during every pull request. We can use the [tfsec-action](https://github.com/marketplace/actions/tfsec-action) to scan our code.
 
 ```yml
 name: tfsec
@@ -169,31 +170,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clone repo
+      - name: Clone repository
         uses: actions/checkout@master
       - name: tfsec
         uses: aquasecurity/tfsec-action@v1.0.0
 ```
 
 Now because I've got some tf nested, I added the following line:
+
 ```yml
           additional_args: --force-all-dirs
 ```
+
 All of the available options and parameters are documented on the actions page.
 
-This will run tfsec against our repo on every check-in to main and every pull request. If we have insecure code, it will fail the workflow.
+This will run tfsec against our repository on every check-in to main and every pull request. If we have insecure code, it will fail the workflow.
 
 {% include figure image_path="/assets/images/tfsec-workflow-errors.png" alt="Failing build on GitHub" caption="Failing build on GitHub" %}
 
-There is another action, [tfsec-pr-commenter-action](https://github.com/marketplace/actions/run-tfsec-pr-commenter) that is supposed to automatically add comments to the pull request with the results of the scan. I haven't been able to get it to work because of my file nesting, but I'm sure it will be fixed soon. 
+There is another action, [tfsec-pr-commenter-action](https://github.com/marketplace/actions/run-tfsec-pr-commenter) that is supposed to automatically add comments to the pull request with the results of the scan. I haven't been able to get it to work because of my file nesting, but I'm sure it will be fixed soon.
 
 ### Pre-commit Hooks
 
 The last thing I want to talk about is pre-commit hooks. Pre-commit hooks are a way to run a script or command before you commit your code. This is a great way to make sure you don't commit any code that doesn't pass your checks.
 
-There is a great framework for running pre-commit hooks called [pre-commit](https://pre-commit.com/). It is a python package that you can install with pip. Once you have it installed, you can add a .pre-commit-config.yaml file to your repo. This file will contain the hooks you want to run. 
+There is a great framework for running pre-commit hooks called [pre-commit](https://pre-commit.com/). It is a python package that you can install with pip. Once you have it installed, you can add a .pre-commit-config.yaml file to your repository. This file will contain the hooks you want to run.
 
-There is a project for setting up pre-commit hooks to scan terraform. It is called [pre-commit-terraform](https://github.com/antonbabenko/pre-commit-terraform#terraform_tfsec). It will run tfsec against your code and fail the commit if there are any issues. 
+There is a project for setting up pre-commit hooks to scan terraform. It is called [pre-commit-terraform](https://github.com/antonbabenko/pre-commit-terraform#terraform_tfsec). It will run tfsec against your code and fail the commit if there are any issues.
 
 This runs BEFORE you code gets committed and before it gets pushed to GitHub. Your CI/CD workflow will never run if the pre-commit hook blocks the commit.
 

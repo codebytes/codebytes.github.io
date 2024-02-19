@@ -30,7 +30,12 @@ jobs:
       - name: update _config.yaml
         uses: mikefarah/yq@master
         with: 
-          cmd: yq -i '.appinsights="${{ secrets.APP_INSIGHTS_CONNECTION_STRING }}" | .analytics.provider="${{ secrets.ANALYTICS_PROVIDER }}" | .analytics.google.tracking_id="${{ secrets.GOOGLE_TRACKING_ID }}" | .clarity="${{ secrets.CLARITY_CODE }}"' _config.yml
+          cmd: yq -i '.appinsights="${{ secrets.APP_INSIGHTS_CONNECTION_STRING }}" |\
+            .analytics.provider="${{ secrets.ANALYTICS_PROVIDER }}" |\
+            .analytics.google.tracking_id="${{ secrets.GOOGLE_TRACKING_ID }}" |\
+            .clarity="${{ secrets.CLARITY_CODE }}"' |\
+            .algolia.search_only_api_key="${{ secrets.ALGOLIA_SEARCH_ONLY_API_KEY }}"' |\
+            _config.yml
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Build with Jekyll

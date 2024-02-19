@@ -69,7 +69,7 @@ Statics are always a problem because statics can't be mocked or faked. Another i
 
 ## Interfaces
 
-I feel it is very important to have interfaces define the contracts between layers and systems. Having _FOO_ depend on _BAR_ means that _FOO_ might change every time we modify the implementation of _BAR_. If _FOO_ depends on _IBAR_, the api contract of _BAR_, we can have multiple implementations, change the implementation or mock it. The interface insulates _FOO_ from the changes in _BAR_. In addition to reducing coupling between modules, it will help with testability and refactoring down the road.
+I feel it is very important to have interfaces define the contracts between layers and systems. Having _FOO_ depend on _BAR_ means that _FOO_ might change every time we modify the implementation of _BAR_. If _FOO_ depends on _IBAR_, the API contract of _BAR_, we can have multiple implementations, change the implementation or mock it. The interface insulates _FOO_ from the changes in _BAR_. In addition to reducing coupling between modules, it will help with testability and refactoring down the road.
 
 ## Types of Dependency Injection
 
@@ -100,7 +100,7 @@ This involves moving dependencies to the constructor where possible. This is a l
             _emailProvider.SendDeleteConfirmation(id);
         }
     }
-```    
+```
 
 ### Parameter Injection
 
@@ -154,7 +154,7 @@ Use property injection only for optional dependencies. That means your service s
 
 ## DI Containers
 
-Having all our dependencies in the constructor is nice, but _who_ is going to new up our services? With most DI frameworks, you register your interfaces and services at program startup with a DI container, and everything is wired up for you. You can control the wiring process. Should service A be a singleton? Should service B be instantiated on every call? Dotnet core has built in support for DI containers. And before dotnet core, the .Net Framework had a lot of different libraries and frameworks to help with dependency injection. You might have heard of Ninject, Autofac, Castle, or Unity. Dotnet core has some [good documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.0) around their implementation, but if you want to you something else you can.
+Having all our dependencies in the constructor is nice, but _who_ is going to new up our services? With most DI frameworks, you register your interfaces and services at program startup with a DI container, and everything is wired up for you. You can control the wiring process. Should service A be a singleton? Should service B be instantiated on every call? Dotnet core has built-in support for DI containers. And before dotnet core, the .Net Framework had a lot of different libraries and frameworks to help with dependency injection. You might have heard of Ninject, Autofac, Castle, or Unity. Dotnet core has some [good documentation](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.0) around their implementation, but if you want to you something else you can.
 
 ```cs
     services.AddScoped<IMyDependency, MyDependency>();

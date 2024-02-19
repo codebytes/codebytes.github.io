@@ -64,6 +64,7 @@ To create a new profile in VS Code, you can use two different methods.
 {% include figure image_path="/assets/images/vscode-profiles-manage.png" alt="Profiles in the Manage menu" caption="Profiles in the Manage menu" %}
 
 2) Via the Command Palette, follow these steps:
+
   1. Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS) and search for the "Profile:" command.
   2. You can create, delete, export, and more from here.
 {% include figure image_path="/assets/images/vscode-profiles-palette.png" alt="Profiles in the Command Palette" caption="Profiles in the Command Palette" %}

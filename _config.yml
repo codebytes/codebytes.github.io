@@ -72,7 +72,7 @@ lunr:
 algolia:
   application_id: "K4SQKA6GLC"
   index_name: "codebytes"
-  search_only_api_key: "1091922810703fa1af45c321d1710e4e"
+  search_only_api_key: 
   powered_by: true
 # SEO Related
 google_site_verification:

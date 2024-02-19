@@ -17,10 +17,10 @@ header:
 excerpt_separator: <!--more-->
 ---
 
-This is part 1 of the [MARP](https://github.com/marp-team/marp) series. You can read the series of articles here: 
-- [Marp - Create Presentations with Markdown](/2023/03/26/marp-create-presentations-with-markdown) 
-- [Unleash Your Creativity with Marp Presentation Customization](/2023/03/31/customizing-marp)
+This is part 1 of the [MARP](https://github.com/marp-team/marp) series. You can read the series of articles here:
 
+- [Marp - Create Presentations with Markdown](/2023/03/26/marp-create-presentations-with-markdown)
+- [Unleash Your Creativity with Marp Presentation Customization](/2023/03/31/customizing-marp)
 
 ## Introduction
 
@@ -32,7 +32,7 @@ Marp is a powerful and user-friendly presentation framework that simplifies the 
 
 {% include figure image_path="/assets/images/marp-logo.png" alt="Marp Logo" caption="Marp Logo" %}
 
-Marp is an open-source presentation framework that allows you to create beautiful, customizable slide decks using the simplicity and flexibility of Markdown. By harnessing the power of Markdown, Marp enables you to focus on your content and message without getting bogged down in complex formatting and design choices. Marp has CLI and VS Code extensions, and it supports exporting presentations to various formats, including HTML, PDF, and PowerPoint. 
+Marp is an open-source presentation framework that allows you to create beautiful, customizable slide decks using the simplicity and flexibility of Markdown. By harnessing the power of Markdown, Marp enables you to focus on your content and message without getting bogged down in complex formatting and design choices. Marp has CLI and VS Code extensions, and it supports exporting presentations to various formats, including HTML, PDF, and PowerPoint.
 
 ## Why Use Marp?
 
@@ -48,7 +48,7 @@ There are several reasons why you might want to consider using Marp for your pre
 
 ## Working with Marp
 
-For me, the ideal way to interact and work with Marp is through the [Marp for VS Code extension](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode). This extension provides a seamless workflow for creating and editing presentations in Visual Studio Code. It also offers real-time previews, allowing you to see your presentation as you write it. 
+For me, the ideal way to interact and work with Marp is through the [Marp for VS Code extension](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode). This extension provides a seamless workflow for creating and editing presentations in Visual Studio Code. It also offers real-time previews, allowing you to see your presentation as you write it.
 
 {% include figure image_path="/assets/images/vscode-editing-marp.png" alt="vscode editing marp" caption="vscode editing marp" %}
 
@@ -99,11 +99,11 @@ Once you've added the content to VSCode with Marp, your presentation will look l
 ## Official Themes and Resources
 
 Marp comes with a few [built-in themes](https://github.com/marp-team/marp-core/tree/main/themes) that you can use as a starting point for your custom themes or as inspiration for your own designs. You can also refer to the Marpit documentation for more information on styling Marp presentations.
-There is good documentation on [image sizing and positioning](https://marpit.marp.app/image-syntax) on the Marp website.
+There is good documentation on [image sizing and positioning](https://marpit.marp.app/image-syntax) on the Marp site.
 
 ## GitHub Pages and Marp
 
-I have created a GitHub repo for each of my talks. For each talk, I have a `slides` folder that contains the Markdown files for the presentation. All images are stored in `slides/img`. I use GitHub Pages to host the HTML files, which allows me to share the presentation with others. I use a GitHub Actions workflow that automatically builds and publishes the presentation to GitHub Pages whenever I push changes to the slides folder. This workflow is shown below:
+I have created a GitHub repository for each of my talks. For each talk, I have a `slides` folder that contains the Markdown files for the presentation. All images are stored in `slides/img`. I use GitHub Pages to host the HTML files, which allows me to share the presentation with others. I use a GitHub Actions workflow that automatically builds and publishes the presentation to GitHub Pages whenever I push changes to the slides folder. This workflow is shown below:
 
 ```yaml
 name: Deploy marp site to Pages
@@ -157,7 +157,7 @@ jobs:
 
 ## Marp Template
 
-I've created a [marp-slides-template](https://github.com/codebytes/marp-slides-template), which provides a minimal template to create a Marp site that can be built and published on GitHub Pages. This template comes with a GitHub Pages / Actions workflow, allowing you to easily build and publish your Marp presentation on GitHub Pages. With this template, you can quickly create and customize your presentation, preview it in Visual Studio Code using the Marp extension, and then share it with the world by publishing it to GitHub Pages. You can [use the template](https://github.com/codebytes/marp-slides-template/generate) by clicking on the link or visiting the repo and clicking on the "Use this template" button.
+I've created a [marp-slides-template](https://github.com/codebytes/marp-slides-template), which provides a minimal template to create a Marp site that can be built and published on GitHub Pages. This template comes with a GitHub Pages / Actions workflow, allowing you to easily build and publish your Marp presentation on GitHub Pages. With this template, you can quickly create and customize your presentation, preview it in Visual Studio Code using the Marp extension, and then share it with the world by publishing it to GitHub Pages. You can [use the template](https://github.com/codebytes/marp-slides-template/generate) by clicking on the link or visiting the repository and clicking on the "Use this template" button.
 
 ## Conclusion
 
@@ -178,7 +178,7 @@ Marp is a powerful, flexible, and user-friendly presentation framework that simp
 
 For more information on Marp and to dive deeper into its features and capabilities, check out the following resources:
 
-- CommonMark markdown syntax: [https://commonmark.org/help/](https://commonmark.org/help/)
+- CommonMark Markdown syntax: [https://commonmark.org/help/](https://commonmark.org/help/)
 
 - Marp Official Repository: [https://github.com/marp-team/marp](https://github.com/marp-team/marp)
 - Marp Official Documentation: [https://marpit.marp.app/markdown](https://marpit.marp.app/markdown)

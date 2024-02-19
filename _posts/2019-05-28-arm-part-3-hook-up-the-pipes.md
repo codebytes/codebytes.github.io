@@ -15,15 +15,15 @@ header:
   teaser: /assets/images/arm-logo.png
   og_image: /assets/images/arm-logo.png
 ---
-I’ve got a template straight from Microsoft. I want this wired into a CI/CD pipeline to I can play around and get quick feedback. I’m going to use Azure DevOps to help make all this possible. Let's get those templates into a repo to get started. New repo, initialize it, add new files.
+I’ve got a template straight from Microsoft. I want this wired into a CI/CD pipeline to I can play around and get quick feedback. I’m going to use Azure DevOps to help make all this possible. Let's get those templates into a repository to get started. New repository, initialize it, add new files.
 
-{% include figure image_path="/assets/images/repoimport.png" alt="A new repo on Azure DevOps" caption="A new repo on Azure DevOps." %}
+{% include figure image_path="/assets/images/repoimport.png" alt="A new repository on Azure DevOps" caption="A new repository on Azure DevOps." %}
 
 Next, I'm going to create a new resource group to play around with my web app resources.
 
 {% include figure image_path="/assets/images/newresourcegroup-3.png" alt="A new Azure Resource Group." caption="A new Azure Resource Group." %}
 
-Now we need to make sure DevOps has permission to create and update resources in Azure. This can be done in a few different ways as described here: https://docs.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure?view=azure-devops
+Now we need to make sure DevOps has permission to create and update resources in Azure. This can be done in a few different ways as described here: [https://docs.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure?view=azure-devops](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure?view=azure-devops).
 
 I'm going to setup a service connection from DevOps to Azure. In Azure Devops, I'm going to go to my project settings:
 

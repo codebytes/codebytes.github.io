@@ -9,6 +9,7 @@ tags:
 permalink: "/2022/01/02/presenting-best-practices-part-1/"
 excerpt_separator: <!--more-->
 ---
+<!-- textlint-disable terminology -->
 
 {% include figure image_path="/assets/images/51382972555_0ceb282aee_o.jpg" alt="Presenting at THAT Conference 2020" caption="Presenting at THAT Conference 2020" %}
 
@@ -72,9 +73,7 @@ Until Next Time.
 
 I would like to give a few recommendations that will go deeper into many of these topics. These books are great additions for thinking about not only content, but how to present it.
 
-*   [Docs for Developers](https://docsfordevelopers.com/)
-*   [slide:ology: The Art and Science of Creating Great Presentations](https://www.duarte.com/books/slideology/)
-*   [Presentation Zen](https://www.presentationzen.com/)
-*   [Confessions of a Public Speaker by Scott Berkun](https://scottberkun.com/the-books/confessions-of-a-public-speaker/)
-
-
+- [Docs for Developers](https://docsfordevelopers.com/)
+- [slide:ology: The Art and Science of Creating Great Presentations](https://www.duarte.com/books/slideology/)
+- [Presentation Zen](https://www.presentationzen.com/)
+- [Confessions of a Public Speaker by Scott Berkun](https://scottberkun.com/the-books/confessions-of-a-public-speaker/)

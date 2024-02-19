@@ -17,8 +17,9 @@ header:
   og_image: /assets/images/tfsec-logo.png
 ---
 
-This is part 2 of the Secure Terraform series. You can read the series of articles here: 
-- [Secure Terraform - Part 1 - tfsec](/2022/12/29/secure-terraform-part1-tfsec) 
+This is part 2 of the Secure Terraform series. You can read the series of articles here:
+
+- [Secure Terraform - Part 1 - tfsec](/2022/12/29/secure-terraform-part1-tfsec)
 - [Secure Terraform - Part 2 - tfsec customization](/2023/01/29/secure-terraform-part2-tfsec-customization)
 - [Secure Terraform - Part 3 - terrascan](/2023/03/22/secure-terraform-part3-terrascan)
 - [Secure Terraform - Part 4 - checkov](/2023/03/24/secure-terraform-part4-checkov)
@@ -32,11 +33,11 @@ In the previous article, we discussed tfsec, a static code analysis tool for Ter
 
 ## Customizing tfsec Rules
 
-Tfsec allows you to customize the rules that are used to scan your Terraform code. You can do this by creating a file ending in `_tfchecks.json` or `_tfchecks.yaml` in the .tfsec folder in the root of project. You can also put these files in a different folder and pass the option `--custom-check-dir` or `--custom-check-url` to the tfsec command. This is covered in the documentation: https://aquasecurity.github.io/tfsec/v1.28.1/guides/configuration/custom-checks/.
+Tfsec allows you to customize the rules that are used to scan your Terraform code. You can do this by creating a file ending in `_tfchecks.json` or `_tfchecks.yaml` in the .tfsec folder in the root of project. You can also put these files in a different folder and pass the option `--custom-check-dir` or `--custom-check-url` to the tfsec command. This is covered in the documentation: [https://aquasecurity.github.io/tfsec/v1.28.1/guides/configuration/custom-checks/](https://aquasecurity.github.io/tfsec/v1.28.1/guides/configuration/custom-checks/).
 
-The documentation references a tool called `tfsec-checkgen` that you can install. This tool will validate your check file or help perform tests to ensure that it is valid for use with tfsec. I found that the tool helped me create and validate checks but not run the `test-check` action. 
+The documentation references a tool called `tfsec-checkgen` that you can install. This tool will validate your check file or help perform tests to ensure that it is valid for use with tfsec. I found that the tool helped me create and validate checks but not run the `test-check` action.
 
-In this post, we will take a look at how to create a few different custom rules. The first rule we'll work on is for a required tag for our Azure resources. There is an example of this in the tfsec documentation, but its for AWS. 
+In this post, we will take a look at how to create a few different custom rules. The first rule we'll work on is for a required tag for our Azure resources. There is an example of this in the tfsec documentation, but its for AWS.
 
 ```yaml
 ---
@@ -88,7 +89,7 @@ checks:
   - https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging
 ```
 
-I've changed the name to `tags-resources` to make it more descriptive. I've also changed the requiredLabels to include the resources I want to check for the tag. This rule will only trigger on the resource types listed under requiredLabels.  I've also changed the severity to HIGH. I've also added a link to the Azure Best Practices for Resource Tagging. 
+I've changed the name to `tags-resources` to make it more descriptive. I've also changed the requiredLabels to include the resources I want to check for the tag. This rule will only trigger on the resource types listed under requiredLabels.  I've also changed the severity to HIGH. I've also added a link to the Azure Best Practices for Resource Tagging.
 
 This is saved to ```.tfsec/custom_tfchecks.yaml```. The tfsec vscode extension we installed before will automatically pick up the new rule. We can see it highlighting the code with an issue and showing up in the results screen.
 
@@ -121,7 +122,7 @@ Let's try something a little more complex. We can try to enforce a naming scheme
   - https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming
 ```
 
-This rule, only checks against resource groups as identified by the `requiredLabels` property containing `azurerm_resource_group`. The matchSpec uses the regexMatches action. I am able to provide my regex and the error message.
+This rule, only checks against resource groups as identified by the `requiredLabels` property containing `azurerm_resource_group`. The matchSpec uses the regexMatches action. I am able to provide my regular expression and the error message.
 There are a bunch of provided [check actions](https://aquasecurity.github.io/tfsec/v1.28.1/guides/configuration/custom-checks/#check-actions) that you can use to develop your custom checks.
 
 ## Custom Checks for Deprecated Resources
@@ -180,7 +181,6 @@ vscode ➜ /workspaces/secure-terraform-on-azure/ (main) $ tfsec --print-rego-in
         "endline": 52,
         "explicit": false,
         "filepath": "workspaces/secure-terraform-on-azure/custom_checks_examples/keyvault/fail/main.tf",
-        "fskey": "f9088d3ed2db9899500f703a07bb505300c2b5cbc122ac4365ca04af35422e64",
         "managed": true,
         "resource": "azurerm_key_vault.example",
         "startline": 20
@@ -189,7 +189,6 @@ vscode ➜ /workspaces/secure-terraform-on-azure/ (main) $ tfsec --print-rego-in
         "endline": 27,
         "explicit": true,
         "filepath": "workspaces/secure-terraform-on-azure/custom_checks_examples/keyvault/fail/main.tf",
-        "fskey": "f9088d3ed2db9899500f703a07bb505300c2b5cbc122ac4365ca04af35422e64",
         "managed": true,
         "resource": "azurerm_key_vault.example.purge_protection_enabled",
         "startline": 27,
@@ -200,7 +199,6 @@ vscode ➜ /workspaces/secure-terraform-on-azure/ (main) $ tfsec --print-rego-in
           "endline": 34,
           "explicit": false,
           "filepath": "workspaces/secure-terraform-on-azure/custom_checks_examples/keyvault/fail/main.tf",
-          "fskey": "f9088d3ed2db9899500f703a07bb505300c2b5cbc122ac4365ca04af35422e64",
           "managed": true,
           "resource": "network_acls",
           "startline": 31
@@ -209,7 +207,6 @@ vscode ➜ /workspaces/secure-terraform-on-azure/ (main) $ tfsec --print-rego-in
           "endline": 33,
           "explicit": true,
           "filepath": "workspaces/secure-terraform-on-azure/custom_checks_examples/keyvault/fail/main.tf",
-          "fskey": "f9088d3ed2db9899500f703a07bb505300c2b5cbc122ac4365ca04af35422e64",
           "managed": true,
           "resource": "network_acls.default_action",
           "startline": 33,
@@ -220,7 +217,6 @@ vscode ➜ /workspaces/secure-terraform-on-azure/ (main) $ tfsec --print-rego-in
         "endline": 26,
         "explicit": true,
         "filepath": "workspaces/secure-terraform-on-azure/custom_checks_examples/keyvault/fail/main.tf",
-        "fskey": "f9088d3ed2db9899500f703a07bb505300c2b5cbc122ac4365ca04af35422e64",
         "managed": true,
         "resource": "azurerm_key_vault.example.soft_delete_retention_days",
         "startline": 26,
@@ -231,7 +227,7 @@ vscode ➜ /workspaces/secure-terraform-on-azure/ (main) $ tfsec --print-rego-in
 }
 ```
 
-I used this output to develop the policy. I had a few issues with the samples from the docs, and there is an open github issue. To run the rego policies with tfsec, you have to pass the `--rego-policy-dir` command like this:
+I used this output to develop the policy. I had a few issues with the samples from the docs, and there is an open GitHub issue. To run the rego policies with tfsec, you have to pass the `--rego-policy-dir` command like this:
 
 ```bash
 vscode ➜ /workspaces/secure-terraform-on-azure (main) $ tfsec --rego-policy-dir ./tfsec_rego_policies/ ./custom_checks_examples/keyvault/ 
@@ -249,8 +245,8 @@ You can see the results of the rego policy in the output.
 
 ## Conclusion
 
-While rego policies support are nice, I think the yaml policies are more flexible and easier to use. Having the ability to use a url for custom checks allows you to share your checks with others. 
+While rego policies support are nice, I think the yaml policies are more flexible and easier to use. Having the ability to use a URL for custom checks allows you to share your checks with others.
 
 I wanted to show how to do checks in Azure because I didn't see a lot of examples or docs on Azure resources specifically.
 
-I hope this deeper dive into custom checks was helpful. 
+I hope this deeper dive into custom checks was helpful.

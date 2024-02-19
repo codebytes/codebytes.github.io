@@ -43,7 +43,7 @@ dotnet nuget locals all --list
 nuget locals all -list
 ```
 
-```
+```cmd
 http-cache: C:\Users\user1\AppData\Local\NuGet\v3-cache
 global-packages: C:\Users\user1\.nuget\packages\
 temp: C:\Users\user1\AppData\Local\Temp\NuGetScratch
@@ -54,8 +54,8 @@ plugins-cache: C:\Users\user1\AppData\Local\NuGet\plugins-cache
 
 There are a few reasons you might want to clear caches.
 
-*   Maybe you're seeing strange behavior in your builds. I've cleared all my caches to make sure I'm downloading the same versions as the build agent
-*   Upgrading versions of .NET. I've had errors (and warnings) from restoring packages into a new version of .NET that were restored in previous versions.
+- Maybe you're seeing strange behavior in your builds. I've cleared all my caches to make sure I'm downloading the same versions as the build agent
+- Upgrading versions of .NET. I've had errors (and warnings) from restoring packages into a new version of .NET that were restored in previous versions.
 
 ## Clearing Caches
 
@@ -67,7 +67,7 @@ In Visual Studio 2017 and beyond, there is a button in the NuGet section of the 
 
 Using the dotnet or nuget CLI, you can clear specific caches or all caches. The commands are:
 
-```
+```bash
 # Clear the 3.x+ cache (use either command)
 dotnet nuget locals http-cache --clear
 nuget locals http-cache -clear
@@ -96,13 +96,14 @@ nuget locals all -clear
 
 ### Installing NuGet.exe
 
-NuGet.exe is not installed by default on Windows. Visual Studio 2017 and above include nuget package manager functionality via the NuGet Package Manager (GUI and console), but not nuget.exe. 
+NuGet.exe is not installed by default on Windows. Visual Studio 2017 and above include nuget package manager functionality via the NuGet Package Manager (GUI and console), but not nuget.exe.
 
 If you install newer versions of the DotNet CLI, it does include `dotnet nuget` funcationality but not nuget.exe.
 
-The NuGet.exe doesn't have an installer, and the instructions on website usually involve downloading the exe and adding it to your path.  
+The NuGet.exe doesn't have an installer, and the instructions on the site usually involve downloading the exe and adding it to your path.  
 
 There are other ways to install NuGet.exe.
+
 - `winget install Microsoft.NuGet`
 - `choco install nuget.commandline`
 - I've got a script that downloads it and adds it to your path, you can find it here: [Nuget-Install.ps1](https://gist.github.com/Codebytes/1ae354e736c88adef5b6f802597e3101)

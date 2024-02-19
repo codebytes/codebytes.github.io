@@ -17,8 +17,9 @@ header:
   og_image: /assets/images/terrascan-logo.png
 ---
 
-This is part 3 of the Secure Terraform series. You can read the series of articles here: 
-- [Secure Terraform - Part 1 - tfsec](/2022/12/29/secure-terraform-part1-tfsec) 
+This is part 3 of the Secure Terraform series. You can read the series of articles here:
+
+- [Secure Terraform - Part 1 - tfsec](/2022/12/29/secure-terraform-part1-tfsec)
 - [Secure Terraform - Part 2 - tfsec customization](/2023/01/29/secure-terraform-part2-tfsec-customization)
 - [Secure Terraform - Part 3 - terrascan](/2023/03/22/secure-terraform-part3-terrascan)
 - [Secure Terraform - Part 4 - checkov](/2023/03/24/secure-terraform-part4-checkov)
@@ -26,19 +27,19 @@ This is part 3 of the Secure Terraform series. You can read the series of articl
 
 ## Introduction
 
-Terrascan is another great tool for terraform security from tenable. 
+Terrascan is another great tool for terraform security from tenable.
 
 ![terrascan](/assets/images/terrascan-logo.png)
 
-Terrascan is an open-source static code analysis tool for security compliance of your Infrastructure as Code (IaC). It has rules for various platforms, including Kubernetes, Dockerfile, AWS, Azure, GCP, and Terraform. It is built in GoLang and has a CLI, API, and Jenkins plugin. Terrascan can be used to scan your IaC files for security vulnerabilities and policy violations. It can help you identify security issues before you deploy your code, and it can also help you enforce compliance policies.
+Terrascan is an open-source static code analysis tool for security compliance of your Infrastructure as Code (IaC). It has rules for various platforms, including Kubernetes, Dockerfile, AWS, Azure, GCP, and Terraform. It is developed in GoLang and has a CLI, API, and Jenkins plugin. Terrascan can be used to scan your IaC files for security vulnerabilities and policy violations. It can help you identify security issues before you deploy your code, and it can also help you enforce compliance policies.
 
-You can see a lot of relevant documenatation at: [runterrascan.io](https://runterrascan.io/).
+You can see a lot of relevant documentation at: [runterrascan.io](https://runterrascan.io/).
 
 ## Terrascan CLI
 
-In addition to tfsec, there is another static code analysis tool for Terraform called Terrascan. Terrascan is open source and supported by tenable. 
+In addition to tfsec, there is another static code analysis tool for Terraform called Terrascan. Terrascan is open source and supported by tenable.
 
-You can download the Terrascan CLI from the official GitHub repository: https://github.com/accurics/terrascan/releases.
+You can download the Terrascan CLI from the official GitHub repository: [https://github.com/accurics/terrascan/releases](https://github.com/accurics/terrascan/releases).
 
 It is available for Windows, macOS, Linux, and docker.
 

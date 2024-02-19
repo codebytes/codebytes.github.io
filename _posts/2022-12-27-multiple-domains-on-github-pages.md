@@ -16,22 +16,23 @@ header:
 
 ---
 
-Something I found out after moving from Wordpress to GitHub Pages is that out of the box you can only host a single domain for a repo with GitHub Pages. This is a problem for me because I have a number of domains I was hosting at WordPress that I wanted to point at my GitHub Pages. 
+Something I found out after moving from WordPress to GitHub Pages is that out of the box you can only host a single domain for a repository with GitHub Pages. This is a problem for me because I have a number of domains I was hosting at WordPress that I wanted to point at my GitHub Pages.
 
 ## Official Docs and the limitation
 
 So officially, GitHub pages doesn't support multiple domains. The docs here [https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages#custom-domain-names-that-are-unsupported](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages#custom-domain-names-that-are-unsupported) state:
 
-**Make sure your site does not**<br>
-Use more than one apex domain. For example, both *example.com* and *anotherexample.com*.<br>
-Use more than one www subdomain. For example, both *www.example.com* and *www.anotherexample.com*.<br>
-Use both an apex domain and custom subdomain. For example, both *example.com* and *docs.example.com*.<br>
+**Make sure your site does not**
+Use more than one apex domain. For example, both `*example.com*` and `*anotherexample.com*`.
+Use more than one www subdomain. For example, both `*www.example.com*` and `*www.anotherexample.com*`.
+Use both an apex domain and custom subdomain. For example, both `*example.com*` and `*docs.example.com*`.
 {: .notice}
 
-This means for example, I can setup [www.chris-ayers.com](https://www.chris-ayers.com) and [chris-ayers.com](https://chris-ayers.com) for my repo and nothing else.
-If I want another domain to point to it, like [chrisayers.me](https://chrisayers.me), I would probably need to fork the repo and setup the new repo for the additional domain.
+This means for example, I can setup [www.chris-ayers.com](https://www.chris-ayers.com) and [chris-ayers.com](https://chris-ayers.com) for my repository and nothing else.
+If I want another domain to point to it, like [chrisayers.me](https://chrisayers.me), I would probably need to fork the repository and setup the new repository for the additional domain.
 
-So how do we solve this? There has to be another way. There is! We can use Cloudflare to redirect the additional domains to the GitHub Pages domain. It seems this has been an issue for everyone since 2018. I found a few articles that helped me figure this out: 
+So how do we solve this? There has to be another way. There is! We can use Cloudflare to redirect the additional domains to the GitHub Pages domain. It seems this has been an issue for everyone since 2018. I found a few articles that helped me figure this out:
+
 - [https://olney.ai/category/2018/07/30/ai.html](https://olney.ai/category/2018/07/30/ai.html)
 - [https://medium.com/@desfocado/how-to-get-multiple-domains-pointing-to-github-pages-using-cloudflare-41fcb20ed10](https://medium.com/@desfocado/how-to-get-multiple-domains-pointing-to-github-pages-using-cloudflare-41fcb20ed10)
 
@@ -57,7 +58,7 @@ Next I need to setup my other domains. For each domain, I added it to Cloudflare
 
 {% include figure image_path="/assets/images/chrisayersdev-cnames.png" alt="CNAME Entries on Cloudflare" caption="CNAME Entries on Cloudflare" %}
 
-With this configuration, I'm saying that pretty much everything should point to [https://chris-ayers.com](https://chris-ayers.com). 
+With this configuration, I'm saying that pretty much everything should point to [https://chris-ayers.com](https://chris-ayers.com).
 
 | Type  |           Name |         Content |
 |-------|:--------------:|----------------:|

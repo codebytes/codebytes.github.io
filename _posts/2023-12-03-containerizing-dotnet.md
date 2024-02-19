@@ -18,11 +18,14 @@ excerpt_separator: <!--more-->
 
 ![.NET]({{ site.url }}{{ site.baseurl }}/assets/images/dotnet-logo.png)
 
-# Containerizing .NET: Part 1 - A Guide to Containerizing .NET Applications
-
 > This article is part of C# Advent 2023. For more articles in the series by other authors, visit [https://www.csadvent.christmas/](https://www.csadvent.christmas/).
 
 This is the first in a series of articles on containerizing .NET applications. We'll explore how to containerize .NET applications using Dockerfiles and `dotnet publish`. Containers have become an essential part of the DevOps ecosystem, offering a lightweight, portable, and scalable solution for deploying applications. This process is crucial for developers looking to streamline app deployment in containerized environments, focusing on efficiency, security, compliance, and more.
+
+You can read the series of articles here:
+
+- [Containerizing .NET: Part 1 - A Guide to Containerizing .NET Applications](/2023/12/03/containerizing-dotnet-part-1)
+- [Containerizing .NET: Part 2 - Considerations](/2024/2/19/containerizing-dotnet-part-2)
 
 ## What are Containers?
 
@@ -52,7 +55,7 @@ COPY --from=build-env /App/out .
 ENTRYPOINT ["dotnet", "DotNet.Docker.dll"]
 ```
 
-We can build this docker image by running the following command, where `dotnet-docker` is the name of the image. 
+We can build this docker image by running the following command, where `dotnet-docker` is the name of the image.
 
 ```bash
 docker build -t dotnet-docker .
@@ -62,21 +65,24 @@ I won't go into all the details of a dockerfile or registries right now. We'll c
 
 ## Containerizing .NET with dotnet publish
 
-.NET has a built-in mechanism for building and packaging applications into Docker images. This approach is ideal for those who want to focus on application development rather than managing Docker images. We'll explore how to containerize .NET applications using `dotnet publish`. This method doesn't require a Dockerfile. Instead, it uses a set of publish properties to build and package applications into Docker images. 
+.NET has a built-in mechanism for building and packaging applications into Docker images. This approach is ideal for those who want to focus on application development rather than managing Docker images. We'll explore how to containerize .NET applications using `dotnet publish`. This method doesn't require a Dockerfile. Instead, it uses a set of publish properties to build and package applications into Docker images.
 
-Starting from scratch, we'll containerize a simple dotnet application using the dotnet CLI. 
+Starting from scratch, we'll containerize a simple dotnet application using the dotnet CLI.
 
 1. Create a new dotnet console application
+
 ```bash
 dotnet new console -o hello-containers
 ```
 
-2. Let's add the required nuget package, Microsoft.NET.Build.Containers
+1. Let's add the required nuget package, Microsoft.NET.Build.Containers
+
 ```bash
 dotnet add package Microsoft.NET.Build.Containers
 ```
 
-3. Now we can build and package our application into a docker image
+1. Now we can build and package our application into a docker image
+
 ```bash
 dotnet publish -t:PublishContainer 
 ```
@@ -245,9 +251,9 @@ Thank you for joining me on this exploration of .NET and containers. Stay tuned 
 
 ## Resources
 
-- https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8#containers
-- https://learn.microsoft.com/en-us/dotnet/core/docker/build-container
-- https://learn.microsoft.com/en-us/dotnet/core/docker/publish-as-container
-- https://devblogs.microsoft.com/dotnet/announcing-dotnet-chiseled-containers/
-- https://canonical.com/blog/chiselled-ubuntu-ga
-- https://ubuntu.com/containers/chiselled/dotnet
+- [https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8#containers](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8#containers)
+- [https://learn.microsoft.com/en-us/dotnet/core/docker/build-container](https://learn.microsoft.com/en-us/dotnet/core/docker/build-container)
+- [https://learn.microsoft.com/en-us/dotnet/core/docker/publish-as-container](https://learn.microsoft.com/en-us/dotnet/core/docker/publish-as-container)
+- [https://devblogs.microsoft.com/dotnet/announcing-dotnet-chiseled-containers/](https://devblogs.microsoft.com/dotnet/announcing-dotnet-chiseled-containers/)
+- [https://canonical.com/blog/chiselled-ubuntu-ga](https://canonical.com/blog/chiselled-ubuntu-ga)
+- [https://ubuntu.com/containers/chiselled/dotnet](https://ubuntu.com/containers/chiselled/dotnet)

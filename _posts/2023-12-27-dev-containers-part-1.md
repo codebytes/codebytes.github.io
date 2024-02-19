@@ -18,8 +18,6 @@ excerpt_separator: <!--more-->
 
 ![dev containers](/assets/images/dev-containers-logo.svg)
 
-# Dev Containers in Development Workflows
-
 > This article is part of the Festive Tech Calendar 2023. For more articles in the series by other authors, visit [https://festivetechcalendar.com/](https://festivetechcalendar.com/).
 
 Dev Containers can revolutionize the way we approach development environments, offering a fast, consistent setup across different projects. As a developer who uses Dev Containers in VS Code for various projects, I've experienced firsthand the benefits of having an environment that's ready to go as soon as I clone a project.
@@ -31,10 +29,9 @@ I use Dev Containers in VS Code or GitHub Codespaces for all my development work
 Dev Containers, or Development Containers, are an innovative tool for modern software development. They leverage the power of containerization technology, similar to Docker, to create isolated, consistent, and fully equipped development environments. Here's what sets them apart:
 
 ![Dev Container Architecture](/assets/images/dev-containers-architecture.png)
+
 - **Environment Isolation**: Each Dev Container operates in its own isolated environment. This means that it can have its own set of tools, software dependencies, and settings, separate from the host machine and other containers. This isolation reduces "it works on my machine" problems, ensuring that the environment is consistent across all developers' machines.
-
 - **Flexibility and Versatility**: Dev Containers can be tailored to support various programming languages, frameworks, and tools. They can range from simple environments with just a basic editor and runtime to more complex setups with databases, compilers, debuggers, and other tools.
-
 - **Integration with Development Tools**: Perhaps one of the most powerful features of Dev Containers is their integration with popular development tools like Visual Studio Code. This integration allows developers to use the rich features of their favorite IDEs, like IntelliSense, debuggers, and extensions, inside the container.
 
 ## Why Use Dev Containers?
@@ -75,7 +72,8 @@ Dev Containers offer an elegant solution to this problem. With Dev Containers, e
 
 The CPython project, the source code of the Python programming language itself, is an excellent example of Dev Containers in action. CPython's GitHub repository features a [`devcontainer.json`](https://github.com/python/cpython/blob/main/.devcontainer/devcontainer.json) file, which simplifies the setup process for contributors. This file specifies a Docker image tailored for Python development, ensuring that contributors have all the necessary tools and dependencies.
 
-#### Key Features of CPython's Dev Container:
+#### Key Features of CPython's Dev Container
+
 - **Specific Docker Image**: The container uses an image with all dependencies required to build and test Python.
 - **VS Code Extensions**: Extensions like Python, C++, and Test Explorer are pre-configured, streamlining the development experience.
 - **Consistent Settings**: Settings are predefined to match the project's coding standards, ensuring consistency across all contributions.
@@ -84,7 +82,8 @@ The CPython project, the source code of the Python programming language itself, 
 
 Home Assistant, an open-source home automation platform, also leverages Dev Containers to provide a consistent development environment. Their repository includes a [`devcontainer.json`](https://github.com/home-assistant/core/blob/dev/.devcontainer/devcontainer.json) file, which sets up an environment with all the necessary dependencies and extensions for development.
 
-#### Advantages for Home Assistant Contributors:
+#### Advantages for Home Assistant Contributors
+
 - **Custom Docker Image**: Ensures that all the specific requirements for developing Home Assistant are met, including the right versions of Python and other dependencies.
 - **Predefined Extensions and Settings**: The Dev Container includes extensions like pylint and pylance to align with the project's development practices.
 - **Ease of Contribution**: New contributors can quickly set up a development environment that is consistent with the project's standards, facilitating easier and more efficient contributions.
@@ -94,16 +93,19 @@ Home Assistant, an open-source home automation platform, also leverages Dev Cont
 Dev Containers are supported by a range of tools and services, each enhancing the development experience in unique ways. Here's an overview of some of the key tools and integrations:
 
 ### Visual Studio Code and Dev Containers Extension
+
 - **Integrated Development Environment**: Visual Studio Code, along with its Dev Containers extension, is a key component in the Dev Container ecosystem. It provides a full range of features for containerized development, including IntelliSense, debuggers, and various extensions.
 ![Dev Containers Extension](/assets/images/dev-containers-extension.png)
 
-- **Docker Integration**: 
-    - **Local Connection**: The extension seamlessly integrates with local Docker installations, allowing developers to easily build and manage containers on their machine.
-    - **Remote Connection**: Supports connecting to Docker in remote environments, such as VMs or cloud-hosted servers, enabling development in complex, distributed architectures.
+- **Docker Integration**:
+  - **Local Connection**: The extension seamlessly integrates with local Docker installations, allowing developers to easily build and manage containers on their machine.
+  - **Remote Connection**: Supports connecting to Docker in remote environments, such as VMs or cloud-hosted servers, enabling development in complex, distributed architectures.
 - **Enhanced Workflow**: This integration simplifies workflows by managing container lifecycles, port forwarding, and providing a consistent development environment regardless of the host system.
 
 ### GitHub Codespaces
+
 ![GitHub Codespaces](/assets/images/dev-containers-codespaces.png)
+
 - **Cloud-Based Environments**: Offers a range of VM options from 2 to 32 cores and up to 64 GB of memory for versatile cloud development.
 - **Remote Access**: Easily accessible for coding via the browser or Visual Studio Code.
 - **Quick Setup**: Features pre-configured environments for immediate project start-up and branch-specific setups from GitHub imports.
@@ -112,18 +114,23 @@ Dev Containers are supported by a range of tools and services, each enhancing th
 - **Secure and Integrated**: Ensures a secure development experience in ephemeral VMs, integrated with numerous development tools.
 
 ### Visual Studio
+
 - **C++ Project Support**: Visual Studio 2022 version 17.4 and later includes Dev Containers support for C++ projects, enhancing workflows in Linux and embedded development contexts.
 
 ### IntelliJ IDEA
+
 - **Early Dev Containers Support**: Offers preliminary support for Dev Containers, enabling both remote operation via SSH and local usage with Docker.
 
 ### CodeSandbox
+
 - **Web-Based and Cloud Development**: CodeSandbox offers both an online IDE for rapid web development and cloud development environments running on a microVM architecture. It supports a range of specs and multiple editors, including the CodeSandbox web editor, VS Code, and the CodeSandbox iOS app.
 
 ### DevPod
+
 - **Flexible Environment Creation**: DevPod is a client-only tool that creates reproducible developer environments based on `devcontainer.json`, compatible with various backends such as local machines, Kubernetes clusters, remote machines, or cloud VMs.
 
 ### Dev Container CLI
+
 - **Reference Implementation**: The Dev Container CLI acts as the standard implementation for the Dev Container Spec, facilitating the creation and management of Dev Containers, particularly in CI/DevOps scenarios.
 
 ## Building a Dev Container
@@ -152,6 +159,7 @@ You can add various features to your Dev Container:
 ## Samples
 
 The [vscode-remote-try-*](https://github.com/search?q=org%3Amicrosoft+vscode-remote-try-&type=Repositories) repositories include sample Dev Containers for various languages and tools. These repositories are a great place to start if you're new to Dev Containers.
+
 - [Node Sample](https://github.com/Microsoft/vscode-remote-try-node)
 - [Python Sample](https://github.com/Microsoft/vscode-remote-try-python)
 - [Go Sample](https://github.com/Microsoft/vscode-remote-try-go)

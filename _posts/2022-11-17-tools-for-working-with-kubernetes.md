@@ -32,7 +32,7 @@ header:
 
 ---
 
-I've been in a number of internal and external calls where tooling to help work with Kubernetes keeps coming up. I thought I would share some of these cool tools in case you weren't aware of them. 
+I've been in a number of internal and external calls where tooling to help work with Kubernetes keeps coming up. I thought I would share some of these cool tools in case you weren't aware of them.
 
 ## Tools
 
@@ -42,15 +42,14 @@ I've been in a number of internal and external calls where tooling to help work 
 
 ### K9S
 
-K9S is a terminal based UI for interacting and managing Kubernetes Clusters. You can find k9s at [https://github.com/derailed/k9s](https://github.com/derailed/k9s) or their website [https://k9scli.io/](https://k9scli.io/).
-
+K9S is a terminal based UI for interacting and managing Kubernetes Clusters. You can find k9s at [https://github.com/derailed/k9s](https://github.com/derailed/k9s) or their site [https://k9scli.io/](https://k9scli.io/).
 
 {% include gallery id="k9s-gallery" caption="k9s Screens" %}
 
 ### Kubectx and Kubens
 
 These tools are amazing at quickly switching context and namespaces while working with kubernetes.
-You can find k9s at [https://github.com/ahmetb/kubectx](https://github.com/ahmetb/kubectx) or the author's website [https://ahmet.im/blog/kubectx/](https://ahmet.im/blog/kubectx/).
+You can find k9s at [https://github.com/ahmetb/kubectx](https://github.com/ahmetb/kubectx) or the author's site [https://ahmet.im/blog/kubectx/](https://ahmet.im/blog/kubectx/).
 
 kubectx can show you the multiple contexts available, switch between them quickly, and create aliases.
 
@@ -73,4 +72,4 @@ It works with lots of things, like vi.
 
 ## Conclusion
 
-If you work daily with Kubernetes you might already know about these tools. If you haven't tried them, give them an install and play around. 
+If you work daily with Kubernetes you might already know about these tools. If you haven't tried them, give them an install and play around.

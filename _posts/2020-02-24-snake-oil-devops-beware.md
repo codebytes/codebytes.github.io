@@ -28,12 +28,12 @@ But, like days of old, there are those trying to make a buck at any cost. We com
 
 Have you ever heard any of theses statements/promises/lies?
 
-*   If you buy this list of tools, you'll be/have/do DevOps.
-*   You can't do DevOps without X tool.
-*   You need to do Containers to do DevOps
-*   Jira/Service Now/GitLab/Azure DevOps/GitHub/Excel/Post-its is the only way to track work
-*   If you buy this monitoring tool all your bugs will get caught
+- If you buy this list of tools, you'll be/have/do DevOps.
+- You can't do DevOps without X tool.
+- You need to do Containers to do DevOps
+- Jira/Service Now/GitLab/Azure DevOps/GitHub/Excel/Post-its is the only way to track work
+- If you buy this monitoring tool all your bugs will get caught
 
-Notice the lack of discussion about the company/business/team. What the business, what is important to the end users? How do you work? What are the processes to take a new idea, let the team work on it, and get that code into production? How do you know its running ok in production? Do you know if the end user uses your new feature?
+Notice the lack of discussion about the company/business/team. What the business, what is important to the end users? How do you work? What are the processes to take a new idea, let the team work on it, and get that code into production? How do you know its running OK in production? Do you know if the end user uses your new feature?
 
 When someone just focuses on the tool, they don't care about helping you to improve, your journey, or the actual outcome. They want to continuously deliver the value of your _wallet_ into theirs.

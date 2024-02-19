@@ -16,28 +16,28 @@ header:
 
 ---
 
-I’ve been hosting on WordPress for a while. I wanted something that worked pretty well and was easy to work with. I picked a decent theme, added some plugins, pointed my domains and was up and running. I would work on blogs in MarkDown, and then paste the txt into a MarkDown. I could upload a few images and move them around in a wysiwyg.
+I’ve been hosting on WordPress for a while. I wanted something that worked pretty well and was easy to work with. I picked a decent theme, added some plugins, pointed my domains and was up and running. I would work on blogs in Markdown, and then paste the txt into a Markdown. I could upload a few images and move them around in a wysiwyg.
 
-Lately, I’ve been doing a lot more in MarkDown. All my conference talks were in PowerPoint but I’ve started switching over to [MarkDown slides using MARP](https://chris-ayers.com/2023/03/26/marp-create-presentations-with-markdown). I should probably do a post on MARP sometime ([I did :-)](https://chris-ayers.com/2023/03/26/marp-create-presentations-with-markdown) ). I wanted to reduce my overhead of WordPress Hosting and get back into more direct styling and coding of my theme.  I decided to switch my hosting to Jekyll on GitHub Pages.
-	
+Lately, I’ve been doing a lot more in Markdown. All my conference talks were in PowerPoint but I’ve started switching over to [Markdown slides using MARP](https://chris-ayers.com/2023/03/26/marp-create-presentations-with-markdown). I should probably do a post on MARP sometime ([I did :-)](https://chris-ayers.com/2023/03/26/marp-create-presentations-with-markdown) ). I wanted to reduce my overhead of WordPress Hosting and get back into more direct styling and coding of my theme.  I decided to switch my hosting to Jekyll on GitHub Pages.
+
 ## Setting Up GitHub Pages
 
 There are great docs on how to setup Jekyll with GitHub Pages.
 
 > [https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll)
 
-First this is I setup a repo to host my page.  My username is codebytes, so I made a repo for codebytes.github.io. 
+First this is I setup a repository to host my page.  My username is codebytes, so I made a repository for codebytes.github.io.
 
 > [https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-a-repository-for-your-site](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-a-repository-for-your-site)
 
-Knowing that I’m going to be using this repo for a Jekyll based site, I setup a dev container so that I could quickly have all the tools setup and configured.
+Knowing that I’m going to be using this repository for a Jekyll based site, I setup a dev container so that I could quickly have all the tools setup and configured.
 
 > [https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll)
 
 ## Setting Up Jekyll
 
-I used the Jekyll theme called “Minimal Mistakes”. 
-> [https://mademistakes.com/work/jekyll-themes/minimal-mistakes/](https://mademistakes.com/work/jekyll-themes/minimal-mistakes/). 
+I used the Jekyll theme called “Minimal Mistakes”.
+> [https://mademistakes.com/work/jekyll-themes/minimal-mistakes/](https://mademistakes.com/work/jekyll-themes/minimal-mistakes/).
 
 I used the Jekyll-import. Because of the plan I was using on WordPress.com, I couldn’t install custom extensions. That eliminated many export/import options. There is a free option for importing things into Jekyll-import using a Wordpress.xml export file.
 
@@ -64,7 +64,7 @@ I then Exported everything which downloads as a single file.
 
 {% include figure image_path="/assets/images/wordpress-export.png" alt="Export Option" caption="Export Option" %}
 
-This provides an download that's a zip file with an xml file.  I ran the import command:
+This provides an download that's a ZIP file with an xml file.  I ran the import command:
 
 ```bash
 bundle exec jekyll import wordpressdotcom --source wordpress.export.xml --assets_folder assets/
@@ -140,7 +140,7 @@ permalink: "/2019/05/11/arm-azure-resource-manager/"
 ---
 ```
 
-I similarly had to clean up some of the html in the imported posts.  Mainly I removed a bunch of the commented html and converted it all to markdown.
+I similarly had to clean up some of the HTML in the imported posts.  Mainly I removed a bunch of the commented HTML and converted it all to Markdown.
 
 ```html
 <p><!-- wp:heading {"level":3} --></p>
@@ -148,7 +148,7 @@ I similarly had to clean up some of the html in the imported posts.  Mainly I re
 <p><!-- /wp:heading --></p>
 ```
 
-That got cleaned up to and looking good in with markdown preview:
+That got cleaned up to and looking good in with Markdown preview:
 
 ```md
 ### The Journey Begins
@@ -162,12 +162,14 @@ Finally, I reviewed each image and cleaned up the references.
 <p><!-- /wp:image --></p>
 ```
 
-The theme [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/docs/helpers/#figure) has great helpers for figures and images. I converted the html to markdown using the figure helper like this:
+The theme [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/docs/helpers/#figure) has great helpers for figures and images. I converted the HTML to Markdown using the figure helper like this:
 
 {% raw %}
+
 ```md
 {% include figure image_path="/assets/images/newresourcegroup-3.png" alt="A new Azure Resource Group." caption="A new Azure Resource Group." %}
 ```
+
 {% endraw %}
 
 ** Update
@@ -177,13 +179,13 @@ I didn't realize this was rendering wrong, i had to turn off liquid rendering wi
 Or you could replace { with &amp;#123; and } with &amp;#125; to get the same effect.
 {: .notice--info }
 
-I spent a few hours, fixed all the front matter and naming, converted all html to markdown, then removed and renamed old images. 
+I spent a few hours, fixed all the front matter and naming, converted all HTML to Markdown, then removed and renamed old images.
 
 I was able to test locally by running running ```jekyll serve``` and checking how everything looked in a browser.
+
 ```bash
 bundle exec jekyll serve
 ```
-
 
 As part of setting up things with GitHub Pages, there is also a workflow that helps build and release the jeykll site to GitHub pages.
 
