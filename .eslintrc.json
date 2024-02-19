@@ -1,6 +1,0 @@
-{
-    "extends": ["plugin:json/recommended-with-comments"],
-    "rules": {
-        "json/*": ["error", "allowComments"]
-    }
-}
