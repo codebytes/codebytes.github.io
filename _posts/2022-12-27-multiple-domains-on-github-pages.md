@@ -16,7 +16,7 @@ header:
 
 ---
 
-Something I found out after moving from Wordpress to GitHub Pages is that out of the box you can only host a single domain for a repo with GitHub Pages. This is a problem for me because I have a number of domains I was hosting at WordPress that I wanted to point at my GitHub Pages.
+Something I found out after moving from Wordpress to GitHub Pages is that out of the box you can only host a single domain for a repository with GitHub Pages. This is a problem for me because I have a number of domains I was hosting at WordPress that I wanted to point at my GitHub Pages.
 
 ## Official Docs and the limitation
 
@@ -28,8 +28,8 @@ Use more than one www subdomain. For example, both `*www.example.com*` and `*www
 Use both an apex domain and custom subdomain. For example, both `*example.com*` and `*docs.example.com*`.
 {: .notice}
 
-This means for example, I can setup [www.chris-ayers.com](https://www.chris-ayers.com) and [chris-ayers.com](https://chris-ayers.com) for my repo and nothing else.
-If I want another domain to point to it, like [chrisayers.me](https://chrisayers.me), I would probably need to fork the repo and setup the new repo for the additional domain.
+This means for example, I can setup [www.chris-ayers.com](https://www.chris-ayers.com) and [chris-ayers.com](https://chris-ayers.com) for my repository and nothing else.
+If I want another domain to point to it, like [chrisayers.me](https://chrisayers.me), I would probably need to fork the repository and setup the new repository for the additional domain.
 
 So how do we solve this? There has to be another way. There is! We can use Cloudflare to redirect the additional domains to the GitHub Pages domain. It seems this has been an issue for everyone since 2018. I found a few articles that helped me figure this out:
 

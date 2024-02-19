@@ -15,9 +15,9 @@ header:
   teaser: /assets/images/arm-logo.png
   og_image: /assets/images/arm-logo.png
 ---
-I’ve got a template straight from Microsoft. I want this wired into a CI/CD pipeline to I can play around and get quick feedback. I’m going to use Azure DevOps to help make all this possible. Let's get those templates into a repo to get started. New repo, initialize it, add new files.
+I’ve got a template straight from Microsoft. I want this wired into a CI/CD pipeline to I can play around and get quick feedback. I’m going to use Azure DevOps to help make all this possible. Let's get those templates into a repository to get started. New repository, initialize it, add new files.
 
-{% include figure image_path="/assets/images/repoimport.png" alt="A new repo on Azure DevOps" caption="A new repo on Azure DevOps." %}
+{% include figure image_path="/assets/images/repoimport.png" alt="A new repository on Azure DevOps" caption="A new repository on Azure DevOps." %}
 
 Next, I'm going to create a new resource group to play around with my web app resources.
 

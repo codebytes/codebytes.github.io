@@ -55,7 +55,7 @@ Today we are going to look at a one of these tools, tfsec, and how we can levera
 
 ![tfsec logo](/assets/images/tfsec-logo.png)
 
-Let's start with tfsec by aquasecurity. Aquasecurity supports multiple amazing tools like [trivy](https://trivy.dev/) and [tfsec](https://tfsec.dev). Tfsec is an open-source tool available on GitHub at [https://github.com/aquasecurity/tfsec](https://github.com/aquasecurity/tfsec). The docs are hosted at: [https://aquasecurity.github.io/tfsec/](https://aquasecurity.github.io/tfsec/). There are some great guides for installing it and configuring it for GitHub Actions. Tfsec even has an integration with GitHub Advanced security to show the results of the scan in the security tab of the repo.
+Let's start with tfsec by aquasecurity. Aquasecurity supports multiple amazing tools like [trivy](https://trivy.dev/) and [tfsec](https://tfsec.dev). Tfsec is an open-source tool available on GitHub at [https://github.com/aquasecurity/tfsec](https://github.com/aquasecurity/tfsec). The docs are hosted at: [https://aquasecurity.github.io/tfsec/](https://aquasecurity.github.io/tfsec/). There are some great guides for installing it and configuring it for GitHub Actions. Tfsec even has an integration with GitHub Advanced security to show the results of the scan in the security tab of the repository.
 
 ### Installation
 
@@ -135,7 +135,7 @@ As you can see, tfsec found a potential problem with the TLS version being used.
 
 I can also apply a custom configuration to tfsec to fine tune how I want to scan my code. This can be either a file I pass to tfsec or a config.json or config.yml inside a .tfsec directory. We could override the minimum severity to only show critical issues, or we could ignore a specific rule.
 
-If I had misconfigured my storage account to accept traffic on http instead of https, tfsec would have found that as well. But maybe I don't agree with the default severity of that rule. I can override the severity of the rule to be critical instead of high.
+If I had misconfigured my storage account to accept traffic on http instead of HTTPS, tfsec would have found that as well. But maybe I don't agree with the default severity of that rule. I can override the severity of the rule to be critical instead of high.
 
 ```yml
 severity_overrides:
@@ -143,7 +143,7 @@ severity_overrides:
 minimum_severity: MEDIUM
 ```
 
-I've got a few simple misconfigurations checked into my sample repo at [secure-terraform-on-azure](https://github.com/Codebytes/secure-terraform-on-azure). They aren't on the main branch, but the [demos](https://github.com/Codebytes/secure-terraform-on-azure/tree/demos) branch.
+I've got a few simple misconfigurations checked into my sample repository at [secure-terraform-on-azure](https://github.com/Codebytes/secure-terraform-on-azure). They aren't on the main branch, but the [demos](https://github.com/Codebytes/secure-terraform-on-azure/tree/demos) branch.
 
 ### VSCode
 
@@ -170,7 +170,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clone repo
+      - name: Clone repository
         uses: actions/checkout@master
       - name: tfsec
         uses: aquasecurity/tfsec-action@v1.0.0
@@ -184,7 +184,7 @@ Now because I've got some tf nested, I added the following line:
 
 All of the available options and parameters are documented on the actions page.
 
-This will run tfsec against our repo on every check-in to main and every pull request. If we have insecure code, it will fail the workflow.
+This will run tfsec against our repository on every check-in to main and every pull request. If we have insecure code, it will fail the workflow.
 
 {% include figure image_path="/assets/images/tfsec-workflow-errors.png" alt="Failing build on GitHub" caption="Failing build on GitHub" %}
 
@@ -194,7 +194,7 @@ There is another action, [tfsec-pr-commenter-action](https://github.com/marketpl
 
 The last thing I want to talk about is pre-commit hooks. Pre-commit hooks are a way to run a script or command before you commit your code. This is a great way to make sure you don't commit any code that doesn't pass your checks.
 
-There is a great framework for running pre-commit hooks called [pre-commit](https://pre-commit.com/). It is a python package that you can install with pip. Once you have it installed, you can add a .pre-commit-config.yaml file to your repo. This file will contain the hooks you want to run.
+There is a great framework for running pre-commit hooks called [pre-commit](https://pre-commit.com/). It is a python package that you can install with pip. Once you have it installed, you can add a .pre-commit-config.yaml file to your repository. This file will contain the hooks you want to run.
 
 There is a project for setting up pre-commit hooks to scan terraform. It is called [pre-commit-terraform](https://github.com/antonbabenko/pre-commit-terraform#terraform_tfsec). It will run tfsec against your code and fail the commit if there are any issues.
 

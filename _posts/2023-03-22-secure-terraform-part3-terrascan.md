@@ -31,7 +31,7 @@ Terrascan is another great tool for terraform security from tenable.
 
 ![terrascan](/assets/images/terrascan-logo.png)
 
-Terrascan is an open-source static code analysis tool for security compliance of your Infrastructure as Code (IaC). It has rules for various platforms, including Kubernetes, Dockerfile, AWS, Azure, GCP, and Terraform. It is built in GoLang and has a CLI, API, and Jenkins plugin. Terrascan can be used to scan your IaC files for security vulnerabilities and policy violations. It can help you identify security issues before you deploy your code, and it can also help you enforce compliance policies.
+Terrascan is an open-source static code analysis tool for security compliance of your Infrastructure as Code (IaC). It has rules for various platforms, including Kubernetes, Dockerfile, AWS, Azure, GCP, and Terraform. It is developed in GoLang and has a CLI, API, and Jenkins plugin. Terrascan can be used to scan your IaC files for security vulnerabilities and policy violations. It can help you identify security issues before you deploy your code, and it can also help you enforce compliance policies.
 
 You can see a lot of relevant documentation at: [runterrascan.io](https://runterrascan.io/).
 

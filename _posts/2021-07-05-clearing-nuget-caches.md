@@ -100,7 +100,7 @@ NuGet.exe is not installed by default on Windows. Visual Studio 2017 and above i
 
 If you install newer versions of the DotNet CLI, it does include `dotnet nuget` funcationality but not nuget.exe.
 
-The NuGet.exe doesn't have an installer, and the instructions on website usually involve downloading the exe and adding it to your path.  
+The NuGet.exe doesn't have an installer, and the instructions on the site usually involve downloading the exe and adding it to your path.  
 
 There are other ways to install NuGet.exe.
 

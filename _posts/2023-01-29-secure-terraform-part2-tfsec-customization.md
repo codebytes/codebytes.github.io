@@ -122,7 +122,7 @@ Let's try something a little more complex. We can try to enforce a naming scheme
   - https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming
 ```
 
-This rule, only checks against resource groups as identified by the `requiredLabels` property containing `azurerm_resource_group`. The matchSpec uses the regexMatches action. I am able to provide my regex and the error message.
+This rule, only checks against resource groups as identified by the `requiredLabels` property containing `azurerm_resource_group`. The matchSpec uses the regexMatches action. I am able to provide my regular expression and the error message.
 There are a bunch of provided [check actions](https://aquasecurity.github.io/tfsec/v1.28.1/guides/configuration/custom-checks/#check-actions) that you can use to develop your custom checks.
 
 ## Custom Checks for Deprecated Resources
@@ -245,7 +245,7 @@ You can see the results of the rego policy in the output.
 
 ## Conclusion
 
-While rego policies support are nice, I think the yaml policies are more flexible and easier to use. Having the ability to use a url for custom checks allows you to share your checks with others.
+While rego policies support are nice, I think the yaml policies are more flexible and easier to use. Having the ability to use a URL for custom checks allows you to share your checks with others.
 
 I wanted to show how to do checks in Azure because I didn't see a lot of examples or docs on Azure resources specifically.
 

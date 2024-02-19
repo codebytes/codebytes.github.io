@@ -17,7 +17,7 @@ header:
 
 One of the great things about the configuration system in .NET is the type safety, dependency injection, and model binding. Something we can take advantage of is to validate our configuration on startup and fail if it doesn't pass validation. Having that fast failure is awesome when working with containers and applications that have liveness and readiness probes.
 
-I have some examples of the amazing configuration system in my [GitHub repo](https://github.com/Codebytes/dotnet-configuration-in-depth) I use for my [.NET Configuration in Depth](https://github.com/Codebytes/dotnet-configuration-in-depth) conference talk. Feel free to take a look at the samples found there.
+I have some examples of the amazing configuration system in my [GitHub repository](https://github.com/Codebytes/dotnet-configuration-in-depth) I use for my [.NET Configuration in Depth](https://github.com/Codebytes/dotnet-configuration-in-depth) conference talk. Feel free to take a look at the samples found there.
 
 But let's get to the topic at hand. How do we validate our configuration in .NET?
 
@@ -44,7 +44,7 @@ public class WebHookSettings
 }
 ```
 
-Now how do we *KNOW* our url is valid? We can add some validation to our application pretty easily leveraging Data Annotations! This lets us mark fields as required as well as doing other validation. There are a ton of build in attributes, like StringLength, Range, EmailAddress, and more. You can find some of them listed in the [documentation](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-7.0) if you're curious.
+Now how do we *KNOW* our URL is valid? We can add some validation to our application pretty easily leveraging Data Annotations! This lets us mark fields as required as well as doing other validation. There are a ton of build in attributes, like StringLength, Range, EmailAddress, and more. You can find some of them listed in the [documentation](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-7.0) if you're curious.
 
 Let's extend our class to add that basic validation.
 
@@ -92,7 +92,7 @@ Running the application fails with this error.
 Unhandled exception. Microsoft.Extensions.Options.OptionsValidationException: DataAnnotation validation failed for 'WebHookSettings' members: 'WebhookUrl' with the error: 'The WebhookUrl field is required.'.
 {: .notice--warning }
 
-Now its complaining about the field being blank while required.  What if we populate the url field with a bad value that isn't a Url?
+Now its complaining about the field being blank while required.  What if we populate the URL field with a bad value that isn't a Url?
 
 ```json
   "WebHook": {

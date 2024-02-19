@@ -45,16 +45,16 @@ Overall, VS Code Profiles provide a convenient way to manage and switch between 
 
 - **Keep a "Default" Profile:** You may want to have a "default" profile with commonly used extensions that you find useful across all projects. This profile can serve as your go-to for general development tasks. Mine has my common font and color settings, as well as extensions like Dev Containers, Live Share, and GitHub Copilot.
 
-- **Name Profiles Descriptively:** Choose descriptive names for your profiles to make it easier to remember what each profile is intended for. For example, "Web Dev," "Python," or "Markdown Editing."
+- **Name Profiles Descriptively:** Choose descriptive names for your profiles to make it easier to remember what each profile is intended for. For example, "Web Dev," "Python," or "MarkDown Editing."
 
-- **Create Task-Specific Profiles:** Consider creating profiles for specific tasks, such as web development, Python development, or Markdown editing. Include only the extensions relevant to each task in their respective profiles.
+- **Create Task-Specific Profiles:** Consider creating profiles for specific tasks, such as web development, Python development, or MarkDown editing. Include only the extensions relevant to each task in their respective profiles.
 
 | Profile | Extensions and Settings |
 | --- | --- |
 | .NET Development | C# Extension, NuGet Package Manager GUI, REST Client |
 | Azure Development | Azure Extensions, AZ CLI, Azure Terraform, ARM Visualizer |
 | Python Development | Python Extension, Pylance, Jupyter, Azure Functions |
-| Markdown Editing | Markdown All in One, Markdown Preview Enhanced, Markdownlint |
+| MarkDown Editing | MarkDown All in One, MarkDown Preview Enhanced, Markdownlint |
 
 ## How to Create and Use Profiles
 

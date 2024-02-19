@@ -26,11 +26,11 @@ There are great docs on how to setup Jekyll with GitHub Pages.
 
 > [https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll)
 
-First this is I setup a repo to host my page.  My username is codebytes, so I made a repo for codebytes.github.io.
+First this is I setup a repository to host my page.  My username is codebytes, so I made a repository for codebytes.github.io.
 
 > [https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-a-repository-for-your-site](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-a-repository-for-your-site)
 
-Knowing that I’m going to be using this repo for a Jekyll based site, I setup a dev container so that I could quickly have all the tools setup and configured.
+Knowing that I’m going to be using this repository for a Jekyll based site, I setup a dev container so that I could quickly have all the tools setup and configured.
 
 > [https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll)
 
@@ -140,7 +140,7 @@ permalink: "/2019/05/11/arm-azure-resource-manager/"
 ---
 ```
 
-I similarly had to clean up some of the html in the imported posts.  Mainly I removed a bunch of the commented html and converted it all to markdown.
+I similarly had to clean up some of the html in the imported posts.  Mainly I removed a bunch of the commented html and converted it all to MarkDown.
 
 ```html
 <p><!-- wp:heading {"level":3} --></p>
@@ -148,7 +148,7 @@ I similarly had to clean up some of the html in the imported posts.  Mainly I re
 <p><!-- /wp:heading --></p>
 ```
 
-That got cleaned up to and looking good in with markdown preview:
+That got cleaned up to and looking good in with MarkDown preview:
 
 ```md
 ### The Journey Begins
@@ -162,7 +162,7 @@ Finally, I reviewed each image and cleaned up the references.
 <p><!-- /wp:image --></p>
 ```
 
-The theme [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/docs/helpers/#figure) has great helpers for figures and images. I converted the html to markdown using the figure helper like this:
+The theme [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/docs/helpers/#figure) has great helpers for figures and images. I converted the html to MarkDown using the figure helper like this:
 
 {% raw %}
 
@@ -179,7 +179,7 @@ I didn't realize this was rendering wrong, i had to turn off liquid rendering wi
 Or you could replace { with &amp;#123; and } with &amp;#125; to get the same effect.
 {: .notice--info }
 
-I spent a few hours, fixed all the front matter and naming, converted all html to markdown, then removed and renamed old images.
+I spent a few hours, fixed all the front matter and naming, converted all html to MarkDown, then removed and renamed old images.
 
 I was able to test locally by running running ```jekyll serve``` and checking how everything looked in a browser.
 
