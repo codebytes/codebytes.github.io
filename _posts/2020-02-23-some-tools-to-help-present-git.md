@@ -22,12 +22,12 @@ I'm presenting soon on Advanced Git. I feel a lot of Developers and DevOps engin
 
 While researching things, I came across a few neat tools I'm using to help describe things.
 
-*   [GitGraphJs](https://gitgraphjs.com/)
-*   [Windows Terminal](https://github.com/Microsoft/Terminal)
-*   [Oh My Posh](https://github.com/JanDeDobbeleer/oh-my-posh)/[ohmybash](https://ohmybash.github.io/)/[ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
-*   Git GUIs
-    *   [Fork](https://fork.dev/)
-    *   [GitKraken](https://www.gitkraken.com/invite/kATkLFXY)
+- [GitGraphJs](https://gitgraphjs.com/)
+- [Windows Terminal](https://github.com/Microsoft/Terminal)
+- [Oh My Posh](https://github.com/JanDeDobbeleer/oh-my-posh)/[ohmybash](https://ohmybash.github.io/)/[ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
+- Git GUIs
+  - [Fork](https://fork.dev/)
+  - [GitKraken](https://www.gitkraken.com/)
 
 ## [GitGraphJS](https://gitgraphjs.com/)
 

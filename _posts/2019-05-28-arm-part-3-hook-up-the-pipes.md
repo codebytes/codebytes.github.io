@@ -23,7 +23,7 @@ Next, I'm going to create a new resource group to play around with my web app re
 
 {% include figure image_path="/assets/images/newresourcegroup-3.png" alt="A new Azure Resource Group." caption="A new Azure Resource Group." %}
 
-Now we need to make sure DevOps has permission to create and update resources in Azure. This can be done in a few different ways as described here: https://docs.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure?view=azure-devops
+Now we need to make sure DevOps has permission to create and update resources in Azure. This can be done in a few different ways as described here: [https://docs.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure?view=azure-devops](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure?view=azure-devops).
 
 I'm going to setup a service connection from DevOps to Azure. In Azure Devops, I'm going to go to my project settings:
 

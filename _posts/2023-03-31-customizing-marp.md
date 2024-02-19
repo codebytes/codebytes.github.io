@@ -16,14 +16,14 @@ header:
 excerpt_separator: <!--more-->
 ---
 
-This is part 2 of the [MARP](https://github.com/marp-team/marp) series. You can read the series of articles here: 
-- [Marp - Create Presentations with Markdown](/2023/03/26/marp-create-presentations-with-markdown) 
+This is part 2 of the [MARP](https://github.com/marp-team/marp) series. You can read the series of articles here:
+
+- [Marp - Create Presentations with Markdown](/2023/03/26/marp-create-presentations-with-markdown)
 - [Unleash Your Creativity with Marp Presentation Customization](/2023/03/31/customizing-marp)
 
 ## Introduction
 
 Marp is a powerful Markdown presentation framework that enables you to create stunning slides effortlessly. By using simple text-based formatting, you can easily customize your presentations to suit your unique needs and style. Although Marp provides built-in themes and configurations, the true potential of this framework can be realized by customizing your presentations to suit your unique needs and style. In this blog post, we will delve into some of the key customization options available in Marp and guide you through the process of creating a truly standout presentation.
-
 
 ## Built in Themes
 
@@ -94,7 +94,6 @@ theme: uncover
 ```
 
 {% include figure image_path="/assets/images/marp-uncover.png" alt="Marp uncover theme" caption="Marp uncover theme" %}
-
 
 ## Directives
 
@@ -189,7 +188,7 @@ You can also add background colors and gradients using CSS.
 
 ## Inline CSS
 
-Another thing I've done is add inline css to my slides. I've also enabled html tags in my slides, so I can use divs and classes besides the standard markdown syntax. To do this, you can use the following syntax in your frontmatter. 
+Another thing I've done is add inline css to my slides. I've also enabled html tags in my slides, so I can use divs and classes besides the standard markdown syntax. To do this, you can use the following syntax in your frontmatter.
 
 ```css
 ---
@@ -275,7 +274,7 @@ And then in your slides, you can use the following syntax to add icons.
 
 ## Mermaid Support
 
-Marp also supports [Mermaid](https://mermaid-js.github.io/mermaid/#/), a JavaScript library for generating diagrams and flowcharts from text. Mermaid provides an easy way to create visual representations of complex ideas and concepts, and it integrates seamlessly with Markdown syntax. 
+Marp also supports [Mermaid](https://mermaid-js.github.io/mermaid/#/), a JavaScript library for generating diagrams and flowcharts from text. Mermaid provides an easy way to create visual representations of complex ideas and concepts, and it integrates seamlessly with Markdown syntax.
 
 To use Mermaid diagrams in your Marp presentation, you need to add the following script to your Markdown file:
 
@@ -286,7 +285,9 @@ To use Mermaid diagrams in your Marp presentation, you need to add the following
   mermaid.initialize({ startOnLoad: true });
 </script>
 ```
+
 You can then create Mermaid diagrams using the div element with the mermaid class. For example:
+
 ```
 # Mermaid
 
@@ -297,7 +298,6 @@ graph TD;
     B-->D;
     C-->D;
 </div>
-
 ```
 
 {% include figure image_path="/assets/images/marp-mermaid.png" alt="Marp mermaid diagrams" caption="Marp mermaid diagrams" %}

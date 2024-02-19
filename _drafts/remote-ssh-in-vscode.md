@@ -30,11 +30,8 @@ To exemplify the potency of the Remote SSH extension, let's navigate a typical s
 While using a terminal to SSH into a remote machine is standard practice, the Remote SSH extension bestows several unique benefits that enhance the developer experience:
 
 1. **Simplicity:** In contrast to traditional SSH, there is no need to recall intricate command-line instructions or traverse directories using the terminal. Everything is visually available and user-friendly within the VS Code interface.
-   
 2. **Boosted Productivity:** With Remote SSH, you can harness the complete suite of VS Code's features, including code suggestions, linting, debugging, and extensions. This enables a more effective and streamlined development procedure.
-   
 3. **Collaborative Efficiency:** The Remote SSH extension facilitates multiple developers to operate on the same remote machine concurrently. This promotes collaboration, code sharing, and problem-solving within the familiar VS Code environment.
-   
 4. **Portability:** Whether you're transitioning between distinct projects or operating on numerous remote machines, the Remote SSH extension delivers a consistent development environment across all scenarios. This abolishes the need for repeated setup of your development environment.
 
 By integrating the Remote SSH extension for Visual Studio Code, developers can tap into an unprecedented level of convenience and efficiency in their remote work. Experience the privilege of seamless coding on remote machines, without sacrificing the comfort of your local development environment. Give the Remote SSH extension a whirl today and ascend your remote development experience to unprecedented levels!

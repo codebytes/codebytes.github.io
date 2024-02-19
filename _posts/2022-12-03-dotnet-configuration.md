@@ -44,7 +44,7 @@ public class WebHookSettings
 }
 ```
 
-Now how do we *KNOW* our url is valid? We can add some validation to our application pretty easily leveraging Data Annotations! This lets us mark fields as required as well as doing other validation. There are a ton of build in attributes, like StringLength, Range, EmailAddress, and more. You can find some of them listed in the [documenation](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-7.0) if you're curious.
+Now how do we *KNOW* our url is valid? We can add some validation to our application pretty easily leveraging Data Annotations! This lets us mark fields as required as well as doing other validation. There are a ton of build in attributes, like StringLength, Range, EmailAddress, and more. You can find some of them listed in the [documentation](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-7.0) if you're curious.
 
 Let's extend our class to add that basic validation.
 
@@ -61,7 +61,7 @@ public class WebHookSettings
 }
 ```
 
-For my example, I'm using minimal APIs, and I can enable validation using just a few lines of code to invoke a few extenion methods.
+For my example, I'm using minimal APIs, and I can enable validation using just a few lines of code to invoke a few extension methods.
 
 ```cs
 using System.ComponentModel.DataAnnotations;
@@ -148,8 +148,8 @@ If we fix everything with our validation, like so...
 
 The application starts successfully!
 
-```
-➜ dotnet run
+```bash
+$ dotnet run
 Building...
 info: Microsoft.Hosting.Lifetime[14]
       Now listening on: https://localhost:7090

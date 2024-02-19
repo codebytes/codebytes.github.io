@@ -17,8 +17,9 @@ header:
   og_image: /assets/images/tfsec-logo.png
 ---
 
-This is part 2 of the Secure Terraform series. You can read the series of articles here: 
-- [Secure Terraform - Part 1 - tfsec](/2022/12/29/secure-terraform-part1-tfsec) 
+This is part 2 of the Secure Terraform series. You can read the series of articles here:
+
+- [Secure Terraform - Part 1 - tfsec](/2022/12/29/secure-terraform-part1-tfsec)
 - [Secure Terraform - Part 2 - tfsec customization](/2023/01/29/secure-terraform-part2-tfsec-customization)
 - [Secure Terraform - Part 3 - terrascan](/2023/03/22/secure-terraform-part3-terrascan)
 - [Secure Terraform - Part 4 - checkov](/2023/03/24/secure-terraform-part4-checkov)
@@ -32,11 +33,11 @@ In the previous article, we discussed tfsec, a static code analysis tool for Ter
 
 ## Customizing tfsec Rules
 
-Tfsec allows you to customize the rules that are used to scan your Terraform code. You can do this by creating a file ending in `_tfchecks.json` or `_tfchecks.yaml` in the .tfsec folder in the root of project. You can also put these files in a different folder and pass the option `--custom-check-dir` or `--custom-check-url` to the tfsec command. This is covered in the documentation: https://aquasecurity.github.io/tfsec/v1.28.1/guides/configuration/custom-checks/.
+Tfsec allows you to customize the rules that are used to scan your Terraform code. You can do this by creating a file ending in `_tfchecks.json` or `_tfchecks.yaml` in the .tfsec folder in the root of project. You can also put these files in a different folder and pass the option `--custom-check-dir` or `--custom-check-url` to the tfsec command. This is covered in the documentation: [https://aquasecurity.github.io/tfsec/v1.28.1/guides/configuration/custom-checks/](https://aquasecurity.github.io/tfsec/v1.28.1/guides/configuration/custom-checks/).
 
-The documentation references a tool called `tfsec-checkgen` that you can install. This tool will validate your check file or help perform tests to ensure that it is valid for use with tfsec. I found that the tool helped me create and validate checks but not run the `test-check` action. 
+The documentation references a tool called `tfsec-checkgen` that you can install. This tool will validate your check file or help perform tests to ensure that it is valid for use with tfsec. I found that the tool helped me create and validate checks but not run the `test-check` action.
 
-In this post, we will take a look at how to create a few different custom rules. The first rule we'll work on is for a required tag for our Azure resources. There is an example of this in the tfsec documentation, but its for AWS. 
+In this post, we will take a look at how to create a few different custom rules. The first rule we'll work on is for a required tag for our Azure resources. There is an example of this in the tfsec documentation, but its for AWS.
 
 ```yaml
 ---
@@ -88,7 +89,7 @@ checks:
   - https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging
 ```
 
-I've changed the name to `tags-resources` to make it more descriptive. I've also changed the requiredLabels to include the resources I want to check for the tag. This rule will only trigger on the resource types listed under requiredLabels.  I've also changed the severity to HIGH. I've also added a link to the Azure Best Practices for Resource Tagging. 
+I've changed the name to `tags-resources` to make it more descriptive. I've also changed the requiredLabels to include the resources I want to check for the tag. This rule will only trigger on the resource types listed under requiredLabels.  I've also changed the severity to HIGH. I've also added a link to the Azure Best Practices for Resource Tagging.
 
 This is saved to ```.tfsec/custom_tfchecks.yaml```. The tfsec vscode extension we installed before will automatically pick up the new rule. We can see it highlighting the code with an issue and showing up in the results screen.
 
@@ -249,8 +250,8 @@ You can see the results of the rego policy in the output.
 
 ## Conclusion
 
-While rego policies support are nice, I think the yaml policies are more flexible and easier to use. Having the ability to use a url for custom checks allows you to share your checks with others. 
+While rego policies support are nice, I think the yaml policies are more flexible and easier to use. Having the ability to use a url for custom checks allows you to share your checks with others.
 
 I wanted to show how to do checks in Azure because I didn't see a lot of examples or docs on Azure resources specifically.
 
-I hope this deeper dive into custom checks was helpful. 
+I hope this deeper dive into custom checks was helpful.

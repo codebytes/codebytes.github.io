@@ -56,4 +56,3 @@ gallery:
 I read a lot of books, you can see some of them on [goodreads](https://www.goodreads.com/user/show/3301743-chris-ayers). Below are some of my absolute favorite books.
 
 {% include gallery caption="A few **amazing** books." %}
-

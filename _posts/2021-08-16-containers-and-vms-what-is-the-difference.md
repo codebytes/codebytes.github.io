@@ -37,7 +37,6 @@ Workloads or applications running on a VM contain the entire operating system (L
 | VMs provide superior isolation and security across systems | Limited VM support on a physical server compared to containers, due to full server encapsulation |
 | A robust VM ecosystem and marketplace exists, featuring industry leaders | VM start-up times can be lengthy, as the OS and kernel need to fully initialize |
 
-
 ## What are Containers?
 
 Containers are lightweight, isolated, packages of software. The containers bundle libraries, configuration, scripts, and application binaries. There is a standard for containers images, The Open Container Initiative - OCI, for allowing interoperability of different container engines. Containers run on top of an OS and a Container Engine, like Docker, CRI-O, or LXD. The Container Engine pulls images from a container registry and runs applications.

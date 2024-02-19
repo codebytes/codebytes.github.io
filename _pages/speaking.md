@@ -1,15 +1,16 @@
 ---
 title: Speaking
 type: page
-categories: [speaking]
-tags: [speaking]
+categories: 
+- speaking
+tags: 
+- speaking
 permalink: "/speaking/"
 ---
 
 Feel free to check out my [Sessionize profile](https://sessionize.com/ChrisAyers/) for all my current talks and engagements.
 
 If you're interested in having me speak at your event, please connect and reach out to me social media (LinkedIn, Twitter, Mastodon).
-
 
 You can find some of my previous talks and online engagements on YouTube at the following [playlist](https://www.youtube.com/playlist?list=PLwaSWcZSuko7QvN0zXuHGlhh_Dxp3UmyP):
 {% include video id="videoseries?list=PLwaSWcZSuko7QvN0zXuHGlhh_Dxp3UmyP" provider="youtube" %}
@@ -38,11 +39,11 @@ You can find some of my previous talks and online engagements on YouTube at the 
 | 2023 All Day DevOps | Oct 26, 2023 | Working with DevContainers |
 | NDC Porto | Oct 16-20, 2023 | Continuous Load Testing with GitHub Actions |
 | Techorama Netherlands 2023 | Oct 9-11, 2023 | SRE, Devops, and Platform Engineering: Unraveling the Differences<br>Kubernetes Resiliency |
-| BSides Orlando 2023 | Oct 6, 2023 | Securely Deploying Infrastructure as Code | 
-| DevOps Days Tampa Bay 2023 | Sep 21, 2023 | Lead Organizer: https://devopsdays.org/events/2023-tampa/welcome/ |
+| BSides Orlando 2023 | Oct 6, 2023 | Securely Deploying Infrastructure as Code |
+| DevOps Days Tampa Bay 2023 | Sep 21, 2023 | Lead Organizer: <https://devopsdays.org/events/2023-tampa/welcome/> |
 | Atlanta Developer Conference 2023 | Sep 9, 2023 | Working with Dev Containers |
 | AutomationSTAR Online | Sep 15, 2023 | Testing with Playwright |
-| BSides St. Pete 2023 | Sep 16, 2023 | Job Seeker/Hiring/Interview Panel | 
+| BSides St. Pete 2023 | Sep 16, 2023 | Job Seeker/Hiring/Interview Panel |
 | Capital Area .NET Users Group | Aug 29, 2023 | .NET Configuration In Depth |
 | HashiConf: Build | Aug 10, 2023 | Securely deploying Terraform |
 | THAT Conference - WI 2023 | Jul 24-27, 2023 | .NET Configuration In Depth |

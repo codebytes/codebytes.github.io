@@ -17,10 +17,10 @@ header:
 excerpt_separator: <!--more-->
 ---
 
-This is part 1 of the [MARP](https://github.com/marp-team/marp) series. You can read the series of articles here: 
-- [Marp - Create Presentations with Markdown](/2023/03/26/marp-create-presentations-with-markdown) 
-- [Unleash Your Creativity with Marp Presentation Customization](/2023/03/31/customizing-marp)
+This is part 1 of the [MARP](https://github.com/marp-team/marp) series. You can read the series of articles here:
 
+- [Marp - Create Presentations with Markdown](/2023/03/26/marp-create-presentations-with-markdown)
+- [Unleash Your Creativity with Marp Presentation Customization](/2023/03/31/customizing-marp)
 
 ## Introduction
 
@@ -32,7 +32,7 @@ Marp is a powerful and user-friendly presentation framework that simplifies the 
 
 {% include figure image_path="/assets/images/marp-logo.png" alt="Marp Logo" caption="Marp Logo" %}
 
-Marp is an open-source presentation framework that allows you to create beautiful, customizable slide decks using the simplicity and flexibility of Markdown. By harnessing the power of Markdown, Marp enables you to focus on your content and message without getting bogged down in complex formatting and design choices. Marp has CLI and VS Code extensions, and it supports exporting presentations to various formats, including HTML, PDF, and PowerPoint. 
+Marp is an open-source presentation framework that allows you to create beautiful, customizable slide decks using the simplicity and flexibility of Markdown. By harnessing the power of Markdown, Marp enables you to focus on your content and message without getting bogged down in complex formatting and design choices. Marp has CLI and VS Code extensions, and it supports exporting presentations to various formats, including HTML, PDF, and PowerPoint.
 
 ## Why Use Marp?
 
@@ -48,7 +48,7 @@ There are several reasons why you might want to consider using Marp for your pre
 
 ## Working with Marp
 
-For me, the ideal way to interact and work with Marp is through the [Marp for VS Code extension](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode). This extension provides a seamless workflow for creating and editing presentations in Visual Studio Code. It also offers real-time previews, allowing you to see your presentation as you write it. 
+For me, the ideal way to interact and work with Marp is through the [Marp for VS Code extension](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode). This extension provides a seamless workflow for creating and editing presentations in Visual Studio Code. It also offers real-time previews, allowing you to see your presentation as you write it.
 
 {% include figure image_path="/assets/images/vscode-editing-marp.png" alt="vscode editing marp" caption="vscode editing marp" %}
 

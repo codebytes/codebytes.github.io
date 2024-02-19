@@ -55,8 +55,8 @@ Similarly, upgrading and uninstalling packages is done through the `winget upgra
 
 I originally started writing this a few months ago, before its 1.0 release. Since that time things have gotten much easier.
 
-*   If you update Windows 10 (1807 or higher) with all the normal patches, and you update the store Apps (including App Installer), you get winget
-*   winget added an import/export set of commands, allowing you to quickly install a series of apps on a second machine (or the same machine) and it will detect those already installed.
+- If you update Windows 10 (1807 or higher) with all the normal patches, and you update the store Apps (including App Installer), you get winget
+- winget added an import/export set of commands, allowing you to quickly install a series of apps on a second machine (or the same machine) and it will detect those already installed.
 
 Please keep reading though if you find scripting and automation interesting. The script I walk through below can be found at [Gist: Codebytes/DevMachineSetup.ps1](https://gist.github.com/Codebytes/29bf18015f6e93fca9421df73c6e512c).
 
@@ -86,7 +86,7 @@ While scripting the install, I ran into a few issues. For older versions of Wind
     }
 ```
 
-After getting it installed, I added some configuration to support the windows store. This is an experimental setting documented on GitHub. https://github.com/microsoft/winget-cli/blob/master/doc/Settings.md
+After getting it installed, I added some configuration to support the windows store. This is an experimental setting documented on GitHub: [https://github.com/microsoft/winget-cli/blob/master/doc/Settings.md](https://github.com/microsoft/winget-cli/blob/master/doc/Settings.md).
 
 ```powershell
     #Configure WinGet
@@ -104,7 +104,7 @@ After getting it installed, I added some configuration to support the windows st
         }
     "@;
     $settingsJson | Out-File $settingsPath -Encoding utf8
-```    
+```
 
 Finally I built up a list of packages to install. I'm using the `winget` command to install the packages. I originally had a simple list of packages, but added the optional source parameter to support installing from the Windows Store. Winget also doesn't short circuit the install if the package is already installed, so I added a check for that. Winget today doesn't output PowerShell objects or easily parseable output, so I just joined all the lines into 1 string and checked the contents.
 
@@ -166,6 +166,6 @@ You can get and run the entire script on a new machine by invoking the following
 
 ```powershell
     PowerShell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://gist.githubusercontent.com/Codebytes/29bf18015f6e93fca9421df73c6e512c/raw/'))"
-```    
+```
 
-*   Note: After running this, you might need to restart your terminal or reboot the computer.
+> Note: After running this, you might need to restart your terminal or reboot the computer.

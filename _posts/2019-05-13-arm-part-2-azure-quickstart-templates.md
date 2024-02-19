@@ -22,11 +22,11 @@ I'm one of those guys that likes to learn by doing. Reading the documentation is
 
 If you missed [part 1](http://chris-ayers.com/arm-azure-resource-manager), read along and come back. I need a WebApp setup for my sample project. I realized I can do it a few ways. Some of the ways are very manual, some are repeatable, but one stood out to me.
 
-*   Create the resources in the Azure Portal
-*   Create the resources in Visual Studio when I right-click Publish
-*   Create the resources via a Powershell script
-*   Create the resources via the Azure CLI
-*   **Create an ARM Template, create the resources on deploy, or via the CLI**
+- Create the resources in the Azure Portal
+- Create the resources in Visual Studio when I right-click Publish
+- Create the resources via a Powershell script
+- Create the resources via the Azure CLI
+- **Create an ARM Template, create the resources on deploy, or via the CLI**
 
 ## Let's Write an ARM Template
 
@@ -48,7 +48,7 @@ My eye is drawn to the Parameters section. I recognize some of these from when I
 
 #### Variables
 
-This isn't your mama's json. That looks like a function to me! Looks like somebody got their code in my json. I like it. A quick google later and I see a huge list of [template functions](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-functions) in Microsoft's documenation. I'll come back to that. In the mean time, those variables look a lot like the name of the webapp and AppServicePlan. I can work with this.
+This isn't your mama's json. That looks like a function to me! Looks like somebody got their code in my json. I like it. A quick google later and I see a huge list of [template functions](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-functions) in Microsoft's documentation. I'll come back to that. In the mean time, those variables look a lot like the name of the webapp and AppServicePlan. I can work with this.
 
 #### Resources
 

@@ -48,7 +48,7 @@ A standout feature of the [Draw.io Integration extension](https://marketplace.vi
 To truly maximize the use of Draw.io within VSCode, you should not only leverage the diagramming functionality but also manage and integrate your diagrams effectively into your projects. Here are a few tips and tricks:
 
 - **Save diagrams as `drawio.png` or `drawio.svg` files**: Regularly saving your diagrams in these formats ensures you don't lose your work. These formats also allow you (or others) to edit the diagrams later, courtesy of the diagram data stored within the image metadata.
- 
+
 {% include figure image_path="/assets/diagrams/sample.drawio.png" alt="Sample drawio.png" caption="Sample drawio.png" %}
 
 - **Integrate diagrams into your Git repository**: After saving your diagrams as `drawio.png` or `drawio.svg` files, you can conveniently add them to your Git repository. This integration allows you to version control your diagrams alongside your code and share them with others through the repository.
@@ -64,12 +64,10 @@ By adopting these tips and tricks, you can effectively manage your diagrams and 
 ## Other Features
 
 Besides the features I've covered so far, the [Draw.io Integration extension](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) also provides a host of other functionalities. These include:
+
 - Offline support: By default, the extension uses an offline version of Draw.io.
-
 - Themes: Multiple Draw.io themes are available for users to choose from.
-
 - Collaboration: The extension supports collaborative editing of diagrams using VS Code Liveshare. Users can edit and present diagrams remotely, with participants able to see each other's cursors and selections.
-
 - Code link feature: The extension includes a code link feature where users can enable or disable linking nodes/edges with code spans. Double-clicking on a node with a label starting with "#" performs a workspace search for a matching symbol, allowing users to jump to its source code.
 
 ## Conclusion

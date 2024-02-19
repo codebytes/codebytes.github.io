@@ -100,7 +100,7 @@ This involves moving dependencies to the constructor where possible. This is a l
             _emailProvider.SendDeleteConfirmation(id);
         }
     }
-```    
+```
 
 ### Parameter Injection
 

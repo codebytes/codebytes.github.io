@@ -25,6 +25,6 @@ Interference with the AI pipeline: An attacker could potentially influence the s
 
 Interestingly, many of these attacks can be hard to detect, especially those that manipulate training data, as you've pointed out. The opacity of complex AI models, often referred to as the "black box" problem, makes it difficult to discern how specific inputs led to certain outputs. This problem further magnifies when these systems are attacked subtly and skillfully.
 
-To protect against these attack vectors, it's crucial to implement robust security measures throughout the entire AI pipeline. Regular data audits, model interpretability techniques, data encryption, differential privacy, and robustness checks against adversarial examples can help reduce the vulnerability of AI systems.
+To protect against these attack vectors, it's crucial to implement robust security measures throughout the entire AI pipeline. Regular data audits, model transparency techniques, data encryption, differential privacy, and robustness checks against adversarial examples can help reduce the vulnerability of AI systems.
 
 Furthermore, we need to cultivate a comprehensive understanding of AI and its potential vulnerabilities among users, developers, and decision-makers alike. As we push forward with AI development, parallel efforts in AI security research and AI ethics should not be overlooked.

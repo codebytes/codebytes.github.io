@@ -17,8 +17,9 @@ header:
   og_image: /assets/images/checkov-logo.png
 ---
 
-This is part 4 of the Secure Terraform series. You can read the series of articles here: 
-- [Secure Terraform - Part 1 - tfsec](/2022/12/29/secure-terraform-part1-tfsec) 
+This is part 4 of the Secure Terraform series. You can read the series of articles here:
+
+- [Secure Terraform - Part 1 - tfsec](/2022/12/29/secure-terraform-part1-tfsec)
 - [Secure Terraform - Part 2 - tfsec customization](/2023/01/29/secure-terraform-part2-tfsec-customization)
 - [Secure Terraform - Part 3 - terrascan](/2023/03/22/secure-terraform-part3-terrascan)
 - [Secure Terraform - Part 4 - checkov](/2023/03/24/secure-terraform-part4-checkov)
@@ -26,7 +27,7 @@ This is part 4 of the Secure Terraform series. You can read the series of articl
 
 ## Introduction
 
-In this fourth installment of our Secure Terraform series, we'll discuss Checkov, a powerful open-source static code analysis tool supported by Bridgecrew. Checkov supports Terraform, Kubernetes, Dockerfiles, AWS CloudFormation, and other Infrastructure as Code (IaC) frameworks. It focuses on security best practices, policy compliance, and industry standards. You can find Checkov's documentation and samples at https://www.checkov.io/.
+In this fourth installment of our Secure Terraform series, we'll discuss Checkov, a powerful open-source static code analysis tool supported by Bridgecrew. Checkov supports Terraform, Kubernetes, Dockerfiles, AWS CloudFormation, and other Infrastructure as Code (IaC) frameworks. It focuses on security best practices, policy compliance, and industry standards. You can find Checkov's documentation and samples at [https://www.checkov.io/](https://www.checkov.io/).
 
 ![checkov-logo](/assets/images/checkov-logo.png)
 
@@ -114,7 +115,7 @@ Checkov supports custom policies written in Python or Yaml. You can create a cus
 2. Inside the custom_policies directory, create a new Python or Yaml file for your custom rule, e.g., my_custom_rule.py or my_custom_rule.yaml.
 3. Write your custom rule using Python or the Yaml language. Refer to the Checkov documentation for guidance on writing custom policies.
 
-In addition to custom policies, Checkov allows you to suppress specific checks or resources using inline comments in your Terraform code. 
+In addition to custom policies, Checkov allows you to suppress specific checks or resources using inline comments in your Terraform code.
 
 This can be useful when you want to exclude certain resources from specific checks. To suppress a check, add the following comment above the resource block:
 

@@ -145,4 +145,3 @@ View my verified Certifications at [Credly](https://www.credly.com/users/chris-a
 - 70-483 - Programming in C#
 
 {% include gallery id="cert-badges" caption="This is a gallery of my badges." %}
-

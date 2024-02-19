@@ -16,8 +16,9 @@ header:
   og_image: /assets/images/terraform-logo.png
 ---
 
-This is part 5 of the Secure Terraform series. You can read the series of articles here: 
-- [Secure Terraform - Part 1 - tfsec](/2022/12/29/secure-terraform-part1-tfsec) 
+This is part 5 of the Secure Terraform series. You can read the series of articles here:
+
+- [Secure Terraform - Part 1 - tfsec](/2022/12/29/secure-terraform-part1-tfsec)
 - [Secure Terraform - Part 2 - tfsec customization](/2023/01/29/secure-terraform-part2-tfsec-customization)
 - [Secure Terraform - Part 3 - terrascan](/2023/03/22/secure-terraform-part3-terrascan)
 - [Secure Terraform - Part 4 - checkov](/2023/03/24/secure-terraform-part4-checkov)
@@ -27,7 +28,7 @@ This is part 5 of the Secure Terraform series. You can read the series of articl
 
 ## Introduction
 
-Terraform is an immensely popular Infrastructure as Code (IaC) tool that allows you to manage and provision infrastructure resources using configuration files and automation tools. 
+Terraform is an immensely popular Infrastructure as Code (IaC) tool that allows you to manage and provision infrastructure resources using configuration files and automation tools.
 
 Securing your Terraform state is crucial for maintaining the integrity and security of your infrastructure. The state file contains a wealth of sensitive information, including resource configurations, connection details, and even secret values such as API keys and passwords. In the hands of bad actors, this data could be exploited to gain unauthorized access, launch attacks, or cause irreparable damage to your infrastructure. To protect your organization from these threats, it's essential to understand the importance of securing your Terraform state and implement best practices that safeguard your infrastructure's state data.
 
