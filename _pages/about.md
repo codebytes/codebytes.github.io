@@ -112,7 +112,7 @@ I've been developing software of some kind since second grade.  I've worn severa
 
 View my verified Certifications at [Credly](https://www.credly.com/users/chris-ayers).
 
-- Github Actions
+- GitHub Actions
 - Diversity, Equity and Inclusion in the Workplace Certificate
 - CKAD: Certified Kubernetes Application Developer
 - HashiCorp Certified: Terraform Associate

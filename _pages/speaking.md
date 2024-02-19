@@ -29,7 +29,7 @@ You can find some of my previous talks and online engagements on YouTube at the 
 | Event | Date | Talks |
 | --- | --- | --- |
 | Festive Tech Calendar | Dec 27, 2023 | Dev Containers in VS Code |
-| Granite State Code Camp 2023 | Dec 2, 2023 | CI/CD with Github Actions |
+| Granite State Code Camp 2023 | Dec 2, 2023 | CI/CD with GitHub Actions |
 | Live360! Orlando | Nov 13-17, 2023 | Achieving SRE (Site Resiliency Engineering) with Azure<br>Master Azure Resources Like Marvel's Lord Chaos<br>Cloud & Containers Live! Panel Discussion: Past the Hype: Cloud in the Mainstream |
 | .NET Conf 2023 | Nov 16, 2023 | .NET Configuration In Depth |
 | Agile + DevOps East 2023 | Nov 9, 2023 | Securely developing Infrastructure as Code |
