@@ -9,6 +9,7 @@ tags:
 permalink: "/2022/01/02/presenting-best-practices-part-1/"
 excerpt_separator: <!--more-->
 ---
+<!-- textlint-disable terminology -->
 
 {% include figure image_path="/assets/images/51382972555_0ceb282aee_o.jpg" alt="Presenting at THAT Conference 2020" caption="Presenting at THAT Conference 2020" %}
 

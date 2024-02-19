@@ -18,14 +18,14 @@ excerpt_separator: <!--more-->
 
 This is part 2 of the [MARP](https://github.com/marp-team/marp) series. You can read the series of articles here:
 
-- [Marp - Create Presentations with MarkDown](/2023/03/26/marp-create-presentations-with-markdown)
+- [Marp - Create Presentations with Markdown](/2023/03/26/marp-create-presentations-with-markdown)
 - [Unleash Your Creativity with Marp Presentation Customization](/2023/03/31/customizing-marp)
 
 ## Introduction
 
-Marp is a powerful MarkDown presentation framework that enables you to create stunning slides effortlessly. By using simple text-based formatting, you can easily customize your presentations to suit your unique needs and style. Although Marp provides built-in themes and configurations, the true potential of this framework can be realized by customizing your presentations to suit your unique needs and style. In this blog post, we will delve into some of the key customization options available in Marp and guide you through the process of creating a truly standout presentation.
+Marp is a powerful Markdown presentation framework that enables you to create stunning slides effortlessly. By using simple text-based formatting, you can easily customize your presentations to suit your unique needs and style. Although Marp provides built-in themes and configurations, the true potential of this framework can be realized by customizing your presentations to suit your unique needs and style. In this blog post, we will delve into some of the key customization options available in Marp and guide you through the process of creating a truly standout presentation.
 
-## Built in Themes
+## Built-in Themes
 
 Marp comes with [three built-in themes](https://github.com/marp-team/marp-core/tree/main/themes) that you can use to get started. The three themes, Default, Gaia, and Uncover, are shown below along with the frontmatter to use them and a few inverted examples.
 
@@ -126,7 +126,7 @@ section {
 }
 ```
 
-The crucial aspect for the Marp theme engine is the theme directive: `@theme custom-default`. This theme name is what you'll use in your slides. To link it to your MarkDown file, apply the theme option in the front matter:
+The crucial aspect for the Marp theme engine is the theme directive: `@theme custom-default`. This theme name is what you'll use in your slides. To link it to your Markdown file, apply the theme option in the front matter:
 
 ```markdown
 ---
@@ -188,7 +188,7 @@ You can also add background colors and gradients using CSS.
 
 ## Inline CSS
 
-Another thing I've done is add inline css to my slides. I've also enabled html tags in my slides, so I can use divs and classes besides the standard MarkDown syntax. To do this, you can use the following syntax in your frontmatter.
+Another thing I've done is add inline CSS to my slides. I've also enabled HTML tags in my slides, so I can use divs and classes besides the standard Markdown syntax. To do this, you can use the following syntax in your frontmatter.
 
 ```css
 ---
@@ -203,7 +203,7 @@ style: |
 ---
 ```
 
-We can then use these classes in our slides and mix and match MarkDown and html if needed.
+We can then use these classes in our slides and mix and match Markdown and HTML if needed.
 
 ```markdown
 
@@ -233,9 +233,9 @@ We can then use these classes in our slides and mix and match MarkDown and html 
 
 ```
 
-In this example, I'm adding a grid layout to my slides so I have have split columns. You can add any css you want here.
+In this example, I'm adding a grid layout to my slides so I have have split columns. You can add any CSS you want here.
 
-{% include figure image_path="/assets/images/marp-html-css.png" alt="Marp html and custom css" caption="Marp html and custom css" %}
+{% include figure image_path="/assets/images/marp-html-css.png" alt="Marp HTML and custom CSS" caption="Marp HTML and custom CSS" %}
 
 ## Font Awesome
 
@@ -274,12 +274,12 @@ And then in your slides, you can use the following syntax to add icons.
 
 ## Mermaid Support
 
-Marp also supports [Mermaid](https://mermaid-js.github.io/mermaid/#/), a JavaScript library for generating diagrams and flowcharts from text. Mermaid provides an easy way to create visual representations of complex ideas and concepts, and it integrates seamlessly with MarkDown syntax.
+Marp also supports [Mermaid](https://mermaid-js.github.io/mermaid/#/), a JavaScript library for generating diagrams and flowcharts from text. Mermaid provides an easy way to create visual representations of complex ideas and concepts, and it integrates seamlessly with Markdown syntax.
 
-To use Mermaid diagrams in your Marp presentation, you need to add the following script to your MarkDown file:
+To use Mermaid diagrams in your Marp presentation, you need to add the following script to your Markdown file:
 
 ```markdown
-<!-- Add this anywhere in your MarkDown file -->
+<!-- Add this anywhere in your Markdown file -->
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
@@ -302,7 +302,7 @@ graph TD;
 
 {% include figure image_path="/assets/images/marp-mermaid.png" alt="Marp mermaid diagrams" caption="Marp mermaid diagrams" %}
 
-Marp will automatically convert this code into a diagram, which you can then style using CSS. By default, Mermaid diagrams are quite small, but you can adjust their size using CSS. This CSS code will make your Mermaid diagrams larger and easier to read. You can add this code to the frontmatter section of your MarkDown file.
+Marp will automatically convert this code into a diagram, which you can then style using CSS. By default, Mermaid diagrams are quite small, but you can adjust their size using CSS. This CSS code will make your Mermaid diagrams larger and easier to read. You can add this code to the frontmatter section of your Markdown file.
 
 ```css
   svg[id^="mermaid-"] { 
@@ -315,15 +315,15 @@ Marp will automatically convert this code into a diagram, which you can then sty
 
 And we get the following:
 
-{% include figure image_path="/assets/images/marp-mermaid-styled.png" alt="Marp mermaid diagrams - with css" caption="Marp mermaid diagrams - with css" %}
+{% include figure image_path="/assets/images/marp-mermaid-styled.png" alt="Marp mermaid diagrams - with CSS" caption="Marp mermaid diagrams - with CSS" %}
 
-Note that out of the box, VS Code doesn't support Mermaid diagrams with a preview, but you can add this feature using the [MarkDown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) extension. This extension adds support for Mermaid diagrams in the preview pane of VS Code.
+Note that out of the box, VS Code doesn't support Mermaid diagrams with a preview, but you can add this feature using the [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) extension. This extension adds support for Mermaid diagrams in the preview pane of VS Code.
 
 ## Speaker Mode
 
 Marp comes with a built-in speaker mode that allows presenters to view their notes and upcoming slides while giving a presentation. To enable speaker mode:
 
-- Export your presentation to html (you can also use my template and leverage GitHub Pages).
+- Export your presentation to HTML (you can also use my template and leverage GitHub Pages).
 - Open your Marp presentation file in your browser.
 - Press "P" on your keyboard or click on the icon for speaker mode.
 
@@ -353,7 +353,7 @@ This will create a hidden area for your speaker notes, which will be visible onl
 
 ## Conclusion
 
-In conclusion, Marp is a powerful and flexible presentation tool that can help you create stunning slides with ease. Unlike traditional presentation tools like PowerPoint, Marp uses MarkDown, a lightweight markup language that allows you to focus on your content without getting bogged down in formatting details. With Marp, you can easily customize your presentations with custom themes, images, CSS, and other features, making your slides truly stand out. Additionally, Marp is free and open-source, so you don't have to worry about licensing fees or vendor lock-in. Overall, Marp is a fantastic alternative to traditional presentation tools, and we encourage you to give it a try!
+In conclusion, Marp is a powerful and flexible presentation tool that can help you create stunning slides with ease. Unlike traditional presentation tools like PowerPoint, Marp uses Markdown, a lightweight markup language that allows you to focus on your content without getting bogged down in formatting details. With Marp, you can easily customize your presentations with custom themes, images, CSS, and other features, making your slides truly stand out. Additionally, Marp is free and open-source, so you don't have to worry about licensing fees or vendor lock-in. Overall, Marp is a fantastic alternative to traditional presentation tools, and we encourage you to give it a try!
 
 Get started today by using the [Marp Slides Template](https://github.com/codebytes/marp-slides-template) to create your own Marp presentation!
 
@@ -364,4 +364,4 @@ Get started today by using the [Marp Slides Template](https://github.com/codebyt
 - [Marp Documentation](https://marpit.marp.app/)
 - [Font Awesome](https://fontawesome.com/)
 - [Mermaid Documentation](https://mermaid-js.github.io/mermaid/#/)
-- [MarkDown Preview Mermaid Support Extension](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid)
+- [Markdown Preview Mermaid Support Extension](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid)

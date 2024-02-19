@@ -34,7 +34,7 @@ I know what I want to do, write an ARM Template. Do I have any idea what I'm doi
 
 Well, I found one in the quickstart: [https://learn.microsoft.com/en-us/azure/app-service/quickstart-arm-template?pivots=platform-windows](https://learn.microsoft.com/en-us/azure/app-service/quickstart-arm-template?pivots=platform-windows). From this quickstart, I can click Deploy to Azure, fill out some information and I've got an App Service Plan and a Web App. **This is so cool.** Now to tear this thing apart and figure out what it is.
 
-## Ok, Lets play with an ARM Template
+## OK, Lets play with an ARM Template
 
 In the [GitHub repository](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-basic-windows) it looks like there are 2 or 3 files that make up the ARM Template.
 
@@ -56,4 +56,4 @@ Meat and potatoes. Jackpot. This looks like where the resources are defined. Onl
 
 ## Next Steps
 
-I've got an ARM Template now that works. I've poked at it a little. Time to make this thing _fly_. Lets setup an Azure Repo on DevOps and see about trying to deploy this thing and create my webapp on release. I want to be able to check in a change and have it create/update my resources in azure. Next time, we start the feedback loop.
+I've got an ARM Template now that works. I've poked at it a little. Time to make this thing _fly_. Lets setup an Azure repository on DevOps and see about trying to deploy this thing and create my webapp on release. I want to be able to check in a change and have it create/update my resources in azure. Next time, we start the feedback loop.

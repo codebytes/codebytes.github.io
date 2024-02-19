@@ -19,9 +19,9 @@ header:
   og_image: /assets/images/mermaid-logo.png
 ---
 
-I haven't done a lot with jekyll in the past, but I'm a big fan of MarkDown everything. For me that usually means I'm taking notes in MarkDown [Obsidian](https://obsidian.md), doing diagrams in mermaid in Azure DevOps or [https://mermaid.live/](https://mermaid.live/). I've even started turning my talk slides into MarkDown with a tool called [MARP](https://marp.app/).
+I haven't done a lot with jekyll in the past, but I'm a big fan of Markdown everything. For me that usually means I'm taking notes in Markdown [Obsidian](https://obsidian.md), doing diagrams in mermaid in Azure DevOps or [https://mermaid.live/](https://mermaid.live/). I've even started turning my talk slides into Markdown with a tool called [MARP](https://marp.app/).
 
-Understanding when I use standard MarkDown or some sort of templating language (jekyll uses Liquid) has been fun. I'll do something in html or MarkDown, then find out that Jekyll or my theme already has helpers to render that (like gists, videos, and figures). Sometimes rendering more advanced things takes a little tweaking of Jekyll and the theme.
+Understanding when I use standard Markdown or some sort of templating language (jekyll uses Liquid) has been fun. I'll do something in HTML or Markdown, then find out that Jekyll or my theme already has helpers to render that (like gists, videos, and figures). Sometimes rendering more advanced things takes a little tweaking of Jekyll and the theme.
 
 Lets take Mermaid for example.  If I want to render mermaid, it won't work out of the box with jekyll or my theme. I need to tweak things and initialize things manually. If I want to render a graph, this won't work out of the box.
 
@@ -45,7 +45,7 @@ Fortunately Archive also refers to Default so I can focus my changes there if I 
 
 {% include figure image_path="/assets/images/minimal-mistakes-layout-default.png" alt="Theme layout for default" caption="Theme layout for default" %}
 
-Looking at this file, there are a few includes defined. One of which is the footer/custom.html and one is scripts.html. I looked through the scripts.html and it has a lot of logic I'd prefer not to duplicate. I'm already using the header-custom file to define some css/scripts. I've found Mermaid needs its init to run in the body, so i'll probably want to leverage the footer/custom.html for this. It's an empty file in the theme, making it any easy choice to override.
+Looking at this file, there are a few includes defined. One of which is the footer/custom.html and one is scripts.html. I looked through the scripts.html and it has a lot of logic I'd prefer not to duplicate. I'm already using the header-custom file to define some `css/scripts`. I've found Mermaid needs its init to run in the body, so i'll probably want to leverage the footer/custom.html for this. It's an empty file in the theme, making it any easy choice to override.
 
 I created a footer folder in my local project _includes and a custom.html file. I added some simple logic to only add the mermaid logic if I added a ```mermaid:true``` flag at the top of the page.
 
@@ -55,7 +55,7 @@ So lets set that!
 
 {% include figure image_path="/assets/images/mermaid-frontmatter.png" alt="Front Matter flag for mermaid" caption="Front Matter flag for mermaid" %}
 
-At this point, everything should work and embedded mermaid in my MarkDown posts renders properly!
+At this point, everything should work and embedded mermaid in my Markdown posts renders properly!
 
 ```mermaid
 graph TD;
@@ -65,7 +65,7 @@ graph TD;
     C-->D;
 ```
 
-I've done a few other minor customizations so far. Like adding some custom css and some javascript for app insights. Both of those involved a similar process of adding head/custom.html and assets/css/custom.css.
+I've done a few other minor customizations so far. Like adding some custom CSS and some JavaScript for app insights. Both of those involved a similar process of adding `head/custom.html` and `assets/css/custom.css`.
 
 I used a few different sources to get things to work for me. Please check those out as well to see if they can help you:
 

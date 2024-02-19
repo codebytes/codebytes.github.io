@@ -104,7 +104,7 @@ Now its complaining about the field being blank while required.  What if we popu
 
 We we run the app with this value, we get a different validation error.
 
-Unhandled exception. Microsoft.Extensions.Options.OptionsValidationException: DataAnnotation validation failed for 'WebHookSettings' members: 'WebhookUrl' with the error: 'The WebhookUrl field is not a valid fully-qualified http, https, or ftp URL.'.
+Unhandled exception. Microsoft.Extensions.Options.OptionsValidationException: DataAnnotation validation failed for 'WebHookSettings' members: 'WebhookUrl' with the error: 'The WebhookUrl field is not a valid fully-qualified HTTP, HTTPS, or FTP URL.'.
 {: .notice--warning }
 
 We can take this a step further, with additional custom validation if we choose.  Let's reset our configuration to something reasonable, but insecure..

@@ -16,9 +16,9 @@ header:
 
 ---
 
-I’ve been hosting on WordPress for a while. I wanted something that worked pretty well and was easy to work with. I picked a decent theme, added some plugins, pointed my domains and was up and running. I would work on blogs in MarkDown, and then paste the txt into a MarkDown. I could upload a few images and move them around in a wysiwyg.
+I’ve been hosting on WordPress for a while. I wanted something that worked pretty well and was easy to work with. I picked a decent theme, added some plugins, pointed my domains and was up and running. I would work on blogs in Markdown, and then paste the txt into a Markdown. I could upload a few images and move them around in a wysiwyg.
 
-Lately, I’ve been doing a lot more in MarkDown. All my conference talks were in PowerPoint but I’ve started switching over to [MarkDown slides using MARP](https://chris-ayers.com/2023/03/26/marp-create-presentations-with-markdown). I should probably do a post on MARP sometime ([I did :-)](https://chris-ayers.com/2023/03/26/marp-create-presentations-with-markdown) ). I wanted to reduce my overhead of WordPress Hosting and get back into more direct styling and coding of my theme.  I decided to switch my hosting to Jekyll on GitHub Pages.
+Lately, I’ve been doing a lot more in Markdown. All my conference talks were in PowerPoint but I’ve started switching over to [Markdown slides using MARP](https://chris-ayers.com/2023/03/26/marp-create-presentations-with-markdown). I should probably do a post on MARP sometime ([I did :-)](https://chris-ayers.com/2023/03/26/marp-create-presentations-with-markdown) ). I wanted to reduce my overhead of WordPress Hosting and get back into more direct styling and coding of my theme.  I decided to switch my hosting to Jekyll on GitHub Pages.
 
 ## Setting Up GitHub Pages
 
@@ -64,7 +64,7 @@ I then Exported everything which downloads as a single file.
 
 {% include figure image_path="/assets/images/wordpress-export.png" alt="Export Option" caption="Export Option" %}
 
-This provides an download that's a zip file with an xml file.  I ran the import command:
+This provides an download that's a ZIP file with an xml file.  I ran the import command:
 
 ```bash
 bundle exec jekyll import wordpressdotcom --source wordpress.export.xml --assets_folder assets/
@@ -140,7 +140,7 @@ permalink: "/2019/05/11/arm-azure-resource-manager/"
 ---
 ```
 
-I similarly had to clean up some of the html in the imported posts.  Mainly I removed a bunch of the commented html and converted it all to MarkDown.
+I similarly had to clean up some of the HTML in the imported posts.  Mainly I removed a bunch of the commented HTML and converted it all to Markdown.
 
 ```html
 <p><!-- wp:heading {"level":3} --></p>
@@ -148,7 +148,7 @@ I similarly had to clean up some of the html in the imported posts.  Mainly I re
 <p><!-- /wp:heading --></p>
 ```
 
-That got cleaned up to and looking good in with MarkDown preview:
+That got cleaned up to and looking good in with Markdown preview:
 
 ```md
 ### The Journey Begins
@@ -162,7 +162,7 @@ Finally, I reviewed each image and cleaned up the references.
 <p><!-- /wp:image --></p>
 ```
 
-The theme [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/docs/helpers/#figure) has great helpers for figures and images. I converted the html to MarkDown using the figure helper like this:
+The theme [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/docs/helpers/#figure) has great helpers for figures and images. I converted the HTML to Markdown using the figure helper like this:
 
 {% raw %}
 
@@ -179,7 +179,7 @@ I didn't realize this was rendering wrong, i had to turn off liquid rendering wi
 Or you could replace { with &amp;#123; and } with &amp;#125; to get the same effect.
 {: .notice--info }
 
-I spent a few hours, fixed all the front matter and naming, converted all html to MarkDown, then removed and renamed old images.
+I spent a few hours, fixed all the front matter and naming, converted all HTML to Markdown, then removed and renamed old images.
 
 I was able to test locally by running running ```jekyll serve``` and checking how everything looked in a browser.
 

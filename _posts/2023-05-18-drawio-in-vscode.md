@@ -41,7 +41,7 @@ Draw.io's reputation for ease of use and an extensive set of features is well-de
 
 A standout feature of the [Draw.io Integration extension](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) is its unique approach to saving diagrams. You can save diagrams as drawio.png or drawio.svg files. These formats not only store the diagram as an image but also preserve the diagram data within the image metadata. This innovative feature means you can share diagrams as images viewable in any standard image viewer. If the recipients also use Draw.io or the hediet.vscode-drawio extension, they can even edit the diagrams, thanks to the original diagram data preserved in the image file.
 
-{% include figure image_path="/assets/images/drawio-png.gif" alt="drawio.png demo" caption="drawio.png demo" %}
+{% include figure image_path="/assets/images/drawio-png.gif" alt="drawio.PNG demo" caption="drawio.PNG demo" %}
 
 ## Tips
 
@@ -53,7 +53,7 @@ To truly maximize the use of Draw.io within VSCode, you should not only leverage
 
 - **Integrate diagrams into your Git repository**: After saving your diagrams as `drawio.png` or `drawio.svg` files, you can conveniently add them to your Git repository. This integration allows you to version control your diagrams alongside your code and share them with others through the repository.
 
-- **Reference diagrams directly in your MarkDown files**: Once your diagrams are stored in your Git repository, they can be directly referenced in your MarkDown files. This includes README files, blog posts, or MARP presentations. To do this, use the standard MarkDown image syntax, `![Alt text](url)`, where `url` is the path to your `drawio.png` or `drawio.svg` file in the repository. This technique enables a seamless integration of visual content into your written material.
+- **Reference diagrams directly in your Markdown files**: Once your diagrams are stored in your Git repository, they can be directly referenced in your Markdown files. This includes README files, blog posts, or MARP presentations. To do this, use the standard Markdown image syntax, `![Alt text](url)`, where `url` is the path to your `drawio.png` or `drawio.svg` file in the repository. This technique enables a seamless integration of visual content into your written material.
 
 - **Explore Draw.io's extensive shape and icon libraries**: Draw.io provides a vast library of shapes and icons that can help make your diagrams visually appealing and intuitive. Different shapes can represent various elements in your diagrams, enhancing their readability.
 

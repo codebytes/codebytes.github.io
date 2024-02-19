@@ -16,7 +16,7 @@ header:
 
 ---
 
-Something I found out after moving from Wordpress to GitHub Pages is that out of the box you can only host a single domain for a repository with GitHub Pages. This is a problem for me because I have a number of domains I was hosting at WordPress that I wanted to point at my GitHub Pages.
+Something I found out after moving from WordPress to GitHub Pages is that out of the box you can only host a single domain for a repository with GitHub Pages. This is a problem for me because I have a number of domains I was hosting at WordPress that I wanted to point at my GitHub Pages.
 
 ## Official Docs and the limitation
 
