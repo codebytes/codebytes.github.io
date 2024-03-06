@@ -20,14 +20,19 @@ You can find some of my previous talks and online engagements on YouTube at the 
 | Event | Date | Talks |
 | --- | --- | --- |
 | 90 Days of DevOps | Dec, 2023 | Working with DevContainers |
-| NDC Sydney 2024 | Feb 12-16, 2024 | NET in a Box: Containerizing .NET Applications |
-| Orlando Code Camp 2024 | Feb 24, 2024 | NET in a Box: Containerizing .NET Applications |
 | PowerShell + DevOps Summit 2024 | Apr 8-11, 2024 | CI/CD With GitHub Actions<br/>SRE, DevOps, and Platform Engineering: Unraveling the Differences |
+| Techorama Belgium 2024 | May 6-8, 2024 | .NET in a Box: Containerizing .NET Applications<br />.NET Configuration In Depth |
+| SDD 2024 | May 13-17, 2024 | .NET Configuration In Depth<br />Building in the Cloud with Bicep<br />Kubernetes resiliency |
+| DevSum 2024 | May 16-17, 2024 | .NET in a Box: Containerizing .NET Applications |
+| Developer Week 2024 | July 1-5, 2024 | The Power of Dev Containers and GitHub Codespaces |
+| KCDC 2024 | June 26-28, 2024 | .NET Configuration In Depth<br />CI/CD with Github Actions |
 
 ## Past Events
 
 | Event | Date | Talks |
 | --- | --- | --- |
+| Orlando Code Camp 2024 | Feb 24, 2024 | NET in a Box: Containerizing .NET Applications |
+| NDC Sydney 2024 | Feb 12-16, 2024 | NET in a Box: Containerizing .NET Applications |
 | Festive Tech Calendar | Dec 27, 2023 | Dev Containers in VS Code |
 | Granite State Code Camp 2023 | Dec 2, 2023 | CI/CD with GitHub Actions |
 | Live360! Orlando | Nov 13-17, 2023 | Achieving SRE (Site Resiliency Engineering) with Azure<br>Master Azure Resources Like Marvel's Lord Chaos<br>Cloud & Containers Live! Panel Discussion: Past the Hype: Cloud in the Mainstream |
