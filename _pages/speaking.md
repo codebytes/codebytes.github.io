@@ -19,8 +19,7 @@ You can find some of my previous talks and online engagements on YouTube at the 
 
 | Event | Date | Talks |
 | --- | --- | --- |
-| 90 Days of DevOps | Dec, 2023 | Working with DevContainers |
-| PowerShell + DevOps Summit 2024 | Apr 8-11, 2024 | CI/CD With GitHub Actions<br/>SRE, DevOps, and Platform Engineering: Unraveling the Differences |
+| DevOxx Greece 2024 | April 18-20, 2024 | Kubernetes Resiliency |
 | Techorama Belgium 2024 | May 6-8, 2024 | .NET in a Box: Containerizing .NET Applications<br />.NET Configuration In Depth |
 | SDD 2024 | May 13-17, 2024 | .NET Configuration In Depth<br />Building in the Cloud with Bicep<br />Kubernetes resiliency |
 | DevSum 2024 | May 16-17, 2024 | .NET in a Box: Containerizing .NET Applications |
@@ -31,6 +30,8 @@ You can find some of my previous talks and online engagements on YouTube at the 
 
 | Event | Date | Talks |
 | --- | --- | --- |
+| PowerShell + DevOps Summit 2024 | Apr 8-11, 2024 | CI/CD With GitHub Actions<br/>SRE, DevOps, and Platform Engineering: Unraveling the Differences |
+| 90 Days of DevOps | Dec, 2023 | Working with DevContainers |
 | Orlando Code Camp 2024 | Feb 24, 2024 | NET in a Box: Containerizing .NET Applications |
 | NDC Sydney 2024 | Feb 12-16, 2024 | NET in a Box: Containerizing .NET Applications |
 | Festive Tech Calendar | Dec 27, 2023 | Dev Containers in VS Code |
