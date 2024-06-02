@@ -2,8 +2,6 @@
 	"name": "Jekyll",
 	"image": "mcr.microsoft.com/devcontainers/jekyll:0-bullseye",
 	"features": {
-		"ghcr.io/devcontainers/features/node:1": {},
-		"ghcr.io/devcontainers/features/github-cli:1": {}
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
