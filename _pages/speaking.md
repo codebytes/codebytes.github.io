@@ -19,17 +19,24 @@ You can find some of my previous talks and online engagements on YouTube at the 
 
 | Event | Date | Talks |
 | --- | --- | --- |
-| DevOxx Greece 2024 | April 18-20, 2024 | Kubernetes Resiliency |
-| Techorama Belgium 2024 | May 6-8, 2024 | .NET in a Box: Containerizing .NET Applications<br />.NET Configuration In Depth |
-| SDD 2024 | May 13-17, 2024 | .NET Configuration In Depth<br />Building in the Cloud with Bicep<br />Kubernetes resiliency |
-| DevSum 2024 | May 16-17, 2024 | .NET in a Box: Containerizing .NET Applications |
-| Developer Week 2024 | July 1-5, 2024 | The Power of Dev Containers and GitHub Codespaces |
-| KCDC 2024 | June 26-28, 2024 | .NET Configuration In Depth<br />CI/CD with Github Actions |
+| KCDC 2024 | Jun 26-28, 2024 | .NET Configuration In Depth<br />CI/CD with Github Actions |
+| Developer Week 2024 | Jul 1-5, 2024 | The Power of Dev Containers and GitHub Codespaces |
+| Copenhagen Developer Festival 2024 | Aug 26-30, 2024 | The Power of Dev Containers and GitHub Codespaces |
+| DevOps Days Tampa Bay 2024 | Sep 19, 2024 | Lead Organizer: <https://devopsdays.org/events/2024-tampa/welcome/> |
+| TechBash 2024 | Sep 24-27, 2024 | .NET in a Box: Containerizing .NET Applications<br />CI/CD with Github Actions |
+| Techorama Netherlands 2024 | Oct 7-9, 2024 | .NET in a Box: Containerizing .NET Applications<br />.NET Configuration In Depth |
+| NDC Porto 2024 | Oct 14-18, 2024 | The Power of Dev Containers and GitHub Codespaces |
+| Live! 360 Orlando | Nov 17-22, 2024 | TBD |
 
 ## Past Events
 
 | Event | Date | Talks |
 | --- | --- | --- |
+| Microsoft Build 2024 | May 20-24, 2024 | .NET Aspire Expert Sessions |
+| DevSum 2024 | May 16-17, 2024 | .NET in a Box: Containerizing .NET Applications |
+| SDD 2024 | May 13-17, 2024 | .NET Configuration In Depth<br />Building in the Cloud with Bicep<br />Kubernetes resiliency |
+| Techorama Belgium 2024 | May 6-8, 2024 | .NET in a Box: Containerizing .NET Applications<br />.NET Configuration In Depth |
+| DevOxx Greece 2024 | April 18-20, 2024 | Kubernetes Resiliency |
 | PowerShell + DevOps Summit 2024 | Apr 8-11, 2024 | CI/CD With GitHub Actions<br/>SRE, DevOps, and Platform Engineering: Unraveling the Differences |
 | 90 Days of DevOps | Dec, 2023 | Working with DevContainers |
 | Orlando Code Camp 2024 | Feb 24, 2024 | NET in a Box: Containerizing .NET Applications |
