@@ -29,7 +29,7 @@ Its been a while so I used GitHub Copilot Chat to help me out.
 >
 > Sure, here is a regular expression that matches “turtles” only if “puppies” appears before it in the text:
 >
-> puppies.*turtles
+> `puppies.*turtles`
 >
 > This regular expression works as follows:
 >
@@ -46,12 +46,12 @@ We are using regexer.com to test out the regexes. The result was close but we go
 >> I want to match and return only the word turtles, not additional text.
 > To match and return only the word "turtles", but only if "puppies" appears before it in the text, you can use a lookahead assertion in your regular expression. Here's how you can do it:
 >
-> (?<=puppies.*)(turtles)
+> `(?<=puppies.*)(turtles)`
 >
 > This regular expression works as follows:
 >
-> (?<=puppies.*) is a positive lookbehind assertion that checks for the presence of "puppies" followed by any characters before the main expression.
-> (turtles) is the main expression that matches the word "turtles".
+> `(?<=puppies.*)` is a positive lookbehind assertion that checks for the presence of "puppies" followed by any characters before the main expression.
+> `(turtles)` is the main expression that matches the word "turtles".
 > So, this regular expression will match the word "turtles" only if it appears somewhere after the word "puppies", but it will only return "turtles".
 
 Awesome!
@@ -67,15 +67,15 @@ My friend then threw a curveball at me. She wanted to match turtles only if pupp
 
 Let's see if we can modify the regex to match this.
 
->> Given the sample, 'I think  are super cute, but puppies turtles are super cute too.' and the regex (?<=puppies.*)(turtles) I would like this to match turtles only if puppies appears even if there are line breaks or other paragraphs.. Like in this sample:
+>> Given the sample, 'I think  are super cute, but puppies turtles are super cute too.' and the regex `(?<=puppies.*)(turtles)` I would like this to match turtles only if puppies appears even if there are line breaks or other paragraphs.. Like in this sample:
 >> 'I think puppies are super cute,
 >> but turtles are super cute too.'
 >
-> The regular expression (?<=puppies.*)(turtles) you provided uses a positive lookbehind (?<=puppies.*) to check if “turtles” is preceded by “puppies”. However, the . character does not match line breaks in regular expressions.
+> The regular expression `(?<=puppies.*)(turtles)` you provided uses a positive lookbehind `(?<=puppies.*)` to check if “turtles” is preceded by “puppies”. However, the . character does not match line breaks in regular expressions.
 >
-> To match “turtles” only if “puppies” appears before it, even if there are line breaks or other paragraphs, you can use the [\s\S]* pattern instead of .*. The [\s\S] pattern matches any character including line breaks. Here’s how you can modify your regex:
+> To match “turtles” only if “puppies” appears before it, even if there are line breaks or other paragraphs, you can use the `[\s\S]*` pattern instead of .*. The `[\s\S]` pattern matches any character including line breaks. Here’s how you can modify your regex:
 >
-> (?<=puppies[\s\S]*)(turtles)
+> `(?<=puppies[\s\S]*)(turtles)`
 >
 > This will match “turtles” only if “puppies” appears before it, regardless of line breaks or other paragraphs. For example, it will match “turtles” in the following text:
 >
