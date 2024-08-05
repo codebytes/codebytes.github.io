@@ -19,19 +19,20 @@ You can find some of my previous talks and online engagements on YouTube at the 
 
 | Event | Date | Talks |
 | --- | --- | --- |
-| KCDC 2024 | Jun 26-28, 2024 | .NET Configuration In Depth<br />CI/CD with Github Actions |
-| Developer Week 2024 | Jul 1-5, 2024 | The Power of Dev Containers and GitHub Codespaces |
 | Copenhagen Developer Festival 2024 | Aug 26-30, 2024 | The Power of Dev Containers and GitHub Codespaces |
 | DevOps Days Tampa Bay 2024 | Sep 19, 2024 | Lead Organizer: <https://devopsdays.org/events/2024-tampa/welcome/> |
+| Praire Dev Con Winnipeg 2024 | Sep 23-24, 2024 | Monitoring and Troubleshooting with Azure Application Insights<br/>Developing with .NET Aspire and AI |
 | TechBash 2024 | Sep 24-27, 2024 | .NET in a Box: Containerizing .NET Applications<br />CI/CD with Github Actions |
 | Techorama Netherlands 2024 | Oct 7-9, 2024 | .NET in a Box: Containerizing .NET Applications<br />.NET Configuration In Depth |
 | NDC Porto 2024 | Oct 14-18, 2024 | The Power of Dev Containers and GitHub Codespaces |
-| Live! 360 Orlando | Nov 17-22, 2024 | TBD |
+| Live! 360 Orlando | Nov 17-22, 2024 | Cloud & Containers Live! Panel Discussion: Making the Most of Your Cloud Resources<br />Ensuring Azure Resiliency<br />The Well-Architected Architect - Building Secure, Reliable, Cost-Efficient Solutions on Azure<br />Real World CI/CD with GitHub Actions - Beyond Basics |
 
 ## Past Events
 
 | Event | Date | Talks |
 | --- | --- | --- |
+| Developer Week 2024 | Jul 1-5, 2024 | The Power of Dev Containers and GitHub Codespaces |
+| KCDC 2024 | Jun 26-28, 2024 | .NET Configuration In Depth<br />CI/CD with Github Actions |
 | Microsoft Build 2024 | May 20-24, 2024 | .NET Aspire Expert Sessions |
 | DevSum 2024 | May 16-17, 2024 | .NET in a Box: Containerizing .NET Applications |
 | SDD 2024 | May 13-17, 2024 | .NET Configuration In Depth<br />Building in the Cloud with Bicep<br />Kubernetes resiliency |
