@@ -21,7 +21,7 @@ You can find some of my previous talks and online engagements on YouTube at the 
 | --- | --- | --- |
 | Copenhagen Developer Festival 2024 | Aug 26-30, 2024 | The Power of Dev Containers and GitHub Codespaces |
 | DevOps Days Tampa Bay 2024 | Sep 19, 2024 | Lead Organizer: <https://devopsdays.org/events/2024-tampa/welcome/> |
-| Praire Dev Con Winnipeg 2024 | Sep 23-24, 2024 | Monitoring and Troubleshooting with Azure Application Insights<br/>Developing with .NET Aspire and AI |
+| Prairie Dev Con Winnipeg 2024 | Sep 23-24, 2024 | Monitoring and Troubleshooting with Azure Application Insights<br/>Developing with .NET Aspire and AI |
 | TechBash 2024 | Sep 24-27, 2024 | .NET in a Box: Containerizing .NET Applications<br />CI/CD with Github Actions |
 | Techorama Netherlands 2024 | Oct 7-9, 2024 | .NET in a Box: Containerizing .NET Applications<br />.NET Configuration In Depth |
 | NDC Porto 2024 | Oct 14-18, 2024 | The Power of Dev Containers and GitHub Codespaces |
