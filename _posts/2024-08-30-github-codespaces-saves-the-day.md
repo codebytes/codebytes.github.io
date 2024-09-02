@@ -30,7 +30,7 @@ By now, I was a few minutes into my time slot, and the presentation seemed in je
 
 Despite the keyboard struggles, I managed to pull it off. I used the browser to present my slides, which are hosted on GitHub Pages at [http://chris-ayers.com/dev-containers](http://chris-ayers.com/dev-containers/). We discussed the Dev Containers spec, hosted at [containers.dev](https://containers.dev). Then, I launched [GitHub Codespaces](https://github.com/features/codespaces) using my repository [https://github.com/codebytes/dev-containers](https://github.com/codebytes/dev-containers) and a few others ([cpython](https://github.com/python/cpython) and [Home Assistant](https://github.com/home-assistant/core)) to demonstrate its capabilities.
 
-![GitHub Codespaces](../assets/images/github-codespaces-logo.png)
+![GitHub Codespaces](/assets/images/github-codespaces-logo.png)
 
 What could have been a total disaster turned into a great example of how powerful and resilient modern development tools are. [GitHub Codespaces](https://github.com/features/codespaces) didn’t just save my presentation; it became the star of the show, proving that with the right tools, we can roll with the punches and keep going.
 
