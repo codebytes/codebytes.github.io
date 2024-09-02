@@ -9,7 +9,9 @@ tags:
 - containers
 - docker
 - devops
-permalink: /2024/2/19/containerizing-dotnet-part-2
+permalink: /2024/02/19/containerizing-dotnet-part-2
+redirect_from:
+  - /2024/2/19/containerizing-dotnet-part-2
 header:
   teaser: /assets/images/dotnet-logo.png
   og_image: /assets/images/dotnet-logo.png

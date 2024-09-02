@@ -6,7 +6,10 @@ categories:
 tags:
 - regex
 - copilot
-permalink: /2024/4/09/regex-with-copilot
+permalink: /2024/04/09/regex-with-copilot
+redirect_from:
+  - /2024/4/09/regex-with-copilot
+
 header:
   teaser: /assets/images/github-copilot-logo.png
   og_image: /assets/images/github-copilot-logo.png
