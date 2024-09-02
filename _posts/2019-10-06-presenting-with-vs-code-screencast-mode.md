@@ -4,13 +4,13 @@ title: Presenting with VS Code - Screencast mode
 date: 2019-10-06 11:58:28.000000000 +00:00
 type: post
 categories:
-- Tools
+  - Tools
 tags:
-- code
-- presenting
-- speaking
-- vscode
-permalink: "/2019/10/06/presenting-with-vs-code-screencast-mode/"
+  - code
+  - presenting
+  - speaking
+  - vscode
+permalink: '/2019/10/06/presenting-with-vs-code-screencast-mode/'
 header:
   teaser: /assets/images/vscode-logo.png
   og_image: /assets/images/vscode-logo.png

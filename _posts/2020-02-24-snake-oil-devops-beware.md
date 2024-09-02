@@ -4,17 +4,16 @@ title: Snake Oil DevOps - BEWARE!
 date: 2020-02-24 20:06:49.000000000 +00:00
 type: post
 categories:
-- DevOps
-tags: 
-- DevOps
-permalink: "/2020/02/24/snake-oil-devops-beware/"
+  - DevOps
+tags:
+  - DevOps
+permalink: '/2020/02/24/snake-oil-devops-beware/'
 header:
   teaser: /assets/images/snake-oil.png
   og_image: /assets/images/snake-oil.png
 ---
 
-
-As a DevOps Consultant a lot of what I do is spent on People and Processes. If you remember the definition of DevOps that I love is from [Donovan Brown](http://donovanbrown.com/post/what-is-devops), “DevOps is the union of **People**, **Processes**, and **Products** to _continuously deliver **value**_ to our end users”. I want to keep reiterating this, _continuously deliver value to our end users_. I bring this up because my job as a DevOps Consultant is to delivering value to my end users. But not all of us do. My amazing coworker ([@\_s\_hari](https://twitter.com/_s_hari)) and I have discussions about this quite a bit. As far as I know, he coined the term and gave me his blessing to blog about it.
+As a DevOps Consultant a lot of what I do is spent on People and Processes. If you remember the definition of DevOps that I love is from [Donovan Brown](http://donovanbrown.com/post/what-is-devops), “DevOps is the union of **People**, **Processes**, and **Products** to *continuously deliver **value*** to our end users”. I want to keep reiterating this, _continuously deliver value to our end users_. I bring this up because my job as a DevOps Consultant is to delivering value to my end users. But not all of us do. My amazing coworker ([@\_s_hari](https://twitter.com/_s_hari)) and I have discussions about this quite a bit. As far as I know, he coined the term and gave me his blessing to blog about it.
 
 {% include figure image_path="/assets/images/devops-pie.png" alt="DevOps - People Processes Tools" caption="DevOps - People Processes Tools" %}
 

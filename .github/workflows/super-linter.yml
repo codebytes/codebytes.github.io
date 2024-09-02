@@ -1,6 +1,6 @@
 name: Super-Linter
 
-on:  # yamllint disable-line rule:truthy
+on: # yamllint disable-line rule:truthy
   push: null
   pull_request: null
 
@@ -30,7 +30,7 @@ jobs:
           fetch-depth: 0
 
       - name: Super-linter
-        uses: super-linter/super-linter@v7.1.0  # x-release-please-version
+        uses: super-linter/super-linter@v7.1.0 # x-release-please-version
         env:
           LINTER_RULES_PATH: '.'
           # To report GitHub Actions status checks

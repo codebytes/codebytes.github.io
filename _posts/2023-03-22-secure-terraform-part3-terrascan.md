@@ -2,14 +2,14 @@
 title: Secure Terraform - Part 3 - terrascan
 type: post
 categories:
-- DevOps
+  - DevOps
 tags:
-- terraform
-- security
-- tools
-- vscode
-- terrascan
-- github
+  - terraform
+  - security
+  - tools
+  - vscode
+  - terrascan
+  - github
 mermaid: true
 permalink: /2023/03/22/secure-terraform-part3-terrascan
 header:
@@ -94,27 +94,27 @@ jobs:
     runs-on: ubuntu-latest
     name: terrascan-action
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    - name: Run Terrascan
-      id: terrascan
-      uses: tenable/terrascan-action@main
-      with:
-        iac_type: 'terraform'
-        #iac_version: 'v14'
-        #policy_type: 'azure'
-        only_warn: false
-        #scm_token: ${{ secrets.ACCESS_TOKEN }}
-        verbose: true
-        sarif_upload: true
-        #non_recursive:
-        #iac_dir: demos
-        #policy_path:
-        #skip_rules:
-        #config_path:
-        #find_vulnerabilities:
-        #webhook_url:
-        #webhook_token:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Run Terrascan
+        id: terrascan
+        uses: tenable/terrascan-action@main
+        with:
+          iac_type: 'terraform'
+          #iac_version: 'v14'
+          #policy_type: 'azure'
+          only_warn: false
+          #scm_token: ${{ secrets.ACCESS_TOKEN }}
+          verbose: true
+          sarif_upload: true
+          #non_recursive:
+          #iac_dir: demos
+          #policy_path:
+          #skip_rules:
+          #config_path:
+          #find_vulnerabilities:
+          #webhook_url:
+          #webhook_token:
 ```
 
 In this example, the workflow is triggered on push and pull_request events for the main branch. The workflow checks out the repository, sets up Go, installs Terrascan, and then runs a scan on the specified Terraform files.
@@ -129,42 +129,41 @@ To create a custom policy, follow these steps:
 2. Inside the custom_policies directory, create a new Rego file for your custom rule, e.g., my_custom_rule.rego.
 3. Write your custom rule using the Rego language. Refer to the OPA documentation for guidance on writing Rego policies.
 
-    ```rego
-    package accurics
+   ```rego
+   package accurics
 
-    azureKeyVaultSoftDeleteRetentionDays[resource.id] {
-        resource := input.azurerm_key_vault[_]
-        resource.type == "azurerm_key_vault"
-        properties := resource.config
-        properties.soft_delete_retention_days < 14
-    }
-    ```
+   azureKeyVaultSoftDeleteRetentionDays[resource.id] {
+       resource := input.azurerm_key_vault[_]
+       resource.type == "azurerm_key_vault"
+       properties := resource.config
+       properties.soft_delete_retention_days < 14
+   }
+   ```
 
 4. Create the Rule json metadata file
 
-    ```json
-    {
-      "name": "azureKeyVaultSoftDeleteRetentionDays",
-      "file": "azureKeyVaultSoftDeleteRetentionDays.rego",
-      "policy_type": "azure",
-        "resource_type": "azurerm_key_vault",
-        "template_args": {
-        },
-        "severity": "MEDIUM",
-      "description": "Key Vault Soft Delete Retention Days should be more than 14 days",
-        "category": "Data Protection",
-      "version": 1,
-      "id": "AC_AZURE_1000"
-    }
-    ```
+   ```json
+   {
+     "name": "azureKeyVaultSoftDeleteRetentionDays",
+     "file": "azureKeyVaultSoftDeleteRetentionDays.rego",
+     "policy_type": "azure",
+     "resource_type": "azurerm_key_vault",
+     "template_args": {},
+     "severity": "MEDIUM",
+     "description": "Key Vault Soft Delete Retention Days should be more than 14 days",
+     "category": "Data Protection",
+     "version": 1,
+     "id": "AC_AZURE_1000"
+   }
+   ```
 
 5. Once you have created your custom policy, you can use the `--policy-path` option with Terrascan to include your custom policies in the scan:
 
-    ```terrascan scan -p custom_policies/ -p ~/.terrascan/pkg/policies/opa/rego```
+   `terrascan scan -p custom_policies/ -p ~/.terrascan/pkg/policies/opa/rego`
 
-    If there are errors, you should get output like the following:
+   If there are errors, you should get output like the following:
 
-    {% include figure image_path="/assets/images/customer-terrascan-violation.png" alt="terrascan violation" caption="terrascan violation" %}
+   {% include figure image_path="/assets/images/customer-terrascan-violation.png" alt="terrascan violation" caption="terrascan violation" %}
 
 ## Conclusion
 

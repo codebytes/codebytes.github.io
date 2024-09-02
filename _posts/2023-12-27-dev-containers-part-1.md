@@ -2,13 +2,13 @@
 title: Dev Containers - Part 1
 type: post
 categories:
-- Development
+  - Development
 tags:
-- containers
-- docker
-- devops
-- vscode
-- github
+  - containers
+  - docker
+  - devops
+  - vscode
+  - github
 permalink: /2023/12/27/dev-containers-part-1
 header:
   teaser: /assets/images/dev-containers-logo.png
@@ -95,7 +95,7 @@ Dev Containers are supported by a range of tools and services, each enhancing th
 ### Visual Studio Code and Dev Containers Extension
 
 - **Integrated Development Environment**: Visual Studio Code, along with its Dev Containers extension, is a key component in the Dev Container ecosystem. It provides a full range of features for containerized development, including IntelliSense, debuggers, and various extensions.
-![Dev Containers Extension](/assets/images/dev-containers-extension.png)
+  ![Dev Containers Extension](/assets/images/dev-containers-extension.png)
 
 - **Docker Integration**:
   - **Local Connection**: The extension seamlessly integrates with local Docker installations, allowing developers to easily build and manage containers on their machine.
@@ -158,7 +158,7 @@ You can add various features to your Dev Container:
 
 ## Samples
 
-The [vscode-remote-try-*](https://github.com/search?q=org%3Amicrosoft+vscode-remote-try-&type=Repositories) repositories include sample Dev Containers for various languages and tools. These repositories are a great place to start if you're new to Dev Containers.
+The [vscode-remote-try-\*](https://github.com/search?q=org%3Amicrosoft+vscode-remote-try-&type=Repositories) repositories include sample Dev Containers for various languages and tools. These repositories are a great place to start if you're new to Dev Containers.
 
 - [Node Sample](https://github.com/Microsoft/vscode-remote-try-node)
 - [Python Sample](https://github.com/Microsoft/vscode-remote-try-python)

@@ -2,13 +2,13 @@
 title: Enhancing Your Workflow with the GitHub Actions VSCode Extension
 type: post
 categories:
-- tools
+  - tools
 tags:
-- vscode
-- github
-- github actions
-- devops
-- tools
+  - vscode
+  - github
+  - github actions
+  - devops
+  - tools
 permalink: /2023/08/29/github-actions-in-vscode
 header:
   teaser: /assets/images/vscode-ghactions.png

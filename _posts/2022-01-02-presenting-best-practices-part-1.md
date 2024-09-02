@@ -2,19 +2,22 @@
 title: Presenting Best Practices - Part 1
 type: post
 categories:
-- Soft Skills
+  - Soft Skills
 tags:
-- presenting
-- speaking
-permalink: "/2022/01/02/presenting-best-practices-part-1/"
+  - presenting
+  - speaking
+permalink: '/2022/01/02/presenting-best-practices-part-1/'
 excerpt_separator: <!--more-->
 ---
+
 <!-- textlint-disable terminology -->
 
 {% include figure image_path="/assets/images/51382972555_0ceb282aee_o.jpg" alt="Presenting at THAT Conference 2020" caption="Presenting at THAT Conference 2020" %}
 
 Presenting and speaking are skills that require practice to hone. I was a consultant for many years presenting to clients and customers of all levels and sizes. In addition, I started speaking and presenting at meetups, user groups, and conferences. Over the years, I practiced, I read, and I gave a lot of presentations. I'd like to share some of the learnings and best practices I've found in that time. I plan multiple posts, starting with Preparation. I'll have more on slide design, and presentation tips.
+
 <!--more-->
+
 ## Preparation
 
 If you are building a presentation for a conference or work, it is tempting to just dive in and put everything on a few slides. But you need to prepare by understanding the audience and the message. Presentations should _**support**_ your communication, not _**BE**_ your communication. It is important to know not only WHAT you want to say, but WHO you are saying it to. It all starts with knowing your audience.

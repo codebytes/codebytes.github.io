@@ -2,10 +2,10 @@
 title: Validating .NET Configuration
 type: post
 categories:
-- Development
+  - Development
 tags:
-- dotnet
-- configuration
+  - dotnet
+  - configuration
 permalink: /2022/12/03/validating-dotnet-configuration
 header:
   teaser: /assets/images/dotnet-logo.png
@@ -44,7 +44,7 @@ public class WebHookSettings
 }
 ```
 
-Now how do we *KNOW* our URL is valid? We can add some validation to our application pretty easily leveraging Data Annotations! This lets us mark fields as required as well as doing other validation. There are a ton of build in attributes, like StringLength, Range, EmailAddress, and more. You can find some of them listed in the [documentation](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-7.0) if you're curious.
+Now how do we _KNOW_ our URL is valid? We can add some validation to our application pretty easily leveraging Data Annotations! This lets us mark fields as required as well as doing other validation. There are a ton of build in attributes, like StringLength, Range, EmailAddress, and more. You can find some of them listed in the [documentation](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-7.0) if you're curious.
 
 Let's extend our class to add that basic validation.
 
@@ -92,7 +92,7 @@ Running the application fails with this error.
 Unhandled exception. Microsoft.Extensions.Options.OptionsValidationException: DataAnnotation validation failed for 'WebHookSettings' members: 'WebhookUrl' with the error: 'The WebhookUrl field is required.'.
 {: .notice--warning }
 
-Now its complaining about the field being blank while required.  What if we populate the URL field with a bad value that isn't a Url?
+Now its complaining about the field being blank while required. What if we populate the URL field with a bad value that isn't a Url?
 
 ```json
   "WebHook": {
@@ -107,7 +107,7 @@ We we run the app with this value, we get a different validation error.
 Unhandled exception. Microsoft.Extensions.Options.OptionsValidationException: DataAnnotation validation failed for 'WebHookSettings' members: 'WebhookUrl' with the error: 'The WebhookUrl field is not a valid fully-qualified HTTP, HTTPS, or FTP URL.'.
 {: .notice--warning }
 
-We can take this a step further, with additional custom validation if we choose.  Let's reset our configuration to something reasonable, but insecure..
+We can take this a step further, with additional custom validation if we choose. Let's reset our configuration to something reasonable, but insecure..
 
 ```json
  "WebHook": {
@@ -117,7 +117,7 @@ We can take this a step further, with additional custom validation if we choose.
   }
 ```
 
-How do we validate we're always using https?  Let's add custom validation to our application.
+How do we validate we're always using https? Let's add custom validation to our application.
 
 ```cs
 

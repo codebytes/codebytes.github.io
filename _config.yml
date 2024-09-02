@@ -4,7 +4,7 @@
 # which you are expected to set up once and rarely need to edit after that.
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # `jekyll serve`. If you change this file, please restart the server process.
-remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+remote_theme: 'mmistakes/minimal-mistakes@4.26.2'
 plugins:
   - jekyll-remote-theme # add this line to the plugins list if you already have one
   - jekyll-paginate
@@ -21,17 +21,17 @@ whitelist:
   - jekyll-feed
   - jekyll-include-cache
   - jekyll-redirect-from
-minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin: 'default' # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 # Site Settings
-locale: "en-US"
+locale: 'en-US'
 title: "Chris's Tech ADHD"
-title_separator: "-"
-subtitle: ""
-name: "Chris Ayers"
-description: "This will be a place where I occasionally blog about things that interest me. I play around with lots of tech, from apps to containers, devops to iot."
+title_separator: '-'
+subtitle: ''
+name: 'Chris Ayers'
+description: 'This will be a place where I occasionally blog about things that interest me. I play around with lots of tech, from apps to containers, devops to iot.'
 url: # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl: "/"
-repository: "codebytes/codebytes.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+baseurl: '/'
+repository: 'codebytes/codebytes.github.io' # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser: # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # logo                     : "/assets/images/apple-touch-icon.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 # masthead_title           : "Chris's Blog" # overrides the website title displayed in the masthead, use " " for no title
@@ -66,13 +66,13 @@ atom_feed:
   path: # blank (default) uses feed.xml
 search: true # true, false (default)
 search_full_content: true # true, false (default)
-search_provider: "lunr"
+search_provider: 'lunr'
 lunr:
   search_within_pages: true
 algolia:
-  application_id: "K4SQKA6GLC"
-  index_name: "codebytes"
-  search_only_api_key: 
+  application_id: 'K4SQKA6GLC'
+  index_name: 'codebytes'
+  search_only_api_key:
   powered_by: true
 # SEO Related
 google_site_verification:
@@ -80,12 +80,12 @@ bing_site_verification:
 yandex_site_verification:
 # Social Sharing
 twitter:
-  username: "chris_l_ayers"
+  username: 'chris_l_ayers'
 facebook:
   username:
   app_id:
   publisher:
-og_image: "/assets/images/bio-photo.jpg"
+og_image: '/assets/images/bio-photo.jpg'
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -100,48 +100,48 @@ analytics:
   google:
     tracking_id:
 appinsights:
-clarity: 
+clarity:
 # Site Author
 author:
-  name: "Chris Ayers"
-  avatar: "/assets/headshot/floating-head.png"
-  bio: "I am a **father**, **nerd**, **gamer**, and **speaker**."
-  location: "Tampa, FL"
+  name: 'Chris Ayers'
+  avatar: '/assets/headshot/floating-head.png'
+  bio: 'I am a **father**, **nerd**, **gamer**, and **speaker**.'
+  location: 'Tampa, FL'
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/chris_l_ayers"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/codebytes"
-    - label: "Linkedin"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/chris-l-ayers/"
-    - label: "Mastodon"
-      icon: "fab fa-brands fa-mastodon"
-      url: "https://hachyderm.io/@Chrisayers"
+    - label: 'Twitter'
+      icon: 'fab fa-fw fa-twitter-square'
+      url: 'https://twitter.com/chris_l_ayers'
+    - label: 'GitHub'
+      icon: 'fab fa-fw fa-github'
+      url: 'https://github.com/codebytes'
+    - label: 'Linkedin'
+      icon: 'fab fa-fw fa-linkedin'
+      url: 'https://www.linkedin.com/in/chris-l-ayers/'
+    - label: 'Mastodon'
+      icon: 'fab fa-brands fa-mastodon'
+      url: 'https://hachyderm.io/@Chrisayers'
 # Site Footer
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/chris_l_ayers"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/codebytes"
-    - label: "Linkedin"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/chris-l-ayers/"
-    - label: "Mastodon"
-      icon: "fab fa-brands fa-mastodon"
-      url: "https://hachyderm.io/@Chrisayers"
+    - label: 'Twitter'
+      icon: 'fab fa-fw fa-twitter-square'
+      url: 'https://twitter.com/chris_l_ayers'
+    - label: 'GitHub'
+      icon: 'fab fa-fw fa-github'
+      url: 'https://github.com/codebytes'
+    - label: 'Linkedin'
+      icon: 'fab fa-fw fa-linkedin'
+      url: 'https://www.linkedin.com/in/chris-l-ayers/'
+    - label: 'Mastodon'
+      icon: 'fab fa-brands fa-mastodon'
+      url: 'https://hachyderm.io/@Chrisayers'
 # Reading Files
 include:
   - .htaccess
   - _pages
 exclude:
-  - "*.sublime-project"
-  - "*.sublime-workspace"
+  - '*.sublime-project'
+  - '*.sublime-workspace'
   - vendor
   - .asset-cache
   - .bundle
@@ -166,8 +166,8 @@ exclude:
 keep_files:
   - .git
   - .svn
-encoding: "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+encoding: 'utf-8'
+markdown_ext: 'markdown,mkdown,mkdn,mkd,md'
 # Liquid
 strict_front_matter: true
 liquid:
@@ -224,7 +224,7 @@ compress_html:
 defaults:
   # _posts
   - scope:
-      path: ""
+      path: ''
       type: posts
     values:
       layout: single
@@ -234,7 +234,7 @@ defaults:
       related: true
   # _pages
   - scope:
-      path: "_pages"
+      path: '_pages'
       type: pages
     values:
       layout: single

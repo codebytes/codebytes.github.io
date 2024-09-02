@@ -21,8 +21,8 @@ globals:
   SharedArrayBuffer: readonly
 
 ignorePatterns:
-  - "!.*"
-  - "**/node_modules/.*"
+  - '!.*'
+  - '**/node_modules/.*'
 
 ###############
 # Parser vars #
@@ -41,16 +41,15 @@ plugins:
 #########
 # Rules #
 #########
-rules: { }
+rules: {}
 
 ##############################
 # Overrides for JSON parsing #
 ##############################
 overrides:
-
   # JSON files
   - files:
-      - "*.json"
+      - '*.json'
     extends:
       - plugin:jsonc/recommended-with-json
     parser: jsonc-eslint-parser
@@ -61,7 +60,7 @@ overrides:
 
   # JSONC files
   - files:
-      - "*.jsonc"
+      - '*.jsonc'
     extends:
       - plugin:jsonc/recommended-with-jsonc
     parser: jsonc-eslint-parser
@@ -70,7 +69,7 @@ overrides:
 
   # JSON5 files
   - files:
-      - "*.json5"
+      - '*.json5'
     extends:
       - plugin:jsonc/recommended-with-json5
     parser: jsonc-eslint-parser

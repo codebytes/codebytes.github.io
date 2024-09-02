@@ -2,10 +2,10 @@
 title: Writing Regex with Copilot
 type: post
 categories:
-- Development
+  - Development
 tags:
-- regex
-- copilot
+  - regex
+  - copilot
 permalink: /2024/4/09/regex-with-copilot
 header:
   teaser: /assets/images/github-copilot-logo.png
@@ -19,13 +19,13 @@ I had a real world example today that I wanted to share about copilot helping me
 
 Her use case was that she had a string and she wanted to match a word only if another word appeared before it. She works at a University and is doing improvements to the CMS templates. They needed to do some updates to a Template only if it included certain tags. She was able to give me a sample that I could work with.
 
-She was able to boil it down to a simple example. Given the sample, 'I think puppies are super cute, but turtles are super cute too.'  make a regex that matches turtles only if puppies appears before it.
+She was able to boil it down to a simple example. Given the sample, 'I think puppies are super cute, but turtles are super cute too.' make a regex that matches turtles only if puppies appears before it.
 
 ## The Solution
 
 Its been a while so I used GitHub Copilot Chat to help me out.
 
->> Given the sample, 'I think puppies are super cute, but turtles are super cute too.' Make a regex that matches turtles only if puppies appears before it.
+> > Given the sample, 'I think puppies are super cute, but turtles are super cute too.' Make a regex that matches turtles only if puppies appears before it.
 >
 > Sure, here is a regular expression that matches “turtles” only if “puppies” appears before it in the text:
 >
@@ -34,7 +34,7 @@ Its been a while so I used GitHub Copilot Chat to help me out.
 > This regular expression works as follows:
 >
 > puppies matches the characters “puppies” literally.
-> .* is a special sequence that matches any character (except for a newline) 0 or more times.
+> .\* is a special sequence that matches any character (except for a newline) 0 or more times.
 > turtles matches the characters “turtles” literally.
 >
 > So, this regular expression will match any string that has “turtles” somewhere after “puppies”.
@@ -43,8 +43,8 @@ We are using regexer.com to test out the regexes. The result was close but we go
 
 ![Testing regexes on regexer.com](/assets/images/regex-copilot-1.png)
 
->> I want to match and return only the word turtles, not additional text.
-> To match and return only the word "turtles", but only if "puppies" appears before it in the text, you can use a lookahead assertion in your regular expression. Here's how you can do it:
+> > I want to match and return only the word turtles, not additional text.
+> > To match and return only the word "turtles", but only if "puppies" appears before it in the text, you can use a lookahead assertion in your regular expression. Here's how you can do it:
 >
 > `(?<=puppies.*)(turtles)`
 >
@@ -67,13 +67,13 @@ My friend then threw a curveball at me. She wanted to match turtles only if pupp
 
 Let's see if we can modify the regex to match this.
 
->> Given the sample, 'I think  are super cute, but puppies turtles are super cute too.' and the regex `(?<=puppies.*)(turtles)` I would like this to match turtles only if puppies appears even if there are line breaks or other paragraphs.. Like in this sample:
->> 'I think puppies are super cute,
->> but turtles are super cute too.'
+> > Given the sample, 'I think are super cute, but puppies turtles are super cute too.' and the regex `(?<=puppies.*)(turtles)` I would like this to match turtles only if puppies appears even if there are line breaks or other paragraphs.. Like in this sample:
+> > 'I think puppies are super cute,
+> > but turtles are super cute too.'
 >
 > The regular expression `(?<=puppies.*)(turtles)` you provided uses a positive lookbehind `(?<=puppies.*)` to check if “turtles” is preceded by “puppies”. However, the . character does not match line breaks in regular expressions.
 >
-> To match “turtles” only if “puppies” appears before it, even if there are line breaks or other paragraphs, you can use the `[\s\S]*` pattern instead of .*. The `[\s\S]` pattern matches any character including line breaks. Here’s how you can modify your regex:
+> To match “turtles” only if “puppies” appears before it, even if there are line breaks or other paragraphs, you can use the `[\s\S]*` pattern instead of .\*. The `[\s\S]` pattern matches any character including line breaks. Here’s how you can modify your regex:
 >
 > `(?<=puppies[\s\S]*)(turtles)`
 >
@@ -81,7 +81,6 @@ Let's see if we can modify the regex to match this.
 >
 > I think puppies are super cute,
 > but turtles are super cute too.
->
 
 Lets try this out.
 

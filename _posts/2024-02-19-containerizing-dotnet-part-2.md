@@ -2,13 +2,13 @@
 title: Containerizing .NET - Part 2 - Considerations
 type: post
 categories:
-- Development
+  - Development
 tags:
-- c#
-- dotnet
-- containers
-- docker
-- devops
+  - c#
+  - dotnet
+  - containers
+  - docker
+  - devops
 permalink: /2024/2/19/containerizing-dotnet-part-2
 header:
   teaser: /assets/images/dotnet-logo.png

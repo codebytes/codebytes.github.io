@@ -4,17 +4,18 @@ title: 'ARM - Part 3: Hook up the Pipes'
 date: 2019-05-28 18:30:31.000000000 +00:00
 type: post
 categories:
-- DevOps
+  - DevOps
 tags:
-- arm
-- arm templates
-- azure
-- git
-permalink: "/2019/05/28/arm-part-3-hook-up-the-pipes/"
+  - arm
+  - arm templates
+  - azure
+  - git
+permalink: '/2019/05/28/arm-part-3-hook-up-the-pipes/'
 header:
   teaser: /assets/images/arm-logo.png
   og_image: /assets/images/arm-logo.png
 ---
+
 I’ve got a template straight from Microsoft. I want this wired into a CI/CD pipeline to I can play around and get quick feedback. I’m going to use Azure DevOps to help make all this possible. Let's get those templates into a repository to get started. New repository, initialize it, add new files.
 
 {% include figure image_path="/assets/images/repoimport.png" alt="A new repository on Azure DevOps" caption="A new repository on Azure DevOps." %}

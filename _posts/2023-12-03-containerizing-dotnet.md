@@ -2,13 +2,13 @@
 title: Containerizing .NET - Part 1
 type: post
 categories:
-- Development
+  - Development
 tags:
-- c#
-- dotnet
-- containers
-- docker
-- devops
+  - c#
+  - dotnet
+  - containers
+  - docker
+  - devops
 permalink: /2023/12/03/containerizing-dotnet-part-1
 header:
   teaser: /assets/images/dotnet-logo.png
@@ -84,7 +84,7 @@ dotnet add package Microsoft.NET.Build.Containers
 1. Now we can build and package our application into a docker image
 
 ```bash
-dotnet publish -t:PublishContainer 
+dotnet publish -t:PublishContainer
 ```
 
 At this point you should see something like the following:

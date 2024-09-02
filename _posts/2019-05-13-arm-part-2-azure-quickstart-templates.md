@@ -4,21 +4,22 @@ title: 'ARM - Part 2: Azure Quickstart Templates'
 date: 2019-05-13 20:59:03.000000000 +00:00
 type: post
 categories:
-- DevOps
+  - DevOps
 tags:
-- arm
-- arm templates
-- azure
-- functions
-- json
-permalink: "/2019/05/13/arm-part-2-azure-quickstart-templates/"
+  - arm
+  - arm templates
+  - azure
+  - functions
+  - json
+permalink: '/2019/05/13/arm-part-2-azure-quickstart-templates/'
 header:
   teaser: /assets/images/arm-logo.png
   og_image: /assets/images/arm-logo.png
 ---
+
 ## Time to Dive in
 
-I'm one of those guys that likes to learn by doing. Reading the documentation is great, and I do that a lot. But for me to really _grok_ something, I need to play with it, run it, and probably blow it up.
+I'm one of those guys that likes to learn by doing. Reading the documentation is great, and I do that a lot. But for me to really *grok* something, I need to play with it, run it, and probably blow it up.
 
 If you missed [part 1](http://chris-ayers.com/arm-azure-resource-manager), read along and come back. I need a WebApp setup for my sample project. I realized I can do it a few ways. Some of the ways are very manual, some are repeatable, but one stood out to me.
 
@@ -56,4 +57,4 @@ Meat and potatoes. Jackpot. This looks like where the resources are defined. Onl
 
 ## Next Steps
 
-I've got an ARM Template now that works. I've poked at it a little. Time to make this thing _fly_. Lets setup an Azure repository on DevOps and see about trying to deploy this thing and create my webapp on release. I want to be able to check in a change and have it create/update my resources in azure. Next time, we start the feedback loop.
+I've got an ARM Template now that works. I've poked at it a little. Time to make this thing *fly*. Lets setup an Azure repository on DevOps and see about trying to deploy this thing and create my webapp on release. I want to be able to check in a change and have it create/update my resources in azure. Next time, we start the feedback loop.

@@ -2,14 +2,14 @@
 title: Secure Terraform - Part 2 - tfsec Customization
 type: post
 categories:
-- DevOps
+  - DevOps
 tags:
-- terraform
-- security
-- tools
-- vscode
-- tfsec
-- github
+  - terraform
+  - security
+  - tools
+  - vscode
+  - tfsec
+  - github
 mermaid: true
 permalink: /2023/01/29/secure-terraform-part2-tfsec-customization
 header:
@@ -42,22 +42,22 @@ In this post, we will take a look at how to create a few different custom rules.
 ```yaml
 ---
 checks:
-- code: CUS001
-  description: Custom check to ensure the CostCentre tag is applied to EC2 instances
-  impact: By not having CostCentre we can't keep track of billing
-  resolution: Add the CostCentre tag
-  requiredTypes:
-  - resource
-  requiredLabels:
-  - aws_instance
-  severity: ERROR
-  matchSpec:
-    name: tags
-    action: contains
-    value: CostCentre
-  errorMessage: The required CostCentre tag was missing
-  relatedLinks:
-  - http://internal.acmecorp.com/standards/aws/tagging.html
+  - code: CUS001
+    description: Custom check to ensure the CostCentre tag is applied to EC2 instances
+    impact: By not having CostCentre we can't keep track of billing
+    resolution: Add the CostCentre tag
+    requiredTypes:
+      - resource
+    requiredLabels:
+      - aws_instance
+    severity: ERROR
+    matchSpec:
+      name: tags
+      action: contains
+      value: CostCentre
+    errorMessage: The required CostCentre tag was missing
+    relatedLinks:
+      - http://internal.acmecorp.com/standards/aws/tagging.html
 ```
 
 Lets look at my Azure example and discuss the tweaks and how to use it.
@@ -65,33 +65,33 @@ Lets look at my Azure example and discuss the tweaks and how to use it.
 ```yaml
 ---
 checks:
-- code: tags-resources
-  description: Custom check to ensure the CostCenter tag is applied to Azure Resources
-  impact: By not having CostCenter we can't keep track of billing
-  resolution: Add the CostCenter tag
-  requiredTypes:
-  - resource
-  requiredLabels:
-  - azurerm_subscription
-  - azurerm_resource_group
-  - azurerm_linux_web_app
-  - azurerm_windows_web_app
-  - azurerm_storage_account
-  - azurerm_service_plan
-  - azurerm_app_service
-  severity: HIGH
-  matchSpec:
-    name: tags
-    action: contains
-    value: CostCenter
-  errorMessage: The required CostCenter tag was missing
-  relatedLinks:
-  - https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging
+  - code: tags-resources
+    description: Custom check to ensure the CostCenter tag is applied to Azure Resources
+    impact: By not having CostCenter we can't keep track of billing
+    resolution: Add the CostCenter tag
+    requiredTypes:
+      - resource
+    requiredLabels:
+      - azurerm_subscription
+      - azurerm_resource_group
+      - azurerm_linux_web_app
+      - azurerm_windows_web_app
+      - azurerm_storage_account
+      - azurerm_service_plan
+      - azurerm_app_service
+    severity: HIGH
+    matchSpec:
+      name: tags
+      action: contains
+      value: CostCenter
+    errorMessage: The required CostCenter tag was missing
+    relatedLinks:
+      - https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging
 ```
 
-I've changed the name to `tags-resources` to make it more descriptive. I've also changed the requiredLabels to include the resources I want to check for the tag. This rule will only trigger on the resource types listed under requiredLabels.  I've also changed the severity to HIGH. I've also added a link to the Azure Best Practices for Resource Tagging.
+I've changed the name to `tags-resources` to make it more descriptive. I've also changed the requiredLabels to include the resources I want to check for the tag. This rule will only trigger on the resource types listed under requiredLabels. I've also changed the severity to HIGH. I've also added a link to the Azure Best Practices for Resource Tagging.
 
-This is saved to ```.tfsec/custom_tfchecks.yaml```. The tfsec vscode extension we installed before will automatically pick up the new rule. We can see it highlighting the code with an issue and showing up in the results screen.
+This is saved to `.tfsec/custom_tfchecks.yaml`. The tfsec vscode extension we installed before will automatically pick up the new rule. We can see it highlighting the code with an issue and showing up in the results screen.
 
 {% include figure image_path="/assets/images/custom-tfsec-tag.png" alt="tfsec vscode extension" caption="tfsec vscode extension" %}
 
@@ -109,17 +109,17 @@ Let's try something a little more complex. We can try to enforce a naming scheme
   impact: resource groups should be named consistently
   resolution: use the pattern rg-app-env-region
   requiredTypes:
-  - resource
+    - resource
   requiredLabels:
-  - azurerm_resource_group
+    - azurerm_resource_group
   severity: HIGH
   matchSpec:
     name: name
     action: regexMatches
-    value: "^rg-[a-zA-Z]+-[a-zA-Z]+-[a-zA-Z]+"
+    value: '^rg-[a-zA-Z]+-[a-zA-Z]+-[a-zA-Z]+'
   errorMessage: improperly named resource group
   relatedLinks:
-  - https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming
+    - https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming
 ```
 
 This rule, only checks against resource groups as identified by the `requiredLabels` property containing `azurerm_resource_group`. The matchSpec uses the regexMatches action. I am able to provide my regular expression and the error message.
@@ -135,16 +135,16 @@ Tfsec also allows you to create custom checks for deprecated resources. This is 
   impact: using deprecated app service resource instead of azurerm_linux_web_app or azurerm_windows_web_app
   resolution: Use azurerm_linux_web_app or azurerm_windows_web_app
   requiredTypes:
-  - resource
+    - resource
   requiredLabels:
-  - azurerm_app_service
+    - azurerm_app_service
   severity: WARN
   matchSpec:
     name: azurerm_app_service
     action: isPresent
   errorMessage: Using a deprecated resource - azurerm_app_service
   relatedLinks:
-  - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service
+    - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service
 ```
 
 This time I'm using the isPresent action to check if the resource is present. I've also added a link to the documentation for the resource.
@@ -153,7 +153,7 @@ This time I'm using the isPresent action to check if the resource is present. I'
 
 What about Rego policies?
 
-We can create a folder to hold all of our rego policies. I created a file called ```keyvault_softdeleteretentiondays.rego``` and added the following code.
+We can create a folder to hold all of our rego policies. I created a file called `keyvault_softdeleteretentiondays.rego` and added the following code.
 
 ```rego
 package custom.azure.keyvault.softdeleteretentiondays
@@ -230,9 +230,9 @@ vscode ➜ /workspaces/secure-terraform-on-azure/ (main) $ tfsec --print-rego-in
 I used this output to develop the policy. I had a few issues with the samples from the docs, and there is an open GitHub issue. To run the rego policies with tfsec, you have to pass the `--rego-policy-dir` command like this:
 
 ```bash
-vscode ➜ /workspaces/secure-terraform-on-azure (main) $ tfsec --rego-policy-dir ./tfsec_rego_policies/ ./custom_checks_examples/keyvault/ 
+vscode ➜ /workspaces/secure-terraform-on-azure (main) $ tfsec --rego-policy-dir ./tfsec_rego_policies/ ./custom_checks_examples/keyvault/
 
-Result #1  Key Vault Soft Delete Retention Days is less than 14 days 
+Result #1  Key Vault Soft Delete Retention Days is less than 14 days
 ───────────────────────────────────────────────────────────────────────────────────────────────
 ───────────────────────────────────────────────────────────────────────────────────────────────
   fail  Rego Package custom.azure.keyvault.softdeleteretentiondays

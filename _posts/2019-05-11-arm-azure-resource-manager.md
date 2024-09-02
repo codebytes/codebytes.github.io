@@ -3,21 +3,22 @@ title: 'ARM - Part 1: Azure Resource Manager'
 date: 2019-05-11 23:53:57.000000000 +00:00
 type: post
 categories:
-- DevOps
+  - DevOps
 tags:
-- arm
-- arm templates
-- azure
-- cli
-- infrastructure
-- Microsoft
-- PowerShell
-- scripts
-permalink: "/2019/05/11/arm-azure-resource-manager/"
+  - arm
+  - arm templates
+  - azure
+  - cli
+  - infrastructure
+  - Microsoft
+  - PowerShell
+  - scripts
+permalink: '/2019/05/11/arm-azure-resource-manager/'
 header:
   teaser: /assets/images/arm-logo.png
   og_image: /assets/images/arm-logo.png
 ---
+
 ### The Journey Begins
 
 I've been an azure developer for years. Originally I worked with "Classic Mode" and Cloud Services. Then I moved to ARM and Web Apps. Lately I've been doing DevOps but I only recently started working with ARM Termplates. First, let's dive into a little history.

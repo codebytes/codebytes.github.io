@@ -4,10 +4,10 @@ title: DevOps - The Stakeholders
 date: 2021-06-05 16:55:36.000000000 +00:00
 type: post
 categories:
-- DevOps
+  - DevOps
 tags:
-- DevOps
-permalink: "/2021/06/05/devops-the-stakeholders/"
+  - DevOps
+permalink: '/2021/06/05/devops-the-stakeholders/'
 header:
   teaser: /assets/images/devops.png
   og_image: /assets/images/devops.png

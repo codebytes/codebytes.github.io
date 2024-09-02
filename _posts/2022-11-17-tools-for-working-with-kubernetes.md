@@ -61,7 +61,7 @@ kubens can show you the multiple namespaces available, switch between them quick
 
 ### fzf
 
-fzf is a different type of tool. This makes your other tools better. It works on a variety of platforms but what is allows you to do is get an interactive filter.  kubectx and kubens will show the list and let you pick what you want instead of runnig multiple commands.
+fzf is a different type of tool. This makes your other tools better. It works on a variety of platforms but what is allows you to do is get an interactive filter. kubectx and kubens will show the list and let you pick what you want instead of runnig multiple commands.
 You can leverage fzf to pick files to edit more quickly.
 
 {% include figure image_path="/assets/images/fzf.gif" alt="fzf" caption="fzf" %}

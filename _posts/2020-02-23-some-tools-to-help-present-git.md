@@ -4,13 +4,13 @@ title: Some Tools to Help Present Git
 date: 2020-02-23 00:27:33.000000000 +00:00
 type: post
 categories:
-- Development
-- DevOps
-- Tools
+  - Development
+  - DevOps
+  - Tools
 tags:
-- git
-- terminal
-permalink: "/2020/02/23/some-tools-to-help-present-git/"
+  - git
+  - terminal
+permalink: '/2020/02/23/some-tools-to-help-present-git/'
 header:
   teaser: /assets/images/git-logo.png
   og_image: /assets/images/git-logo.png

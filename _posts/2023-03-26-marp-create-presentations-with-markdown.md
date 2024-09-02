@@ -2,13 +2,13 @@
 title: Marp - Create Presentations with Markdown
 type: post
 categories:
-- Tools
+  - Tools
 tags:
-- tools
-- vscode
-- marp
-- github
-- markdown
+  - tools
+  - vscode
+  - marp
+  - github
+  - markdown
 mermaid: true
 permalink: /2023/03/26/marp-create-presentations-with-markdown
 header:
@@ -89,7 +89,6 @@ marp: true
 | -------- | -------- |
 | Item 1   | Item 2   |
 | Item 3   | Item 4   |
-
 ```
 
 Once you've added the content to VSCode with Marp, your presentation will look like this:
@@ -111,7 +110,7 @@ name: Deploy marp site to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
+    branches: ['main']
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -125,7 +124,7 @@ permissions:
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: false
 
 jobs:

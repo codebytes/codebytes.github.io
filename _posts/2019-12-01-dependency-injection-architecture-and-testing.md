@@ -4,15 +4,15 @@ title: Dependency Injection, Architecture, and Testing
 date: 2019-12-01 23:27:53.000000000 +00:00
 type: post
 categories:
-- Development
+  - Development
 tags:
-- c#
-- dependency injection
-- di
-- ioc
-- solid
-- testing
-permalink: "/2019/12/01/dependency-injection-architecture-and-testing/"
+  - c#
+  - dependency injection
+  - di
+  - ioc
+  - solid
+  - testing
+permalink: '/2019/12/01/dependency-injection-architecture-and-testing/'
 header:
   teaser: /assets/images/dotnet-logo.png
   og_image: /assets/images/dotnet-logo.png
@@ -30,21 +30,21 @@ At its heart, Dependency Injection is right there in the name, you inject your d
     public class ClientService
     {
         private ClientRepository _clientRepository;
-        
+
         public ClientService()
         {
             //allocated in constructor but can't test or use a different repository without a code change
             _clientRepository = new ClientRepository();
         }
-    
+
         public void Delete(int id)
         {
             //hidden dependency to the delete method, newed up here
             var audit = new AuditService();
             audit.LogDelete(id);
-            
+
             _clientRepository.Delete(id);
-    
+
             //a hidden static dependency, very hard to test with
             EmailProvider.SendDeleteConfirmation(id);
         }
@@ -85,14 +85,14 @@ This involves moving dependencies to the constructor where possible. This is a l
         private readonly IClientRepository _clientRepository;
         private readonly IAuditService _auditService;
         private readonly IEmailProvider _emailProvider;
-    
+
         public ClientService(IClientRepository clientRepository, IAuditService auditService, IEmailProvider emailProvider)
         {
             _clientRepository = clientRepository;
             _auditService = auditService;
             _emailProvider = emailProvider;
         }
-    
+
         public void Delete(int id)
         {
             _auditService.LogDelete(id);
@@ -110,12 +110,12 @@ This involves moving dependencies to where they are used. Looking at the interfa
     public class ClientService : IClientService
     {
         private readonly IClientRepository _clientRepository;
-    
+
         public ClientService(IClientRepository clientRepository)
         {
             _clientRepository = clientRepository;
         }
-    
+
         public void Delete(int id, IAuditService auditService, IEmailProvider emailProvider)
         {
             auditService.LogDelete(id);
@@ -133,16 +133,16 @@ Use property injection only for optional dependencies. That means your service s
     public class ClientService : IClientService
     {
         public IEmailProvider EmailProvider { get; set; }
-    
+
         private readonly IClientRepository _clientRepository;
         private readonly IAuditService _auditService;
-    
+
         public ClientService(IClientRepository clientRepository, IAuditService auditService)
         {
             _clientRepository = clientRepository;
             _auditService = auditService;
         }
-    
+
         public void Delete(int id)
         {
             _auditService.LogDelete(id);
@@ -171,16 +171,16 @@ I just briefly wanted to discuss testing. Using some of the techniques I've disc
         private BookService _bookService;
         private Mock<IBookRepository> _mockBookRepository;
         private Mock<IBookEntityDomainAdapter> _mockBookEntityDomainAdapter;
-    
+
         [TestInitialize]
         public void TestInitialize()
         {
             _mockBookRepository = new Mock<IBookRepository>();
             _mockBookEntityDomainAdapter = new Mock<IBookEntityDomainAdapter>();
-    
+
             _bookService = new BookService(_mockBookRepository.Object, _mockBookEntityDomainAdapter.Object);
         }
-    
+
         [TestMethod]
         public void GetAll_ItemsInRepository_ReturnsSameNumberOfItems()
         {
@@ -190,10 +190,10 @@ I just briefly wanted to discuss testing. Using some of the techniques I've disc
                 .ToList();
             _mockBookRepository.Setup(x => x.GetAll())
                 .Returns(sampleData);
-    
+
             //act
             var result = _bookService.GetAll();
-    
+
             //assert
             Assert.AreEqual(sampleData.Count(), result.Count());
         }
