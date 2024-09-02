@@ -35,8 +35,8 @@ jobs:
           LINTER_RULES_PATH: '.'
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          FIX_CSS: 'true'
-          FIX_HTML: 'true'
-          FIX_JSON: 'true'
+          FIX_CSS_PRETTIER: 'true'
+          FIX_HTML_PRETTIER: 'true'
+          FIX_JSON_PRETTIER: 'true'
           FIX_MARKDOWN_PRETTIER: 'true'
           FIX_YAML_PRETTIER: 'true'
