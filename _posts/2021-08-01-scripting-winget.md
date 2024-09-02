@@ -3,18 +3,19 @@ title: Scripting Winget
 date: 2021-08-01 10:21:12.000000000 +00:00
 type: post
 categories:
-- DevOps
-- Tools
+  - DevOps
+  - Tools
 tags:
-- cli
-- Microsoft
-- PowerShell
-- scripts
-permalink: "/2021/08/01/scripting-winget/"
+  - cli
+  - Microsoft
+  - PowerShell
+  - scripts
+permalink: '/2021/08/01/scripting-winget/'
 header:
   teaser: /assets/images/winget-logo.png
   og_image: /assets/images/winget-logo.png
 ---
+
 When I reset my PC or setup a new test machine, I always have to download a lot of software. In the past, I've used Chocolatey, Boxstarter, or just installed everything by hand.
 
 I've played with winget, as part of the Windows Insider program. It was first announced in 2020 but was highlighted during Build 2021. With the release of Windows 11, I've setup machines a few times and wanted to automate the process using the new `winget` command.
@@ -71,13 +72,13 @@ While scripting the install, I ran into a few issues. For older versions of Wind
     if (!$hasPackageManager -or [version]$hasPackageManager.Version -lt [version]"1.10.0.0") {
         "Installing winget Dependencies"
         Add-AppxPackage -Path 'https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx'
-    
+
         $releases_url = 'https://api.github.com/repos/microsoft/winget-cli/releases/latest'
-    
+
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         $releases = Invoke-RestMethod -uri $releases_url
         $latestRelease = $releases.assets | Where { $_.browser_download_url.EndsWith('msixbundle') } | Select -First 1
-    
+
         "Installing winget from $($latestRelease.browser_download_url)"
         Add-AppxPackage -Path $latestRelease.browser_download_url
     }
@@ -91,10 +92,10 @@ After getting it installed, I added some configuration to support the windows st
 ```powershell
     #Configure WinGet
     Write-Output "Configuring winget"
-    
+
     #winget config path from: https://github.com/microsoft/winget-cli/blob/master/doc/Settings.md#file-location
     $settingsPath = "$env:LOCALAPPDATA\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\LocalState\settings.json";
-    $settingsJson = 
+    $settingsJson =
     @"
         {
             // For documentation on these settings, see: https://aka.ms/winget-settings
@@ -111,13 +112,13 @@ Finally I built up a list of packages to install. I'm using the `winget` command
 ```powershell
     #Install New apps
     $apps = @(
-        @{name = "Microsoft.AzureCLI" }, 
-        @{name = "Microsoft.PowerShell" }, 
-        @{name = "Microsoft.VisualStudioCode" }, 
-        @{name = "Microsoft.WindowsTerminal"; source = "msstore" }, 
-        @{name = "Microsoft.AzureStorageExplorer" }, 
-        @{name = "Microsoft.PowerToys" }, 
-        @{name = "Git.Git" }, 
+        @{name = "Microsoft.AzureCLI" },
+        @{name = "Microsoft.PowerShell" },
+        @{name = "Microsoft.VisualStudioCode" },
+        @{name = "Microsoft.WindowsTerminal"; source = "msstore" },
+        @{name = "Microsoft.AzureStorageExplorer" },
+        @{name = "Microsoft.PowerToys" },
+        @{name = "Git.Git" },
         @{name = "Docker.DockerDesktop" },
         @{name = "Microsoft.dotnet" },
         @{name = "GitHub.cli" }
@@ -131,7 +132,7 @@ Finally I built up a list of packages to install. I'm using the `winget` command
                 winget install --exact --silent $app.name --source $app.source --accept-package-agreements
             }
             else {
-                winget install --exact --silent $app.name --accept-package-agreements 
+                winget install --exact --silent $app.name --accept-package-agreements
             }
         }
         else {
@@ -147,7 +148,7 @@ We can also remove unused windows applications that are installed by default. I 
 ```powershell
     #Remove Apps
     Write-Output "Removing Apps"
-    
+
     $apps = "*3DPrint*", "Microsoft.MixedReality.Portal"
     Foreach ($app in $apps)
     {

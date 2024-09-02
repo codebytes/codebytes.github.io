@@ -4,16 +4,17 @@ title: RESTful API Versioning
 date: 2019-09-02 22:26:57.000000000 +00:00
 type: post
 categories:
-- Development
+  - Development
 tags:
-- api
-- rest
-- restful
-permalink: "/2019/09/02/restful-api-versioning/"
+  - api
+  - rest
+  - restful
+permalink: '/2019/09/02/restful-api-versioning/'
 header:
   teaser: /assets/images/rest-logo.png
   og_image: /assets/images/rest-logo.png
 ---
+
 I've been a developer for a long time, writing APIs and clients to consume them. When an API is around long enough, it needs to change. I've versioned APIs in the past using a number of different techniques. Some successful, some painful. Now I realize this discussion is like the VI/Emacs conflict, the Tab/Space wars, and the Spanish Inquisition, but it is a good topic to look at. There are a few main styles when it comes to API versioning:
 
 - URL

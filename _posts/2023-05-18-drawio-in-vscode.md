@@ -2,13 +2,13 @@
 title: Embedding Draw.io Diagrams in VSCode
 type: post
 categories:
-- tools
+  - tools
 tags:
-- vscode
-- draw.io
-- MarkDown
-- presentations
-- tools
+  - vscode
+  - draw.io
+  - MarkDown
+  - presentations
+  - tools
 permalink: /2023/05/18/drawio-in-vscode
 header:
   teaser: /assets/images/drawio-logo.png
@@ -17,9 +17,10 @@ excerpt_separator: <!--more-->
 ---
 
 If you're like me, you love discovering new ways to boost your productivity and workflows. One of my favorite tools is [Draw.io](https://draw.io). I've used the desktop tool and the site, but I found a new integration that has significantly elevated my VSCode experience: the [Draw.io Integration extension](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio).
+
 <!--more-->
 
-![draw.io logo](/assets/images/drawio-logo.png){: .img-30}  
+![draw.io logo](/assets/images/drawio-logo.png){: .img-30}
 
 ## Draw.io
 
@@ -50,6 +51,10 @@ To truly maximize the use of Draw.io within VSCode, you should not only leverage
 - **Save diagrams as `drawio.png` or `drawio.svg` files**: Regularly saving your diagrams in these formats ensures you don't lose your work. These formats also allow you (or others) to edit the diagrams later, courtesy of the diagram data stored within the image metadata.
 
 {% include figure image_path="/assets/diagrams/sample.drawio.png" alt="Sample drawio.png" caption="Sample drawio.png" %}
+
+---
+
+{% include figure image_path="/assets/diagrams/sample.drawio.svg" alt="Sample drawio.svg" caption="Sample drawio.svg" %}
 
 - **Integrate diagrams into your Git repository**: After saving your diagrams as `drawio.png` or `drawio.svg` files, you can conveniently add them to your Git repository. This integration allows you to version control your diagrams alongside your code and share them with others through the repository.
 

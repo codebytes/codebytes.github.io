@@ -37,7 +37,7 @@ rules:
   comments: disable
   comments-indentation: disable
   document-end: disable
-  document-start: 
+  document-start:
     level: warning
     present: true
     ignore: |
@@ -66,7 +66,7 @@ rules:
     ignore: |
       _config.yml
       .github/
-      _data/    
+      _data/
   new-line-at-end-of-file: disable
   new-lines:
     type: unix

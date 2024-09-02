@@ -2,15 +2,15 @@
 title: Secure Terraform - Part 1 - tfsec
 type: post
 categories:
-- DevOps
+  - DevOps
 tags:
-- terraform
-- security
-- tools
-- vscode
-- tfsec
-- github
-- FestiveTechCalendar2022
+  - terraform
+  - security
+  - tools
+  - vscode
+  - tfsec
+  - github
+  - FestiveTechCalendar2022
 mermaid: true
 permalink: /2022/12/29/secure-terraform-part1-tfsec
 redirect_from:
@@ -82,7 +82,7 @@ Running tfsec against this file produces the following output:
 ```bash
 $ tfsec
 
-Result #1 CRITICAL Storage account uses an insecure TLS version. 
+Result #1 CRITICAL Storage account uses an insecure TLS version.
 ─────────────────────────────────────────────────────────────────────────────────────────
   insecure-terraform/main.tf:8-14
 ─────────────────────────────────────────────────────────────────────────────────────────
@@ -129,7 +129,7 @@ Result #1 CRITICAL Storage account uses an insecure TLS version.
   low                  0
 
   7 passed, 1 potential problem(s) detected.
-  ```
+```
 
 As you can see, tfsec found a potential problem with the TLS version being used. This could be a critical issue and should be addressed. We can see the ID of the rule, the impact, and the resolution. We can also see a link to the documentation for the rule and the link to the documentation for the resource.
 
@@ -179,7 +179,7 @@ jobs:
 Now because I've got some tf nested, I added the following line:
 
 ```yml
-          additional_args: --force-all-dirs
+additional_args: --force-all-dirs
 ```
 
 All of the available options and parameters are documented on the actions page.

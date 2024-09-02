@@ -2,14 +2,14 @@
 title: Secure Terraform - Part 4 - checkov
 type: post
 categories:
-- DevOps
+  - DevOps
 tags:
-- terraform
-- security
-- tools
-- vscode
-- checkov
-- github
+  - terraform
+  - security
+  - tools
+  - vscode
+  - checkov
+  - github
 mermaid: true
 permalink: /2023/03/24/secure-terraform-part4-checkov
 header:
@@ -35,15 +35,15 @@ In this fourth installment of our Secure Terraform series, we'll discuss Checkov
 
 Checkov can be easily installed using pip, a package installer for Python:
 
-``` pip install checkov ```
+`pip install checkov`
 
 Alternatively, you can install Checkov using Docker:
 
-``` docker pull bridgecrew/checkov ```
+`docker pull bridgecrew/checkov`
 
 Once installed, Checkov provides a command-line interface (CLI) to scan your IaC files. To scan your Terraform code, navigate to your project's root directory and run the following command:
 
-``` checkov -d . ```
+`checkov -d .`
 
 Checkov will then analyze your Terraform files, checking for security and compliance issues. It will output the results, including the test status (PASSED or FAILED), file paths, resource types, and relevant information about the issue.
 
@@ -51,7 +51,7 @@ Checkov will then analyze your Terraform files, checking for security and compli
 
 You can customize the output format using the --output flag. Checkov supports various output formats, including JSON, JUnit XML, and SARIF:
 
-``` checkov -d . --output json ```
+`checkov -d . --output json`
 
 ## Checkov extensions for VS Code
 
@@ -89,7 +89,6 @@ on:
       - main
 jobs:
   build:
-
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -102,7 +101,7 @@ jobs:
         uses: bridgecrewio/checkov-action@master
         with:
           directory: example/examplea
-          framework: terraform 
+          framework: terraform
 ```
 
 This example workflow triggers on push and pull_request events for the main branch. It checks out the repository, sets up Python, installs Checkov, and runs a scan on the specified Terraform files.

@@ -1,14 +1,14 @@
 # main links
 main:
-  - title: "About"
+  - title: 'About'
     url: about
-  - title: "Speaking"
+  - title: 'Speaking'
     url: speaking
-  - title: "Posts"
+  - title: 'Posts'
     url: year-archive
-  - title: "Categories"
+  - title: 'Categories'
     url: categories
-  - title: "Books"
+  - title: 'Books'
     url: books
   # - title: "Tags"
   #   url: tags
@@ -17,10 +17,9 @@ main:
   # - title: "Sitemap"
   #   url: /sitemap/
 side:
-  - title: "All Posts"
+  - title: 'All Posts'
     url: year-archive
   - title: Tags
     url: tags
   - title: Categories
     url: categories
-     

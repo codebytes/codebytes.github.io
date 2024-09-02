@@ -2,18 +2,17 @@
 title: Multiple Domains on GitHub Pages
 type: post
 categories:
-- Development
+  - Development
 tags:
-- GitHub
-- dns
-- cloudflare
-- tools
+  - GitHub
+  - dns
+  - cloudflare
+  - tools
 mermaid: true
 permalink: /2022/12/27/multiple-domains-on-github-pages
 header:
   teaser: /assets/images/github-logo.png
   og_image: /assets/images/github-logo.png
-
 ---
 
 Something I found out after moving from WordPress to GitHub Pages is that out of the box you can only host a single domain for a repository with GitHub Pages. This is a problem for me because I have a number of domains I was hosting at WordPress that I wanted to point at my GitHub Pages.
@@ -60,11 +59,11 @@ Next I need to setup my other domains. For each domain, I added it to Cloudflare
 
 With this configuration, I'm saying that pretty much everything should point to [https://chris-ayers.com](https://chris-ayers.com).
 
-| Type  |           Name |         Content |
-|-------|:--------------:|----------------:|
-| CNAME |              * | chris-ayers.com |
+| Type  |      Name      |         Content |
+| ----- | :------------: | --------------: |
+| CNAME |       \*       | chris-ayers.com |
 | CNAME | chrisayers.dev | chris-ayers.com |
-| CNAME |            www | chris-ayers.com |
+| CNAME |      www       | chris-ayers.com |
 
 Now I need to setup the Page Rules. These are main thing that makes it all work.
 
@@ -76,13 +75,13 @@ This is where it gets a little more complicated. Continuing with my example befo
 
 {% include figure image_path="/assets/images/chrisayersdev-page-rules2.png" alt="Page Rules on Cloudflare" caption="Page Rules on Cloudflare" %}
 
-The main thing is to note the special characters (*) and variables in the rules.
+The main thing is to note the special characters (\*) and variables in the rules.
 
-| Field |          Value |
-|-------|:--------------:|
-| URL (required) |  ```*chrisayers.dev/*``` |
-| Forwarding URL |  ```301 - Permanent Redirect``` |
-| Destination URL | ```https://chris-ayers.com/$2``` |
+| Field           |            Value             |
+| --------------- | :--------------------------: |
+| URL (required)  |     `*chrisayers.dev/*`      |
+| Forwarding URL  |  `301 - Permanent Redirect`  |
+| Destination URL | `https://chris-ayers.com/$2` |
 
 After a little bit, everything should redirect to the GitHub Pages domain and work. I was fiddling a lot for the first domain or two, and they took a little while to start working. I'm not sure if it was just a propagation issue or what. But after a few hours, everything started working.
 

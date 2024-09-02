@@ -4,14 +4,15 @@ title: Shared Focus - Using The First Way with DevOps
 date: 2020-02-27 08:00:09.000000000 +00:00
 type: post
 categories:
-- Development
+  - Development
 tags:
-- DevOps
-permalink: "/2020/02/27/shared-focus/"
+  - DevOps
+permalink: '/2020/02/27/shared-focus/'
 header:
   teaser: /assets/images/silos.jpg
   og_image: /assets/images/silos.jpg
 ---
+
 A common issue I see when discussing DevOps with teams or organizations is the presence of Organizational Silos. Organizational Silos are made up of all types of people. Sometimes its a job type, like developers, qa, or infrastructure. Sometimes its a department, like accounting, or hr. Whatever the composition of these silos, they usually impact organizational performance and the ability to deliver value to end users.
 
 {% include figure image_path="/assets/images/silos.jpg" alt="Silos" caption="Silos" %}

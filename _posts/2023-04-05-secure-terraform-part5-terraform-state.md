@@ -2,11 +2,11 @@
 title: Secure Terraform - Part 5 - Terraform State
 type: post
 categories:
-- DevOps
+  - DevOps
 tags:
-- terraform
-- security
-- tools
+  - terraform
+  - security
+  - tools
 mermaid: true
 permalink: /2023/04/05/secure-terraform-part5-terraform-state
 redirect_from:

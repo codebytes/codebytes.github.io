@@ -4,17 +4,18 @@ title: WSL2, Docker, and Time
 date: 2020-01-23 11:42:30.000000000 +00:00
 type: post
 categories:
-- Tools
+  - Tools
 tags:
-- docker
-- linux
-- windows
-- wsl
-permalink: "/2020/01/23/wsl2-docker-and-time/"
+  - docker
+  - linux
+  - windows
+  - wsl
+permalink: '/2020/01/23/wsl2-docker-and-time/'
 header:
   teaser: /assets/images/docker-logo.png
   og_image: /assets/images/docker-logo.png
 ---
+
 I'm running on a Windows Insider Slow build so that I can leverage [WSL 2](https://docs.microsoft.com/en-us/windows/wsl/wsl2-index), the Windows Subsystem for Linux v 2. Its pretty incredible, because there's now a Linux kernel inside Windows. Ubuntu is fast, its a wonderful development experience all my favorite linux tools. I can't wait for this to be out of preview this year and in the mainstream windows releases.
 
 I'm also using the latest version of Docker Desktop, with WSL2 support. What this means is that instead of using Hyper-V to run a Moby Linux VM, [docker runs directly on WSL2](https://docs.docker.com/docker-for-windows/wsl-tech-preview/). It also has built-in Kubernetes support.

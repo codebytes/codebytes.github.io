@@ -2,23 +2,22 @@
 title: Migrating from WordPress to GitHub Pages
 type: post
 categories:
-- Development
+  - Development
 tags:
-- wordpress
-- jekyll
-- GitHub
-- markdown
-- ruby
+  - wordpress
+  - jekyll
+  - GitHub
+  - markdown
+  - ruby
 permalink: /2022/12/20/migrating-from-wordpress-to-github-pages
 header:
   teaser: /assets/images/jekyll-logo.png
   og_image: /assets/images/jekyll-logo.png
-
 ---
 
 I’ve been hosting on WordPress for a while. I wanted something that worked pretty well and was easy to work with. I picked a decent theme, added some plugins, pointed my domains and was up and running. I would work on blogs in Markdown, and then paste the txt into a Markdown. I could upload a few images and move them around in a wysiwyg.
 
-Lately, I’ve been doing a lot more in Markdown. All my conference talks were in PowerPoint but I’ve started switching over to [Markdown slides using MARP](https://chris-ayers.com/2023/03/26/marp-create-presentations-with-markdown). I should probably do a post on MARP sometime ([I did :-)](https://chris-ayers.com/2023/03/26/marp-create-presentations-with-markdown) ). I wanted to reduce my overhead of WordPress Hosting and get back into more direct styling and coding of my theme.  I decided to switch my hosting to Jekyll on GitHub Pages.
+Lately, I’ve been doing a lot more in Markdown. All my conference talks were in PowerPoint but I’ve started switching over to [Markdown slides using MARP](https://chris-ayers.com/2023/03/26/marp-create-presentations-with-markdown). I should probably do a post on MARP sometime ([I did :-)](https://chris-ayers.com/2023/03/26/marp-create-presentations-with-markdown) ). I wanted to reduce my overhead of WordPress Hosting and get back into more direct styling and coding of my theme. I decided to switch my hosting to Jekyll on GitHub Pages.
 
 ## Setting Up GitHub Pages
 
@@ -26,7 +25,7 @@ There are great docs on how to setup Jekyll with GitHub Pages.
 
 > [https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll)
 
-First this is I setup a repository to host my page.  My username is codebytes, so I made a repository for codebytes.github.io.
+First this is I setup a repository to host my page. My username is codebytes, so I made a repository for codebytes.github.io.
 
 > [https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-a-repository-for-your-site](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-a-repository-for-your-site)
 
@@ -37,6 +36,7 @@ Knowing that I’m going to be using this repository for a Jekyll based site, I 
 ## Setting Up Jekyll
 
 I used the Jekyll theme called “Minimal Mistakes”.
+
 > [https://mademistakes.com/work/jekyll-themes/minimal-mistakes/](https://mademistakes.com/work/jekyll-themes/minimal-mistakes/).
 
 I used the Jekyll-import. Because of the plan I was using on WordPress.com, I couldn’t install custom extensions. That eliminated many export/import options. There is a free option for importing things into Jekyll-import using a Wordpress.xml export file.
@@ -64,7 +64,7 @@ I then Exported everything which downloads as a single file.
 
 {% include figure image_path="/assets/images/wordpress-export.png" alt="Export Option" caption="Export Option" %}
 
-This provides an download that's a ZIP file with an xml file.  I ran the import command:
+This provides an download that's a ZIP file with an xml file. I ran the import command:
 
 ```bash
 bundle exec jekyll import wordpressdotcom --source wordpress.export.xml --assets_folder assets/
@@ -72,7 +72,7 @@ bundle exec jekyll import wordpressdotcom --source wordpress.export.xml --assets
 
 I imported all my posts from Wordpress.com (about 20). It also imported all my images, but they had many duplicates. Some image URLs had both normal URLs (“/blah/image.jpg”) but some had other URLs (“/blah/image.jpg@60px”). After this import process, I touched up each post and image.
 
-For each post I had to resolve the front matter at the top of each post.  Imported it looked like this:
+For each post I had to resolve the front matter at the top of each post. Imported it looked like this:
 
 ```md
 ---
@@ -85,16 +85,16 @@ published: true
 password: ''
 status: publish
 categories:
-- DevOps
+  - DevOps
 tags:
-- arm
-- arm templates
-- azure
-- cli
-- infrastructure
-- Microsoft
-- PowerShell
-- scripts
+  - arm
+  - arm templates
+  - azure
+  - cli
+  - infrastructure
+  - Microsoft
+  - PowerShell
+  - scripts
 meta:
   _wpas_skip_571772: '1'
   _publicize_done_21771511: '1'
@@ -114,7 +114,7 @@ author:
   display_name: Chris Ayers
   first_name: Chris
   last_name: Ayers
-permalink: "/2019/05/11/arm-azure-resource-manager/"
+permalink: '/2019/05/11/arm-azure-resource-manager/'
 ---
 ```
 
@@ -126,21 +126,21 @@ title: 'ARM - Part 1: Azure Resource Manager'
 date: 2019-05-11 23:53:57.000000000 +00:00
 type: post
 categories:
-- DevOps
+  - DevOps
 tags:
-- arm
-- arm templates
-- azure
-- cli
-- infrastructure
-- Microsoft
-- PowerShell
-- scripts
-permalink: "/2019/05/11/arm-azure-resource-manager/"
+  - arm
+  - arm templates
+  - azure
+  - cli
+  - infrastructure
+  - Microsoft
+  - PowerShell
+  - scripts
+permalink: '/2019/05/11/arm-azure-resource-manager/'
 ---
 ```
 
-I similarly had to clean up some of the HTML in the imported posts.  Mainly I removed a bunch of the commented HTML and converted it all to Markdown.
+I similarly had to clean up some of the HTML in the imported posts. Mainly I removed a bunch of the commented HTML and converted it all to Markdown.
 
 ```html
 <p><!-- wp:heading {"level":3} --></p>
@@ -158,7 +158,13 @@ Finally, I reviewed each image and cleaned up the references.
 
 ```html
 <p><!-- wp:image {"id":151} --></p>
-<figure class="wp-block-image"><img src="{{ site.baseurl }}/assets/images/newresourcegroup-3.png?w=936" alt="" class="wp-image-151" /></figure>
+<figure class="wp-block-image">
+  <img
+    src="{{ site.baseurl }}/assets/images/newresourcegroup-3.png?w=936"
+    alt=""
+    class="wp-image-151"
+  />
+</figure>
 <p><!-- /wp:image --></p>
 ```
 
@@ -172,7 +178,7 @@ The theme [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/docs/h
 
 {% endraw %}
 
-** Update
+\*\* Update
 I didn't realize this was rendering wrong, i had to turn off liquid rendering with:<br />
 &#123;% raw %&#125;<br />
 &#123;% endraw %&#125;:<br />
@@ -181,7 +187,7 @@ Or you could replace { with &amp;#123; and } with &amp;#125; to get the same eff
 
 I spent a few hours, fixed all the front matter and naming, converted all HTML to Markdown, then removed and renamed old images.
 
-I was able to test locally by running running ```jekyll serve``` and checking how everything looked in a browser.
+I was able to test locally by running running `jekyll serve` and checking how everything looked in a browser.
 
 ```bash
 bundle exec jekyll serve

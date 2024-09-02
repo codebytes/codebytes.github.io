@@ -2,10 +2,10 @@
 title: Optimizing VSCode Startup Time with Profiles
 type: post
 categories:
-- tools
+  - tools
 tags:
-- vscode
-- tools
+  - vscode
+  - tools
 permalink: /2023/05/16/profiles-in-vscode
 header:
   teaser: /assets/images/vscode-logo.png
@@ -14,7 +14,9 @@ excerpt_separator: <!--more-->
 ---
 
 Visual Studio Code (VS Code) is a popular code editor that offers a wide range of extensions to enhance its functionality. However, having too many extensions installed can increase the startup time of the editor, which can be very annoying. In this blog post, we'll explore how to optimize the startup time of VS Code by using profiles, a feature introduced in VS Code earlier this year.
+
 <!--more-->
+
 ![vscode logo](/assets/images/vscode-logo.png){: .align-center}
 
 ## What are VS Code Profiles?
@@ -49,25 +51,25 @@ Overall, VS Code Profiles provide a convenient way to manage and switch between 
 
 - **Create Task-Specific Profiles:** Consider creating profiles for specific tasks, such as web development, Python development, or Markdown editing. Include only the extensions relevant to each task in their respective profiles.
 
-| Profile | Extensions and Settings |
-| --- | --- |
-| .NET Development | C# Extension, NuGet Package Manager GUI, REST Client |
-| Azure Development | Azure Extensions, AZ CLI, Azure Terraform, ARM Visualizer |
-| Python Development | Python Extension, Pylance, Jupyter, Azure Functions |
-| Markdown Editing | Markdown All in One, Markdown Preview Enhanced, Markdownlint |
+| Profile            | Extensions and Settings                                      |
+| ------------------ | ------------------------------------------------------------ |
+| .NET Development   | C# Extension, NuGet Package Manager GUI, REST Client         |
+| Azure Development  | Azure Extensions, AZ CLI, Azure Terraform, ARM Visualizer    |
+| Python Development | Python Extension, Pylance, Jupyter, Azure Functions          |
+| Markdown Editing   | Markdown All in One, Markdown Preview Enhanced, Markdownlint |
 
 ## How to Create and Use Profiles
 
 To create a new profile in VS Code, you can use two different methods.
 
-1) Via the Settings Menu you can create, delete, export, and import profiles
-{% include figure image_path="/assets/images/vscode-profiles-manage.png" alt="Profiles in the Manage menu" caption="Profiles in the Manage menu" %}
+1. Via the Settings Menu you can create, delete, export, and import profiles
+   {% include figure image_path="/assets/images/vscode-profiles-manage.png" alt="Profiles in the Manage menu" caption="Profiles in the Manage menu" %}
 
-2) Via the Command Palette, follow these steps:
+2. Via the Command Palette, follow these steps:
 
-  1. Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS) and search for the "Profile:" command.
-  2. You can create, delete, export, and more from here.
-{% include figure image_path="/assets/images/vscode-profiles-palette.png" alt="Profiles in the Command Palette" caption="Profiles in the Command Palette" %}
+1) Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS) and search for the "Profile:" command.
+2) You can create, delete, export, and more from here.
+   {% include figure image_path="/assets/images/vscode-profiles-palette.png" alt="Profiles in the Command Palette" caption="Profiles in the Command Palette" %}
 
 To switch between profiles, use the "Profile: Switch Profile" command from the Manage menu or Command Palette and select the desired profile. This will activate the selected profile and reload the editor with the specified extensions and settings.
 

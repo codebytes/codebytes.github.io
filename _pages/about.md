@@ -3,110 +3,110 @@ title: About Me
 type: page
 categories: []
 tags: []
-permalink: "/about/"
+permalink: '/about/'
 
 headshots:
   - url: /assets/images/bio-photo.jpg
     image_path: /assets/images/bio-photo.jpg
-    alt: "headshot"
-    title: "Chris Ayers Headshot"
+    alt: 'headshot'
+    title: 'Chris Ayers Headshot'
   - url: /assets/headshot/head-shoulders.png
     image_path: /assets/headshot/head-shoulders.png
-    alt: "headshot"
-    title: "Chris Ayers Headshot"
+    alt: 'headshot'
+    title: 'Chris Ayers Headshot'
 
 cert-badges:
   - url: /assets/badges/terraform-certified-associate.png
     image_path: /assets/badges/terraform-certified-associate.png
-    alt: "cert"
-    title: "cert"
+    alt: 'cert'
+    title: 'cert'
   - url: /assets/badges/github-actions.png
     image_path: /assets/badges/github-actions.png
-    alt: "cert"
-    title: "cert"
+    alt: 'cert'
+    title: 'cert'
   - url: /assets/badges/microsoft-certified-azure-devops-engineer-expert.png
     image_path: /assets/badges/microsoft-certified-azure-devops-engineer-expert.png
-    alt: "cert"
-    title: "cert"
+    alt: 'cert'
+    title: 'cert'
   - url: /assets/badges/az-100-microsoft-azure-infrastructure-and-deployment.png
     image_path: /assets/badges/az-100-microsoft-azure-infrastructure-and-deployment.png
-    alt: "cert"
-    title: "cert"
+    alt: 'cert'
+    title: 'cert'
   - url: /assets/badges/az-400-microsoft-azure-devops-solutions.png
     image_path: /assets/badges/az-400-microsoft-azure-devops-solutions.png
-    alt: "cert"
-    title: "cert"
+    alt: 'cert'
+    title: 'cert'
   - url: /assets/badges/certified-kubernetes-application-developer.png
     image_path: /assets/badges/certified-kubernetes-application-developer.png
-    alt: "cert"
-    title: "cert"
+    alt: 'cert'
+    title: 'cert'
   - url: /assets/badges/exam-480-programming-in-html5-with-javascript-and-css3.png
     image_path: /assets/badges/exam-480-programming-in-html5-with-javascript-and-css3.png
-    alt: "cert"
-    title: "cert"
+    alt: 'cert'
+    title: 'cert'
   - url: /assets/badges/exam-483-programming-in-c.png
     image_path: /assets/badges/exam-483-programming-in-c.png
-    alt: "cert"
-    title: "cert"
+    alt: 'cert'
+    title: 'cert'
   - url: /assets/badges/microsoft-certified-azure-administrator-associate.png
     image_path: /assets/badges/microsoft-certified-azure-administrator-associate.png
-    alt: "cert"
-    title: "cert"
+    alt: 'cert'
+    title: 'cert'
   - url: /assets/badges/microsoft-certified-azure-ai-fundamentals.png
     image_path: /assets/badges/microsoft-certified-azure-ai-fundamentals.png
-    alt: "cert"
-    title: "cert"
+    alt: 'cert'
+    title: 'cert'
   - url: /assets/badges/microsoft-certified-azure-data-fundamentals.png
     image_path: /assets/badges/microsoft-certified-azure-data-fundamentals.png
-    alt: "cert"
-    title: "cert"
+    alt: 'cert'
+    title: 'cert'
   - url: /assets/badges/microsoft-certified-azure-developer-associate.png
     image_path: /assets/badges/microsoft-certified-azure-developer-associate.png
-    alt: "cert"
-    title: "cert"
+    alt: 'cert'
+    title: 'cert'
   - url: /assets/badges/microsoft-certified-azure-fundamentals.png
     image_path: /assets/badges/microsoft-certified-azure-fundamentals.png
-    alt: "cert"
-    title: "cert"
+    alt: 'cert'
+    title: 'cert'
   - url: /assets/badges/microsoft-certified-azure-iot-developer-specialty.png
     image_path: /assets/badges/microsoft-certified-azure-iot-developer-specialty.png
-    alt: "cert"
-    title: "cert"
+    alt: 'cert'
+    title: 'cert'
   - url: /assets/badges/microsoft-certified-azure-network-engineer-associate.png
     image_path: /assets/badges/microsoft-certified-azure-network-engineer-associate.png
-    alt: "cert"
-    title: "cert"
+    alt: 'cert'
+    title: 'cert'
   - url: /assets/badges/microsoft-certified-azure-security-engineer-associate.png
     image_path: /assets/badges/microsoft-certified-azure-security-engineer-associate.png
-    alt: "cert"
-    title: "cert"
+    alt: 'cert'
+    title: 'cert'
   - url: /assets/badges/microsoft-certified-azure-solutions-architect-expert.png
     image_path: /assets/badges/microsoft-certified-azure-solutions-architect-expert.png
-    alt: "cert"
-    title: "cert"
+    alt: 'cert'
+    title: 'cert'
   - url: /assets/badges/microsoft-certified-cybersecurity-architect-expert.png
     image_path: /assets/badges/microsoft-certified-cybersecurity-architect-expert.png
-    alt: "cert"
-    title: "cert"
+    alt: 'cert'
+    title: 'cert'
   - url: /assets/badges/microsoft-certified-power-platform-fundamentals.png
     image_path: /assets/badges/microsoft-certified-power-platform-fundamentals.png
-    alt: "cert"
-    title: "cert"
+    alt: 'cert'
+    title: 'cert'
   - url: /assets/badges/microsoft-certified-security-compliance-and-identity-fundamentals.png
     image_path: /assets/badges/microsoft-certified-security-compliance-and-identity-fundamentals.png
-    alt: "cert"
-    title: "cert"
+    alt: 'cert'
+    title: 'cert'
   - url: /assets/badges/muma-diversity-equity-inclusion-badge.png
     image_path: /assets/badges/muma-diversity-equity-inclusion-badge.png
-    alt: "cert"
-    title: "cert"
+    alt: 'cert'
+    title: 'cert'
 ---
 
 {% include gallery id="headshots" caption="This is a gallery of headshots." %}
 
-My name is Chris Ayers.  I'm a Senior Customer Engineer on the Fast Track for Azure team at Microsoft. I'm a father, speaker, gamer, nerd, blogger, and presenter.  I like to help people understand technology.  I love Azure, DevOps, and development.  My goal is to deliver value to end users faster, develop features more quickly, with higher quality, and more confidence.
+My name is Chris Ayers. I'm a Senior Customer Engineer on the Fast Track for Azure team at Microsoft. I'm a father, speaker, gamer, nerd, blogger, and presenter. I like to help people understand technology. I love Azure, DevOps, and development. My goal is to deliver value to end users faster, develop features more quickly, with higher quality, and more confidence.
 
-I've been developing software of some kind since second grade.  I've worn several hats over the years, Technical Support, DBA, System Administrator, Network Administrator, Network Engineer, Software Engineer, Architect, and Consultant. As a developer I always tried to learn and share industry best practices around software development, software architecture, and agile practices.  My latest hat uses all the skills I've learned over my career.
+I've been developing software of some kind since second grade. I've worn several hats over the years, Technical Support, DBA, System Administrator, Network Administrator, Network Engineer, Software Engineer, Architect, and Consultant. As a developer I always tried to learn and share industry best practices around software development, software architecture, and agile practices. My latest hat uses all the skills I've learned over my career.
 
 ## Certifications
 

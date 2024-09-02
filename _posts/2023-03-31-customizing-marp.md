@@ -2,12 +2,12 @@
 title: Unleash Your Creativity with Marp Presentation Customization
 type: post
 categories:
-- Tools
+  - Tools
 tags:
-- vscode
-- marp
-- markdown
-- mermaid
+  - vscode
+  - marp
+  - markdown
+  - mermaid
 mermaid: true
 permalink: /2023/03/31/customizing-marp
 header:
@@ -206,10 +206,10 @@ style: |
 We can then use these classes in our slides and mix and match Markdown and HTML if needed.
 
 ```markdown
-
 ---
 
 ![bg opacity](https://picsum.photos/800/600?image=53)
+
 ## Slide 5
 
 <div class="columns">
@@ -230,7 +230,6 @@ We can then use these classes in our slides and mix and match Markdown and HTML 
 
 </div>
 </div>
-
 ```
 
 In this example, I'm adding a grid layout to my slides so I have have split columns. You can add any CSS you want here.
@@ -261,15 +260,13 @@ style: |
 And then in your slides, you can use the following syntax to add icons.
 
 ```markdown
-
 ## Slide 6
 
-<i class="fa-brands fa-twitter"></i> Twitter: 
-<i class="fa-brands fa-mastodon"></i> Mastodon: 
-<i class="fa-brands fa-linkedin"></i> LinkedIn: 
-<i class="fa fa-window-maximize"></i> Blog: 
-<i class="fa-brands fa-github"></i> GitHub: 
-
+<i class="fa-brands fa-twitter"></i> Twitter:
+<i class="fa-brands fa-mastodon"></i> Mastodon:
+<i class="fa-brands fa-linkedin"></i> LinkedIn:
+<i class="fa fa-window-maximize"></i> Blog:
+<i class="fa-brands fa-github"></i> GitHub:
 ```
 
 ## Mermaid Support
@@ -305,12 +302,12 @@ graph TD;
 Marp will automatically convert this code into a diagram, which you can then style using CSS. By default, Mermaid diagrams are quite small, but you can adjust their size using CSS. This CSS code will make your Mermaid diagrams larger and easier to read. You can add this code to the frontmatter section of your Markdown file.
 
 ```css
-  svg[id^="mermaid-"] { 
-    min-width: 480px; 
-    max-width: 960px; 
-    min-height: 360px; 
-    max-height: 600px; 
-  }
+svg[id^='mermaid-'] {
+  min-width: 480px;
+  max-width: 960px;
+  min-height: 360px;
+  max-height: 600px;
+}
 ```
 
 And we get the following:
@@ -341,11 +338,10 @@ To add speaker notes to your Marp slides, use the following syntax:
 ---
 <!-- Your speaker notes go here. -->
 
-<!-- 
+<!--
 Or Your speaker
 notes go here.
 -->
-
 ---
 ```
 

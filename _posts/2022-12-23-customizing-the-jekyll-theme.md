@@ -2,14 +2,14 @@
 title: Customizing the Jekyll Theme
 type: post
 categories:
-- Development
+  - Development
 tags:
-- jekyll
-- GitHub
-- markdown
-- ruby
-- mermaid
-- tools
+  - jekyll
+  - GitHub
+  - markdown
+  - ruby
+  - mermaid
+  - tools
 mermaid: true
 permalink: /2022/12/23/customizing-the-jekyll-theme
 redirect_from:
@@ -23,7 +23,7 @@ I haven't done a lot with jekyll in the past, but I'm a big fan of Markdown ever
 
 Understanding when I use standard Markdown or some sort of templating language (jekyll uses Liquid) has been fun. I'll do something in HTML or Markdown, then find out that Jekyll or my theme already has helpers to render that (like gists, videos, and figures). Sometimes rendering more advanced things takes a little tweaking of Jekyll and the theme.
 
-Lets take Mermaid for example.  If I want to render mermaid, it won't work out of the box with jekyll or my theme. I need to tweak things and initialize things manually. If I want to render a graph, this won't work out of the box.
+Lets take Mermaid for example. If I want to render mermaid, it won't work out of the box with jekyll or my theme. I need to tweak things and initialize things manually. If I want to render a graph, this won't work out of the box.
 
 ```md
     '''mermaid
@@ -35,7 +35,7 @@ Lets take Mermaid for example.  If I want to render mermaid, it won't work out o
     '''
 ```
 
-So to make it work, I had to override the base theme. To start, I looked at the themes layouts. They live in the _layout folder of the theme [here](https://github.com/mmistakes/minimal-mistakes/tree/master/_layouts). These are the base structure of a page and most reference either Archive or Default.
+So to make it work, I had to override the base theme. To start, I looked at the themes layouts. They live in the \_layout folder of the theme [here](https://github.com/mmistakes/minimal-mistakes/tree/master/_layouts). These are the base structure of a page and most reference either Archive or Default.
 
 {% include figure image_path="/assets/images/minimal-mistakes-layout-posts.png" alt="Theme layout for posts" caption="Theme layout for posts" %}
 
@@ -47,7 +47,7 @@ Fortunately Archive also refers to Default so I can focus my changes there if I 
 
 Looking at this file, there are a few includes defined. One of which is the footer/custom.html and one is scripts.html. I looked through the scripts.html and it has a lot of logic I'd prefer not to duplicate. I'm already using the header-custom file to define some `css/scripts`. I've found Mermaid needs its init to run in the body, so i'll probably want to leverage the footer/custom.html for this. It's an empty file in the theme, making it any easy choice to override.
 
-I created a footer folder in my local project _includes and a custom.html file. I added some simple logic to only add the mermaid logic if I added a ```mermaid:true``` flag at the top of the page.
+I created a footer folder in my local project \_includes and a custom.html file. I added some simple logic to only add the mermaid logic if I added a `mermaid:true` flag at the top of the page.
 
 {% include figure image_path="/assets/images/custom-footer.png" alt="Custom footer logic for mermaid" caption="Custom footer logic for mermaid" %}
 
@@ -72,7 +72,7 @@ I used a few different sources to get things to work for me. Please check those 
 - [https://it-journey.dev/docs/jekyll-diagram-with-mermaid](https://it-journey.dev/docs/jekyll-diagram-with-mermaid)
 - [https://github.com/jasonbellamy/jekyll-mermaid](https://github.com/jasonbellamy/jekyll-mermaid)
 - [https://jojozhuang.github.io/tutorial/jekyll-diagram-with-mermaid](https://jojozhuang.github.io/tutorial/jekyll-diagram-with-mermaid)
-- [https://github.com/kitian616/jekyll-TeXt-theme/blob/master/_includes/markdown-enhancements/mermaid.html](https://github.com/kitian616/jekyll-TeXt-theme/blob/master/_includes/markdown-enhancements/mermaid.html)
+- [https://github.com/kitian616/jekyll-TeXt-theme/blob/master/\_includes/markdown-enhancements/mermaid.html](https://github.com/kitian616/jekyll-TeXt-theme/blob/master/_includes/markdown-enhancements/mermaid.html)
 - [https://stackoverflow.com/questions/53883747/how-to-make-github-pages-markdown-support-mermaid-diagram](https://stackoverflow.com/questions/53883747/how-to-make-github-pages-markdown-support-mermaid-diagram)
 - [https://github.com/mtrienis/jekyll-mermaid-blog](https://github.com/mtrienis/jekyll-mermaid-blog)
 

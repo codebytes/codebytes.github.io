@@ -5,14 +5,15 @@ date: 2020-02-26 00:46:31.000000000 +00:00
 type: post
 status: publish
 categories:
-- DevOps
+  - DevOps
 tags:
-- DevOps
-permalink: "/2020/02/26/how-do-you-boil-the-ocean/"
+  - DevOps
+permalink: '/2020/02/26/how-do-you-boil-the-ocean/'
 header:
   teaser: /assets/images/sunrise_at_ocean.jpg
   og_image: /assets/images/sunrise_at_ocean.jpg
 ---
+
 This is a phrase I end up using a lot while talking with clients. I used to use a different phrase about elephants but moved away from that language to be more respectful. Let's start with what it means, at least in the context I use it, and why this phrase is so useful when talking about Devops.
 
 {% include figure image_path="/assets/images/sunrise_at_ocean.jpg" alt="Sunrise over the ocean" caption="Sunrise over the ocean" %}
