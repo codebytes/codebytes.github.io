@@ -13,7 +13,7 @@ header:
   og_image: /assets/images/snake-oil.png
 ---
 
-As a DevOps Consultant a lot of what I do is spent on People and Processes. If you remember the definition of DevOps that I love is from [Donovan Brown](http://donovanbrown.com/post/what-is-devops), “DevOps is the union of **People**, **Processes**, and **Products** to *continuously deliver **value*** to our end users”. I want to keep reiterating this, _continuously deliver value to our end users_. I bring this up because my job as a DevOps Consultant is to delivering value to my end users. But not all of us do. My amazing coworker ([@\_s_hari](https://twitter.com/_s_hari)) and I have discussions about this quite a bit. As far as I know, he coined the term and gave me his blessing to blog about it.
+As a DevOps Consultant a lot of what I do is spent on People and Processes. If you remember the definition of DevOps that I love is from [Donovan Brown](http://donovanbrown.com/post/what-is-devops), “DevOps is the union of **People**, **Processes**, and **Products** to *continuously deliver **value*** to our end users”. I want to keep reiterating this, *continuously deliver value to our end users*. I bring this up because my job as a DevOps Consultant is to delivering value to my end users. But not all of us do. My amazing coworker ([@\_s_hari](https://twitter.com/_s_hari)) and I have discussions about this quite a bit. As far as I know, he coined the term and gave me his blessing to blog about it.
 
 {% include figure image_path="/assets/images/devops-pie.png" alt="DevOps - People Processes Tools" caption="DevOps - People Processes Tools" %}
 
@@ -35,4 +35,4 @@ Have you ever heard any of theses statements/promises/lies?
 
 Notice the lack of discussion about the company/business/team. What the business, what is important to the end users? How do you work? What are the processes to take a new idea, let the team work on it, and get that code into production? How do you know its running OK in production? Do you know if the end user uses your new feature?
 
-When someone just focuses on the tool, they don't care about helping you to improve, your journey, or the actual outcome. They want to continuously deliver the value of your _wallet_ into theirs.
+When someone just focuses on the tool, they don't care about helping you to improve, your journey, or the actual outcome. They want to continuously deliver the value of your *wallet* into theirs.
