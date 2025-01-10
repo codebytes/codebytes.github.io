@@ -19,16 +19,20 @@ You can find some of my previous talks and online engagements on YouTube at the 
 
 | Event | Date | Talks |
 | ---------------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Live! 360 Orlando | Nov 17-22, 2024 | Cloud & Containers Live! Panel Discussion: Making the Most of Your Cloud Resources<br />Ensuring Azure Resiliency<br />The Well-Architected Architect - Building Secure, Reliable, Cost-Efficient Solutions on Azure<br />Real World CI/CD with GitHub Actions - Beyond Basics |
-| Festive Tech Calendar | Dec 1-25, 2024 | Aspiring .NET with Azure Open AI |
 | CodeMash 2025 | Jan 14-17, 2025 | .NET in a Box: Containerizing .NET Applications<br />Real World CI/CD with GitHub Actions: Beyond Basics |
+| Azure & DevOps Podcast | Jan 22, 2023 | Podcast Guest |
+| Tampa Bay Cyber Resilience Conference 2025 | Jan 31, 2025 | AI for Security and Resilience |
 | VS Live! Las Vegas | Mar 10-14, 2025 | .NET Configuration In Depth<br /> Ensuring Azure Resiliency |
+| DevSum 2025 | Jun 12-13, 2025 | The Well-Architected Architect - Building Secure, Reliable, Cost-efficient Solutions on Azure|
+
 
 
 ## Past Events
 
 | Event | Date | Talks |
 | ---------------------------------------------------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Live! 360 Orlando | Nov 17-22, 2024 | Cloud & Containers Live! Panel Discussion: Making the Most of Your Cloud Resources<br />Ensuring Azure Resiliency<br />The Well-Architected Architect - Building Secure, Reliable, Cost-Efficient Solutions on Azure<br />Real World CI/CD with GitHub Actions - Beyond Basics |
+| Festive Tech Calendar | Dec 1-25, 2024 | Aspiring .NET with Azure Open AI |
 | NDC Porto 2024 | Oct 14-18, 2024 | The Power of Dev Containers and GitHub Codespaces |
 | All Day DevOps | Oct 10, 2024 | The Power of Dev Containers and GitHub Codespaces |
 | Techorama Netherlands 2024 | Oct 7-9, 2024 | .NET in a Box: Containerizing .NET Applications<br />.NET Configuration In Depth |
