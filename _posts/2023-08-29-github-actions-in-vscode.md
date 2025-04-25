@@ -26,7 +26,7 @@ GitHub Actions stands as one of the most versatile tools in the developer's tool
 
 ## Uniting VSCode with GitHub: An Enhanced Development Experience
 
-Visual Studio Code (VSCode) is more than just a lightweight source code editor—it's a hub that caters to developers' evolving needs. Its extensive ecosystem of extensions ensures that its capabilities extend far beyond basic editing.
+Visual Studio Code (VSCode) is more than just a lightweight source code editor-it's a hub that caters to developers' evolving needs. Its extensive ecosystem of extensions ensures that its capabilities extend far beyond basic editing.
 
 Merging the intuitive features of VSCode with the collaborative and version control strengths of GitHub transforms the development process. This integration allows developers to clone repositories, adjust code, stage commits, and push updates, all within a singular, cohesive environment. The outcome is a workflow designed for maximum efficiency and streamlined operations.
 

@@ -15,7 +15,7 @@ In the realm of artificial intelligence (AI), specifically AI language models, p
 
 ## Introduction to Prompt Engineering
 
-Prompt engineering can be understood as the strategic design and optimization of inputs provided to AI language models. The primary objective is to elicit accurate, relevant, and insightful outputs. This practice is akin to a nuanced conversation with an AI, where the phrasing, context, and style of your input – the 'prompt' – can significantly influence the AI's response.
+Prompt engineering can be understood as the strategic design and optimization of inputs provided to AI language models. The primary objective is to elicit accurate, relevant, and insightful outputs. This practice is akin to a nuanced conversation with an AI, where the phrasing, context, and style of your input - the 'prompt' - can significantly influence the AI's response.
 
 It's not just about asking a question; it's about how you frame that question, what background information you provide, and how specific your instructions are. Learning to engineer prompts effectively can dramatically enhance the utility of AI language models in various applications.
 
@@ -31,7 +31,7 @@ Language models like GPT-4 are trained on vast amounts of text data, covering a 
 
 Despite their impressive abilities, language models do come with their set of limitations:
 
-- **Knowledge cutoff date**: Language models have a 'knowledge cutoff' – the point in time up to which the model has been trained on data. For instance, GPT-4, which I am based on, has a knowledge cutoff in September 2021.
+- **Knowledge cutoff date**: Language models have a 'knowledge cutoff' - the point in time up to which the model has been trained on data. For instance, GPT-4, which I am based on, has a knowledge cutoff in September 2021.
 
 - **Lack of common sense and context understanding**: AI language models do not have personal experiences or emotions, and their understanding of context can sometimes be limited.
 

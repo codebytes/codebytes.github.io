@@ -27,13 +27,13 @@ This is part 2 of the Containerizing .NET series. You can read the series of art
 
 ## Considerations
 
-Welcome to the second installment in our series on containerizing .NET applications. Building on the foundation laid in our first article—where we introduced Dockerfiles and the `dotnet publish` command—this piece delves into pivotal considerations for transitioning .NET applications into containers. As containers become a cornerstone of the ecosystem, understanding these factors is critical for developers aiming to enhance application deployment in containerized environments.
+Welcome to the second installment in our series on containerizing .NET applications. Building on the foundation laid in our first article-where we introduced Dockerfiles and the `dotnet publish` command-this piece delves into pivotal considerations for transitioning .NET applications into containers. As containers become a cornerstone of the ecosystem, understanding these factors is critical for developers aiming to enhance application deployment in containerized environments.
 
 ## Architectural Alignment and Security
 
 ### Architectural Considerations in Containerization
 
-As we delve into containerizing .NET applications, it's essential to recognize that the architectural style—whether you're working with a microservices pattern or a monolithic design—plays a pivotal role in shaping the containerization strategy. However, regardless of the architecture chosen, there are several critical considerations that universally impact the transition to a containerized environment.
+As we delve into containerizing .NET applications, it's essential to recognize that the architectural style-whether you're working with a microservices pattern or a monolithic design-plays a pivotal role in shaping the containerization strategy. However, regardless of the architecture chosen, there are several critical considerations that universally impact the transition to a containerized environment.
 
 ### CI/CD and Deployment Strategies
 

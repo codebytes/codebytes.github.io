@@ -29,17 +29,17 @@ Its been a while so I used GitHub Copilot Chat to help me out.
 
 > > Given the sample, 'I think puppies are super cute, but turtles are super cute too.' Make a regex that matches turtles only if puppies appears before it.
 >
-> Sure, here is a regular expression that matches “turtles” only if “puppies” appears before it in the text:
+> Sure, here is a regular expression that matches "turtles" only if "puppies" appears before it in the text:
 >
 > `puppies.*turtles`
 >
 > This regular expression works as follows:
 >
-> puppies matches the characters “puppies” literally.
+> puppies matches the characters "puppies" literally.
 > .\* is a special sequence that matches any character (except for a newline) 0 or more times.
-> turtles matches the characters “turtles” literally.
+> turtles matches the characters "turtles" literally.
 >
-> So, this regular expression will match any string that has “turtles” somewhere after “puppies”.
+> So, this regular expression will match any string that has "turtles" somewhere after "puppies".
 
 We are using regexer.com to test out the regexes. The result was close but we got in a back and forth refining the regex.
 
@@ -73,13 +73,13 @@ Let's see if we can modify the regex to match this.
 > > 'I think puppies are super cute,
 > > but turtles are super cute too.'
 >
-> The regular expression `(?<=puppies.*)(turtles)` you provided uses a positive lookbehind `(?<=puppies.*)` to check if “turtles” is preceded by “puppies”. However, the . character does not match line breaks in regular expressions.
+> The regular expression `(?<=puppies.*)(turtles)` you provided uses a positive lookbehind `(?<=puppies.*)` to check if "turtles" is preceded by "puppies". However, the . character does not match line breaks in regular expressions.
 >
-> To match “turtles” only if “puppies” appears before it, even if there are line breaks or other paragraphs, you can use the `[\s\S]*` pattern instead of .\*. The `[\s\S]` pattern matches any character including line breaks. Here’s how you can modify your regex:
+> To match "turtles" only if "puppies" appears before it, even if there are line breaks or other paragraphs, you can use the `[\s\S]*` pattern instead of .\*. The `[\s\S]` pattern matches any character including line breaks. Here's how you can modify your regex:
 >
 > `(?<=puppies[\s\S]*)(turtles)`
 >
-> This will match “turtles” only if “puppies” appears before it, regardless of line breaks or other paragraphs. For example, it will match “turtles” in the following text:
+> This will match "turtles" only if "puppies" appears before it, regardless of line breaks or other paragraphs. For example, it will match "turtles" in the following text:
 >
 > I think puppies are super cute,
 > but turtles are super cute too.
