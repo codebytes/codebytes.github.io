@@ -17,7 +17,7 @@ The Remote SSH extension for VS Code is a potent instrument designed to transpor
 
 ## Operating the Remote SSH Extension
 
-To exemplify the potency of the Remote SSH extension, let's navigate a typical scenario — developing a Python application on a remote server.
+To exemplify the potency of the Remote SSH extension, let's navigate a typical scenario - developing a Python application on a remote server.
 
 1. Initiate by installing the Remote SSH extension on your local VS Code.
 2. Tap on the green icon located at the bottom-left corner (Remote Explorer), and select "SSH Targets."

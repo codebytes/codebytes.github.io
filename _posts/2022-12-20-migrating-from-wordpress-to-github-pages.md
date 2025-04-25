@@ -15,9 +15,9 @@ header:
   og_image: /assets/images/jekyll-logo.png
 ---
 
-I’ve been hosting on WordPress for a while. I wanted something that worked pretty well and was easy to work with. I picked a decent theme, added some plugins, pointed my domains and was up and running. I would work on blogs in Markdown, and then paste the txt into a Markdown. I could upload a few images and move them around in a wysiwyg.
+I've been hosting on WordPress for a while. I wanted something that worked pretty well and was easy to work with. I picked a decent theme, added some plugins, pointed my domains and was up and running. I would work on blogs in Markdown, and then paste the txt into a Markdown. I could upload a few images and move them around in a wysiwyg.
 
-Lately, I’ve been doing a lot more in Markdown. All my conference talks were in PowerPoint but I’ve started switching over to [Markdown slides using MARP](https://chris-ayers.com/2023/03/26/marp-create-presentations-with-markdown). I should probably do a post on MARP sometime ([I did :-)](https://chris-ayers.com/2023/03/26/marp-create-presentations-with-markdown) ). I wanted to reduce my overhead of WordPress Hosting and get back into more direct styling and coding of my theme. I decided to switch my hosting to Jekyll on GitHub Pages.
+Lately, I've been doing a lot more in Markdown. All my conference talks were in PowerPoint but I've started switching over to [Markdown slides using MARP](https://chris-ayers.com/2023/03/26/marp-create-presentations-with-markdown). I should probably do a post on MARP sometime ([I did :-)](https://chris-ayers.com/2023/03/26/marp-create-presentations-with-markdown) ). I wanted to reduce my overhead of WordPress Hosting and get back into more direct styling and coding of my theme. I decided to switch my hosting to Jekyll on GitHub Pages.
 
 ## Setting Up GitHub Pages
 
@@ -29,17 +29,17 @@ First this is I setup a repository to host my page. My username is codebytes, so
 
 > [https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-a-repository-for-your-site](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-a-repository-for-your-site)
 
-Knowing that I’m going to be using this repository for a Jekyll based site, I setup a dev container so that I could quickly have all the tools setup and configured.
+Knowing that I'm going to be using this repository for a Jekyll based site, I setup a dev container so that I could quickly have all the tools setup and configured.
 
 > [https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll)
 
 ## Setting Up Jekyll
 
-I used the Jekyll theme called “Minimal Mistakes”.
+I used the Jekyll theme called "Minimal Mistakes".
 
 > [https://mademistakes.com/work/jekyll-themes/minimal-mistakes/](https://mademistakes.com/work/jekyll-themes/minimal-mistakes/).
 
-I used the Jekyll-import. Because of the plan I was using on WordPress.com, I couldn’t install custom extensions. That eliminated many export/import options. There is a free option for importing things into Jekyll-import using a Wordpress.xml export file.
+I used the Jekyll-import. Because of the plan I was using on WordPress.com, I couldn't install custom extensions. That eliminated many export/import options. There is a free option for importing things into Jekyll-import using a Wordpress.xml export file.
 
 > [https://import.jekyllrb.com/docs/wordpressdotcom](https://import.jekyllrb.com/docs/wordpressdotcom)
 
@@ -70,7 +70,7 @@ This provides an download that's a ZIP file with an xml file. I ran the import c
 bundle exec jekyll import wordpressdotcom --source wordpress.export.xml --assets_folder assets/
 ```
 
-I imported all my posts from Wordpress.com (about 20). It also imported all my images, but they had many duplicates. Some image URLs had both normal URLs (“/blah/image.jpg”) but some had other URLs (“/blah/image.jpg@60px”). After this import process, I touched up each post and image.
+I imported all my posts from Wordpress.com (about 20). It also imported all my images, but they had many duplicates. Some image URLs had both normal URLs ("/blah/image.jpg") but some had other URLs ("/blah/image.jpg@60px"). After this import process, I touched up each post and image.
 
 For each post I had to resolve the front matter at the top of each post. Imported it looked like this:
 

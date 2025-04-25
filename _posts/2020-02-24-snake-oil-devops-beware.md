@@ -13,7 +13,7 @@ header:
   og_image: /assets/images/snake-oil.png
 ---
 
-As a DevOps Consultant a lot of what I do is spent on People and Processes. If you remember the definition of DevOps that I love is from [Donovan Brown](http://donovanbrown.com/post/what-is-devops), “DevOps is the union of **People**, **Processes**, and **Products** to *continuously deliver **value*** to our end users”. I want to keep reiterating this, *continuously deliver value to our end users*. I bring this up because my job as a DevOps Consultant is to delivering value to my end users. But not all of us do. My amazing coworker ([@\_s_hari](https://twitter.com/_s_hari)) and I have discussions about this quite a bit. As far as I know, he coined the term and gave me his blessing to blog about it.
+As a DevOps Consultant a lot of what I do is spent on People and Processes. If you remember the definition of DevOps that I love is from [Donovan Brown](http://donovanbrown.com/post/what-is-devops), "DevOps is the union of **People**, **Processes**, and **Products** to *continuously deliver **value*** to our end users". I want to keep reiterating this, *continuously deliver value to our end users*. I bring this up because my job as a DevOps Consultant is to delivering value to my end users. But not all of us do. My amazing coworker ([@\_s_hari](https://twitter.com/_s_hari)) and I have discussions about this quite a bit. As far as I know, he coined the term and gave me his blessing to blog about it.
 
 {% include figure image_path="/assets/images/devops-pie.png" alt="DevOps - People Processes Tools" caption="DevOps - People Processes Tools" %}
 

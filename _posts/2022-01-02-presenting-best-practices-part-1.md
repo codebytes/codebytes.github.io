@@ -28,7 +28,7 @@ Who are you presenting to: Engineers, Sales, Managers, C-Suites (CEO, CIO, CTO, 
 
 #### Why are they here?
 
-Why are they here? What do _they_ think they’re going to get out of this presentation? An engineer might be here for a technical presentation, a salesperson might be here to learn features to sell a product, a manager might be here to help a team stay on track, the C-Suite might be here to understand costs or timelines. Showing value early keeps people engaged. **One of the first things you should do is tell your audience what's in it for them.**
+Why are they here? What do _they_ think they're going to get out of this presentation? An engineer might be here for a technical presentation, a salesperson might be here to learn features to sell a product, a manager might be here to help a team stay on track, the C-Suite might be here to understand costs or timelines. Showing value early keeps people engaged. **One of the first things you should do is tell your audience what's in it for them.**
 
 #### Familiarity with the Content
 
@@ -52,7 +52,7 @@ For instance, an informational presentation aims to inform the audience about a 
 
 ##### Persuasive
 
-A persuasive speech aims to move, motivate, or change the audience. You want the audience to perform a certain action or convince them to adopt the belief or opinion of the speaker. This might be a sales pitch, a recommendation for an architectural approach, or adopting a new practice. Persuasion has been studied by experts and they have observed what works and what doesn’t.
+A persuasive speech aims to move, motivate, or change the audience. You want the audience to perform a certain action or convince them to adopt the belief or opinion of the speaker. This might be a sales pitch, a recommendation for an architectural approach, or adopting a new practice. Persuasion has been studied by experts and they have observed what works and what doesn't.
 
 {% include video id="cFdCzN7RYbw" provider="youtube" %}
 
