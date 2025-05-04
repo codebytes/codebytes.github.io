@@ -14,9 +14,11 @@
     "samplesa",
     "Sessionize",
     "snyk",
+    "stirtrek",
     "Techorama",
     "terrascan",
     "Tfsec",
     "videoseries"
-  ]
+  ],
+  "sarif-viewer.connectToGithubCodeScanning": "off"
 }
