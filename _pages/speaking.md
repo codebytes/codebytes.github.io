@@ -19,7 +19,6 @@ You can find some of my previous talks and online engagements on YouTube at the 
 
 | Event | Date | Talks |
 | ---------------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Stir Trek 2025 | May 2, 2025 | The Power of Dev Containers and GitHub Codespaces |
 | NDC Oslo 2025 | May 19-23, 2025 | Resilient by Design |
 | Techorama Belgium 2025 | May 26-28, 2025 | Resilient by Design<br />Aspiring .NET with Ollama and Azure Open AI |
 | DevSum 2025 | Jun 12-13, 2025 | The Well-Architected Architect - Building Secure, Reliable, Cost-efficient Solutions on Azure|
@@ -30,7 +29,8 @@ You can find some of my previous talks and online engagements on YouTube at the 
 
 | Event | Date | Talks |
 | ---------------------------------------------------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Tampa Bay QA and Testing Meetup | Ap 9, 2025 | From Zero to End-to-End Tests: A Beginner's Guide to Playwright |
+| Stir Trek 2025 | May 2, 2025 | The Power of Dev Containers and GitHub Codespaces |
+| Tampa Bay QA and Testing Meetup | Apr 9, 2025 | From Zero to End-to-End Tests: A Beginner's Guide to Playwright |
 | Orlando Code Camp 2025 | Apr 5, 2025 | Aspiring .NET with Ollama and Azure Open AI |
 | VS Live! Las Vegas | Mar 10-14, 2025 | .NET Configuration In Depth<br /> Ensuring Azure Resiliency |
 | Azure Spring Clean 2025 | Mar 3, 2025 | The Well-Architected Architect - Building Secure, Reliable, Cost-efficient Solutions on Azure |
