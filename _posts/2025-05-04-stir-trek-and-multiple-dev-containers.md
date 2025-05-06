@@ -3,9 +3,14 @@ title: Stir Trek 2025 and Multiple Dev Containers
 type: post
 categories:
 - AI
+- Dev Containers
+- Codespaces
 tags:
 - copilot
 - chatgpt
+- devcontainers
+- codespaces
+- docker-compose
 permalink: /2025/05/04/stir-trek-and-multiple-dev-containers/
 header:
   teaser: /assets/images/stirtrek-logo.png
@@ -13,38 +18,40 @@ header:
 excerpt_separator: <!--more-->
 ---
 
-## Stir Trek 2025
+
+# Stir Trek 2025 and Multiple Dev Containers
+
 ![Stir Trek 2025](/assets/images/stirtrek-logo.png){: style="background-color: #000000;"}
 
-This month, at Stir Trek 2025, I had the pleasure of presenting on Dev Containers and GitHub Codespaces, showcasing how these tools streamline local and cloud-based development workflows. The talk covered the fundamentals of creating portable development environments, customizing containers with features and extensions, and spinning up Codespaces directly from your repository. A lively Q&A session followed, with several attendees asking about strategies for running and working with multiple containers. Below, I've distilled those discussions and integrated a deeper dive into shared container configurations across multiple projects-complete with folder structures, Docker Compose configurations, VS Code workflows, and advanced tips-you can apply in your own work.
+This month at Stir Trek 2025, I presented on Dev Containers and GitHub Codespaces, demonstrating how these tools streamline both local and cloud-based development workflows. The session covered the essentials of creating portable development environments, customizing containers with features and extensions, and launching Codespaces directly from your repository. A lively Q&A followed, with attendees asking about strategies for running and working with multiple containers. Below, I've distilled those discussions and provided a deeper dive into shared container configurations across multiple projects-including folder structures, Docker Compose setups, VS Code workflows, and advanced tips you can apply in your own work.
 
-## Recap of Dev Containers and Codespaces
+## Recap: Dev Containers and Codespaces
 
 ![Dev Containers](/assets/images/devcontainers-logo.png)
 
-Dev Containers are Docker-based environments enriched with development-specific tooling, settings, and startup tasks as defined in a `devcontainer.json` file. They allow you to use a container as a full-featured development environment-isolating dependencies, standardizing tool versions, and enabling reproducible setups locally or remotely ([Dev Containers][1]).
+Dev Containers are Docker-based environments enriched with development-specific tooling, settings, and startup tasks as defined in a `devcontainer.json` file. They enable you to use a container as a full-featured development environment-isolating dependencies, standardizing tool versions, and enabling reproducible setups locally or remotely ([Dev Containers][1]).
 
 GitHub Codespaces builds on Dev Containers by providing cloud-hosted environments that spin up in seconds with configurable CPU, memory, and storage. Codespaces leverages the same open specification as Dev Containers, making your `devcontainer.json` a first-class citizen whether you connect via VS Code, IntelliJ, or directly in the browser ([GitHub Docs][2]).
 
 ## Q&A: Running Multiple Containers
 
-### Q1: Can I connect to multiple containers at once?
+### Can I connect to multiple containers at once?
 
 By default, **VS Code allows only one container per window**, but you can open additional windows and attach each to a different container to work on multiple services in parallel ([Visual Studio Code][3]).
 
-### Q2: What about using a single window for multiple containers?
+### What about using a single window for multiple containers?
 
 ![Docker Compose](/assets/images/docker-compose-logo.png)
 
 If you use **Docker Compose**, define multiple services in your `docker-compose.yml` and create separate `devcontainer.json` configurations for each service-each referencing the common Compose file. VS Code will then list each configuration in its Dev Container picker, letting you reopen the current window to connect to a different service without duplicating your Compose setup ([Dev Containers][4]).
 
-### Q3: How do I configure separate containers for multiple projects?
+### How do I configure separate containers for multiple projects?
 
 To maintain isolation and clarity, place each container configuration in its own subdirectory under `.devcontainer`, following the pattern `.devcontainer/<project>/devcontainer.json`. Tools supporting the spec recognize this layout and list all found configurations in the Codespaces or VS Code Dev Container dropdown ([containers.dev][5], [GitHub Docs][2]).
 
 ## Shared `.devcontainer` Folder Structure
 
-Rather than scattering `.devcontainer` folders per project, centralize them in a single root directory:
+Centralize your container configurations in a single root directory:
 
 ```plaintext
 dev-container/
@@ -205,7 +212,7 @@ These commands ensure each container is fully prepared for development immediate
 
 ## Troubleshooting Tips
 
-* **Stuck at “Rebuilding container…”**: Clear the Docker build cache or raise VS Code's Docker logging level.
+* **Stuck at "Rebuilding container..."**: Clear the Docker build cache or raise VS Code's Docker logging level.
 * **Ports not forwarding:** Verify `forwardPorts` in `devcontainer.json` or check Codespaces port settings.
 * **Volume performance issues:** On macOS/Windows, consider isolating cache directories (e.g., `node_modules`) in named volumes to speed up I/O ([Some Natalie's corner of the internet][9], [pamela fox's blog][10]).
 
