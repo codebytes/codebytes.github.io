@@ -18,9 +18,6 @@ header:
 excerpt_separator: <!--more-->
 ---
 
-
-# Stir Trek 2025 and Multiple Dev Containers
-
 ![Stir Trek 2025](/assets/images/stirtrek-logo.png){: style="background-color: #000000;"}
 
 This month at Stir Trek 2025, I presented on Dev Containers and GitHub Codespaces, demonstrating how these tools streamline both local and cloud-based development workflows. The session covered the essentials of creating portable development environments, customizing containers with features and extensions, and launching Codespaces directly from your repository. A lively Q&A followed, with attendees asking about strategies for running and working with multiple containers. Below, I've distilled those discussions and provided a deeper dive into shared container configurations across multiple projects-including folder structures, Docker Compose setups, VS Code workflows, and advanced tips you can apply in your own work.
