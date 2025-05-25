@@ -1,6 +1,6 @@
 ---
-title: "Aspiring .NET & Resilience @ Techorama Belgium 2025"
-date: 2025-05-26
+title: "Aspiring .NET & Resilience @ NDC Oslo 2025"
+date: 2025-05-24
 categories:
   - Speaking
   - Azure
@@ -8,47 +8,134 @@ categories:
   - Resilience
   - Conferences
 tags:
-  - techorama
+  - ndc-oslo
   - azure
   - reliability
   - openai
   - ollama
   - chaos-engineering
-permalink: /2025/05/26/ndc-oslo-2025-wrapup/
+  - dotnet
+permalink: /2025/05/24/ndc-oslo-2025-wrapup/
 header:
-  teaser: /assets/images/ndc-logo.jpg
-  og_image: /assets/images/ndc-logo.jpg
+  teaser: /assets/images/ndc-oslo-logo.jpg
+  og_image: /assets/images/ndc-oslo-logo.jpg
 excerpt_separator: <!--more-->
 ---
 
-As I'm flying from Oslo to Amsterdam, my mind is still buzzing with the energy and inspiration from the recent NDC Oslo 2025 conference in Oslo. It was an incredible experience that not only enriched my professional knowledge but also allowed me to connect deeply with fellow tech enthusiasts.
+As I'm flying from Oslo to Amsterdam, I'm still buzzing with energy and inspiration from NDC Oslo 2025. It was an incredible week of learning, sharing, and connecting with some of the brightest minds in technology. From thought-provoking keynotes that challenged our assumptions to the epic [The Linebreakers](https://www.youtube.com/@TheLinebreakers) concert at Brewgata, every moment reinforced why each NDC conference but NDC Oslo remains one of the premier developer conferences in the world.
 
-**A Journey of Learning and Sharing**
+<!--more-->
 
-NDC Oslo brought together some of the brightest minds in technology, offering a platform for learning, sharing, and networking. As a speaker at this prestigious event, I had the privilege of presenting on "The Future of Technical Writing: Bridging Communication Gaps." The topic was close to my heart, as it reflects my passion for making complex technical information accessible and engaging.
+## A Journey of Learning and Sharing
 
-**Engaging with Diverse Perspectives**
+[NDC Oslo 2025](https://ndcoslo.com) brought together over 2,000 developers, architects, and technology leaders from across the globe. The conference's unique blend of deep technical content and community spirit created an atmosphere where learning happened not just in sessions, but in every conversation.
 
-One of the highlights of NDC Oslo was the diversity of topics covered. From cloud computing and AI to cybersecurity and DevOps, the conference showcased a wide array of sessions that catered to various interests within the tech community. This variety not only broadened my understanding but also sparked new ideas for future projects.
+As a speaker at this year's event, I had the privilege of presenting two sessions that reflect the current evolution of our industry:
 
-**The Power of Community**
+### Aspiring .NET with Azure OpenAI and Ollama
+During the Community Days event, I showcased practical AI integration patterns for .NET developers:
+- **Building semantic search capabilities** using Azure OpenAI embeddings
+- **Running local LLMs with Ollama** for development and testing
+- **Implementing responsible AI practices** including content filtering and rate limiting
+- **Creating conversational interfaces** that enhance rather than replace existing applications
 
-What truly set NDC Oslo apart was its vibrant community spirit. The opportunity to engage with attendees and fellow speakers in informal settings, such as coffee breaks and evening socials, fostered meaningful connections. These interactions often led to insightful discussions that extended beyond the conference halls, highlighting the collaborative nature of our industry.
+The recently updated samples for .NET Aspire 9.3 sparked discussions about the future of AI in enterprise applications.
 
-**Key Takeaways**
+### [Resilient by Design](https://ndcoslo.com/agenda/resilient-by-design-0nqr/03e2y9s6amr)
+In this session, I explored how to build systems that don't just survive failure-they thrive despite it. We dove into:
+- **Chaos engineering principles** and how to implement them safely in production
+- **Circuit breaker patterns** with real-world examples from Azure deployments
+- **Graceful degradation strategies** that maintain user experience during partial outages
+- **Observability practices** that make resilience measurable and improvable
 
-Reflecting on my time at NDC Oslo, several key takeaways stand out:
+The engaged room had questions demonstrated just how critical resilience has become in our cloud-native world.
 
-1. **Innovation is Everywhere**: The sessions underscored the rapid pace of technological advancement and the importance of staying curious and adaptable.
-   
-2. **Communication is Key**: As a technical writer, I was reminded of the critical role clear communication plays in technology adoption and user satisfaction.
+## Engaging with Diverse Perspectives
 
-3. **Community Matters**: The sense of community at NDC Oslo reinforced my belief that collaboration and knowledge sharing are essential for personal and professional growth.
+What makes NDC Oslo special is its commitment to showcasing the full spectrum of modern technology. This year's program delivered exceptional content across multiple tracks:
 
-**Looking Ahead**
+### AI and Machine Learning
+Beyond the hype, speakers demonstrated practical AI implementations that solve real business problems. Sessions ranged from building RAG (Retrieval-Augmented Generation) systems to implementing ethical AI governance frameworks.
 
-As I wrap up my reflections on NDC Oslo, I am filled with gratitude for the opportunity to be part of such a dynamic event. It has left me inspired and motivated to continue exploring new horizons in technical writing and beyond.
+### Cloud Architecture
+The cloud track featured battle-tested patterns for building distributed systems at scale. Highlights included:
+- Event-driven architectures using Azure Service Bus and Event Grid
+- Multi-region deployment strategies with zero-downtime deployments
+- Cost optimization techniques that saved companies millions
 
-For those who couldn't attend, I encourage you to keep an eye out for future conferences like NDC. They offer invaluable opportunities for learning, networking, and growth. Until then, let's stay connected and continue pushing the boundaries of what we can achieve together in this ever-evolving tech landscape.
+### Developer Experience
+A refreshing focus on making developers' lives better, with sessions covering:
+- Modern debugging techniques for distributed systems
+- AI-powered code review tools
+- Creating effective development environments with DevContainers
 
-Thank you for joining me on this journey through NDC Oslo. I look forward to sharing more insights and experiences with you all soon!
+### Performance and Optimization
+Deep technical dives into making applications faster and more efficient:
+- .NET performance improvements and how to leverage them
+- Database query optimization strategies
+- Frontend performance patterns for modern SPAs
+
+### Security and Best Practices
+Critical discussions on protecting modern applications:
+- Zero-trust architecture implementation
+- Supply chain security for containerized applications
+- OWASP Top 10 for cloud-native applications
+
+### Psychology and Soft Skills
+Perhaps the most impactful track, addressing the human side of technology:
+- Building psychologically safe teams
+- Managing technical debt without burnout
+- Effective communication strategies for technical leaders
+
+## Conference Highlights
+
+### Keynotes That Inspired
+
+**[Laila Bougria's "CTRL+SHIFT+(BUILD) PAUSE"](https://ndcoslo.com/agenda/keynote-ctrl-shift-build-pause/7afc8e95b18d)** was a masterclass in presentation excellence. Her exploration of using AI in our daily workflow and the importance of not giving way too much control resonated deeply. The way she wove personal stories with technical insights created a narrative that was both educational and emotionally compelling.
+
+**[David Whitney's "The Unbearable Weight of Architecture"](https://ndcoslo.com/agenda/keynote-the-unbearable-weight-of-architecture-0xq3/06tisj5yxke)** challenged us to think beyond technical perfection. His emphasis on pragmatic architecture decisions and the importance of designing with intentionality struck a chord with the audience. His discussion of how wrong decisions cast long shadows over systems-dooming maintainers to endless toil-was both sobering and enlightening.
+
+**[Rendle's closing keynote "Reasons To Be Cheerful: 0, 1, 2..."](https://ndcoslo.com/agenda/reasons-to-be-cheerful-0-1-2/001a544d1822)** sent us home with renewed optimism. His journey through technology's evolution reminded us how far we've come and painted an exciting picture of where we're heading.
+
+### Beyond the Sessions
+
+The true magic of NDC Oslo happened between the scheduled talks:
+
+- **Coffee Conversations**: Where a casual chat about microservices turned into a deep dive on event sourcing
+- **Lightning Talks**: 10-minute bursts of inspiration that often packed more value than hour-long sessions
+- **Workshop Deep Dives**: Hands-on learning that transformed theory into practice
+
+### The Legendary NDC Party
+
+The conference's social highlight deserves special mention. The evening began with fascinating presentations on space technology (who knew satellite communication could be so entertaining?), followed by a nostalgic journey through the Demo Scene that had everyone reminiscing about their first coding experiences.
+
+The Phil Nash Karaoke session was legendary-complete with a full chorus of developers providing hyena sound effects for "Be Prepared" from The Lion King. It perfectly captured the conference's spirit: serious about technology, but never taking ourselves too seriously.
+
+## Key Takeaways
+
+Reflecting on NDC Oslo 2025, several themes emerged that will shape my work in the coming year:
+
+1. **AI Integration is Now Table Stakes**
+   The question is no longer whether to integrate AI, but how to do it responsibly and effectively. Every application can benefit from intelligent features, but success requires thoughtful implementation and clear value propositions.
+
+2. **Resilience Through Simplicity**
+   The most resilient systems aren't necessarily the most complex. Sessions repeatedly emphasized that simple, well-understood patterns often outperform clever solutions when things go wrong.
+
+3. **Community Amplifies Individual Impact**
+   The connections made at NDC Oslo will generate more value than any single session. The mix of experienced architects sharing war stories with eager newcomers created a learning environment that benefits everyone.
+
+4. **Practical Beats Theoretical**
+   The most successful sessions focused on "here's how we actually did it" rather than "here's how it should work in theory." Real-world case studies and live coding demonstrations drove the most engagement.
+
+5. **The Human Element Remains Central**
+   Despite all our technological advances, the sessions on team dynamics, communication, and mental health drew the largest crowds. Technology is ultimately about people, and NDC Oslo never forgot that.
+
+## Looking Ahead
+
+The conversations started at NDC Oslo will continue through blog posts, open-source contributions, and community meetups.
+
+For those considering attending future NDC events, I cannot recommend them highly enough. Whether you're a seasoned architect or just starting your development journey, you'll find sessions, workshops, and conversations that challenge and inspire you.
+
+The technology landscape continues to evolve at breakneck speed, but events like NDC Oslo remind us that we're not navigating these changes alone. We're part of a global community of builders, thinkers, and problem-solvers, all working to create a better technological future.
+
+Thank you, NDC Oslo, for another unforgettable experience. See you next year!
