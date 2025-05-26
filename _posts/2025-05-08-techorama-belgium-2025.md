@@ -70,5 +70,5 @@ In cloud environments, failures are inevitable. This session explores how to bui
 
 ## Join Me in Belgium!
 
-I look forward to meeting you and diving into the art and science of **AI-powered** and **Resilient By Design** solutions in Azure and .NET. Don't miss this chance to level up your engineering strategy—see you at **Techorama Belgium!**
+I look forward to meeting you and diving into the art and science of **AI-powered** and **Resilient By Design** solutions in Azure and .NET. Don't miss this chance to level up your engineering strategy-see you at **Techorama Belgium!**
 
