@@ -49,7 +49,8 @@ In your /admin/index.html, include Sveltia, a lightweight, modern CMS:
     <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
 </body>
 
-</html>```
+</html>
+```
 
 No heavy JS, no React-just [Svelte](https://svelte.dev/). Touch support, dark mode, fast. It handles GitHub directly via your browser or the auth worker.
 
