@@ -21,6 +21,17 @@
         "kind": "build",
         "isDefault": true
       }
+    },
+    {
+      "label": "Update",
+      "type": "shell",
+      "command": "bundle update",
+      "group": {
+        "kind": "test",
+        "isDefault": false
+      },
+      "isBackground": true,
+      "problemMatcher": []
     }
   ]
 }
