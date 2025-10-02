@@ -14,6 +14,22 @@ headshots:
     image_path: /assets/headshot/head-shoulders.png
     alt: 'headshot'
     title: 'Chris Ayers Headshot'
+  - url: /assets/headshot/kcdc-2025-1.jpg
+    image_path: /assets/headshot/kcdc-2025-1.jpg
+    alt: 'headshot'
+    title: 'Chris Ayers Headshot'
+  - url: /assets/headshot/kcdc-2025-2.jpg
+    image_path: /assets/headshot/kcdc-2025-2.jpg
+    alt: 'headshot'
+    title: 'Chris Ayers Headshot'
+  - url: /assets/headshot/kcdc-2025-3.jpg
+    image_path: /assets/headshot/kcdc-2025-3.jpg
+    alt: 'headshot'
+    title: 'Chris Ayers Headshot'
+  - url: /assets/headshot/ndc-cph-2025.jpg
+    image_path: /assets/headshot/ndc-cph-2025.jpg
+    alt: 'headshot'
+    title: 'Chris Ayers Headshot'
 
 cert-badges:
   - url: /assets/badges/terraform-certified-associate.png
@@ -104,7 +120,7 @@ cert-badges:
 
 {% include gallery id="headshots" caption="This is a gallery of headshots." %}
 
-Chris Ayers is a Senior Site Reliability Engineer on Microsoft's AzRel Risk SRE team, drawing on years of experience in cloud architecture, software development, and DevOps practices. He's passionate about continuous improvement, driving reliability, and sharing industry best practices. He is also an international speaker and one of the lead organizers for DevOps Days Tampa Bay. Outside of work, Chris is a devoted father, technology enthusiast, and avid gamer. Connect with him online to explore insights into cloud operations, agile methodologies, and more.
+Chris Ayers is a Senior Software Engineer on Microsoft's AzRel Risk SRE team, drawing on years of experience in cloud architecture, software development, and DevOps practices. He's passionate about continuous improvement, driving reliability, and sharing industry best practices. He is also an international speaker and one of the lead organizers for DevOps Days Tampa Bay and very active in the Tampa Dev Community. Outside of work, Chris is a devoted father, technology enthusiast, and avid gamer. Connect with him online to explore insights into cloud operations, agile methodologies, and more.
 
 ## Certifications
 
