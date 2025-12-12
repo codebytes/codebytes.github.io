@@ -17,8 +17,8 @@ tags:
   - dotnet
 permalink: /2025/05/24/ndc-oslo-2025-wrapup/
 header:
-  teaser: /assets/images/ndc-oslo-logo.jpg
-  og_image: /assets/images/ndc-oslo-logo.jpg
+  teaser: /assets/images/ndc-logo.jpg
+  og_image: /assets/images/ndc-logo.jpg
 excerpt_separator: <!--more-->
 ---
 
