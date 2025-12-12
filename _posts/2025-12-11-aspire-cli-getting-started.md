@@ -17,6 +17,8 @@ header:
 excerpt_separator: "<!--more-->"
 ---
 
+**This blog was posted as part of the [C# Advent Calendar 2025](https://csadvent.christmas/). Make sure to check out everyone else's work when you're done here**
+
 The Aspire CLI is a cross-platform tool for creating, managing, and running polyglot Aspire projects. This post covers the core commands you'll use day-to-day.
 
 <!--more-->
