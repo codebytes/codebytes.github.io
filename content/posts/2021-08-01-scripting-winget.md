@@ -21,7 +21,7 @@ I've played with winget, as part of the Windows Insider program. It was first an
 
 ## What is Winget?
 
-WinGet is the command-line tool for the Windows Package Manager, found [here](https://github.com/microsoft/winget-cli). For a while, the only way to install it was to be a Windows Insider. I've also been able to use `winget` after fully updating a Windows 10 machine. You can also install it directly from GitHub.
+WinGet is the command-line tool for the Windows Package Manager, found [on GitHub](https://github.com/microsoft/winget-cli). For a while, the only way to install it was to be a Windows Insider. I've also been able to use `winget` after fully updating a Windows 10 machine. You can also install it directly from GitHub.
 
 ### What can Winget do?
 

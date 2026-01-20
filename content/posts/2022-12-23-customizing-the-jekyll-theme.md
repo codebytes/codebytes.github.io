@@ -37,7 +37,7 @@ Lets take Mermaid for example. If I want to render mermaid, it won't work out of
     '''
 ```
 
-So to make it work, I had to override the base theme. To start, I looked at the themes layouts. They live in the \_layout folder of the theme [here](https://github.com/mmistakes/minimal-mistakes/tree/master/_layouts). These are the base structure of a page and most reference either Archive or Default.
+So to make it work, I had to override the base theme. To start, I looked at the themes layouts. They live in the \_layout folder of the theme [on GitHub](https://github.com/mmistakes/minimal-mistakes/tree/master/_layouts). These are the base structure of a page and most reference either Archive or Default.
 
 {{< figure src="/images/minimal-mistakes-layout-posts.png" >}}
 

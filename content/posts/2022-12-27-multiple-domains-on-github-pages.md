@@ -55,7 +55,7 @@ First, we need to setup Cloudflare. This is a pretty simple process. You just ne
 4. I reviewed all the entries and made sure they were correct (I removed most of them)
 5. I updated the DNS nameservers for my domain to the ones provided by Cloudflare
 
-I decided that my primary domain would be [https://chris-ayers.com](https://chris-ayers.com). As part of the normal GitHub Pages DNS setup, you add the domain name to GitHub Pages then add A records to your DNS domain. The directions are [here](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain). I've added the needed A records to my domain on CloudFlare.
+I decided that my primary domain would be [https://chris-ayers.com](https://chris-ayers.com). As part of the normal GitHub Pages DNS setup, you add the domain name to GitHub Pages then add A records to your DNS domain. The directions are [in the GitHub docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain). I've added the needed A records to my domain on CloudFlare.
 
 {{< figure src="/images/chrisayerscom-dns.png" >}}
 

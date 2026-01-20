@@ -27,7 +27,7 @@ I'm thrilled to announce that I'll be delivering **[two sessions](https://techor
 
 ### Aspiring .NET with Azure OpenAI and Ollama
 
-![](/images/dotnet-aspire-logo.svg)
+![.NET Aspire Logo](/images/dotnet-aspire-logo.svg)
 
 Discover how you can unlock the potential of AI in your .NET applications. In this session, you'll learn how to integrate [Azure OpenAI](https://azure.microsoft.com/services/cognitive-services/openai-service/) and [Ollama](https://ollama.ai/) to build intelligent, modern .NET solutions. Through hands-on demos, code walkthroughs, and practical guidance, you'll see how conversational AI, large language models, and generative capabilities can enhance your projects.
 
@@ -64,7 +64,7 @@ In cloud environments, failures are inevitable. This session explores how to bui
 
 ---
 
-## Join Me in Belgium!
+## Join Me in Belgium
 
 I look forward to meeting you and diving into the art and science of **AI-powered** and **Resilient By Design** solutions in Azure and .NET. Don't miss this chance to level up your engineering strategy-see you at **Techorama Belgium!**
 

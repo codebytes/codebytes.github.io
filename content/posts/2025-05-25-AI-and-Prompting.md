@@ -231,7 +231,6 @@ Most AI models are stateless-they don't remember previous interactions unless ex
 - **Reasoning limitations**: While improving, models can struggle with complex logical reasoning
 
 > **Best Practice**: Always verify important information from AI models, especially for critical decisions or factual claims.
-
 > "Effective prompting combines clear instructions, relevant context, and well-defined roles to guide AI models toward your desired outcome."
 
 ## What's Next?
