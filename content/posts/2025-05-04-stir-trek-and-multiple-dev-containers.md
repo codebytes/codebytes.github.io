@@ -22,7 +22,7 @@ This month at Stir Trek 2025, I presented on Dev Containers and GitHub Codespace
 
 ## Recap: Dev Containers and Codespaces
 
-![Dev Containers](/images/devcontainers-logo.png)
+![Dev Containers](/images/dev-containers-logo.png)
 
 Dev Containers are Docker-based environments enriched with development-specific tooling, settings, and startup tasks as defined in a `devcontainer.json` file. They enable you to use a container as a full-featured development environment-isolating dependencies, standardizing tool versions, and enabling reproducible setups locally or remotely ([Dev Containers][1]).
 

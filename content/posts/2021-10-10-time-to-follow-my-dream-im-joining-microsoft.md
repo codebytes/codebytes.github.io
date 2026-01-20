@@ -5,8 +5,8 @@ categories:
 - Blog
 tags:
 - Microsoft
-image: images/microsoft-logo.png
-featureImage: images/microsoft-logo.png
+image: images/mslogo.png
+featureImage: images/mslogo.png
 aliases:
 - /2021/10/10/time-to-follow-my-dream-im-joining-microsoft/
 slug: time-to-follow-my-dream-im-joining-microsoft
