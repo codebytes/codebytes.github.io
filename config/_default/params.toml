@@ -74,8 +74,7 @@ images = ["images/bio-photo.jpg"]
 
 [taxonomy]
   showTermCount = true
-  showHero = true
-  heroStyle = "background"
+  showHero = false
   showBreadcrumbs = true
   showViews = false
   showLikes = false
@@ -83,8 +82,7 @@ images = ["images/bio-photo.jpg"]
   cardView = true
 
 [term]
-  showHero = true
-  heroStyle = "background"
+  showHero = false
   showBreadcrumbs = true
   showViews = false
   showLikes = false
