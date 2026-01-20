@@ -56,7 +56,7 @@ jobs:
           VALIDATE_PYTHON_RUFF_FORMAT: 'false'
           # Disable JSCPD (duplicate detection - not useful for blog posts)
           VALIDATE_JSCPD: 'false'
-          # Disable markdownlint line-length check (blog posts have long lines)
-          MARKDOWN_MARKDOWNLINT_CONFIG_FILE: '.markdownlint.json'
+          # Disable markdownlint (use MARKDOWN_PRETTIER instead - blog posts have long lines)
+          VALIDATE_MARKDOWN: 'false'
           # Exclude themes directory from linting
           FILTER_REGEX_EXCLUDE: 'themes/.*'
