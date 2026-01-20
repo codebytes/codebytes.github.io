@@ -5,7 +5,11 @@ aliases:
   - /about/
 ---
 
-![Chris Ayers](/images/bio-photo.jpg)
+<div class="flex flex-wrap justify-center gap-4 mb-8 not-prose">
+  <img src="/images/bio-photo.jpg" alt="Chris Ayers" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary-500" />
+  <img src="/images/head-shoulders.png" alt="Chris Ayers" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary-500" />
+  <img src="/images/kcdc-2025-1.jpg" alt="Chris Ayers" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary-500" />
+</div>
 
 I'm Chris Ayers, a **father**, **nerd**, **gamer**, and **speaker**. I'm passionate about technology and love sharing my knowledge through speaking at conferences and writing about tech topics.
 
@@ -41,12 +45,4 @@ I regularly speak at conferences and meetups around the world. Check out my [Spe
   <img src="/badges/microsoft-certified-azure-administrator-associate.png" class="grid-w20" alt="Azure Administrator" />
   <img src="/badges/microsoft-certified-azure-developer-associate.png" class="grid-w20" alt="Azure Developer" />
   <img src="/badges/microsoft-certified-azure-security-engineer-associate.png" class="grid-w20" alt="Azure Security Engineer" />
-{{< /gallery >}}
-
-## Headshots
-
-{{< gallery >}}
-  <img src="/images/bio-photo.jpg" class="grid-w33" alt="Chris Ayers Headshot" />
-  <img src="/images/head-shoulders.png" class="grid-w33" alt="Chris Ayers Headshot" />
-  <img src="/images/kcdc-2025-1.jpg" class="grid-w33" alt="Chris Ayers Headshot" />
 {{< /gallery >}}
