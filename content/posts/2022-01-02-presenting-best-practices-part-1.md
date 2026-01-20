@@ -6,6 +6,8 @@ categories:
 tags:
 - speaking
 - speaking
+image: images/51382972555_0ceb282aee_o.jpg
+featureImage: images/51382972555_0ceb282aee_o.jpg
 aliases:
 - /2022/01/02/presenting-best-practices-part-1/
 - /soft skills/presenting-best-practices-part-1/
