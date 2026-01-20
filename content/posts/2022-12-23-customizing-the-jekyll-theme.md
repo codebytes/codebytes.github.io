@@ -14,7 +14,6 @@ tags:
 - Tools
 image: images/mermaid-logo.png
 featureImage: images/mermaid-logo.png
-mermaid: true
 aliases:
 - /2022/12/23/customizing-the-jekyll-theme/
 - /2022/12/23/customizing-my-chosen-jekyll-theme-minimal-mistakes/

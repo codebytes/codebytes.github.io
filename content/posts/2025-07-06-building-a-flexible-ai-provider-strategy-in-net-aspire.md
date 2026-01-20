@@ -16,7 +16,6 @@ tags:
 - Foundry Local
 image: images/dotnet-aspire-logo.png
 featureImage: images/dotnet-aspire-logo.png
-mermaid: true
 aliases:
 - /2025/07/06/aspire-with-lots-of-ai/
 - /development/tools/building-a-flexible-ai-provider-strategy-in-net-aspire/
