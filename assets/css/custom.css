@@ -120,3 +120,41 @@ section.grid .flex.flex-wrap {
   max-height: 1.75rem !important;
   overflow: hidden !important;
 }
+
+/* ===== Article Content Image Sizing ===== */
+
+/* Default max size for images in article content */
+.article-content figure {
+  max-width: 100% !important;
+  margin: 1.5rem auto !important;
+}
+
+/* Constrain standalone logos/icons to reasonable size */
+.article-content figure img {
+  max-height: 200px !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+/* Allow larger images for screenshots/diagrams with specific class */
+.article-content figure.full-width img {
+  max-height: none !important;
+  max-width: 100% !important;
+}
+
+/* Medium sized images */
+.article-content figure.medium img {
+  max-height: 300px !important;
+}
+
+/* Small images for icons/logos */
+.article-content figure.small img {
+  max-height: 150px !important;
+}
+
+/* Extra small for tiny icons */
+.article-content figure.xs img {
+  max-height: 80px !important;
+}
