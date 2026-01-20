@@ -59,13 +59,13 @@ So lets set that!
 
 At this point, everything should work and embedded mermaid in my Markdown posts renders properly!
 
-```mermaid
+{{< mermaid >}}
 graph TD;
     A-->B;
     A-->C;
     B-->D;
     C-->D;
-```
+{{< /mermaid >}}
 
 I've done a few other minor customizations so far. Like adding some custom CSS and some JavaScript for app insights. Both of those involved a similar process of adding `head/custom.html` and `assets/css/custom.css`.
 

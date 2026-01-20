@@ -100,3 +100,7 @@ images = ["images/bio-photo.jpg"]
 [verification]
   # google = ""
   # bing = ""
+
+# Enable Mermaid diagrams
+[mermaid]
+  enable = true
