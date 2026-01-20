@@ -84,12 +84,6 @@ section.grid .font-bold.text-xl {
   background-size: contain !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
-  background-color: rgba(0, 0, 0, 0.05) !important;
-}
-
-/* Dark mode background for thumbnail cards */
-.dark .thumbnail_card {
-  background-color: rgba(255, 255, 255, 0.05) !important;
 }
 
 /* Make article card images contain instead of cover (no cropping) */
@@ -98,8 +92,19 @@ section.grid a > div > div:first-child img.object-cover,
 .thumbnail_card img.object-cover,
 img.object-cover.nozoom {
   object-fit: contain !important;
-  background-color: #1e293b !important;
   padding: 0.5rem !important;
+}
+
+/* Light mode: subtle light gray background for card images */
+section.grid .thumbnail_card,
+section.grid a > div > div:first-child {
+  background-color: #f1f5f9 !important;
+}
+
+/* Dark mode: subtle dark background for card images */
+.dark section.grid .thumbnail_card,
+.dark section.grid a > div > div:first-child {
+  background-color: #1e293b !important;
 }
 
 /* Limit tags display to one line */
