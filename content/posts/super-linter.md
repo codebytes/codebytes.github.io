@@ -12,13 +12,11 @@ image: images/github-logo.png
 featureImage: images/github-logo.png
 slug: super-linter
 ---
-# Leveraging GitHub Super-Linter for Streamlined Code Quality
-
 ## Introduction
 
 In the world of software development, maintaining code quality and adhering to best practices can often feel like navigating a labyrinth. This is where tools like GitHub's Super-Linter come into play, offering a one-stop solution for automating the process of code linting across multiple languages and frameworks. This blog post aims to demystify the Super-Linter, showcasing its capabilities and providing a step-by-step guide on configuring it for your projects.
 
-### What is GitHub Super-Linter?
+## What is GitHub Super-Linter?
 
 GitHub Super-Linter is a robust, open-source linter tool that integrates directly into GitHub Actions. It simplifies the process of ensuring code quality by linting your codebase whenever a new pull request is created or code is pushed to a repository. The beauty of Super-Linter lies in its ability to work with a multitude of programming languages and markup languages, making it a versatile tool for projects of all sizes and types.
 

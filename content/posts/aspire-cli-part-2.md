@@ -35,7 +35,7 @@ aspire publish
 **Supported targets:**
 
 | Target | Description |
-|--------|-------------|
+| ------ | ----------- |
 | Azure Container Apps | Serverless containers on Azure |
 | Kubernetes | K8s manifests for any cluster |
 | Docker Compose | For self-hosted deployments |
