@@ -95,10 +95,10 @@ img.object-cover.nozoom {
   padding: 0.5rem !important;
 }
 
-/* Light mode: subtle light gray background for card images */
+/* Light mode: white background for card images to match card body */
 section.grid .thumbnail_card,
 section.grid a > div > div:first-child {
-  background-color: #f1f5f9 !important;
+  background-color: #ffffff !important;
 }
 
 /* Dark mode: subtle dark background for card images */
