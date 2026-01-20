@@ -12,7 +12,6 @@ tags:
 - GitHub
 image: images/tfsec-logo.png
 featureImage: images/tfsec-logo.png
-mermaid: true
 aliases:
 - /2023/01/29/secure-terraform-part2-tfsec-customization/
 - /devops/secure-terraform-part2-tfsec-customization/

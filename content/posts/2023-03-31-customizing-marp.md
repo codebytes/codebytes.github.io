@@ -10,7 +10,6 @@ tags:
 - mermaid
 image: images/marp-bg-full.png
 featureImage: images/marp-bg-full.png
-mermaid: true
 aliases:
 - /2023/03/31/customizing-marp/
 - /tools/customizing-marp/

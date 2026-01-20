@@ -13,7 +13,6 @@ tags:
 - Tools
 image: images/github-logo.png
 featureImage: images/github-logo.png
-mermaid: true
 aliases:
 - /2022/12/27/multiple-domains-on-github-pages/
 - /development/multiple-domains-on-github-pages/

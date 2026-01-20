@@ -12,7 +12,6 @@ tags:
 - GitHub
 image: images/terrascan-logo.png
 featureImage: images/terrascan-logo.png
-mermaid: true
 aliases:
 - /2023/03/22/secure-terraform-part3-terrascan/
 - /devops/secure-terraform-part3-terrascan/
