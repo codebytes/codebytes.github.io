@@ -2,11 +2,9 @@ backend:
   name: github
   repo: codebytes/codebytes.github.io
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
 
 # Uncomment below for local development
-local_backend: true
+# local_backend: true
 
 media_folder: static/images
 public_folder: /images
