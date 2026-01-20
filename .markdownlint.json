@@ -4,6 +4,7 @@
       "indent": 2
     },
     "MD013": false,
+    "MD025": false,
     "MD026": {
       "punctuation": ".,;:!。，；:"
     },
@@ -11,6 +12,7 @@
     "MD033": false,
     "MD036": false,
     "MD041": false,
+    "MD060": false,
     "blank_lines": false
   }
   

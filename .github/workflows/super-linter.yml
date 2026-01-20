@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.2
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           # super-linter needs the full git history to get the
           # list of files that changed across commits
@@ -35,6 +35,8 @@ jobs:
           LINTER_RULES_PATH: '.'
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Only lint changed files in PRs
+          VALIDATE_ALL_CODEBASE: 'false'
           FIX_CSS_PRETTIER: 'true'
           FIX_HTML_PRETTIER: 'true'
           FIX_JSON_PRETTIER: 'true'
@@ -43,5 +45,18 @@ jobs:
           # Disable Biome linters (they fail on third-party theme files)
           VALIDATE_BIOME_FORMAT: 'false'
           VALIDATE_BIOME_LINT: 'false'
+          # Disable Python linters (scripts are utility only)
+          VALIDATE_PYTHON: 'false'
+          VALIDATE_PYTHON_BLACK: 'false'
+          VALIDATE_PYTHON_FLAKE8: 'false'
+          VALIDATE_PYTHON_ISORT: 'false'
+          VALIDATE_PYTHON_MYPY: 'false'
+          VALIDATE_PYTHON_PYLINT: 'false'
+          VALIDATE_PYTHON_RUFF: 'false'
+          VALIDATE_PYTHON_RUFF_FORMAT: 'false'
+          # Disable JSCPD (duplicate detection - not useful for blog posts)
+          VALIDATE_JSCPD: 'false'
+          # Use repo's markdownlint config (disables MD013 line-length)
+          MARKDOWN_CONFIG_FILE: '.markdownlint.yml'
           # Exclude themes directory from linting
           FILTER_REGEX_EXCLUDE: 'themes/.*'

@@ -2,11 +2,14 @@
 title: Security in AI
 draft: true
 categories:
-- Tools
+- Development
 tags:
-- VSCode
-- ssh
-- tools
+- AI
+- Security
+- Machine Learning
+- Deep Learning
+image: images/azure-openai-logo.png
+featureImage: images/azure-openai-logo.png
 aliases:
 - /tools/ai-security/
 slug: ai-security

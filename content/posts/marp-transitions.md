@@ -2,6 +2,14 @@
 title: 'Mastering Marp Transitions: A Guide for Technical Writers'
 date: '2023-05-24'
 draft: true
+categories:
+- Development
+tags:
+- Marp
+- Presentations
+- Markdown
+image: images/marp-logo.png
+featureImage: images/marp-logo.png
 slug: marp-transitions
 ---
 One of the key elements that can make your Marp presentation stand out is the use of slide transitions. Slide transitions can add a visual flair to your presentation and help guide your audience's attention. Today, we'll be exploring how to use Marp transitions to enhance your presentations.
