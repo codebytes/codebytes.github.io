@@ -93,16 +93,13 @@ section.grid .font-bold.text-xl {
 }
 
 /* Make article card images contain instead of cover (no cropping) */
-section.grid .thumbnail_card img,
-section.grid a > div > div:first-child img {
+section.grid .thumbnail_card img.object-cover,
+section.grid a > div > div:first-child img.object-cover,
+.thumbnail_card img.object-cover,
+img.object-cover.nozoom {
   object-fit: contain !important;
   background-color: #1e293b !important;
-  padding: 1rem !important;
-}
-
-.dark section.grid .thumbnail_card img,
-.dark section.grid a > div > div:first-child img {
-  background-color: #1e293b !important;
+  padding: 0.5rem !important;
 }
 
 /* Limit tags display to one line */
