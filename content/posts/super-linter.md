@@ -1,6 +1,15 @@
 ---
 title: Super Linter
 draft: true
+categories:
+- DevOps
+tags:
+- GitHub Actions
+- Linting
+- Code Quality
+- CI/CD
+image: images/github-logo.png
+featureImage: images/github-logo.png
 slug: super-linter
 ---
 # Leveraging GitHub Super-Linter for Streamlined Code Quality

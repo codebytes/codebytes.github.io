@@ -7,6 +7,9 @@ tags:
 - dotnet
 - containers
 - travel
+- NDC
+image: images/ndc-logo.jpg
+featureImage: images/ndc-logo.jpg
 aliases:
 - /conferences/ndc-sydney/
 slug: ndc-sydney

@@ -1,6 +1,15 @@
 ---
 title: Microservices Vs Monoliths
 draft: true
+categories:
+- Development
+tags:
+- Architecture
+- Microservices
+- Containers
+- Docker
+image: images/containers-teaser.jpg
+featureImage: images/containers-teaser.jpg
 slug: microservices-vs-monoliths
 ---
 # Microservices vs. Monoliths: Choosing the Right Architecture for Your Application

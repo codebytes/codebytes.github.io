@@ -2,11 +2,14 @@
 title: A Comprehensive Guide to Prompt Engineering in AI
 draft: true
 categories:
-- AI
+- Development
 tags:
+- AI
 - GPT-4
 - OpenAI
 - Prompt Engineering
+image: images/openai-logo.png
+featureImage: images/openai-logo.png
 aliases:
 - /ai/prompt-engineering/
 slug: prompt-engineering
