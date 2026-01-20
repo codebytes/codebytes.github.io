@@ -35,6 +35,8 @@ jobs:
           LINTER_RULES_PATH: '.'
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Only lint changed files in PRs
+          VALIDATE_ALL_CODEBASE: 'false'
           FIX_CSS_PRETTIER: 'true'
           FIX_HTML_PRETTIER: 'true'
           FIX_JSON_PRETTIER: 'true'
@@ -43,5 +45,16 @@ jobs:
           # Disable Biome linters (they fail on third-party theme files)
           VALIDATE_BIOME_FORMAT: 'false'
           VALIDATE_BIOME_LINT: 'false'
+          # Disable Python linters (scripts are utility only)
+          VALIDATE_PYTHON: 'false'
+          VALIDATE_PYTHON_BLACK: 'false'
+          VALIDATE_PYTHON_FLAKE8: 'false'
+          VALIDATE_PYTHON_ISORT: 'false'
+          VALIDATE_PYTHON_MYPY: 'false'
+          VALIDATE_PYTHON_PYLINT: 'false'
+          VALIDATE_PYTHON_RUFF: 'false'
+          VALIDATE_PYTHON_RUFF_FORMAT: 'false'
+          # Disable JSCPD (duplicate detection - not useful for blog posts)
+          VALIDATE_JSCPD: 'false'
           # Exclude themes directory from linting
           FILTER_REGEX_EXCLUDE: 'themes/.*'
