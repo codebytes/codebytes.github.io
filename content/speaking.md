@@ -17,16 +17,23 @@ You can find some of my previous talks and online engagements on YouTube:
 
 | Event | Date | Talks |
 | --- | --- | --- |
-| NDC Oslo 2025 | May 19-23, 2025 | Resilient by Design |
-| Techorama Belgium 2025 | May 26-28, 2025 | Resilient by Design, Aspiring .NET with Ollama and Azure Open AI |
-| DevSum 2025 | Jun 12-13, 2025 | The Well-Architected Architect |
-| KCDC 2025 | Aug 13-15, 2025 | The Power of Dev Containers and GitHub Codespaces |
-| NDC Copenhagen 2025 | Sept 8-12, 2025 | Modern .NET Configuration Practices |
+| [NDC London 2026](https://ndclondon.com/) | Jan 27-31, 2026 | Modern .NET Configuration Practices |
+| [NDC Security 2026](https://ndc-security.com/) | Mar 4, 2026 | MITRE ATT&CK for Developers |
+| [CodeStock 2026](http://codestock.org) | Apr 9-10, 2026 | Modern .NET Configuration Practices, Resilient by Design |
+| [NDC Sydney 2026](https://ndcsydney.com/) | Apr 23-24, 2026 | Real World CI/CD with GitHub Actions |
+| [NDC Toronto 2026](https://ndctoronto.com/) | May 7, 2026 | Aspire 13: One AppHost, Many Languages, Fewer Headaches? |
+| [DevSum 2026](https://www.devsum.se) | Jun 2026 | TBD |
 
 ## Past Events
 
 | Event | Date | Talks |
 | --- | --- | --- |
+| TechBash 2025 | Nov 2025 | TBD |
+| NDC Copenhagen 2025 | Sept 8-12, 2025 | Modern .NET Configuration Practices |
+| KCDC 2025 | Aug 13-15, 2025 | The Power of Dev Containers and GitHub Codespaces |
+| DevSum 2025 | Jun 12-13, 2025 | The Well-Architected Architect |
+| Techorama Belgium 2025 | May 26-28, 2025 | Resilient by Design, Aspiring .NET with Ollama and Azure Open AI |
+| NDC Oslo 2025 | May 19-23, 2025 | Resilient by Design |
 | Stir Trek 2025 | May 2, 2025 | The Power of Dev Containers and GitHub Codespaces |
 | Tampa Bay QA and Testing Meetup | Apr 9, 2025 | From Zero to End-to-End Tests: A Beginner's Guide to Playwright |
 | Orlando Code Camp 2025 | Apr 5, 2025 | Aspiring .NET with Ollama and Azure Open AI |
