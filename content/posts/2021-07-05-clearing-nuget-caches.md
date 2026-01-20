@@ -6,7 +6,7 @@ categories:
 tags:
 - CLI
 - DevOps
-- .NET
+- dotnet
 image: images/nuget-logo.png
 featureImage: images/nuget-logo.png
 aliases:

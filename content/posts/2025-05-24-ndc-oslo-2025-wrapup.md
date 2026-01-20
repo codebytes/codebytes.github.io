@@ -10,7 +10,7 @@ tags:
 - OpenAI
 - Ollama
 - chaos-engineering
-- .NET
+- dotnet
 image: images/ndc-logo.jpg
 featureImage: images/ndc-logo.jpg
 aliases:

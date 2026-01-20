@@ -4,8 +4,8 @@ date: '2024-02-19'
 categories:
 - Development
 tags:
-- C#
-- .NET
+- csharp
+- dotnet
 - containers
 - Docker
 - DevOps

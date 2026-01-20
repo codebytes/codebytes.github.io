@@ -4,7 +4,7 @@ date: 2019-12-01T23:27:53+0000
 categories:
 - Development
 tags:
-- C#
+- csharp
 - dependency injection
 - di
 - ioc

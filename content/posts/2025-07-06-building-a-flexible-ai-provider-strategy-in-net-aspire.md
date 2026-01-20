@@ -4,7 +4,7 @@ date: '2025-07-06'
 categories:
 - Development
 tags:
-- .NET
+- dotnet
 - Aspire
 - AI
 - Ollama

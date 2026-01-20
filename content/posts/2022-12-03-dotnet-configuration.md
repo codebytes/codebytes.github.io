@@ -4,7 +4,7 @@ date: '2022-12-03'
 categories:
 - Development
 tags:
-- .NET
+- dotnet
 - configuration
 image: images/dotnet-logo.png
 featureImage: images/dotnet-logo.png

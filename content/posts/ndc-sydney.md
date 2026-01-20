@@ -4,7 +4,7 @@ draft: true
 categories:
 - Speaking
 tags:
-- .NET
+- dotnet
 - containers
 - travel
 aliases:
