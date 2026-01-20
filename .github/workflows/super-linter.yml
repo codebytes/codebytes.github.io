@@ -57,6 +57,6 @@ jobs:
           # Disable JSCPD (duplicate detection - not useful for blog posts)
           VALIDATE_JSCPD: 'false'
           # Use repo's markdownlint config (disables MD013 line-length)
-          MARKDOWN_CONFIG_FILE: '.markdownlint.json'
+          MARKDOWN_CONFIG_FILE: '.markdownlint.yml'
           # Exclude themes directory from linting
           FILTER_REGEX_EXCLUDE: 'themes/.*'
