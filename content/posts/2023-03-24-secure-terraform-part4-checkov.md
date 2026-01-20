@@ -12,7 +12,6 @@ tags:
 - GitHub
 image: images/checkov-logo.png
 featureImage: images/checkov-logo.png
-mermaid: true
 aliases:
 - /2023/03/24/secure-terraform-part4-checkov/
 - /devops/secure-terraform-part4-checkov/

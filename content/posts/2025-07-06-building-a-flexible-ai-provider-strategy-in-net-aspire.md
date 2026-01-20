@@ -16,7 +16,6 @@ tags:
 - Foundry Local
 image: images/dotnet-aspire-logo.png
 featureImage: images/dotnet-aspire-logo.png
-mermaid: true
 aliases:
 - /2025/07/06/aspire-with-lots-of-ai/
 - /development/tools/building-a-flexible-ai-provider-strategy-in-net-aspire/
@@ -157,11 +156,10 @@ Microsoft's [Foundry Local](https://github.com/microsoft/Foundry-Local) offers t
 
 The beauty of this approach lies in its simplicity. The API service never knows which AI provider it's using-it just calls the abstracted AI service interface. This is all made possible by the `Microsoft.Extensions.AI` library, which provides the core `IChatClient` abstraction. The complete source code for this project is available on my [GitHub](https://github.com/chris-ayers/aspire-ai-provider-strategy).
 
-```mermaid
----
-title: Configuration-Driven AI Provider Architecture
----
+{{< mermaid >}}
+%%{init: {'theme': 'default'}}%%
 graph TD
+    subgraph title[Configuration-Driven AI Provider Architecture]
     A[appsettings.json] --> B{AI Provider Config};
     B --> C{AddAIServices};
     C --> D{IChatClient};
@@ -174,7 +172,8 @@ graph TD
         C --> H[GitHubModels Client];
         C --> I[FoundryLocal Client];
     end
-```
+    end
+{{< /mermaid >}}
 
 Here's how I structured it.
 

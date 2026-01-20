@@ -14,7 +14,6 @@ tags:
 - Tools
 image: images/mermaid-logo.png
 featureImage: images/mermaid-logo.png
-mermaid: true
 aliases:
 - /2022/12/23/customizing-the-jekyll-theme/
 - /2022/12/23/customizing-my-chosen-jekyll-theme-minimal-mistakes/
@@ -37,7 +36,7 @@ Lets take Mermaid for example. If I want to render mermaid, it won't work out of
     '''
 ```
 
-So to make it work, I had to override the base theme. To start, I looked at the themes layouts. They live in the \_layout folder of the theme [here](https://github.com/mmistakes/minimal-mistakes/tree/master/_layouts). These are the base structure of a page and most reference either Archive or Default.
+So to make it work, I had to override the base theme. To start, I looked at the themes layouts. They live in the \_layout folder of the theme [on GitHub](https://github.com/mmistakes/minimal-mistakes/tree/master/_layouts). These are the base structure of a page and most reference either Archive or Default.
 
 {{< figure src="/images/minimal-mistakes-layout-posts.png" >}}
 
@@ -59,13 +58,13 @@ So lets set that!
 
 At this point, everything should work and embedded mermaid in my Markdown posts renders properly!
 
-```mermaid
+{{< mermaid >}}
 graph TD;
     A-->B;
     A-->C;
     B-->D;
     C-->D;
-```
+{{< /mermaid >}}
 
 I've done a few other minor customizations so far. Like adding some custom CSS and some JavaScript for app insights. Both of those involved a similar process of adding `head/custom.html` and `assets/css/custom.css`.
 

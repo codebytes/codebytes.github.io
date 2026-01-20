@@ -11,7 +11,6 @@ tags:
 - Markdown
 image: images/marp-logo.png
 featureImage: images/marp-logo.png
-mermaid: true
 aliases:
 - /2023/03/26/marp-create-presentations-with-markdown/
 - /tools/marp-create-presentations-with-markdown/

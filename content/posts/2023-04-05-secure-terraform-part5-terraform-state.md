@@ -9,7 +9,6 @@ tags:
 - tools
 image: images/terraform-logo.png
 featureImage: images/terraform-logo.png
-mermaid: true
 aliases:
 - /2023/04/05/secure-terraform-part5-terraform-state/
 - /2022/04/05/secure-terraform-part5-terraform-state/

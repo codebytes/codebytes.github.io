@@ -13,7 +13,6 @@ tags:
 - FestiveTechCalendar2022
 image: images/terraform-logo.png
 featureImage: images/terraform-logo.png
-mermaid: true
 aliases:
 - /2022/12/29/secure-terraform-part1-tfsec/
 - /2022/12/29/securing-terraform-part1-tfsec/
