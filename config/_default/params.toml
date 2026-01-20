@@ -79,7 +79,7 @@ images = ["images/bio-photo.jpg"]
   showViews = false
   showLikes = false
   showTableOfContents = false
-  cardView = false
+  cardView = true
 
 [term]
   showHero = false
