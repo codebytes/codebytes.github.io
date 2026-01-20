@@ -1,0 +1,26 @@
+disabled = false
+languageCode = "en-US"
+languageName = "English"
+weight = 1
+title = "CodeBytes - The Curious Engineer"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "January 2, 2006"
+  description = "This will be a place where I occasionally blog about things that interest me. I play around with lots of tech, from apps to containers, devops to iot."
+
+[params.author]
+  name = "Chris Ayers"
+  image = "images/floating-head.png"
+  imageQuality = 96
+  headline = "Father, Nerd, Gamer, Speaker"
+  bio = "I am a **father**, **nerd**, **gamer**, and **speaker**."
+  links = [
+    { bluesky = "https://bsky.app/profile/chris-ayers.com" },
+    { github = "https://github.com/codebytes" },
+    { linkedin = "https://www.linkedin.com/in/chris-l-ayers/" },
+    { mastodon = "https://hachyderm.io/@Chrisayers" },
+    { twitter = "https://twitter.com/chris_l_ayers" },
+  ]

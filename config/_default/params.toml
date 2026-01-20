@@ -1,0 +1,102 @@
+# -- Theme Parameters --
+# https://blowfish.page/docs/configuration/#theme-parameters
+
+colorScheme = "blowfish"
+defaultAppearance = "dark"
+autoSwitchAppearance = true
+
+enableSearch = true
+enableCodeCopy = true
+
+# Main sections for listing
+mainSections = ["posts"]
+
+disableImageOptimization = false
+
+# Default featured image for posts without images
+defaultFeaturedImage = "images/bio-photo.jpg"
+
+# Default OG image for social sharing
+images = ["images/bio-photo.jpg"]
+
+# Reading time calculation (words per minute)
+# Blowfish default is 200, matching Jekyll config
+
+[header]
+  layout = "basic"
+
+[footer]
+  showMenu = true
+  showCopyright = true
+  showThemeAttribution = true
+  showAppearanceSwitcher = true
+  showScrollToTop = true
+
+# Social links displayed in footer (matches Jekyll footer.links)
+# These are configured via author.links in languages.en.toml
+# Blowfish automatically shows author social links in footer
+
+[homepage]
+  layout = "profile"
+  showRecent = true
+  showRecentItems = 10
+  showMoreLink = true
+  showMoreLinkDest = "/posts/"
+  cardView = true
+  cardViewScreenWidth = false
+
+[article]
+  showDate = true
+  showDateUpdated = true
+  showAuthor = true
+  showBreadcrumbs = true
+  showDraftLabel = true
+  showHeadingAnchors = true
+  showPagination = true
+  showReadingTime = true
+  showTableOfContents = true
+  showRelatedContent = true
+  relatedContentLimit = 5
+  showTaxonomies = true
+  showWordCount = true
+  sharingLinks = ["linkedin", "twitter", "bluesky", "mastodon", "reddit", "facebook", "email"]
+
+[list]
+  showHero = false
+  showSummary = true
+  showViews = false
+  showLikes = false
+  showTableOfContents = false
+  cardView = true
+  cardViewScreenWidth = false
+  orderByWeight = false
+  groupByYear = true
+
+[taxonomy]
+  showTermCount = true
+  showHero = false
+  showBreadcrumbs = true
+  showViews = false
+  showLikes = false
+  showTableOfContents = false
+  cardView = false
+
+[term]
+  showHero = false
+  showBreadcrumbs = true
+  showViews = false
+  showLikes = false
+  showTableOfContents = false
+  groupByYear = true
+  cardView = true
+  cardViewScreenWidth = false
+
+[fathomAnalytics]
+  # site = "ABC12345"
+
+# Microsoft Clarity Analytics
+# clarity = "your-clarity-id"
+
+[verification]
+  # google = ""
+  # bing = ""
