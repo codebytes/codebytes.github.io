@@ -5,10 +5,10 @@ aliases:
   - /about/
 ---
 
-<div class="flex flex-wrap justify-center gap-4 mb-8 not-prose">
-  <img src="/images/bio-photo.jpg" alt="Chris Ayers" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary-500" />
-  <img src="/images/head-shoulders.png" alt="Chris Ayers" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary-500" />
-  <img src="/images/kcdc-2025-1.jpg" alt="Chris Ayers" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary-500" />
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 1.5rem;">
+  <a href="/images/bio-photo.jpg" target="_blank"><img src="/images/bio-photo.jpg" alt="Chris Ayers" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-primary-500);" /></a>
+  <a href="/images/head-shoulders.png" target="_blank"><img src="/images/head-shoulders.png" alt="Chris Ayers" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-primary-500);" /></a>
+  <a href="/images/kcdc-2025-1.jpg" target="_blank"><img src="/images/kcdc-2025-1.jpg" alt="Chris Ayers" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-primary-500);" /></a>
 </div>
 
 I'm Chris Ayers, a **father**, **nerd**, **gamer**, and **speaker**. I'm passionate about technology and love sharing my knowledge through speaking at conferences and writing about tech topics.
