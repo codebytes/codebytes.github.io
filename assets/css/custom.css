@@ -28,7 +28,7 @@ section.grid > a > div {
   min-height: 0 !important;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   section.grid > a,
   section.grid > a > div {
     min-height: 26.5rem !important;
@@ -87,10 +87,14 @@ section.grid .font-bold.text-xl {
 }
 
 /* Make article card images contain instead of cover (no cropping) */
-section.grid .thumbnail_card img.object-cover,
-section.grid a > div > div:first-child img.object-cover,
 .thumbnail_card img.object-cover,
 img.object-cover.nozoom {
+  object-fit: contain !important;
+  padding: 0.5rem !important;
+}
+
+section.grid .thumbnail_card img.object-cover,
+section.grid a > div > div:first-child img.object-cover {
   object-fit: contain !important;
   padding: 0.5rem !important;
 }
@@ -98,7 +102,7 @@ img.object-cover.nozoom {
 /* Light mode: white background for card images to match card body */
 section.grid .thumbnail_card,
 section.grid a > div > div:first-child {
-  background-color: #ffffff !important;
+  background-color: #fff !important;
 }
 
 /* Dark mode: subtle dark background for card images */
