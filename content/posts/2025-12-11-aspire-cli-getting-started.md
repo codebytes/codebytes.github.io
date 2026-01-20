@@ -10,6 +10,7 @@ tags:
 - distributed-systems
 - orchestration
 image: images/dotnet-aspire-logo.png
+featureImage: images/dotnet-aspire-logo.png
 aliases:
 - /2025/12/11/aspire-cli-getting-started/
 - /dotnet/aspire-cli-getting-started/
