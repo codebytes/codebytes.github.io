@@ -6,7 +6,7 @@ baseURL = "https://chris-ayers.com/"
 defaultContentLanguage = "en"
 
 # Increase timeout for complex templates
-timeout = "120s"
+timeout = "300s"
 
 # Repository for edit links
 # Used by Decap CMS and edit buttons
