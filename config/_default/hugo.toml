@@ -1,0 +1,71 @@
+# -- Site Configuration --
+# https://blowfish.page/docs/getting-started/
+
+theme = "blowfish"
+baseURL = "https://chris-ayers.com/"
+defaultContentLanguage = "en"
+
+# Increase timeout for complex templates
+timeout = "120s"
+
+# Repository for edit links
+# Used by Decap CMS and edit buttons
+[params]
+  repository = "codebytes/codebytes.github.io"
+
+enableRobotsTXT = true
+summaryLength = 0
+paginate = 6
+
+buildDrafts = false
+buildFuture = true
+
+enableEmoji = true
+
+# Timezone for date handling
+timeZone = "America/New_York"
+
+googleAnalytics = "" # Add your GA4 measurement ID
+
+[pagination]
+  pagerSize = 6
+
+[imaging]
+  anchor = 'Center'
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  author = "authors"
+  series = "series"
+
+[sitemap]
+  changefreq = 'daily'
+  filename = 'sitemap.xml'
+  priority = 0.5
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[related]
+  threshold = 0
+  toLower = false
+
+    [[related.indices]]
+        name = "tags"
+        weight = 100
+
+    [[related.indices]]
+        name = "categories"
+        weight = 80
+
+    [[related.indices]]
+        name = "date"
+        weight = 10
+
+[permalinks]
+  posts = '/posts/:slug/'
+
+[security]
+  [security.funcs]
+    getenv = ["^HUGO_", "^CI$"]

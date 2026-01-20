@@ -1,30 +1,39 @@
 {
-	"name": "Jekyll",
-	"image": "mcr.microsoft.com/devcontainers/jekyll:2-bullseye",
-	"features": {},
+	"name": "Hugo Blog",
+	"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+	"features": {
+		"ghcr.io/devcontainers/features/hugo:1": {
+			"extended": true,
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "lts"
+		},
+		"ghcr.io/devcontainers/features/git:1": {}
+	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
-	  // Jekyll server
-	  4000,
-	  // Live reload server
-	  35729
+		// Hugo server
+		1313
 	],
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
-	"postCreateCommand": "sh .devcontainer/post-create.sh",
+	"postCreateCommand": "hugo version",
 	// Configure tool-specific properties.
 	"customizations": {
-	  "vscode": {
-		"extensions": [
-		  "shopify.ruby-lsp",
-		  "sissel.shopify-liquid",
-		  "GitHub.copilot",
-		  "GitHub.vscode-pull-request-github",
-		  "streetsidesoftware.code-spell-checker"
-		]
-	  }
+		"vscode": {
+			"extensions": [
+				"budparr.language-hugo-vscode",
+				"eliostruyf.vscode-front-matter",
+				"davidanson.vscode-markdownlint",
+				"yzhang.markdown-all-in-one",
+				"GitHub.copilot",
+				"GitHub.vscode-pull-request-github",
+				"streetsidesoftware.code-spell-checker"
+			]
+		}
 	},
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	"remoteUser": "root"
-  }
+}
   

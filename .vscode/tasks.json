@@ -4,33 +4,30 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Serve",
+      "label": "Hugo: Serve",
       "type": "shell",
-      "command": "bundle exec jekyll serve --livereload",
+      "command": "hugo server --buildDrafts --buildFuture",
       "group": {
         "kind": "test",
         "isDefault": true
       },
-      "isBackground": true
+      "isBackground": true,
+      "problemMatcher": []
     },
     {
-      "label": "Build",
+      "label": "Hugo: Build",
       "type": "shell",
-      "command": "bundle exec jekyll build",
+      "command": "hugo --gc --minify",
       "group": {
         "kind": "build",
         "isDefault": true
       }
     },
     {
-      "label": "Update",
+      "label": "Hugo: New Post",
       "type": "shell",
-      "command": "bundle update",
-      "group": {
-        "kind": "test",
-        "isDefault": false
-      },
-      "isBackground": true,
+      "command": "hugo new content posts/$(date +%Y-%m-%d)-new-post.md",
+      "group": "none",
       "problemMatcher": []
     }
   ]

@@ -1,0 +1,13 @@
+<a href="{{ .Page.RelPermalink }}" 
+   class="inline-flex items-center gap-2 px-4 py-3 m-2 rounded-lg border-2 border-neutral-200 dark:border-neutral-700 hover:border-primary-500 dark:hover:border-primary-400 transition-all duration-200 hover:shadow-lg group">
+  <div class="flex-1">
+    <div class="text-lg font-bold text-neutral-800 dark:text-neutral-200 group-hover:text-primary-600 dark:group-hover:text-primary-400">
+      {{ .Page.Title | emojify }}
+    </div>
+  </div>
+  {{ if site.Params.taxonomy.showTermCount | default true }}
+  <div class="flex items-center justify-center min-w-[2.5rem] h-10 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 font-semibold">
+    {{ .Count }}
+  </div>
+  {{ end }}
+</a>

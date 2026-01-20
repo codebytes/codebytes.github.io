@@ -1,59 +1,107 @@
-#main > div.sidebar.sticky > nav {
-  border-top: 4px solid #6f777d;
+/* Custom CSS for card alignment and consistent heights */
+
+/* Make article content wider for better readability */
+.article-content.max-w-prose,
+#single_header.max-w-prose,
+footer.max-w-prose {
+  max-width: 80ch !important; /* Wider than default prose (65ch) */
 }
 
-.img-20 {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 20%;
-  height: 20%;
+/* Make grid items stretch to equal heights */
+section.grid {
+  align-items: stretch !important;
 }
 
-.img-30 {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 30%;
-  height: 30%;
+/* Make all cards in a grid row the same height */
+section.grid > a {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  min-height: 0 !important;
 }
 
-.img-40 {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
-  height: 40%;
+section.grid > a > div {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
 }
 
-.img-50 {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  height: 50%;
+@media (min-width: 640px) {
+  section.grid > a,
+  section.grid > a > div {
+    min-height: 26.5rem !important;
+  }
 }
 
-.img-60 {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 60%;
-  height: 60%;
+/* Ensure card content area fills available space and pushes footer down */
+section.grid > a > div > .px-6.py-4 {
+  flex-grow: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
 }
 
-.img-70 {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 70%;
-  height: 70%;
+/* Limit summary text to 3 lines for consistent card heights */
+section.grid .prose {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  line-clamp: 3 !important;
+  max-height: 4.5rem !important;
+  min-height: 4.5rem !important;
 }
 
-.img-80 {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
-  height: 80%;
+/* Hide any figures that appear in the card summary prose */
+section.grid .prose figure {
+  display: none !important;
+}
+
+/* Hide headings inside card prose summaries */
+section.grid .prose h1,
+section.grid .prose h2,
+section.grid .prose h3,
+section.grid .prose h4 {
+  display: none !important;
+}
+
+/* Fix card title to max 2 lines */
+section.grid .font-bold.text-xl {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  min-height: 3.5rem !important;
+  line-clamp: 2 !important;
+}
+
+/* Ensure consistent thumbnail height - fit images without cropping */
+.thumbnail_card {
+  min-height: 200px !important;
+  max-height: 200px !important;
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Dark mode background for thumbnail cards */
+.dark .thumbnail_card {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Limit tags display to one line */
+section.grid .text-sm.text-neutral-500 {
+  min-height: 4rem !important;
+  max-height: 4rem !important;
+  overflow: hidden !important;
+}
+
+/* Hide excess tags that would cause overflow */
+section.grid .flex.flex-wrap {
+  min-height: 1.75rem !important;
+  max-height: 1.75rem !important;
+  overflow: hidden !important;
 }
