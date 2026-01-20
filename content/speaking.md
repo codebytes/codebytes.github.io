@@ -17,11 +17,11 @@ You can find some of my previous talks and online engagements on YouTube:
 
 | Event | Date | Talks |
 | --- | --- | --- |
-| [NDC London 2026](https://ndclondon.com/) | Jan 27-31, 2026 | Modern .NET Configuration Practices |
-| [NDC Security 2026](https://ndc-security.com/) | Mar 4, 2026 | MITRE ATT&CK for Developers |
+| [NDC London 2026](https://ndclondon.com/) | Jan 26-30, 2026 | Modern .NET Configuration Practices |
+| [NDC Security 2026](https://ndc-security.com/) | Mar 2-5, 2026 | MITRE ATT&CK for Developers |
 | [CodeStock 2026](http://codestock.org) | Apr 9-10, 2026 | Modern .NET Configuration Practices, Resilient by Design |
-| [NDC Sydney 2026](https://ndcsydney.com/) | Apr 23-24, 2026 | Real World CI/CD with GitHub Actions |
-| [NDC Toronto 2026](https://ndctoronto.com/) | May 7, 2026 | Aspire 13: One AppHost, Many Languages, Fewer Headaches? |
+| [NDC Sydney 2026](https://ndcsydney.com/) | Apr 22-24, 2026 | Real World CI/CD with GitHub Actions |
+| [NDC Toronto 2026](https://ndctoronto.com/) | May 5-8, 2026 | Aspire 13: One AppHost, Many Languages, Fewer Headaches? |
 | [DevSum 2026](https://www.devsum.se) | Jun 2-3, 2026 | Refactoring Your Technical Identity |
 
 ## Past Events
