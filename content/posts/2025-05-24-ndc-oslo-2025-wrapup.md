@@ -11,8 +11,8 @@ tags:
 - Ollama
 - chaos-engineering
 - dotnet
-image: images/ndc-logo.jpg
-featureImage: images/ndc-logo.jpg
+image: images/logos/ndc-logo.jpg
+featureImage: images/logos/ndc-logo.jpg
 aliases:
 - /2025/05/24/ndc-oslo-2025-wrapup/
 - /speaking/azure/ai/resilience/conferences/ndc-oslo-2025-wrapup/
@@ -135,3 +135,4 @@ For those considering attending future NDC events, I cannot recommend them highl
 The technology landscape continues to evolve at breakneck speed, but events like NDC Oslo remind us that we're not navigating these changes alone. We're part of a global community of builders, thinkers, and problem-solvers, all working to create a better technological future.
 
 Thank you, NDC Oslo, for another unforgettable experience. See you next year!
+

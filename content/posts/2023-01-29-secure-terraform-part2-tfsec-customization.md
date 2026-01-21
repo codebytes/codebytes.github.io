@@ -10,8 +10,8 @@ tags:
 - VSCode
 - tfsec
 - GitHub
-image: images/tfsec-logo.png
-featureImage: images/tfsec-logo.png
+image: images/logos/tfsec-logo.png
+featureImage: images/logos/tfsec-logo.png
 aliases:
 - /2023/01/29/secure-terraform-part2-tfsec-customization/
 - /devops/secure-terraform-part2-tfsec-customization/
@@ -29,7 +29,7 @@ This is part 2 of the Secure Terraform series. You can read the series of articl
 
 In the previous article, we discussed tfsec, a static code analysis tool for Terraform. We also learned how to use it in VSCode and GitHub Actions to scan our Terraform code. We learned how to override the severity of rules. In this article, we will learn how to customize the rules and add our own rules.
 
-![tfsec logo](/images/tfsec-logo.png)
+![tfsec logo](/images/logos/tfsec-logo.png)
 
 ## Customizing tfsec Rules
 
@@ -250,3 +250,4 @@ While rego policies support are nice, I think the yaml policies are more flexibl
 I wanted to show how to do checks in Azure because I didn't see a lot of examples or docs on Azure resources specifically.
 
 I hope this deeper dive into custom checks was helpful.
+

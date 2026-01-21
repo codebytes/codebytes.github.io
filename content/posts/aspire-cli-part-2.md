@@ -10,8 +10,8 @@ tags:
 - Deployment
 - CI/CD
 - distributed-systems
-image: images/dotnet-aspire-logo.png
-featureImage: images/dotnet-aspire-logo.png
+image: images/logos/dotnet-aspire-logo.png
+featureImage: images/logos/dotnet-aspire-logo.png
 slug: aspire-cli-part-2
 ---
 
@@ -137,3 +137,4 @@ With `aspire publish`, `aspire deploy`, and `aspire do`, you have everything nee
 Stay tuned for Part 3 where we'll cover advanced scenarios like multi-environment configurations and custom integrations.
 
 Until next time, happy Aspiring!
+

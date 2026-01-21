@@ -9,14 +9,14 @@ tags:
 - DevOps
 - VSCode
 - GitHub
-image: images/dev-containers-logo.png
-featureImage: images/dev-containers-logo.png
+image: images/logos/dev-containers-logo.png
+featureImage: images/logos/dev-containers-logo.png
 aliases:
 - /2023/12/27/dev-containers-part-1/
 - /development/dev-containers-part-1/
 slug: dev-containers-part-1
 ---
-![dev containers](/images/dev-containers-logo.svg)
+![dev containers](/images/logos/dev-containers-logo.svg)
 
 > This article is part of the Festive Tech Calendar 2023. For more articles in the series by other authors, visit [https://festivetechcalendar.com/](https://festivetechcalendar.com/).
 
@@ -190,3 +190,4 @@ Incorporating Dev Containers into your workflow can streamline development, ensu
 {{< github repo="microsoft/vscode-remote-try-rust" >}}
 {{< github repo="microsoft/vscode-remote-try-cpp" >}}
 {{< github repo="codebytes/dev-containers" >}}
+

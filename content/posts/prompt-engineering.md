@@ -8,8 +8,8 @@ tags:
 - GPT-4
 - OpenAI
 - Prompt Engineering
-image: images/openai-logo.png
-featureImage: images/openai-logo.png
+image: images/logos/openai-logo.png
+featureImage: images/logos/openai-logo.png
 aliases:
 - /ai/prompt-engineering/
 slug: prompt-engineering
@@ -93,3 +93,4 @@ Like any technology, working with AI language models presents its share of chall
 ## Conclusion and Future Outlook
 
 Prompt engineering is pivotal in maximizing the value and utility of AI language models. With the skills to create effective prompts, you can unlock the full potential of these models across a myriad of applications. As AI technology continues to evolve and improve, the art of prompt engineering will become an increasingly important asset, allowing us to interact with and shape AI-powered solutions more effectively.
+

@@ -11,8 +11,8 @@ tags:
 - GitHub Pages
 - Markdown
 - Ruby
-image: images/jekyll-logo.png
-featureImage: images/jekyll-logo.png
+image: images/logos/jekyll-logo.png
+featureImage: images/logos/jekyll-logo.png
 aliases:
 - /2022/12/20/migrating-from-wordpress-to-github-pages/
 - /development/migrating-from-wordpress-to-github-pages/
@@ -196,3 +196,4 @@ bundle exec jekyll serve
 As part of setting up things with GitHub Pages, there is also a workflow that helps build and release the jeykll site to GitHub pages.
 
 I'll follow this up with another post on some of my customizations for monitoring and dns. Out of the box, GitHub pages only allow 1 custom dns domain. There are a few ways to host multiple domains on a single GitHub Pages site (check out [chrislayers.com](https://chrislayers.com), [chrisayers.me](https://chrisayers.me), or [chris-ayers.com](https://chris-ayers.com)).
+

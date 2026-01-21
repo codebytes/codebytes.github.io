@@ -10,14 +10,14 @@ tags:
 - OpenAI
 - Ollama
 - chaos-engineering
-image: images/techorama-be-2025-logo.png
-featureImage: images/techorama-be-2025-logo.png
+image: images/logos/techorama-be-2025-logo.png
+featureImage: images/logos/techorama-be-2025-logo.png
 aliases:
 - /2025/05/08/techorama-belgium-2025/
 - /speaking/azure/ai/resilience/conferences/techorama-belgium-2025/
 slug: techorama-belgium-2025
 ---
-![Techorama Belgium 2025](/images/techorama-be-2025-logo.png)
+![Techorama Belgium 2025](/images/logos/techorama-be-2025-logo.png)
 
 I'm thrilled to announce that I'll be delivering **[two sessions](https://techorama.be/speakers/speaker/chris-ayers/)** at **Techorama Belgium 2025**! Join me as we explore the cutting edge of .NET, AI, and cloud resilience with actionable strategies, demos, and real-world insights. [Techorama Belgium](https://techorama.be/) is a premier tech conference that brings together developers, architects, and IT professionals to share knowledge and network with industry leaders. This year, I'm excited to be part of the lineup!
 
@@ -27,7 +27,7 @@ I'm thrilled to announce that I'll be delivering **[two sessions](https://techor
 
 ### Aspiring .NET with Azure OpenAI and Ollama
 
-![.NET Aspire Logo](/images/dotnet-aspire-logo.svg)
+![.NET Aspire Logo](/images/logos/dotnet-aspire-logo.svg)
 
 Discover how you can unlock the potential of AI in your .NET applications. In this session, you'll learn how to integrate [Azure OpenAI](https://azure.microsoft.com/services/cognitive-services/openai-service/) and [Ollama](https://ollama.ai/) to build intelligent, modern .NET solutions. Through hands-on demos, code walkthroughs, and practical guidance, you'll see how conversational AI, large language models, and generative capabilities can enhance your projects.
 
@@ -67,4 +67,5 @@ In cloud environments, failures are inevitable. This session explores how to bui
 ## Join Me in Belgium
 
 I look forward to meeting you and diving into the art and science of **AI-powered** and **Resilient By Design** solutions in Azure and .NET. Don't miss this chance to level up your engineering strategy-see you at **Techorama Belgium!**
+
 

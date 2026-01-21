@@ -6,8 +6,8 @@ categories:
 tags:
 - VSCode
 - tools
-image: images/vscode-logo.png
-featureImage: images/vscode-logo.png
+image: images/logos/vscode-logo.png
+featureImage: images/logos/vscode-logo.png
 aliases:
 - /2023/05/16/profiles-in-vscode/
 - /tools/profiles-in-vscode/
@@ -17,7 +17,7 @@ Visual Studio Code (VS Code) is a popular code editor that offers a wide range o
 
 <!--more-->
 
-{{< figure src="/images/vscode-logo.png" alt="vscode logo" class="mx-auto" >}}
+{{< figure src="/images/logos/vscode-logo.png" alt="vscode logo" class="mx-auto" >}}
 
 ## What are VS Code Profiles?
 
@@ -80,3 +80,4 @@ In my experience, creating a profile from scratch tends to reset various element
 ## Conclusion
 
 By using profiles in VS Code, you can optimize the startup time of your editor and ensure that only the necessary extensions are activated for each project or task. This not only improves performance but also helps you stay organized and focused on the task at hand. Give profiles a try, and experience a more streamlined coding environment!
+

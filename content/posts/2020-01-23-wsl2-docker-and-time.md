@@ -8,8 +8,8 @@ tags:
 - linux
 - windows
 - wsl
-image: images/docker-logo.png
-featureImage: images/docker-logo.png
+image: images/logos/docker-logo.png
+featureImage: images/logos/docker-logo.png
 aliases:
 - /2020/01/23/wsl2-docker-and-time/
 - /tools/wsl2-docker-and-time/
@@ -19,7 +19,7 @@ I'm running on a Windows Insider Slow build so that I can leverage [WSL 2](https
 
 I'm also using the latest version of Docker Desktop, with WSL2 support. What this means is that instead of using Hyper-V to run a Moby Linux VM, [docker runs directly on WSL2](https://docs.docker.com/docker-for-windows/wsl-tech-preview/). It also has built-in Kubernetes support.
 
-{{< figure src="/images/docker-logo.png" >}}
+{{< figure src="/images/logos/docker-logo.png" >}}
 
 If you haven't guessed, I've been doing some container development. The experience so far as been great, with [VS Code](https://code.visualstudio.com/) and the [Remote Development Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) pack. I recently ran into some issues though. Here are some examples from bug posts opened about it:
 
@@ -54,3 +54,4 @@ I hope this helps someone until this goes GA. Thanks for your time!
 ## GitHub Repositories
 
 {{< github repo="microsoft/WSL" >}}
+

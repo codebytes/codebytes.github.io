@@ -9,8 +9,8 @@ tags:
 - tooling
 - distributed-systems
 - orchestration
-image: images/dotnet-aspire-logo.png
-featureImage: images/dotnet-aspire-logo.png
+image: images/logos/dotnet-aspire-logo.png
+featureImage: images/logos/dotnet-aspire-logo.png
 aliases:
 - /2025/12/11/aspire-cli-getting-started/
 - /dotnet/aspire-cli-getting-started/
@@ -403,3 +403,4 @@ aspire update --self
 There is too much to cover here, so there will be follow-up posts on deployment (`aspire publish` / `aspire deploy`) and pipelines with `aspire do`.
 
 Until next time, happy Aspiring!
+

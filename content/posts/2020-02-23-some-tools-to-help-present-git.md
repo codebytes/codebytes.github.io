@@ -6,14 +6,14 @@ categories:
 tags:
 - Git
 - terminal
-image: images/git-logo.png
-featureImage: images/git-logo.png
+image: images/logos/git-logo.png
+featureImage: images/logos/git-logo.png
 aliases:
 - /2020/02/23/some-tools-to-help-present-git/
 - /development/devops/tools/some-tools-to-help-present-git/
 slug: some-tools-to-help-present-git
 ---
-{{< figure src="/images/git-logo.png" >}}
+{{< figure src="/images/logos/git-logo.png" >}}
 
 I'm presenting soon on Advanced Git. I feel a lot of Developers and DevOps engineers know enough git to the job, but sometimes that's it. I want to help people be more comfortable with the git command-line, and help alleviate some fear or hesitation in dealing with git edge cases.
 
@@ -67,3 +67,4 @@ I'm a big fan of tools that help me share ideas more effectively and these are a
 {{< github repo="Microsoft/Terminal" >}}
 {{< github repo="JanDeDobbeleer/oh-my-posh" >}}
 {{< github repo="ohmyzsh/ohmyzsh" >}}
+

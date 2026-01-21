@@ -13,11 +13,11 @@ tags:
   - Ruby
   - Static Site Generator
 description: "Why I moved this blog from Jekyll to Hugo and chose the Blowfish theme."
-featureimage: "images/hugo-logo.svg"
+featureimage: "images/logos/hugo-logo.svg"
 excerpt_separator: "<!--more-->"
 ---
 
-{{< figure src="images/hugo-logo.svg" alt="Hugo Logo" class="mx-auto" width="200" >}}
+{{< figure src="images/logos/hugo-logo.svg" alt="Hugo Logo" class="mx-auto" width="200" >}}
 
 After years of running this blog on Jekyll, I finally made the switch to Hugo. Here's why.
 
@@ -64,7 +64,7 @@ Hugo's theme community is active, innovative, and built around modern tooling. T
 
 I settled on the [Blowfish](https://blowfish.page/) theme for several reasons. Honestly, it is one of the best examples of what Hugo makes possible.
 
-{{< figure src="images/blowfish-logo.png" alt="Blowfish illustration" class="mx-auto" width="260" >}}
+{{< figure src="images/logos/blowfish-logo.png" alt="Blowfish illustration" class="mx-auto" width="260" >}}
 
 ### Clean, modern design
 
@@ -154,3 +154,4 @@ If you're considering making the switch yourself, the migration is easier than y
 - [Hugo Documentation](https://gohugo.io/documentation/)
 - [Blowfish Theme](https://blowfish.page/)
 - [Jekyll to Hugo Migration Guide](https://gohugo.io/tools/migrations/#jekyll)
+

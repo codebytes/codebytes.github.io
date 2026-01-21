@@ -6,8 +6,8 @@ categories:
 tags:
 - regex
 - Copilot
-image: images/github-copilot-logo.png
-featureImage: images/github-copilot-logo.png
+image: images/logos/github-copilot-logo.png
+featureImage: images/logos/github-copilot-logo.png
 aliases:
 - /2024/4/09/regex-with-copilot/
 - /development/regex-with-copilot/
@@ -99,3 +99,4 @@ At this point, my friend had told me she had spent over an hour on stack overflo
 I have been using it for a while now and I am happy with the results. I don't worry as much about syntax, I'm really more focused on **WHAT** I want to do and not **HOW** to do it. I think this is a game changer for me. I'm excited to see how this tool evolves.
 
 If you haven't tried out GitHub Copilot, I would recommend it. [https://github.com/features/copilot](https://github.com/features/copilot)
+

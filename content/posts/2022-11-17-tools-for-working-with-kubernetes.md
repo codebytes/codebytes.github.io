@@ -6,8 +6,8 @@ categories:
 tags:
 - Kubernetes
 - tools
-image: images/kubernetes-logo.png
-featureImage: images/kubernetes-logo.png
+image: images/logos/kubernetes-logo.png
+featureImage: images/logos/kubernetes-logo.png
 aliases:
 - /2022/11/17/tools-for-working-with-kubernetes/
 - /tools/tools-for-working-with-kubernetes/
@@ -59,3 +59,4 @@ If you work daily with Kubernetes you might already know about these tools. If y
 
 {{< github repo="derailed/k9s" >}}
 {{< github repo="ahmetb/kubectx" >}}
+

@@ -8,8 +8,8 @@ tags:
 - containers
 - travel
 - NDC
-image: images/ndc-logo.jpg
-featureImage: images/ndc-logo.jpg
+image: images/logos/ndc-logo.jpg
+featureImage: images/logos/ndc-logo.jpg
 aliases:
 - /conferences/ndc-sydney/
 slug: ndc-sydney
@@ -29,3 +29,4 @@ NDC Sydney is more than just a conference; it is a celebration of technology whe
 In conclusion, the journey to NDC Sydney was a medley of enriching experiences. From the extended flight from sunny Florida to the lively city of Sydney, the seamless organization, insightful workshops, and inspirational speakers; every aspect exuded an energetic vibe of inclusivity, innovation, and passion for technology.
 
 The technological marvels at NDC Sydney reinvigorated my own passion for tech, making me eagerly look forward to what the next chapter of this tech emissary down under has in store. As they say, 'once you've tasted the NDC experience, there's no turning back'. Until our next tech journey, folks!
+

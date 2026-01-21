@@ -6,14 +6,14 @@ categories:
 tags:
 - dotnet
 - configuration
-image: images/dotnet-logo.png
-featureImage: images/dotnet-logo.png
+image: images/logos/dotnet-logo.png
+featureImage: images/logos/dotnet-logo.png
 aliases:
 - /2022/12/03/validating-dotnet-configuration/
 - /development/dotnet-configuration/
 slug: dotnet-configuration
 ---
-{{< figure src="/images/csadvent logo.png" alt="C# Advent" class="float-left m-4" >}}
+{{< figure src="/images/logos/csadvent-logo.png" alt="C# Advent" class="float-left m-4" >}}
 
 **This blog was posted as part of the [C# Advent Calendar 2022](https://www.csadvent.christmas/). I really want to thank [Matthew D. Groves](https://twitter.com/mgroves) and [Calvin Allen](https://twitter.com/_calvinallen) for helping set this up! Look for #csadvent on Twitter! Make sure to check out everyone else's work when you're done here**
 
@@ -173,3 +173,5 @@ Please dive into the amazing documentation on the [.NET Configuration system](ht
 ## GitHub Repositories
 
 {{< github repo="Codebytes/dotnet-configuration-in-depth" >}}
+
+

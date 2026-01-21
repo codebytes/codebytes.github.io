@@ -9,14 +9,14 @@ tags:
 - containers
 - Docker
 - DevOps
-image: images/dotnet-logo.png
-featureImage: images/dotnet-logo.png
+image: images/logos/dotnet-logo.png
+featureImage: images/logos/dotnet-logo.png
 aliases:
 - /2023/12/03/containerizing-dotnet-part-1/
 - /development/containerizing-dotnet/
 slug: containerizing-dotnet
 ---
-![.NET](/images/dotnet-logo.png)
+![.NET](/images/logos/dotnet-logo.png)
 
 > This article is part of C# Advent 2023. For more articles in the series by other authors, visit [https://www.csadvent.christmas/](https://www.csadvent.christmas/).
 
@@ -257,3 +257,4 @@ Thank you for joining me on this exploration of .NET and containers. Stay tuned 
 - [https://devblogs.microsoft.com/dotnet/announcing-dotnet-chiseled-containers/](https://devblogs.microsoft.com/dotnet/announcing-dotnet-chiseled-containers/)
 - [https://canonical.com/blog/chiselled-ubuntu-ga](https://canonical.com/blog/chiselled-ubuntu-ga)
 - [https://ubuntu.com/containers/chiselled/dotnet](https://ubuntu.com/containers/chiselled/dotnet)
+

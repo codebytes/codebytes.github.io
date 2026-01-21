@@ -239,7 +239,7 @@ In this example, I'm adding a grid layout to my slides so I have have split colu
 
 [Font Awesome](https://fontawesome.com/) is a great resource for designers, developers, and content creators who want to add visual elements to their projects without having to create them from scratch. Font Awesome provides a library of over [2,000 free icons](https://fontawesome.com/search?o=r&m=free) that you can use to enhance your presentations.
 
-{{< figure src="/images/marp-fa-icons.png" >}}
+{{< figure src="/images/logos/marp-fa-icons.png" >}}
 
 To do this, you can use the following syntax in your frontmatter to import and style icons.
 
@@ -366,3 +366,4 @@ Get started today by using the [Marp Slides Template](https://github.com/codebyt
 {{< github repo="marp-team/marp" >}}
 {{< github repo="marp-team/marp-core" >}}
 {{< github repo="codebytes/marp-slides-template" >}}
+

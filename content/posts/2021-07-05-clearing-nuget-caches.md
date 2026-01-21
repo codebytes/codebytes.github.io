@@ -7,8 +7,8 @@ tags:
 - CLI
 - DevOps
 - dotnet
-image: images/nuget-logo.png
-featureImage: images/nuget-logo.png
+image: images/logos/nuget-logo.png
+featureImage: images/logos/nuget-logo.png
 aliases:
 - /2021/07/05/clearing-nuget-caches/
 - /tools/clearing-nuget-caches/
@@ -16,7 +16,7 @@ slug: clearing-nuget-caches
 ---
 ## What is NuGet?
 
-{{< figure src="/images/nuget-logo.png" >}}
+{{< figure src="/images/logos/nuget-logo.png" >}}
 
 NuGet is an essential packaging tool used in the .NET ecosystem. NuGet is how packages for .NET are created, hosted, and consumed, along with the tools for each of those roles. For many, NuGet is used through Visual Studio to install and manage packages.  
 The dotnet CLI also provides functionality for adding packages, updating packages, and creating packages.
@@ -110,3 +110,4 @@ There are other ways to install NuGet.exe.
 ## Conclusion
 
 In conclusion, understanding and managing NuGet caches is essential for maintaining a healthy development environment, especially when dealing with build issues or upgrading .NET versions. Clearing caches can help resolve strange behavior in your builds and ensure consistency with build agents. With the methods outlined in this post, you can easily clear specific or all caches using Visual Studio, the dotnet CLI, or the nuget CLI. By mastering these cache management techniques, you'll be well-equipped to tackle any cache-related challenges that come your way, ultimately contributing to a more efficient and reliable development process.
+

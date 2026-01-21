@@ -7,8 +7,8 @@ tags:
 - VSCode
 - SSH
 - Remote Development
-image: images/vscode-logo.png
-featureImage: images/vscode-logo.png
+image: images/logos/vscode-logo.png
+featureImage: images/logos/vscode-logo.png
 aliases:
 - /tools/remote-ssh-in-vscode/
 slug: remote-ssh-in-vscode
@@ -39,3 +39,4 @@ While using a terminal to SSH into a remote machine is standard practice, the Re
 4. **Portability:** Whether you're transitioning between distinct projects or operating on numerous remote machines, the Remote SSH extension delivers a consistent development environment across all scenarios. This abolishes the need for repeated setup of your development environment.
 
 By integrating the Remote SSH extension for Visual Studio Code, developers can tap into an unprecedented level of convenience and efficiency in their remote work. Experience the privilege of seamless coding on remote machines, without sacrificing the comfort of your local development environment. Give the Remote SSH extension a whirl today and ascend your remote development experience to unprecedented levels!
+

@@ -8,8 +8,8 @@ tags:
 - ARM Templates
 - Azure
 - Git
-image: images/arm-logo.png
-featureImage: images/arm-logo.png
+image: images/logos/arm-logo.png
+featureImage: images/logos/arm-logo.png
 aliases:
 - /2019/05/28/arm-part-3-hook-up-the-pipes/
 - /devops/arm-part-3-hook-up-the-pipes/
@@ -42,3 +42,4 @@ We just need to pick the right Subscription, Sign in, and point it at our resour
 {{< figure src="/images/serviceconnectionarm2-4.png" full=true >}}
 
 Now we've got a connector to deploy to Azure. We'll finish this up next time.
+

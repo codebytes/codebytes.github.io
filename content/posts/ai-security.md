@@ -8,8 +8,8 @@ tags:
 - Security
 - Machine Learning
 - Deep Learning
-image: images/azure-openai-logo.png
-featureImage: images/azure-openai-logo.png
+image: images/logos/azure-openai-logo.png
+featureImage: images/logos/azure-openai-logo.png
 aliases:
 - /tools/ai-security/
 slug: ai-security
@@ -33,3 +33,4 @@ Interestingly, many of these attacks can be hard to detect, especially those tha
 To protect against these attack vectors, it's crucial to implement robust security measures throughout the entire AI pipeline. Regular data audits, model transparency techniques, data encryption, differential privacy, and robustness checks against adversarial examples can help reduce the vulnerability of AI systems.
 
 Furthermore, we need to cultivate a comprehensive understanding of AI and its potential vulnerabilities among users, developers, and decision-makers alike. As we push forward with AI development, parallel efforts in AI security research and AI ethics should not be overlooked.
+

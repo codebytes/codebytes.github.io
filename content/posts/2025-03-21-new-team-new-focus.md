@@ -4,8 +4,8 @@ date: '2025-03-21'
 categories:
 - Blog
 tags: []
-image: images/github-codespaces-logo.png
-featureImage: images/github-codespaces-logo.png
+image: images/logos/github-codespaces-logo.png
+featureImage: images/logos/github-codespaces-logo.png
 aliases:
 - /2025/03/21/new-team-new-focus/
 - /development/new-team-new-focus/
@@ -20,3 +20,4 @@ As the lead for the Platform Reliability Pillar, I'm utilizing advanced technolo
 Additionally, I'm continuing to speak at conferences around the world, sharing insights and staying connected with the community. As I find my new rhythm, expect to see more frequent posts and lots of interesting content coming your way.
 
 Thank you for your patience and support as I navigate this new chapter and continue to learn and grow in my career!
+

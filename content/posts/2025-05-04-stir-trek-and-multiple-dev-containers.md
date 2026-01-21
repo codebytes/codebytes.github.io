@@ -9,20 +9,20 @@ tags:
 - dev-containers
 - codespaces
 - docker-compose
-image: images/stirtrek-logo.png
-featureImage: images/stirtrek-logo.png
+image: images/logos/stirtrek-logo.png
+featureImage: images/logos/stirtrek-logo.png
 aliases:
 - /2025/05/04/stir-trek-and-multiple-dev-containers/
 - /ai/dev containers/codespaces/stir-trek-and-multiple-dev-containers/
 slug: stir-trek-and-multiple-dev-containers
 ---
-{{< figure src=\"/images/stirtrek-logo.png\" alt=\"Stir Trek 2025\" >}}
+{{< figure src=\"/images/logos/stirtrek-logo.png\" alt=\"Stir Trek 2025\" >}}
 
 This month at Stir Trek 2025, I presented on Dev Containers and GitHub Codespaces, demonstrating how these tools streamline both local and cloud-based development workflows. The session covered the essentials of creating portable development environments, customizing containers with features and extensions, and launching Codespaces directly from your repository. A lively Q&A followed, with attendees asking about strategies for running and working with multiple containers. Below, I've distilled those discussions and provided a deeper dive into shared container configurations across multiple projects-including folder structures, Docker Compose setups, VS Code workflows, and advanced tips you can apply in your own work.
 
 ## Recap: Dev Containers and Codespaces
 
-![Dev Containers](/images/dev-containers-logo.png)
+![Dev Containers](/images/logos/dev-containers-logo.png)
 
 Dev Containers are Docker-based environments enriched with development-specific tooling, settings, and startup tasks as defined in a `devcontainer.json` file. They enable you to use a container as a full-featured development environment-isolating dependencies, standardizing tool versions, and enabling reproducible setups locally or remotely ([Dev Containers][1]).
 
@@ -36,7 +36,7 @@ By default, **VS Code allows only one container per window**, but you can open a
 
 ### What about using a single window for multiple containers?
 
-![Docker Compose](/images/docker-compose-logo.png)
+![Docker Compose](/images/logos/docker-compose-logo.png)
 
 If you use **Docker Compose**, define multiple services in your `docker-compose.yml` and create separate `devcontainer.json` configurations for each service-each referencing the common Compose file. VS Code will then list each configuration in its Dev Container picker, letting you reopen the current window to connect to a different service without duplicating your Compose setup ([Dev Containers][4]).
 
@@ -225,3 +225,4 @@ By centralizing Dev Container configurations and sharing a unified `docker-compo
 [8]: https://github.blog/news-insights/product-news/codespaces-multi-repository-monorepo-scenarios/ "Codespaces for multi-repository and monorepo scenarios"
 [9]: https://some-natalie.dev/blog/multiservice-devcontainers/ "Securing Devcontainers (part 2) - multi-service applications with ..."
 [10]: https://blog.pamelafox.org/2024/11/making-dev-container-with-multiple-data.html "Making a dev container with multiple data services - pamela fox's blog"
+

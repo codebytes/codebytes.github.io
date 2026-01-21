@@ -8,8 +8,8 @@ tags:
 - Linting
 - Code Quality
 - CI/CD
-image: images/github-logo.png
-featureImage: images/github-logo.png
+image: images/logos/github-logo.png
+featureImage: images/logos/github-logo.png
 slug: super-linter
 ---
 ## Introduction
@@ -76,3 +76,4 @@ To use these templates:
 GitHub Super-Linter presents a powerful, flexible solution for automating and maintaining code quality across multiple languages and frameworks. By integrating Super-Linter with GitHub Actions, you can streamline your development workflow, ensuring that every commit adheres to your project's coding standards. With the help of template config files found in the `templates` folder, customizing linting rules has never been easier, allowing you to focus more on development and less on manual code review processes.
 
 Adopting tools like Super-Linter not only enhances code quality but also fosters a culture of continuous improvement and collaboration among development teams. Start leveraging GitHub Super-Linter today, and take a significant step towards cleaner, more maintainable, and error-free codebases.
+

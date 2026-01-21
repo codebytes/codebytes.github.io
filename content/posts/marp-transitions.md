@@ -8,8 +8,8 @@ tags:
 - Marp
 - Presentations
 - Markdown
-image: images/marp-logo.png
-featureImage: images/marp-logo.png
+image: images/logos/marp-logo.png
+featureImage: images/logos/marp-logo.png
 slug: marp-transitions
 ---
 One of the key elements that can make your Marp presentation stand out is the use of slide transitions. Slide transitions can add a visual flair to your presentation and help guide your audience's attention. Today, we'll be exploring how to use Marp transitions to enhance your presentations.
@@ -70,3 +70,4 @@ The incoming slide layer always will be stacked on the top of the outgoing slide
 ## Morphing Animations
 
 View Transitions API also provides smooth moving animation during the transition, for specific two elements before and after the transition. It gives a very similar effect to PowerPoint's Morph transition and Keynote's Magic Move, just by simple CSS declarations【20†source】.
+
