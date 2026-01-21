@@ -61,3 +61,9 @@ But these tools make it much cleaner, clearer, and prettier.
 {{< figure src="/images/git-kraken.png" >}}
 
 I'm a big fan of tools that help me share ideas more effectively and these are a few that I think will help me explain git state.
+
+## GitHub Repositories
+
+{{< github repo="Microsoft/Terminal" >}}
+{{< github repo="JanDeDobbeleer/oh-my-posh" >}}
+{{< github repo="ohmyzsh/ohmyzsh" >}}

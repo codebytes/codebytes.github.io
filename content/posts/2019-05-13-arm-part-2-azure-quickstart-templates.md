@@ -57,3 +57,7 @@ Meat and potatoes. Jackpot. This looks like where the resources are defined. Onl
 ## Next Steps
 
 I've got an ARM Template now that works. I've poked at it a little. Time to make this thing *fly*. Lets setup an Azure repository on DevOps and see about trying to deploy this thing and create my webapp on release. I want to be able to check in a change and have it create/update my resources in azure. Next time, we start the feedback loop.
+
+## GitHub Repositories
+
+{{< github repo="Azure/azure-quickstart-templates" >}}

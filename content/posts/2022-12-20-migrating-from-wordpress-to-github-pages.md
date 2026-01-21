@@ -176,7 +176,7 @@ The theme [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/docs/h
 
 
 ```md
-{{< figure src="/images/newresourcegroup-3.png" >}}
+figure src="/images/newresourcegroup-3.png"
 ```
 
 

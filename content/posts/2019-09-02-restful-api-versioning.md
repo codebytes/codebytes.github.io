@@ -57,3 +57,8 @@ In the past, I've had to roll my own. I started with URL versioning. As I worked
 Microsoft has a library that works with .Net Framework 4.5 and .Net Core. It's called ASPNet API Versioning, [https://github.com/microsoft/aspnet-api-versioning](https://github.com/microsoft/aspnet-api-versioning) . They also released libraries to work with [Swagger](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger?view=aspnetcore-2.2) for API documentation. Honestly, its pretty nice and supports a number of methods for versioning that you can customize pretty well. This follows the [Microsoft REST API Guidelines](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#12-versioning).
 
 There are some more references to check out at [http://apistylebook.com/design/topics/versioning](http://apistylebook.com/design/topics/versioning)
+
+## GitHub Repositories
+
+{{< github repo="microsoft/aspnet-api-versioning" >}}
+{{< github repo="Microsoft/api-guidelines" >}}

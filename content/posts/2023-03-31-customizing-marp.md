@@ -360,3 +360,9 @@ Get started today by using the [Marp Slides Template](https://github.com/codebyt
 - [Font Awesome](https://fontawesome.com/)
 - [Mermaid Documentation](https://mermaid-js.github.io/mermaid/#/)
 - [Markdown Preview Mermaid Support Extension](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid)
+
+## GitHub Repositories
+
+{{< github repo="marp-team/marp" >}}
+{{< github repo="marp-team/marp-core" >}}
+{{< github repo="codebytes/marp-slides-template" >}}

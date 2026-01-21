@@ -169,3 +169,7 @@ You can get and run the entire script on a new machine by invoking the following
 ```
 
 > Note: After running this, you might need to restart your terminal or reboot the computer.
+
+## GitHub Repositories
+
+{{< github repo="microsoft/winget-cli" >}}

@@ -181,3 +181,9 @@ For more information on Marp and to dive deeper into its features and capabiliti
 - Marp Official Repository: [https://github.com/marp-team/marp](https://github.com/marp-team/marp)
 - Marp Official Documentation: [https://marpit.marp.app/markdown](https://marpit.marp.app/markdown)
 - Marp for VS Code Documentation: [https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode)
+
+## GitHub Repositories
+
+{{< github repo="marp-team/marp" >}}
+{{< github repo="marp-team/marp-core" >}}
+{{< github repo="codebytes/marp-slides-template" >}}

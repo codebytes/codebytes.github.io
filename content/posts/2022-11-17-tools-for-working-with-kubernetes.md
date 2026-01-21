@@ -54,3 +54,8 @@ It works with lots of things, like vi.
 ## Conclusion
 
 If you work daily with Kubernetes you might already know about these tools. If you haven't tried them, give them an install and play around.
+
+## GitHub Repositories
+
+{{< github repo="derailed/k9s" >}}
+{{< github repo="ahmetb/kubectx" >}}

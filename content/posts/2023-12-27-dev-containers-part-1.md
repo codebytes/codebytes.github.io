@@ -177,3 +177,16 @@ Incorporating Dev Containers into your workflow can streamline development, ensu
 - [VSCode: Dev Containers Tutorial](https://code.visualstudio.com/docs/devcontainers/tutorial)
 - [Beginner's Series to Dev Containers](https://learn.microsoft.com/en-us/shows/beginners-series-to-dev-containers/)
 - My Talk on Dev Containers: [Codebytes/Dev-Containers](https://github.com/codebytes/dev-containers)
+
+## GitHub Repositories
+
+{{< github repo="python/cpython" >}}
+{{< github repo="home-assistant/core" >}}
+{{< github repo="Microsoft/vscode-remote-try-node" >}}
+{{< github repo="Microsoft/vscode-remote-try-python" >}}
+{{< github repo="Microsoft/vscode-remote-try-go" >}}
+{{< github repo="Microsoft/vscode-remote-try-java" >}}
+{{< github repo="Microsoft/vscode-remote-try-dotnetcore" >}}
+{{< github repo="microsoft/vscode-remote-try-rust" >}}
+{{< github repo="microsoft/vscode-remote-try-cpp" >}}
+{{< github repo="codebytes/dev-containers" >}}

@@ -18,7 +18,7 @@
 	],
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
-	"postCreateCommand": "hugo version",
+	"postCreateCommand": "bash .devcontainer/post-create.sh",
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
@@ -34,6 +34,5 @@
 		}
 	},
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	"remoteUser": "root"
 }
   

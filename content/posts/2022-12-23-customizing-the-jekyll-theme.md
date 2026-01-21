@@ -78,3 +78,10 @@ I used a few different sources to get things to work for me. Please check those 
 - [https://github.com/mtrienis/jekyll-mermaid-blog](https://github.com/mtrienis/jekyll-mermaid-blog)
 
 Thanks for following along on this journey. I hope this helps those starting their Jekyll journey or hosting on GitHub Pages.
+
+## GitHub Repositories
+
+{{< github repo="mmistakes/minimal-mistakes" >}}
+{{< github repo="jasonbellamy/jekyll-mermaid" >}}
+{{< github repo="kitian616/jekyll-TeXt-theme" >}}
+{{< github repo="mtrienis/jekyll-mermaid-blog" >}}

@@ -1,6 +1,6 @@
 ---
 title: Aspiring .NET & Resilience @ Techorama Belgium 2025
-date: '2025-05-06'
+date: '2025-05-08'
 categories:
 - Speaking
 tags:

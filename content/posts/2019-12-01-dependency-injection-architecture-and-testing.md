@@ -207,3 +207,7 @@ Taking legacy code, code without tests (essentially the same thing), or code wri
 Dependency Injection is a pattern that everyone should be using. It makes the code more readable, maintainable, and testable. I know a lot of people think that this is something we've solved and everyone uses, but we're not. Too many people aren't setting up DI, they aren't using interfaces, they aren't registering dependencies. We need to keep discussing this because people are constantly starting out, learning, and growing in this field.
 
 There is some sample code at: [https://github.com/Codebytes/DependencyInjectionDemo](https://github.com/Codebytes/DependencyInjectionDemo)
+
+## GitHub Repositories
+
+{{< github repo="Codebytes/DependencyInjectionDemo" >}}

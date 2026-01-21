@@ -116,3 +116,8 @@ This combo gives me a mobile-friendly CMS experience without extra hassle. If yo
 - [Sveltia CMS Auth GitHub Repository](https://github.com/sveltia/sveltia-cms-auth)
 - [My Previous Post on Migrating to GitHub Pages](/2022/12/20/migrating-from-wordpress-to-github-pages)
 - [My Guide to Multiple Domains on GitHub Pages](/2022/12/27/multiple-domains-on-github-pages)
+
+## GitHub Repositories
+
+{{< github repo="sveltia/sveltia-cms" >}}
+{{< github repo="sveltia/sveltia-cms-auth" >}}

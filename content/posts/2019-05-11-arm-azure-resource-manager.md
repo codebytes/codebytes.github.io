@@ -12,8 +12,8 @@ tags:
 - Microsoft
 - PowerShell
 - scripts
-image: images/arm-logo.png
-featureImage: images/arm-logo.png
+image: images/posts/arm-logo.png
+featureImage: images/posts/arm-logo.png
 aliases:
 - /2019/05/11/arm-azure-resource-manager/
 - /devops/arm-azure-resource-manager/

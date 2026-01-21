@@ -414,3 +414,8 @@ Building AI applications doesn't have to lock you into a single provider. With t
 The key is to think of AI providers as interchangeable services from day one. Your future self will thank you when you need to switch providers for cost, performance, or compliance reasons.
 
 *Have you built something similar? I'd love to hear about your experiences with multi-provider AI architectures. Drop me a line on [Blue Sky](https://bsky.app/profile/chris-ayers.com) or [LinkedIn](https://linkedin.com/in/chris-ayers).*
+
+## GitHub Repositories
+
+{{< github repo="microsoft/Foundry-Local" >}}
+{{< github repo="chris-ayers/aspire-ai-provider-strategy" >}}

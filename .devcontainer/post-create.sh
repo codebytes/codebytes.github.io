@@ -1,12 +1,11 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-# Install the version of Bundler.
-if [ -f Gemfile.lock ] && grep "BUNDLED WITH" Gemfile.lock >/dev/null; then
-	tail <Gemfile.lock -n 2 | grep -C2 "BUNDLED WITH" | tail -n 1 | xargs gem install bundler -v
-fi
+set -euo pipefail
 
-# If there's a Gemfile, then run `bundle install`
-# It's assumed that the Gemfile will install Jekyll too
-if [ -f Gemfile ]; then
-	bundle install
+# Ensure theme submodules are present for Hugo shortcodes and templates.
+git submodule update --init --recursive
+
+# Install Node.js dev dependencies when available.
+if [ -f package.json ]; then
+	npm install
 fi

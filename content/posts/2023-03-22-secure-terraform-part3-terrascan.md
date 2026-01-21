@@ -172,3 +172,7 @@ Terrascan is a powerful tool that can help you improve the security and complian
 With its support for custom policies, Terrascan allows you to tailor its scanning capabilities to meet your organization's specific requirements.
 
 In conclusion, using tools like Terrascan, alongside others like tfsec, is an essential part of maintaining a secure and compliant infrastructure in a world increasingly reliant on Infrastructure as Code.
+
+## GitHub Repositories
+
+{{< github repo="accurics/terrascan" >}}

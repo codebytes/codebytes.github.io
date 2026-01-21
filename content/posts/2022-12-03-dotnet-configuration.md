@@ -169,3 +169,7 @@ info: Microsoft.Hosting.Lifetime[0]
 As you build your applications, think about adding validation to ensure your applications have a valid configuration at startup. Having runtime errors due to configuration is an annoying and sometimes hard problem to troubleshoot.
 
 Please dive into the amazing documentation on the [.NET Configuration system](https://learn.microsoft.com/en-us/dotnet/core/extensions/configuration) and look into the [Options Pattern documentation](https://learn.microsoft.com/en-us/dotnet/core/extensions/options) as well!
+
+## GitHub Repositories
+
+{{< github repo="Codebytes/dotnet-configuration-in-depth" >}}

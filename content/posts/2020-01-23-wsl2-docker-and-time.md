@@ -50,3 +50,7 @@ sudo hwclock -s
 ```
 
 I hope this helps someone until this goes GA. Thanks for your time!
+
+## GitHub Repositories
+
+{{< github repo="microsoft/WSL" >}}

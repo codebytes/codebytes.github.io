@@ -35,3 +35,9 @@ Despite the keyboard struggles, I managed to pull it off. I used the browser to 
 What could have been a total disaster turned into a great example of how powerful and resilient modern development tools are. [GitHub Codespaces](https://github.com/features/codespaces) didn't just save my presentation; it became the star of the show, proving that with the right tools, we can roll with the punches and keep going.
 
 So, the next time technology decides not to cooperate, just remember-if your work's in the cloud, you're always just a few clicks away from getting back on track.
+
+## GitHub Repositories
+
+{{< github repo="codebytes/dev-containers" >}}
+{{< github repo="python/cpython" >}}
+{{< github repo="home-assistant/core" >}}

@@ -202,3 +202,11 @@ This runs BEFORE you code gets committed and before it gets pushed to GitHub. Yo
 ## Conclusion
 
 Terraform is a great tool for infrastructure as code. Leveraging smart tools like tfsec at various places in the development cycle can help you find and fix those issues before they become a problem. Join me again soon as we look at more tools to help you secure your infrastructure.
+
+## GitHub Repositories
+
+{{< github repo="aquasecurity/tfsec" >}}
+{{< github repo="tenable/terrascan" >}}
+{{< github repo="bridgecrewio/checkov" >}}
+{{< github repo="Codebytes/secure-terraform-on-azure" >}}
+{{< github repo="antonbabenko/pre-commit-terraform" >}}
