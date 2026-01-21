@@ -1,6 +1,6 @@
 ---
 title: "Migrating from Jekyll to Hugo Part 2: Content Migration"
-date: 2025-01-21
+date: 2026-01-21
 draft: true
 categories:
   - Blog
