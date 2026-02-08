@@ -152,6 +152,17 @@ This appears in the summary.
 This is the full content.
 ```
 
+For example, the excerpt you saw at the top of this post — "In Part 1, I covered why I switched from Jekyll to Hugo. Now let's dive into the actual content migration." — is everything before the `<!--more-->` tag. Hugo uses that text on list pages and in RSS feeds. This post itself uses the same pattern:
+
+```markdown
+In Part 1, I covered why I switched from Jekyll to Hugo. Now let's dive into the actual content migration.
+
+<!--more-->
+
+## Front Matter Conversion
+...
+```
+
 ## Taxonomy Cleanup
 
 I took the opportunity to consolidate tags:
