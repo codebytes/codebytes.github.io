@@ -25,67 +25,152 @@ name: Deploy Hugo site to Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    env:
+      HUGO_VERSION: 0.154.5
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@8e8c483db84b4bee # v6.0.2
         with:
-          submodules: recursive
           fetch-depth: 0
+          persist-credentials: false
+          submodules: recursive
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
+        uses: peaceiris/actions-hugo@75d2e847 # v3.0.0
         with:
-          hugo-version: 'latest'
+          hugo-version: ${{ env.HUGO_VERSION }}
           extended: true
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        id: pages
+        uses: actions/configure-pages@983d7736 # v5.0.0
 
-      - name: Build
+      - name: Cache Hugo resources
+        uses: actions/cache@8b402f58 # v5.0.3
+        with:
+          path: |
+            ${{ runner.temp }}/hugo_cache
+            resources/_gen
+          key: hugo-${{ runner.os }}-${{ hashFiles('content/**', 'config/**', 'assets/**') }}
+          restore-keys: |
+            hugo-${{ runner.os }}-
+
+      - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
           TZ: America/New_York
-        run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@7b1f4a76 # v4.0.0
         with:
           path: ./public
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db9016 # v4.0.5
 ```
 
 Key points:
 
-- **`submodules: recursive`** - Required for theme as submodule
+- **SHA-pinned actions** - Every action is pinned to a commit SHA, not a mutable tag — critical for supply chain security
+- **Scoped permissions** - Minimal permissions declared per-job, not at the workflow level
+- **`submodules: recursive`** - Required for the theme submodule
 - **`fetch-depth: 0`** - Needed for `.GitInfo` and `.Lastmod`
-- **`extended: true`** - Required for SCSS/Sass processing
-- **`--gc --minify`** - Clean up and optimize output
+- **`persist-credentials: false`** - Security best practice for checkout
+- **Pinned Hugo version** - `HUGO_VERSION` env var ensures reproducible builds
+- **Caching** - Both `hugo_cache` and `resources/_gen` are cached to speed up builds
+- **`--gc --minify`** - Clean up unused cache entries and optimize output
+
+## Linting with Super-Linter
+
+In addition to the deploy workflow, I added a [Super-Linter](https://github.com/super-linter/super-linter) workflow that runs on every PR:
+
+```yaml
+name: Super-Linter
+
+on:
+  pull_request: null
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Lint
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+      statuses: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@8e8c483db84b4bee # v6.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Super-linter
+        uses: super-linter/super-linter@d5b0a2ab # v8.3.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_ALL_CODEBASE: 'false'
+          # Auto-fix formatting on PR
+          FIX_CSS_PRETTIER: 'true'
+          FIX_HTML_PRETTIER: 'true'
+          FIX_JSON_PRETTIER: 'true'
+          FIX_MARKDOWN_PRETTIER: 'true'
+          FIX_YAML_PRETTIER: 'true'
+          # Disable linters that don't apply
+          VALIDATE_JSCPD: 'false'
+          VALIDATE_PYTHON: 'false'
+          # Use repo markdownlint config
+          MARKDOWN_CONFIG_FILE: '.markdownlint.yml'
+          # Don't lint the theme submodule
+          FILTER_REGEX_EXCLUDE: 'themes/.*'
+```
+
+This catches markdown issues, YAML errors, and formatting problems before they hit `main`. The `FIX_*` options automatically commit formatting corrections back to the PR branch, which saves a lot of manual cleanup. I exclude the `themes/` directory since that's third-party code.
+
+I also keep linting config files in the repo root:
+
+- `.markdownlint.yml` - Disables rules like `MD013` (line length) and `MD033` (inline HTML — needed for Hugo shortcodes)
+- `.yaml-lint.yml` - Warns on formatting issues without blocking
+- `.textlintrc` - Terminology checks
+- `.eslintrc.yml` - JavaScript linting for any custom scripts
 
 ## Challenges and Solutions
 
@@ -113,13 +198,14 @@ WARN Module "blowfish" is not compatible with this Hugo version
 
 ```yaml
 # In GitHub Actions
-hugo-version: '0.140.2'
+env:
+  HUGO_VERSION: 0.154.5
 ```
 
 ```bash
-# Pin theme to specific commit
+# Pin theme to specific tag
 cd themes/blowfish
-git checkout v2.52.0
+git checkout v2.97.0
 ```
 
 ### Challenge 3: Date Formatting
@@ -142,15 +228,25 @@ Some Jekyll layouts needed recreation. Hugo's template lookup order:
 
 I started by copying theme layouts to my `layouts/` folder and customizing.
 
-### Challenge 5: RSS Feed URLs
+### Challenge 5: Split Config Files
 
-Jekyll's feed was at `/feed.xml`, Hugo's default is `/index.xml`. I added an alias:
+Hugo supports splitting configuration across multiple files. Rather than one monolithic `config.toml`, I use a `config/_default/` directory:
 
-```toml
-# config.toml
-[outputFormats.RSS]
-  baseName = "feed"
+```text
+config/_default/
+├── hugo.toml        # Core site settings
+├── languages.en.toml
+├── markup.toml      # Goldmark, syntax highlighting
+├── menus.en.toml
+├── module.toml
+└── params.toml      # Theme parameters
 ```
+
+This keeps things organized — especially as Blowfish has many configurable params. One thing that helped: setting `buildFuture = true` in `hugo.toml` so scheduled posts show up locally during development.
+
+### Challenge 6: RSS Feed URLs
+
+Jekyll's feed was at `/feed.xml`, Hugo defaults to `/index.xml`. I could have customized it, but decided to just let Hugo use the default and updated any external references.
 
 ## Tips for Your Migration
 
