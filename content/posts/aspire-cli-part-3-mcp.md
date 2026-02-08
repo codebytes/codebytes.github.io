@@ -61,12 +61,12 @@ aspire mcp init
 
 The command detects supported AI assistants in your environment and generates configuration files. Currently supported assistants for automatic setup:
 
-- **VS Code** — Generates `.vscode/mcp.json`
+- **Visual Studio Code** — Generates `.vscode/mcp.json`
 - **GitHub Copilot CLI** — Generates Copilot CLI configuration
 - **Claude Code** — Generates `.claude/` configuration
 - **OpenCode** — Generates OpenCode configuration
 
-The generated config uses STDIO transport, launching `aspire mcp start` as a subprocess. For example, VS Code gets a `.vscode/mcp.json` like:
+The generated config uses STDIO transport, launching `aspire mcp start` as a subprocess. For example, Visual Studio Code gets a `.vscode/mcp.json` like:
 
 ```json
 {
@@ -192,7 +192,7 @@ The AI sees the Python service, the OpenAI connection, health check status, logs
 
 | Assistant | `aspire mcp init` | Manual (Dashboard) | Docs |
 |-----------|:-----------------:|:------------------:|------|
-| VS Code Copilot | ✅ | ✅ | [MCP servers](https://code.visualstudio.com/docs/copilot/customization/mcp-servers) |
+| Visual Studio Code Copilot | ✅ | ✅ | [MCP servers](https://code.visualstudio.com/docs/copilot/customization/mcp-servers) |
 | GitHub Copilot CLI | ✅ | ✅ | [Add MCP server](https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server) |
 | Claude Code | ✅ | ✅ | [MCP configuration](https://docs.claude.com/en/docs/claude-code/mcp) |
 | OpenCode | ✅ | ✅ | [OpenCode docs](https://opencode.ai) |
@@ -204,7 +204,7 @@ The AI sees the Python service, the OpenAI connection, health check status, logs
 
 When using the manual/HTTP configuration, the `x-mcp-api-key` secures access to MCP. Your AI assistant needs access to this key — use your tool's secure storage to avoid committing it to source control.
 
-**VS Code Example** — Use [input variables](https://code.visualstudio.com/docs/copilot/customization/mcp-servers#_input-variables-for-sensitive-data) to prompt for the key at connection time rather than hardcoding it in `mcp.json`.
+**Visual Studio Code Example** — Use [input variables](https://code.visualstudio.com/docs/copilot/customization/mcp-servers#_input-variables-for-sensitive-data) to prompt for the key at connection time rather than hardcoding it in `mcp.json`.
 
 > **Note:** If you're using `aspire mcp init` (STDIO transport), there's no API key to manage — authentication is handled by the subprocess communication.
 

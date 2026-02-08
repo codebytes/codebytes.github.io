@@ -43,7 +43,7 @@ That said, **.NET remains the sweet spot** for Aspire because you get the riches
 
 ### The Problem Aspire Solves
 
-Coordinating multiple services usually means lots of config, hard-coded URLs, and fragile startup order. Aspire helps by giving you:
+Coordinating multiple services usually means lots of config, hardcoded URLs, and fragile startup order. Aspire helps by giving you:
 
 - **Orchestration** - Model resources and dependencies in code
 - **Integrations** - Standard components for common infrastructure
@@ -127,7 +127,7 @@ builder.Build().Run();
 **Why Aspire often feels better:**
 
 - **Less config glue** - Model topology in code
-- **Service discovery by default** - Fewer hard-coded URLs
+- **Service discovery by default** - Fewer hardcoded URLs
 - **Built-in dashboard** - Logs, traces, and metrics in one place
 - **Integrations** - Common infra with sensible defaults
 - **Polyglot** - C#, Python, JavaScript, containers
@@ -156,7 +156,7 @@ Before installing the Aspire CLI, ensure you have the following:
 | Requirement | Details |
 |-------------|---------|
 | .NET 8+ SDK | Required for Aspire 13.0+. Run `dotnet --info` to verify. The CLI needs the SDK even if your apps target .NET 8 or 9. |
-| Editor/IDE | VS Code with C# Dev Kit and Aspire extensions, Visual Studio 2022 17.13+, or JetBrains Rider. |
+| Editor/IDE | Visual Studio Code with C# Dev Kit and Aspire extensions, Visual Studio 2022 17.13+, or JetBrains Rider. |
 | Optional | GitHub Codespaces or Dev Containers for cloud-based development. |
 
 ## Installing the Aspire CLI
@@ -166,7 +166,7 @@ The install scripts download the CLI and add it to your PATH.
 | Platform | Install command |
 | --- | --- |
 | Windows (PowerShell) | `irm https://aspire.dev/install.ps1 \| iex` |
-| macOS and Linux (bash) | `curl -fsSL https://aspire.dev/install.sh \| bash` |
+| macOS and Linux (Bash) | `curl -fsSL https://aspire.dev/install.sh \| bash` |
 
 If `aspire` isn't found, open a new terminal and try again.
 
