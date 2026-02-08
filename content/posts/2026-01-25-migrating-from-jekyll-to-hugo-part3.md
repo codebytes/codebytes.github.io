@@ -262,7 +262,26 @@ This keeps things organized — especially as Blowfish has many configurable par
 
 ### Challenge 6: RSS Feed URLs
 
-Jekyll's feed was at `/feed.xml`, Hugo defaults to `/index.xml`. I could have customized it, but decided to just let Hugo use the default and updated any external references.
+Jekyll's feed was at `/feed.xml`, but Hugo defaults to `/index.xml`. To avoid breaking existing subscribers, I configured Hugo to output both:
+
+```toml
+# hugo.toml
+[outputs]
+  home = ["HTML", "RSS", "FEED", "JSON"]
+
+# Legacy feed.xml for backward compatibility with Jekyll
+[outputFormats.FEED]
+  mediaType = "application/rss+xml"
+  baseName = "feed"
+```
+
+The custom `FEED` output format needs a matching template, so I copied the theme's `rss.xml` into my layouts:
+
+```bash
+cp themes/blowfish/layouts/_default/rss.xml layouts/_default/feed.xml
+```
+
+Now both `/index.xml` and `/feed.xml` are generated — existing subscribers keep working, and Hugo's default feed works too.
 
 ## Tips for Your Migration
 
