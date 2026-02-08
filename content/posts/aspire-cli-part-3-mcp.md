@@ -116,17 +116,12 @@ Once connected, your AI assistant gains access to several powerful tools:
 
 After configuring MCP, try these prompts with your AI assistant:
 
-> "Are all my resources running?"
-
-> "Show me the last 50 log entries from the API service"
-
-> "Analyze HTTP request performance for the webfrontend"
-
-> "What traces show errors in the last 5 minutes?"
-
-> "Restart unhealthy resources"
-
-> "What Aspire integrations are available for Redis?"
+- *"Are all my resources running?"*
+- *"Show me the last 50 log entries from the API service"*
+- *"Analyze HTTP request performance for the webfrontend"*
+- *"What traces show errors in the last 5 minutes?"*
+- *"Restart unhealthy resources"*
+- *"What Aspire integrations are available for Redis?"*
 
 ## Excluding Resources from MCP
 
@@ -172,11 +167,9 @@ builder.Build().Run();
 
 After running `aspire mcp init` and `aspire run`, you can ask your AI assistant things like:
 
-> "Is the ai-agent resource healthy?"
-
-> "Show me any errors in the agent logs"
-
-> "What OpenTelemetry traces have the longest duration?"
+- *"Is the ai-agent resource healthy?"*
+- *"Show me any errors in the agent logs"*
+- *"What OpenTelemetry traces have the longest duration?"*
 
 The AI sees the Python service, the OpenAI connection, health check status, logs, and traces — all in real time. No more copying log output into chat windows.
 
