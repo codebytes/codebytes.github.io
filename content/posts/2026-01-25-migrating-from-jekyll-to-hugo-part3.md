@@ -10,6 +10,7 @@ tags:
   - GitHub Actions
   - DevOps
 description: "Setting up GitHub Actions for Hugo deployment and lessons learned from the migration."
+featureimage: "images/logos/hugo-logo.svg"
 ---
 
 In the final part of this series, I cover deploying Hugo to GitHub Pages and share the challenges I encountered.
@@ -43,7 +44,7 @@ jobs:
       pages: write
       id-token: write
     env:
-      HUGO_VERSION: 0.155.3
+      HUGO_VERSION: 0.154.5
     steps:
       - name: Checkout
         uses: actions/checkout@8e8c483db84b4bee # v6.0.2
@@ -199,7 +200,7 @@ WARN Module "blowfish" is not compatible with this Hugo version
 ```yaml
 # In GitHub Actions
 env:
-  HUGO_VERSION: 0.155.3
+  HUGO_VERSION: 0.154.5
 ```
 
 ```bash

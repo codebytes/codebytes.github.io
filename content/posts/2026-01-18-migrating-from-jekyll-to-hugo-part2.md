@@ -10,6 +10,7 @@ tags:
   - Markdown
   - Mermaid
 description: "How I migrated content from Jekyll to Hugo - front matter, shortcodes, and assets."
+featureimage: "images/logos/hugo-logo.svg"
 ---
 
 In Part 1, I covered why I switched from Jekyll to Hugo. Now let's dive into the actual content migration.
