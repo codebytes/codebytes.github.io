@@ -43,7 +43,7 @@ jobs:
       pages: write
       id-token: write
     env:
-      HUGO_VERSION: 0.154.5
+      HUGO_VERSION: 0.155.3
     steps:
       - name: Checkout
         uses: actions/checkout@8e8c483db84b4bee # v6.0.2
@@ -199,7 +199,7 @@ WARN Module "blowfish" is not compatible with this Hugo version
 ```yaml
 # In GitHub Actions
 env:
-  HUGO_VERSION: 0.154.5
+  HUGO_VERSION: 0.155.3
 ```
 
 ```bash
