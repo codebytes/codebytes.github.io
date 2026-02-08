@@ -50,6 +50,10 @@ Key changes I made:
 - **Standardized capitalization** - Consistent taxonomy naming
 - **Removed `mermaid: true`** - Blowfish auto-detects mermaid shortcodes
 
+{{< alert "lightbulb" >}}
+**Tip:** Run `hugo server` while migrating so you can preview each converted post immediately and catch front matter issues early.
+{{< /alert >}}
+
 ## Shortcode Conversions
 
 Jekyll uses Liquid templates while Hugo has its own shortcode system.
@@ -136,6 +140,10 @@ Jekyll and Hugo organize assets differently:
 
 For images referenced in posts, I kept paths like `/images/photo.jpg` which maps to `static/images/photo.jpg`.
 
+{{< alert >}}
+**Watch out:** Hugo's `assets/` folder is for files processed by Hugo Pipes (SCSS, image resizing, fingerprinting). Use `static/` for files served as-is. Mixing them up leads to 404s.
+{{< /alert >}}
+
 ## Handling Excerpts
 
 Jekyll uses `excerpt_separator` in config or `<!--more-->` in posts. Hugo works the same way with `<!--more-->`:
@@ -152,17 +160,6 @@ This appears in the summary.
 This is the full content.
 ```
 
-For example, the excerpt you saw at the top of this post — "In Part 1, I covered why I switched from Jekyll to Hugo. Now let's dive into the actual content migration." — is everything before the `<!--more-->` tag. Hugo uses that text on list pages and in RSS feeds. This post itself uses the same pattern:
-
-```markdown
-In Part 1, I covered why I switched from Jekyll to Hugo. Now let's dive into the actual content migration.
-
-<!--more-->
-
-## Front Matter Conversion
-...
-```
-
 ## Taxonomy Cleanup
 
 I took the opportunity to consolidate tags:
@@ -172,6 +169,8 @@ I took the opportunity to consolidate tags:
 - Removed unused categories
 
 ## Bulk Migration Script
+
+> "The best migration is the one you automate. Don't hand-edit 60 posts when a script can do it in seconds."
 
 For 60+ posts, I used a simple PowerShell script:
 
@@ -188,6 +187,10 @@ Get-ChildItem "content/posts/*.md" | ForEach-Object {
     Set-Content $_.FullName $content
 }
 ```
+
+{{< alert "circle-info" >}}
+**Note:** The PowerShell script above covers the basics, but you may need additional passes for things like Liquid `{% raw %}` blocks or custom Jekyll includes. Test thoroughly!
+{{< /alert >}}
 
 ## What's Next
 
