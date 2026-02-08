@@ -64,6 +64,10 @@ Jekyll uses Liquid templates while Hugo has its own shortcode system.
 {{</* figure src="/images/photo.jpg" caption="My caption" */>}}
 ```
 
+Here's the Hugo figure shortcode in action:
+
+{{< figure src="images/logos/hugo-logo.svg" alt="Hugo Logo" caption="The Hugo logo rendered with the figure shortcode" class="mx-auto" width="200" >}}
+
 ### Mermaid Diagrams
 
 This was a bigger change. Jekyll with the mermaid plugin uses fenced code blocks:
@@ -86,7 +90,16 @@ graph TD
 {{</* /mermaid */>}}
 ```
 
-I wrote a quick script to find and convert these across all posts.
+I wrote a quick script to find and convert these across all posts. Here's what a real mermaid diagram looks like after migration:
+
+{{< mermaid >}}
+flowchart LR
+    A["Jekyll Post\n(.md + Liquid)"] -->|migrate| B["Hugo Post\n(.md + Shortcodes)"]
+    B --> C{"hugo build"}
+    C --> D["Static HTML"]
+    C --> E["Processed Images"]
+    C --> F["Minified CSS/JS"]
+{{< /mermaid >}}
 
 ### Code Blocks
 
