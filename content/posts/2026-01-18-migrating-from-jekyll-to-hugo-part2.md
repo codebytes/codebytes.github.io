@@ -115,6 +115,15 @@ func main() {
 {{</* /highlight */>}}
 ```
 
+Here's what that looks like rendered with Hugo's syntax highlighting and line numbers:
+
+{{< highlight go "linenos=table,hl_lines=3" >}}
+func main() {
+    fmt.Println("Hello")
+    fmt.Println("Highlighted!")
+}
+{{< /highlight >}}
+
 ## Static Assets
 
 Jekyll and Hugo organize assets differently:
