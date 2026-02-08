@@ -1,5 +1,18 @@
 # Project standards
 
+## Git Workflow
+- Never commit directly to the `main` branch
+- Always create a feature branch for changes
+- Open a pull request to merge into `main`
+- Use descriptive branch names (e.g., `feature/add-blog-post`, `fix/linting-errors`)
+
+## Hugo & Blowfish Theme
+- This site uses Hugo with the Blowfish theme (submodule in `themes/blowfish`)
+- Hugo version must stay within the range declared in `themes/blowfish/config.toml` (`[module.hugoVersion]` min/max)
+- Before upgrading Hugo, check the Blowfish `config.toml` `max` version constraint
+- Update `HUGO_VERSION` in `.github/workflows/hugo.yml` to match any local Hugo version changes
+- If Blowfish warns "is not compatible with this Hugo version", downgrade Hugo to the declared `max`
+
 ## Markdown Guidelines
 - avoid special characters
 - use headings to structure content
