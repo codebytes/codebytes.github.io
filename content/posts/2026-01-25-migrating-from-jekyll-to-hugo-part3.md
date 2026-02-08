@@ -210,13 +210,29 @@ git checkout v2.97.0
 
 ### Challenge 3: Date Formatting
 
-Hugo uses Go's reference time format. This tripped me up:
+Hugo uses Go's reference time format. This tripped me up — Go doesn't use `YYYY-MM-DD` style format strings. Instead, it uses a specific reference time:
 
-```go
-// Go reference: Mon Jan 2 15:04:05 MST 2006
-{{ .Date.Format "January 2, 2006" }}   // January 20, 2025
-{{ .Date.Format "2006-01-02" }}         // 2025-01-20
+```text
+Go reference time: Mon Jan 2 15:04:05 MST 2006
 ```
+
+So in Hugo templates, you format dates like this:
+
+```go-html-template
+{{/* Long date */}}
+{{ .Date.Format "January 2, 2006" }}
+{{/* Output: January 25, 2026 */}}
+
+{{/* ISO date */}}
+{{ .Date.Format "2006-01-02" }}
+{{/* Output: 2026-01-25 */}}
+
+{{/* With time */}}
+{{ .Date.Format "Jan 2, 2006 3:04 PM" }}
+{{/* Output: Jan 25, 2026 12:00 AM */}}
+```
+
+The magic is that every component of the format is a specific number: month=1, day=2, hour=3, minute=4, second=5, year=6, timezone=7 (MST). Once you internalize that, it clicks.
 
 ### Challenge 4: Custom Layouts
 
