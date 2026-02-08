@@ -400,6 +400,9 @@ aspire update --self
 
 ## Wrapping Up
 
-There is too much to cover here, so there will be follow-up posts on deployment (`aspire publish` / `aspire deploy`) and pipelines with `aspire do`.
+There is too much to cover here, so check out the follow-up posts on deployment and AI-assisted development:
+
+- [Part 2 - Deployment and Pipelines](/posts/aspire-cli-part-2/) — `aspire publish`, `aspire deploy`, and CI/CD with GitHub Actions
+- [Part 3 - MCP for AI Coding Agents](/posts/aspire-cli-part-3-mcp/) — Connect AI assistants to your running Aspire applications
 
 Until next time, happy Aspiring!

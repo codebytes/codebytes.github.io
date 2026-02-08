@@ -1,19 +1,22 @@
 ---
 title: "Aspire CLI Part 3 - MCP for AI Coding Agents"
+date: '2026-02-22'
 draft: true
 categories:
 - Development
 tags:
-- dotnet
 - Aspire
+- CLI
+- dotnet
 - AI
 - MCP
-- GitHub-Copilot
-- Claude
 - distributed-systems
+- GitHub-Copilot
 image: images/dotnet-aspire-logo.png
 featureImage: images/dotnet-aspire-logo.png
 slug: aspire-cli-part-3-mcp
+aliases:
+- /2026/02/22/aspire-cli-part-3-mcp/
 ---
 
 In [Part 1](/posts/aspire-cli-getting-started/), we covered creating and running Aspire apps. In [Part 2](/posts/aspire-cli-part-2/), we explored deployment and CI/CD. Now let's look at one of Aspire's most exciting features: MCP (Model Context Protocol) support for AI coding agents.
@@ -24,13 +27,13 @@ Aspire MCP enables AI coding agents to understand and interact with your distrib
 
 ## What is Aspire MCP?
 
-The Aspire MCP server is a local [Model Context Protocol](https://modelcontextprotocol.io/) server built into the Aspire dashboard. Starting with Aspire 9.0, MCP support has been available (manual configuration), and Aspire 13.1 added the `aspire mcp init` command for automatic setup.
+The Aspire MCP server is a local [Model Context Protocol](https://modelcontextprotocol.io/) server that connects your AI coding assistants to your running distributed application. Starting with Aspire 9.0, MCP support has been available through manual dashboard configuration, and Aspire 13.1 added the `aspire mcp init` command for automatic setup.
 
 It bridges the gap between your running distributed application and AI coding assistants like GitHub Copilot, Claude Code, Cursor, and OpenAI Codex.
 
 With Aspire MCP, your AI assistant can:
 
-- **Query resources** — Get resource states, endpoints, health status, and available commands
+- **Query resources** — Get resource states, source, endpoints, health status, and available commands
 - **Debug with logs** — Access real-time console logs from any resource
 - **Investigate telemetry** — Analyze structured logs and distributed traces across services
 - **Execute commands** — Run resource commands directly
@@ -38,53 +41,65 @@ With Aspire MCP, your AI assistant can:
 
 This transforms your AI assistant from a code generator into a development partner that understands your running system.
 
-## Getting Started
+## Two Transport Modes
 
-There are two ways to configure MCP: automatically with the CLI (13.1+) or manually through the dashboard (9.0+).
+Before setting up MCP, it helps to understand the two transport modes:
+
+- **STDIO** (CLI approach) — The AI assistant launches `aspire mcp start` as a subprocess. No URL or API key needed. This is the recommended approach for Aspire 13.1+.
+- **HTTP** (manual/dashboard approach) — The Aspire dashboard exposes an HTTP endpoint with URL + API key authentication. This is the approach for Aspire 9.0-13.0 or when you need more control.
+
+## Getting Started
 
 ### Option 1: Using the Aspire CLI (Recommended)
 
-Starting with Aspire 13.1, the `aspire mcp init` command detects and configures your AI assistant automatically:
+Starting with Aspire 13.1, the `aspire mcp init` command detects supported AI assistant environments and creates the appropriate configuration files:
 
 ```bash
 cd your-aspire-project
 aspire mcp init
 ```
 
-The command walks you through an interactive selection:
+The command detects supported AI assistants in your environment and generates configuration files. Currently supported assistants for automatic setup:
 
-```text
-Which agent environments do you want to configure?
-[ ] Configure VS Code to use the Aspire MCP server
-[ ] Configure GitHub Copilot CLI to use Aspire MCP server
-[ ] Configure Claude Code to use Aspire MCP server
-[ ] Configure Open Code to use Aspire MCP server
+- **VS Code** — Generates `.vscode/mcp.json`
+- **GitHub Copilot CLI** — Generates Copilot CLI configuration
+- **Claude Code** — Generates `.claude/` configuration
+- **OpenCode** — Generates OpenCode configuration
 
-Which additional options do you want to enable?
-[ ] Create an agent instructions file (AGENTS.md)
-[ ] Configure Playwright MCP server
+The generated config uses STDIO transport, launching `aspire mcp start` as a subprocess. For example, VS Code gets a `.vscode/mcp.json` like:
+
+```json
+{
+  "servers": {
+    "aspire": {
+      "type": "stdio",
+      "command": "aspire",
+      "args": ["mcp", "start"]
+    }
+  }
+}
 ```
 
-Select your preferred AI assistants and the CLI generates the appropriate configuration files (`.vscode/mcp.json`, `.claude/`, etc.).
+If you don't already have an `AGENTS.md` file in your project, one is created automatically with context about your Aspire application to help AI assistants understand your project.
 
-### Option 2: Manual Configuration
+### Option 2: Manual Configuration (Aspire 9.0-13.0)
 
-For Aspire 9.0 through 13.0, or when you want more control:
+For older Aspire versions, or when you need more control:
 
 1. Run your Aspire app with `aspire run`
 2. Open the Aspire dashboard
 3. Click the **MCP** button in the top right corner
 4. Use the displayed settings to configure your AI assistant
 
-The key settings you'll need:
+The dashboard provides these settings for HTTP-based MCP:
 
 | Setting | Description |
 |---------|-------------|
-| `url` | Aspire MCP address |
+| `url` | Aspire MCP endpoint address |
 | `type` | `http` (streamable-HTTP MCP server) |
 | `x-mcp-api-key` | HTTP header for securing access |
 
-Configuration varies by AI assistant. Consult your tool's MCP documentation to add these settings.
+This approach supports additional assistants including Visual Studio, Cursor, and OpenAI Codex. Consult your tool's MCP documentation for configuration details.
 
 ## MCP Tools Available
 
@@ -92,25 +107,25 @@ Once connected, your AI assistant gains access to several powerful tools:
 
 ### Resource Management
 
-- **`list_resources`** - Lists all resources with state, health status, endpoints, and commands
-- **`execute_resource_command`** - Executes commands on specific resources
+- **`list_resources`** — Lists all resources with state, health status, source, endpoints, and commands
+- **`execute_resource_command`** — Executes commands on specific resources
 
 ### Logging and Telemetry
 
-- **`list_console_logs`** - Gets console logs for a resource
-- **`list_structured_logs`** - Retrieves structured logs, optionally filtered by resource
-- **`list_traces`** - Lists distributed traces across your system
-- **`list_trace_structured_logs`** - Gets structured logs for a specific trace
+- **`list_console_logs`** — Gets console logs for a resource
+- **`list_structured_logs`** — Retrieves structured logs, optionally filtered by resource
+- **`list_traces`** — Lists distributed traces, optionally filtered by resource name
+- **`list_trace_structured_logs`** — Gets structured logs for a specific trace
 
 ### Integration Discovery
 
-- **`list_integrations`** - Shows available Aspire hosting integrations with package IDs and versions
-- **`get_integration_docs`** - Retrieves documentation for a specific integration package
+- **`list_integrations`** — Shows available Aspire hosting integrations with package IDs and versions
+- **`get_integration_docs`** — Retrieves documentation for a specific integration package
 
 ### AppHost Management
 
-- **`list_apphosts`** - Lists all AppHosts in the workspace
-- **`select_apphost`** - Switches context to a specific AppHost
+- **`list_apphosts`** — Lists all AppHost connections, showing which are within the working directory scope and which are outside
+- **`select_apphost`** — Switches context to a specific AppHost
 
 ## Example Prompts
 
@@ -175,22 +190,23 @@ The AI sees the Python service, the OpenAI connection, health check status, logs
 
 ## Supported AI Assistants
 
-Configuration varies by assistant. Here are the supported tools and their documentation:
-
-| Assistant | Configuration Docs |
-|-----------|-------------------|
-| Claude Code | [MCP configuration](https://docs.claude.com/en/docs/claude-code/mcp) |
-| GitHub Copilot CLI | [Add MCP server](https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server) |
-| VS Code Copilot | [MCP servers](https://code.visualstudio.com/docs/copilot/customization/mcp-servers) |
-| Visual Studio | [MCP configuration](https://learn.microsoft.com/visualstudio/ide/mcp-servers) |
-| Cursor | [Installing MCP servers](https://cursor.com/docs/context/mcp#installing-mcp-servers) |
-| OpenAI Codex | [MCP setup](https://developers.openai.com/codex/mcp/) |
+| Assistant | `aspire mcp init` | Manual (Dashboard) | Docs |
+|-----------|:-----------------:|:------------------:|------|
+| VS Code Copilot | ✅ | ✅ | [MCP servers](https://code.visualstudio.com/docs/copilot/customization/mcp-servers) |
+| GitHub Copilot CLI | ✅ | ✅ | [Add MCP server](https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server) |
+| Claude Code | ✅ | ✅ | [MCP configuration](https://docs.claude.com/en/docs/claude-code/mcp) |
+| OpenCode | ✅ | ✅ | [OpenCode docs](https://opencode.ai) |
+| Visual Studio | — | ✅ | [MCP configuration](https://learn.microsoft.com/visualstudio/ide/mcp-servers) |
+| Cursor | — | ✅ | [Installing MCP servers](https://cursor.com/docs/context/mcp#installing-mcp-servers) |
+| OpenAI Codex | — | ✅ | [MCP setup](https://developers.openai.com/codex/mcp/) |
 
 ## Securing the API Key
 
-The `x-mcp-api-key` secures access to MCP, but your AI assistant needs access to it. Use your tool's secure storage features:
+When using the manual/HTTP configuration, the `x-mcp-api-key` secures access to MCP. Your AI assistant needs access to this key — use your tool's secure storage to avoid committing it to source control.
 
-**VS Code Example** - Use [input variables](https://code.visualstudio.com/docs/copilot/customization/mcp-servers#_input-variables-for-sensitive-data) to avoid committing the key to source control in `mcp.json`.
+**VS Code Example** — Use [input variables](https://code.visualstudio.com/docs/copilot/customization/mcp-servers#_input-variables-for-sensitive-data) to prompt for the key at connection time rather than hardcoding it in `mcp.json`.
+
+> **Note:** If you're using `aspire mcp init` (STDIO transport), there's no API key to manage — authentication is handled by the subprocess communication.
 
 ## Troubleshooting
 
@@ -235,10 +251,12 @@ Instead of asking you to describe your system, the AI can observe it directly.
 
 ## Learn More
 
-- [Aspire MCP Server Documentation](https://aspire.dev/dashboard/mcp-server/)
 - [Configure MCP Quick Start](https://aspire.dev/get-started/configure-mcp/)
+- [Aspire MCP Server Documentation](https://aspire.dev/dashboard/mcp-server/)
 - [aspire mcp init Command Reference](https://aspire.dev/reference/cli/commands/aspire-mcp-init/)
+- [aspire mcp start Command Reference](https://aspire.dev/reference/cli/commands/aspire-mcp-start/)
 - [Model Context Protocol Specification](https://modelcontextprotocol.io/)
+- [Open MCP Issues on GitHub](https://github.com/dotnet/aspire/issues?q=is%3Aopen+label%3Amcp)
 
 ## Related Posts
 
