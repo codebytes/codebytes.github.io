@@ -200,6 +200,22 @@ Azure__Location=<azure-region>
 Azure__ResourceGroup=<resource-group-name>
 ```
 
+## `aspire do` - Pipeline Automation
+
+The `aspire do` command executes pipeline steps defined by hosting integrations. Use `aspire do diagnostics` to discover what steps are available and their dependencies:
+
+```bash
+# List available pipeline steps
+aspire do diagnostics
+
+# Tear down a Docker Compose deployment
+aspire do docker-compose-down-dc
+
+# The naming convention is: docker-compose-down-{environment-name}
+```
+
+Well-known pipeline steps include `build`, `push`, `publish`, and `deploy`. Resources can contribute custom steps — for example, Docker Compose adds teardown steps. This command is particularly useful in CI/CD pipelines and for managing environment lifecycle.
+
 ## `aspire exec` - Run Commands in Resource Context
 
 The `aspire exec` command runs commands in the context of a specific resource with the correct connection strings and environment variables. This command is disabled by default — enable it first. See the [exec sample](https://github.com/codebytes/blog-samples/tree/main/aspire-cli/aspire-exec) for a complete working example with Postgres and Redis.
@@ -223,22 +239,6 @@ aspire exec --start-resource mydb -- dotnet ef migrations add Init
 ```
 
 The `--start-resource` (or `-s`) flag is useful when you need to start a resource (and its dependencies) before running a command against it.
-
-## `aspire do` - Pipeline Automation
-
-The `aspire do` command executes pipeline steps defined by hosting integrations. Use `aspire do diagnostics` to discover what steps are available and their dependencies:
-
-```bash
-# List available pipeline steps
-aspire do diagnostics
-
-# Tear down a Docker Compose deployment
-aspire do docker-compose-down-dc
-
-# The naming convention is: docker-compose-down-{environment-name}
-```
-
-Well-known pipeline steps include `build`, `push`, `publish`, and `deploy`. Resources can contribute custom steps — for example, Docker Compose adds teardown steps. This command is particularly useful in CI/CD pipelines and for managing environment lifecycle.
 
 ## Azure Developer CLI (azd) Integration
 
