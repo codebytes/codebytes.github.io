@@ -143,6 +143,31 @@ aspire publish -o ./azure-artifacts   # Generates Bicep files
 aspire deploy                         # Deploys to Azure Container Apps
 ```
 
+### Kubernetes Example
+
+For Kubernetes, add the hosting package and configure a compute environment. See the [Kubernetes sample](https://github.com/codebytes/blog-samples/tree/main/aspire-cli/aspire-kubernetes) for a complete working example.
+
+```csharp
+var builder = DistributedApplication.CreateBuilder(args);
+
+var k8s = builder.AddKubernetesEnvironment("k8s");
+
+var api = builder.AddProject<Projects.Api>("api")
+    .WithExternalHttpEndpoints();
+
+builder.Build().Run();
+```
+
+Generate and deploy:
+
+```bash
+# Generate Kubernetes manifests
+aspire publish -o ./k8s-output
+
+# Apply with kubectl or Helm
+kubectl apply -f ./k8s-output
+```
+
 ### Multiple Compute Environments
 
 If you add multiple compute environments, Aspire needs to know which resource goes where. Use `WithComputeEnvironment` to disambiguate:
@@ -266,31 +291,6 @@ Generated files:
 - `.azure/config.json` — Active environment configuration
 - `.azure/{env}/.env` — Environment-specific overrides
 - `.azure/{env}/config.json` — Public endpoint configuration
-
-## Kubernetes Deployment
-
-For Kubernetes, add the hosting package and configure a compute environment. See the [Kubernetes sample](https://github.com/codebytes/blog-samples/tree/main/aspire-cli/aspire-kubernetes) for a complete working example.
-
-```csharp
-var builder = DistributedApplication.CreateBuilder(args);
-
-var k8s = builder.AddKubernetesEnvironment("k8s");
-
-var api = builder.AddProject<Projects.Api>("api")
-    .WithExternalHttpEndpoints();
-
-builder.Build().Run();
-```
-
-Generate and deploy:
-
-```bash
-# Generate Kubernetes manifests
-aspire publish -o ./k8s-output
-
-# Apply with kubectl or Helm
-kubectl apply -f ./k8s-output
-```
 
 ## GitHub Actions
 
