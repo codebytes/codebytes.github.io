@@ -28,6 +28,8 @@ Aspire MCP enables AI coding agents to understand and interact with your distrib
 
 The Aspire MCP server is a local [Model Context Protocol](https://modelcontextprotocol.io/) server that connects your AI coding assistants to your running distributed application. Starting with Aspire 9.0, MCP support has been available through manual dashboard configuration, and Aspire 13.1 added the `aspire mcp init` command for automatic setup.
 
+> **Note:** The `aspire mcp` commands are being renamed to `aspire agent` in a future release. The generated configs already use `aspire agent mcp`. See the [MCP sample](https://github.com/codebytes/blog-samples/tree/main/aspire-cli/aspire-mcp) for a complete working example with Postgres, Redis, and pre-configured AI agent support.
+
 It bridges the gap between your running distributed application and AI coding assistants like GitHub Copilot, Claude Code, Cursor, and OpenAI Codex.
 
 With Aspire MCP, your AI assistant can:
@@ -256,6 +258,7 @@ Instead of asking you to describe your system, the AI can observe it directly.
 - [aspire mcp start Command Reference](https://aspire.dev/reference/cli/commands/aspire-mcp-start/)
 - [Model Context Protocol Specification](https://modelcontextprotocol.io/)
 - [Open MCP Issues on GitHub](https://github.com/dotnet/aspire/issues?q=is%3Aopen+label%3Amcp)
+- [Blog Post MCP Sample](https://github.com/codebytes/blog-samples/tree/main/aspire-cli/aspire-mcp)
 
 ## Wrapping Up
 
