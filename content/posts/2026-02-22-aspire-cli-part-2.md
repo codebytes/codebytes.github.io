@@ -78,7 +78,7 @@ Notice `${PG_PASSWORD}` and `${API_IMAGE}` are **not resolved** during publish. 
 
 ### Docker Compose Example
 
-The most common pattern from the [Aspire samples](https://github.com/davidfowl/aspire-13-samples) uses Docker Compose as the compute environment:
+The most common pattern from the [Aspire samples](https://github.com/davidfowl/aspire-13-samples) uses Docker Compose as the compute environment. See the [Docker Compose sample](https://github.com/codebytes/blog-samples/tree/main/aspire-cli/aspire-docker-compose) for a complete working example.
 
 ```csharp
 #:package Aspire.Hosting.Docker@13-*
@@ -113,7 +113,7 @@ aspire do docker-compose-down-dc    # Tear down the deployment
 
 ### Azure Container Apps Example
 
-For Azure, add the Azure Container Apps environment:
+For Azure, add the Azure Container Apps environment. See the [Azure Container Apps sample](https://github.com/codebytes/blog-samples/tree/main/aspire-cli/aspire-container-apps) for a complete working example.
 
 ```csharp
 #:package Aspire.Hosting.Azure.AppContainers@13.0.0
@@ -269,7 +269,7 @@ Generated files:
 
 ## Kubernetes Deployment
 
-For Kubernetes, add the hosting package and configure a compute environment:
+For Kubernetes, add the hosting package and configure a compute environment. See the [Kubernetes sample](https://github.com/codebytes/blog-samples/tree/main/aspire-cli/aspire-kubernetes) for a complete working example.
 
 ```csharp
 var builder = DistributedApplication.CreateBuilder(args);
@@ -381,6 +381,7 @@ This produces a manifest snapshot for inspecting resource graphs and troubleshoo
 - [Azure Developer CLI with Aspire](https://learn.microsoft.com/azure/developer/azure-developer-cli/)
 - [Aspire Samples (davidfowl)](https://github.com/davidfowl/aspire-13-samples)
 - [Official Aspire Samples](https://github.com/dotnet/aspire-samples)
+- [Blog Post Samples](https://github.com/codebytes/blog-samples/tree/main/aspire-cli)
 
 ## Wrapping Up
 
