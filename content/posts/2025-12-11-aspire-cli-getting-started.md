@@ -397,6 +397,7 @@ aspire update --self
 - [Add Aspire to Existing App](https://aspire.dev/get-started/add-aspire-existing-app/)
 - [Aspire Dashboard Overview](https://aspire.dev/dashboard/overview/)
 - [Integrations Gallery](https://aspire.dev/integrations/gallery/)
+- [Blog Post Samples](https://github.com/codebytes/blog-samples/tree/main/aspire-cli)
 
 ## Wrapping Up
 
