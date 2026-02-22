@@ -202,7 +202,7 @@ Azure__ResourceGroup=<resource-group-name>
 
 ## `aspire exec` - Run Commands in Resource Context
 
-The `aspire exec` command runs commands in the context of a specific resource with the correct connection strings and environment variables. This command is disabled by default — enable it first:
+The `aspire exec` command runs commands in the context of a specific resource with the correct connection strings and environment variables. This command is disabled by default — enable it first. See the [exec sample](https://github.com/codebytes/blog-samples/tree/main/aspire-cli/aspire-exec) for a complete working example with Postgres and Redis.
 
 ```bash
 # Enable the exec feature
