@@ -1,6 +1,6 @@
 ---
 title: "Aspire CLI Part 2 - Deployment and Pipelines"
-date: '2026-02-22'
+date: '2026-02-21'
 categories:
 - Development
 tags:
@@ -15,7 +15,7 @@ image: images/dotnet-aspire-logo.png
 featureImage: images/dotnet-aspire-logo.png
 slug: aspire-cli-part-2
 aliases:
-- /2026/02/22/aspire-cli-part-2/
+- /2026/02/21/aspire-cli-part-2/
 ---
 
 In [Part 1](/posts/aspire-cli-getting-started/), we covered the basics of the Aspire CLI: creating projects with `aspire new`, adding Aspire to existing apps with `aspire init`, running with `aspire run`, and managing integrations with `aspire add` and `aspire update`. Now let's dive into deployment and CI/CD pipelines.
