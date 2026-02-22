@@ -1,27 +1,28 @@
 ---
-title: Aspire CLI Part 2 - Deployment and Pipelines
-date: '2026-02-08'
-draft: true
+title: "Aspire CLI Part 2 - Deployment and Pipelines"
+date: '2026-02-21'
 categories:
 - Development
 tags:
 - Aspire
 - CLI
 - Azure
+- dotnet
+- distributed-systems
 - Deployment
 - CI/CD
-- distributed-systems
-- dotnet
 image: images/dotnet-aspire-logo.png
 featureImage: images/dotnet-aspire-logo.png
 slug: aspire-cli-part-2
 aliases:
-- /2026/02/08/aspire-cli-part-2/
+- /2026/02/21/aspire-cli-part-2/
 ---
 
 In [Part 1](/posts/aspire-cli-getting-started/), we covered the basics of the Aspire CLI: creating projects with `aspire new`, adding Aspire to existing apps with `aspire init`, running with `aspire run`, and managing integrations with `aspire add` and `aspire update`. Now let's dive into deployment and CI/CD pipelines.
 
 <!--more-->
+
+> **Prerequisite:** Aspire 13 requires .NET SDK 10.0.100 or later. Make sure you have it installed before using the commands in this post.
 
 ## The Publish and Deploy Model
 
@@ -77,7 +78,7 @@ Notice `${PG_PASSWORD}` and `${API_IMAGE}` are **not resolved** during publish. 
 
 ### Docker Compose Example
 
-The most common pattern from the [Aspire samples](https://github.com/davidfowl/aspire-13-samples) uses Docker Compose as the compute environment:
+The most common pattern from the [Aspire samples](https://github.com/davidfowl/aspire-13-samples) uses Docker Compose as the compute environment. See the [Docker Compose sample](https://github.com/codebytes/blog-samples/tree/main/aspire-cli/aspire-docker-compose) for a complete working example.
 
 ```csharp
 #:package Aspire.Hosting.Docker@13-*
@@ -112,7 +113,7 @@ aspire do docker-compose-down-dc    # Tear down the deployment
 
 ### Azure Container Apps Example
 
-For Azure, add the Azure Container Apps environment:
+For Azure, add the Azure Container Apps environment. See the [Azure Container Apps sample](https://github.com/codebytes/blog-samples/tree/main/aspire-cli/aspire-container-apps) for a complete working example.
 
 ```csharp
 #:package Aspire.Hosting.Azure.AppContainers@13.0.0
@@ -142,6 +143,31 @@ aspire publish -o ./azure-artifacts   # Generates Bicep files
 aspire deploy                         # Deploys to Azure Container Apps
 ```
 
+### Kubernetes Example
+
+For Kubernetes, add the hosting package and configure a compute environment. See the [Kubernetes sample](https://github.com/codebytes/blog-samples/tree/main/aspire-cli/aspire-kubernetes) for a complete working example.
+
+```csharp
+var builder = DistributedApplication.CreateBuilder(args);
+
+var k8s = builder.AddKubernetesEnvironment("k8s");
+
+var api = builder.AddProject<Projects.Api>("api")
+    .WithExternalHttpEndpoints();
+
+builder.Build().Run();
+```
+
+Generate and deploy:
+
+```bash
+# Generate Kubernetes manifests
+aspire publish -o ./k8s-output
+
+# Apply with kubectl or Helm
+kubectl apply -f ./k8s-output
+```
+
 ### Multiple Compute Environments
 
 If you add multiple compute environments, Aspire needs to know which resource goes where. Use `WithComputeEnvironment` to disambiguate:
@@ -161,20 +187,13 @@ Without this, Aspire throws an ambiguous environment exception at publish time.
 
 ## `aspire deploy` - Deploy to a Target
 
-The `aspire deploy` command resolves parameters and applies published artifacts to a target environment. This command is in **preview** and must be enabled:
-
-```bash
-# Enable the deploy feature
-aspire config set features.deployCommandEnabled true
-```
-
-> **Note:** This feature is under active development and may change. Keep an eye on the [.NET Blog](https://devblogs.microsoft.com/dotnet) for updates.
-
-Then deploy:
+The `aspire deploy` command resolves parameters and applies published artifacts to a target environment. This command is in **preview** and under active development.
 
 ```bash
 aspire deploy
 ```
+
+> **Note:** The deploy command may change as it matures. Keep an eye on the [.NET Blog](https://devblogs.microsoft.com/dotnet) and the [Aspire deployment docs](https://aspire.dev/deployment/overview/) for updates.
 
 What happens depends on your compute environment:
 
@@ -198,30 +217,53 @@ For Azure deployments, `aspire deploy` prompts for:
 
 The command then provisions infrastructure, builds containers, pushes to ACR, and deploys — all in one step.
 
-## `aspire exec` - Run Commands in Resource Context
-
-The `aspire exec` command runs commands in the context of a specific resource with the correct connection strings and environment variables:
+For non-interactive deployment (CI/CD), set these environment variables to skip the prompts:
 
 ```bash
-# Run EF Core migrations
-aspire exec mydb -- dotnet ef database update
-
-# Open an interactive shell in a container
-aspire exec redis -- redis-cli
+Azure__SubscriptionId=<your-subscription-id>
+Azure__Location=<azure-region>
+Azure__ResourceGroup=<resource-group-name>
 ```
 
 ## `aspire do` - Pipeline Automation
 
-The `aspire do` command executes actions defined by hosting integrations. The most common use is managing Docker Compose deployments:
+The `aspire do` command executes pipeline steps defined by hosting integrations. Use `aspire do diagnostics` to discover what steps are available and their dependencies:
 
 ```bash
+# List available pipeline steps
+aspire do diagnostics
+
 # Tear down a Docker Compose deployment
 aspire do docker-compose-down-dc
 
 # The naming convention is: docker-compose-down-{environment-name}
 ```
 
-This command is particularly useful in CI/CD pipelines and for managing environment lifecycle.
+Well-known pipeline steps include `build`, `push`, `publish`, and `deploy`. Resources can contribute custom steps — for example, Docker Compose adds teardown steps. This command is particularly useful in CI/CD pipelines and for managing environment lifecycle.
+
+## `aspire exec` - Run Commands in Resource Context
+
+The `aspire exec` command runs commands in the context of a specific resource with the correct connection strings and environment variables. This command is disabled by default — enable it first. See the [exec sample](https://github.com/codebytes/blog-samples/tree/main/aspire-cli/aspire-exec) for a complete working example with Postgres and Redis.
+
+```bash
+# Enable the exec feature
+aspire config set features.execCommandEnabled true
+```
+
+Then use the `--resource` (or `-r`) flag to specify the target:
+
+```bash
+# Run EF Core migrations
+aspire exec --resource mydb -- dotnet ef database update
+
+# Open an interactive shell in a container
+aspire exec --resource redis -- redis-cli
+
+# Start a dependency and then run against it
+aspire exec --start-resource mydb -- dotnet ef migrations add Init
+```
+
+The `--start-resource` (or `-s`) flag is useful when you need to start a resource (and its dependencies) before running a command against it.
 
 ## Azure Developer CLI (azd) Integration
 
@@ -249,31 +291,6 @@ Generated files:
 - `.azure/config.json` — Active environment configuration
 - `.azure/{env}/.env` — Environment-specific overrides
 - `.azure/{env}/config.json` — Public endpoint configuration
-
-## Kubernetes Deployment
-
-For Kubernetes, add the hosting package and configure a compute environment:
-
-```csharp
-var builder = DistributedApplication.CreateBuilder(args);
-
-var k8s = builder.AddKubernetesEnvironment("k8s");
-
-var api = builder.AddProject<Projects.Api>("api")
-    .WithExternalHttpEndpoints();
-
-builder.Build().Run();
-```
-
-Generate and deploy:
-
-```bash
-# Generate Kubernetes manifests
-aspire publish -o ./k8s-output
-
-# Apply with kubectl or Helm
-kubectl apply -f ./k8s-output
-```
 
 ## GitHub Actions
 
@@ -351,7 +368,7 @@ jobs:
 Starting with Aspire 9.2, the single deployment manifest is being phased out in favor of the `aspire publish` / `aspire deploy` model with hosting integration extensibility. The legacy manifest is still available for debugging:
 
 ```bash
-aspire publish --publisher manifest -o ./diagnostics
+aspire do publish-manifest --output-path ./diagnostics
 ```
 
 This produces a manifest snapshot for inspecting resource graphs and troubleshooting, but it's not the primary deployment path.
@@ -364,6 +381,7 @@ This produces a manifest snapshot for inspecting resource graphs and troubleshoo
 - [Azure Developer CLI with Aspire](https://learn.microsoft.com/azure/developer/azure-developer-cli/)
 - [Aspire Samples (davidfowl)](https://github.com/davidfowl/aspire-13-samples)
 - [Official Aspire Samples](https://github.com/dotnet/aspire-samples)
+- [Blog Post Samples](https://github.com/codebytes/blog-samples/tree/main/aspire-cli)
 
 ## Wrapping Up
 
@@ -371,6 +389,11 @@ The publish/deploy model gives you flexibility: publish generates parameterized 
 
 For production Azure deployments, I recommend `azd` for its mature infrastructure-as-code capabilities. For Docker Compose and local deployment workflows, `aspire deploy` is increasingly capable as it matures.
 
-In Part 3, we'll explore one of Aspire's most exciting features: MCP (Model Context Protocol) integration, which lets AI coding agents like GitHub Copilot and Claude understand and interact with your running Aspire applications.
+In [Part 3](/posts/aspire-cli-part-3-mcp/), we explore one of Aspire's most exciting features: MCP (Model Context Protocol) integration, which lets AI coding agents like GitHub Copilot and Claude understand and interact with your running Aspire applications.
 
 Until next time, happy Aspiring!
+
+## Related Posts
+
+- [Getting Started with the Aspire CLI](/posts/aspire-cli-getting-started/)
+- [Aspire CLI Part 3 - MCP for AI Coding Agents](/posts/aspire-cli-part-3-mcp/)
