@@ -1,7 +1,6 @@
 ---
 title: "Aspire CLI Part 2 - Deployment and Pipelines"
-date: '2026-02-15'
-draft: true
+date: '2026-02-22'
 categories:
 - Development
 tags:
@@ -16,7 +15,7 @@ image: images/dotnet-aspire-logo.png
 featureImage: images/dotnet-aspire-logo.png
 slug: aspire-cli-part-2
 aliases:
-- /2026/02/15/aspire-cli-part-2/
+- /2026/02/22/aspire-cli-part-2/
 ---
 
 In [Part 1](/posts/aspire-cli-getting-started/), we covered the basics of the Aspire CLI: creating projects with `aspire new`, adding Aspire to existing apps with `aspire init`, running with `aspire run`, and managing integrations with `aspire add` and `aspire update`. Now let's dive into deployment and CI/CD pipelines.
@@ -369,7 +368,7 @@ jobs:
 Starting with Aspire 9.2, the single deployment manifest is being phased out in favor of the `aspire publish` / `aspire deploy` model with hosting integration extensibility. The legacy manifest is still available for debugging:
 
 ```bash
-aspire publish --publisher manifest -o ./diagnostics
+aspire do publish-manifest --output-path ./diagnostics
 ```
 
 This produces a manifest snapshot for inspecting resource graphs and troubleshooting, but it's not the primary deployment path.
@@ -389,7 +388,7 @@ The publish/deploy model gives you flexibility: publish generates parameterized 
 
 For production Azure deployments, I recommend `azd` for its mature infrastructure-as-code capabilities. For Docker Compose and local deployment workflows, `aspire deploy` is increasingly capable as it matures.
 
-In [Part 3](/posts/aspire-cli-part-3-mcp/), we'll explore one of Aspire's most exciting features: MCP (Model Context Protocol) integration, which lets AI coding agents like GitHub Copilot and Claude understand and interact with your running Aspire applications.
+In [Part 3](/posts/aspire-cli-part-3-mcp/), we explore one of Aspire's most exciting features: MCP (Model Context Protocol) integration, which lets AI coding agents like GitHub Copilot and Claude understand and interact with your running Aspire applications.
 
 Until next time, happy Aspiring!
 

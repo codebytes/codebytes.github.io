@@ -1,7 +1,6 @@
 ---
 title: "Aspire CLI Part 3 - MCP for AI Coding Agents"
 date: '2026-02-22'
-draft: true
 categories:
 - Development
 tags:
@@ -258,11 +257,6 @@ Instead of asking you to describe your system, the AI can observe it directly.
 - [Model Context Protocol Specification](https://modelcontextprotocol.io/)
 - [Open MCP Issues on GitHub](https://github.com/dotnet/aspire/issues?q=is%3Aopen+label%3Amcp)
 
-## Related Posts
-
-- [Getting Started with the Aspire CLI](/posts/aspire-cli-getting-started/)
-- [Aspire CLI Part 2 - Deployment and Pipelines](/posts/aspire-cli-part-2/)
-
 ## Wrapping Up
 
 Aspire MCP represents a shift in how we interact with distributed applications during development. By giving AI assistants real-time access to your running system, you unlock debugging and development workflows that weren't possible before.
@@ -270,3 +264,8 @@ Aspire MCP represents a shift in how we interact with distributed applications d
 Try `aspire mcp init` in your next project and see how it transforms your AI-assisted development experience.
 
 Until next time, happy Aspiring!
+
+## Related Posts
+
+- [Getting Started with the Aspire CLI](/posts/aspire-cli-getting-started/)
+- [Aspire CLI Part 2 - Deployment and Pipelines](/posts/aspire-cli-part-2/)
