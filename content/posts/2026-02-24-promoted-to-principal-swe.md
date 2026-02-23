@@ -48,11 +48,9 @@ Some of the key differences:
 - **Technical Focus** - Principals handle high ambiguity and innovate beyond existing solutions. Seniors work within established frameworks to deliver features
 - **Leadership** - Principals guide technical direction, manage stakeholders, and mentor other senior engineers. Seniors focus more on day-to-day implementation and mentoring junior staff
 
-For more perspective on the Principal role at Microsoft, these discussions are worth reading:
+For me, this promotion reflects the way I've been working - constantly sharing knowledge, educating the team, and helping set technical direction. Whether it's building alignment across orgs and teams, driving architecture decisions, or connecting people and ideas across organizational boundaries, the Principal role formalizes what I believe great engineering looks like at scale.
 
-- [What is a Principal Engineer at Microsoft](https://newsletter.techworld-with-milan.com/p/what-is-a-principal-engineer-at-microsoft) - Tech World with Milan
-- [Difference between Senior vs Principal SWE](https://www.reddit.com/r/ExperiencedDevs/comments/s7uiba/difference_between_senior_vs_principal_swe/) - r/ExperiencedDevs
-- [Discussion on Principal Engineer expectations](https://news.ycombinator.com/item?id=29551528) - Hacker News
+At its core, it comes down to a **growth mindset**. The willingness to step into ambiguity, learn continuously, and lift others up along the way. That's what got me here, and it's what I'll keep doing.
 
 ## Gratitude
 
