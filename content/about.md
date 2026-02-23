@@ -11,7 +11,7 @@ aliases:
   <a href="/images/kcdc-2025-1.jpg" target="_blank"><img src="/images/kcdc-2025-1.jpg" alt="Chris Ayers" style="width: 240px; height: 240px; border-radius: 50%; object-fit: cover; border: 3px solid var(--color-primary-500);" /></a>
 </div>
 
-I'm Chris Ayers, a **father**, **nerd**, **gamer**, and **speaker**. I'm passionate about technology and love sharing my knowledge through speaking at conferences and writing about tech topics.
+I'm Chris Ayers, a **Principal Software Engineer at Microsoft**, **father**, **nerd**, **gamer**, and **speaker**. I work in Azure focusing on reliability, helping ensure cloud services are resilient and dependable. I'm passionate about technology and love sharing my knowledge through speaking at conferences and writing about tech topics.
 
 ## What I Do
 
