@@ -34,6 +34,26 @@ As a Principal Software Engineer, I'm continuing to focus on Azure reliability -
 - **Community** - organizing DevOps Days Tampa Bay, mentoring, and contributing to open source
 - **Writing** - more blog posts, more samples, more sharing
 
+## What Does Principal Mean at Microsoft
+
+For those curious about what this level means at Microsoft, I wanted to share some context. At Microsoft, engineering levels form a career ladder, and the jump from Senior to Principal represents a meaningful shift in scope, impact, and expectations.
+
+A **Senior Software Engineer** (levels 63-64) typically executes complex features, leads projects within a single team, designs components, reviews code, and mentors team members. The focus is largely on the *how* - delivering high-quality work within established frameworks.
+
+A **Principal Software Engineer** (levels 65-67) operates differently. The role shifts toward strategic technical leadership - defining architecture across multiple teams, solving organization-wide problems, and aligning technology decisions with business goals. The focus moves to the *why* - long-term strategy, navigating high ambiguity, and innovating beyond existing solutions.
+
+Some of the key differences:
+
+- **Scope of Impact** - Senior engineers own projects within a team. Principals influence entire organizations, divisions, or large-scale technical strategies
+- **Technical Focus** - Principals handle high ambiguity and innovate beyond existing solutions. Seniors work within established frameworks to deliver features
+- **Leadership** - Principals guide technical direction, manage stakeholders, and mentor other senior engineers. Seniors focus more on day-to-day implementation and mentoring junior staff
+
+For more perspective on the Principal role at Microsoft, these discussions are worth reading:
+
+- [What is a Principal Engineer at Microsoft](https://newsletter.techworld-with-milan.com/p/what-is-a-principal-engineer-at-microsoft) - Tech World with Milan
+- [Difference between Senior vs Principal SWE](https://www.reddit.com/r/ExperiencedDevs/comments/s7uiba/difference_between_senior_vs_principal_swe/) - r/ExperiencedDevs
+- [Discussion on Principal Engineer expectations](https://news.ycombinator.com/item?id=29551528) - Hacker News
+
 ## Gratitude
 
 None of this happens alone. I'm grateful for the incredible teammates and mentors I've had on both teams, the managers who championed my growth, and the community that keeps pushing me to learn and share. And of course, my family - who support all the late nights, conference travel, and the constant tinkering.
