@@ -7,43 +7,123 @@ aliases:
 
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; margin-bottom: 1.5rem;">
   <a href="/images/bio-photo.jpg" target="_blank"><img src="/images/bio-photo.jpg" alt="Chris Ayers" style="width: 240px; height: 240px; border-radius: 50%; object-fit: cover; border: 3px solid var(--color-primary-500);" /></a>
-  <a href="/images/head-shoulders.png" target="_blank"><img src="/images/head-shoulders.png" alt="Chris Ayers" style="width: 240px; height: 240px; border-radius: 50%; object-fit: cover; border: 3px solid var(--color-primary-500);" /></a>
+  <a href="/images/head-shoulders.png" target="_blank"><img src="/images/head-shoulders.png" alt="Chris Ayers headshot" style="width: 240px; height: 240px; border-radius: 50%; object-fit: cover; border: 3px solid var(--color-primary-500);" /></a>
   <a href="/images/kcdc-2025-1.jpg" target="_blank"><img src="/images/kcdc-2025-1.jpg" alt="Chris Ayers speaking at KCDC 2025" style="width: 240px; height: 240px; border-radius: 50%; object-fit: cover; border: 3px solid var(--color-primary-500);" /></a>
 </div>
 
-I'm Chris Ayers - a **Principal Software Engineer at Microsoft**, **father**, **nerd**, **gamer**, and **international speaker**. I work in Azure focusing on reliability, helping ensure cloud services are resilient and dependable at scale.
+{{< lead >}}
+**Principal Software Engineer at Microsoft** | Azure Reliability | International Speaker
+{{< /lead >}}
+
+I'm Chris Ayers - a **father**, **nerd**, **gamer**, and **international speaker**. I work in Azure focusing on reliability, helping ensure cloud services are resilient and dependable at scale.
 
 I'm passionate about technology and love giving back to the community. Whether it's speaking at conferences around the world, writing blog posts, or contributing to open-source projects, I enjoy helping others learn and grow.
 
+## Connect With Me
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 1.5rem 0;">
+
+{{< button href="https://bsky.app/profile/chris-ayers.com" target="_blank" >}}
+{{< icon "bluesky" >}}&nbsp; BlueSky
+{{< /button >}}
+
+{{< button href="https://github.com/codebytes" target="_blank" >}}
+{{< icon "github" >}}&nbsp; GitHub
+{{< /button >}}
+
+{{< button href="https://www.linkedin.com/in/chris-l-ayers/" target="_blank" >}}
+{{< icon "linkedin" >}}&nbsp; LinkedIn
+{{< /button >}}
+
+{{< button href="https://hachyderm.io/@Chrisayers" target="_blank" >}}
+{{< icon "mastodon" >}}&nbsp; Mastodon
+{{< /button >}}
+
+{{< button href="https://twitter.com/chris_l_ayers" target="_blank" >}}
+{{< icon "x-twitter" >}}&nbsp; Twitter
+{{< /button >}}
+
+</div>
+
+---
+
 ## What I Do
 
-At Microsoft, I work on Azure reliability, tackling the challenges of building and operating distributed systems that serve millions of users. My day-to-day involves cloud architecture, resiliency patterns, and helping teams build services that stay up when things go wrong.
+At Microsoft, I work on Azure reliability - tackling the challenges of building and operating distributed systems that serve millions of users. My day-to-day involves cloud architecture, resiliency patterns, and helping teams build services that stay up when things go wrong.
 
-My areas of expertise include:
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
 
-- **Azure Reliability** - Resiliency patterns, chaos engineering, Well-Architected Framework
-- **Cloud Architecture** - Azure, Kubernetes, Infrastructure as Code
-- **DevOps and CI/CD** - GitHub Actions, Azure DevOps, automation, platform engineering
-- **Software Development** - .NET, Aspire, containers, microservices
-- **Security** - DevSecOps, secure infrastructure, MITRE ATT&CK
+<div style="padding: 1.5rem; border-radius: 0.75rem; border: 1px solid var(--color-neutral-200); background: var(--color-neutral-100); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+
+### {{< icon "cloud" >}} Cloud Architecture
+
+Azure, Kubernetes, Infrastructure as Code with Terraform and Bicep, and cloud-native design patterns.
+
+</div>
+
+<div style="padding: 1.5rem; border-radius: 0.75rem; border: 1px solid var(--color-neutral-200); background: var(--color-neutral-100); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+
+### {{< icon "shield" >}} Reliability
+
+Resiliency patterns, chaos engineering, Well-Architected Framework, and building distributed systems that are resilient and dependable at scale.
+
+</div>
+
+<div style="padding: 1.5rem; border-radius: 0.75rem; border: 1px solid var(--color-neutral-200); background: var(--color-neutral-100); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+
+### {{< icon "pencil" >}} DevOps and CI/CD
+
+GitHub Actions, Azure DevOps, Infrastructure as Code, platform engineering, and automation practices.
+
+</div>
+
+<div style="padding: 1.5rem; border-radius: 0.75rem; border: 1px solid var(--color-neutral-200); background: var(--color-neutral-100); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+
+### {{< icon "lock" >}} Security
+
+Shifting security left with DevSecOps, MITRE ATT&CK, container security, and secure infrastructure deployment.
+
+</div>
+
+<div style="padding: 1.5rem; border-radius: 0.75rem; border: 1px solid var(--color-neutral-200); background: var(--color-neutral-100); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+
+### {{< icon "code" >}} Software Development
+
+Building modern distributed applications with .NET, Aspire, Kubernetes, containers, and microservices architectures.
+
+</div>
+
+<div style="padding: 1.5rem; border-radius: 0.75rem; border: 1px solid var(--color-neutral-200); background: var(--color-neutral-100); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+
+### {{< icon "wand-magic-sparkles" >}} AI and Intelligent Apps
+
+Azure OpenAI, GitHub Copilot, prompt engineering, MCP, and building AI-powered applications with .NET Aspire.
+
+</div>
+
+</div>
+
+---
 
 ## Speaking
 
 I regularly speak at conferences and meetups around the world, including NDC, Techorama, DevSum, KCDC, Stir Trek, and many more. My talks cover topics from Azure resiliency and Kubernetes to .NET Aspire, DevSecOps, and career development.
 
-Check out my [Speaking](/speaking/) page for upcoming events and past presentations, or find me on [Sessionize](https://sessionize.com/ChrisAyers/).
+{{< button href="/speaking/" >}}
+{{< icon "comment" >}}&nbsp; View Speaking Schedule
+{{< /button >}}
+&nbsp;
+{{< button href="https://sessionize.com/ChrisAyers/" target="_blank" >}}
+{{< icon "link" >}}&nbsp; Sessionize Profile
+{{< /button >}}
+
+---
 
 ## Community
 
 I'm an organizer of [DevOps Days Tampa Bay](https://devopsdays.org/events/2025-tampa/welcome/) and enjoy contributing to the tech community through mentoring, open-source contributions, and knowledge sharing.
 
-## Connect With Me
-
-- {{< icon "bluesky" >}} [BlueSky](https://bsky.app/profile/chris-ayers.com)
-- {{< icon "github" >}} [GitHub](https://github.com/codebytes)
-- {{< icon "linkedin" >}} [LinkedIn](https://www.linkedin.com/in/chris-l-ayers/)
-- {{< icon "mastodon" >}} [Mastodon](https://hachyderm.io/@Chrisayers)
-- {{< icon "x-twitter" >}} [Twitter](https://twitter.com/chris_l_ayers)
+---
 
 ## Certifications
 
