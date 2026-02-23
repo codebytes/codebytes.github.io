@@ -63,6 +63,7 @@ jobs:
           hugo \
             --gc \
             --minify \
+            --buildFuture \
             --baseURL "${BASE_URL}/"
 
       - name: Upload artifact
