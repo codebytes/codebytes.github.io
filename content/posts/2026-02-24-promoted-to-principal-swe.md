@@ -31,7 +31,7 @@ As a Principal Software Engineer, I'm continuing to focus on Azure reliability -
 
 - **Building** - AI-powered tooling for reliability engineering, distributed systems, and cloud-native applications
 - **Speaking** - sharing what I've learned at conferences around the world, from NDC and Techorama to DevSum and Aspire Conf
-- **Community** - organizing DevOps Days Tampa Bay, mentoring, and contributing to open source
+- **Community** - organizing DevOps Days Tampa Bay, active with Tampa Devs and multiple local meetups, mentoring, and contributing to open source
 - **Writing** - more blog posts, more samples, more sharing
 
 ## What Does Principal Mean at Microsoft
