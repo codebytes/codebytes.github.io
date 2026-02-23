@@ -56,6 +56,6 @@ At its core, it comes down to a **growth mindset**. The willingness to step into
 
 None of this happens alone. I'm grateful for the incredible teammates and mentors I've had on both teams, the managers who championed my growth, and the community that keeps pushing me to learn and share. And of course, my family - who support all the late nights, conference travel, and the constant tinkering.
 
-If you're on your own career journey, here's what I'd say: don't be afraid to take the leap into unfamiliar territory. The skills you've built are more transferable than you think, and the best growth happens outside your comfort zone. I gave a [whole talk about this](/speaking/) - *Refactoring Your Technical Identity* - and I truly believe it.
+If you're on your own career journey, here's what I'd say: don't be afraid to take the leap into unfamiliar territory. The skills you've built are more transferable than you think, and the best growth happens outside your comfort zone.
 
 Here's to the next chapter. Let's build something great.
