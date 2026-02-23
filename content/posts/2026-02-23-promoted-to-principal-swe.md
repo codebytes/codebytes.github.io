@@ -1,6 +1,6 @@
 ---
 title: Promoted to Principal Software Engineer at Microsoft
-date: '2026-02-24'
+date: '2026-02-23'
 categories:
 - Blog
 tags:
@@ -9,7 +9,7 @@ tags:
 image: images/mslogo.png
 featureImage: images/mslogo.png
 aliases:
-- /2026/02/24/promoted-to-principal-swe/
+- /2026/02/23/promoted-to-principal-swe/
 slug: promoted-to-principal-swe
 ---
 
