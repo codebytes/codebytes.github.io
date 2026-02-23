@@ -8,23 +8,34 @@ aliases:
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; margin-bottom: 1.5rem;">
   <a href="/images/bio-photo.jpg" target="_blank"><img src="/images/bio-photo.jpg" alt="Chris Ayers" style="width: 240px; height: 240px; border-radius: 50%; object-fit: cover; border: 3px solid var(--color-primary-500);" /></a>
   <a href="/images/head-shoulders.png" target="_blank"><img src="/images/head-shoulders.png" alt="Chris Ayers" style="width: 240px; height: 240px; border-radius: 50%; object-fit: cover; border: 3px solid var(--color-primary-500);" /></a>
-  <a href="/images/kcdc-2025-1.jpg" target="_blank"><img src="/images/kcdc-2025-1.jpg" alt="Chris Ayers" style="width: 240px; height: 240px; border-radius: 50%; object-fit: cover; border: 3px solid var(--color-primary-500);" /></a>
+  <a href="/images/kcdc-2025-1.jpg" target="_blank"><img src="/images/kcdc-2025-1.jpg" alt="Chris Ayers speaking at KCDC 2025" style="width: 240px; height: 240px; border-radius: 50%; object-fit: cover; border: 3px solid var(--color-primary-500);" /></a>
 </div>
 
-I'm Chris Ayers, a **Principal Software Engineer at Microsoft**, **father**, **nerd**, **gamer**, and **speaker**. I work in Azure focusing on reliability, helping ensure cloud services are resilient and dependable. I'm passionate about technology and love sharing my knowledge through speaking at conferences and writing about tech topics.
+I'm Chris Ayers - a **Principal Software Engineer at Microsoft**, **father**, **nerd**, **gamer**, and **international speaker**. I work in Azure focusing on reliability, helping ensure cloud services are resilient and dependable at scale.
+
+I'm passionate about technology and love giving back to the community. Whether it's speaking at conferences around the world, writing blog posts, or contributing to open-source projects, I enjoy helping others learn and grow.
 
 ## What I Do
 
-I work with cloud technologies, DevOps practices, and software development. My areas of expertise include:
+At Microsoft, I work on Azure reliability, tackling the challenges of building and operating distributed systems that serve millions of users. My day-to-day involves cloud architecture, resiliency patterns, and helping teams build services that stay up when things go wrong.
 
+My areas of expertise include:
+
+- **Azure Reliability** - Resiliency patterns, chaos engineering, Well-Architected Framework
 - **Cloud Architecture** - Azure, Kubernetes, Infrastructure as Code
-- **DevOps & CI/CD** - GitHub Actions, Azure DevOps, Automation
-- **Software Development** - .NET, Containers, Microservices
-- **Security** - DevSecOps, Secure Infrastructure
+- **DevOps and CI/CD** - GitHub Actions, Azure DevOps, automation, platform engineering
+- **Software Development** - .NET, Aspire, containers, microservices
+- **Security** - DevSecOps, secure infrastructure, MITRE ATT&CK
 
 ## Speaking
 
-I regularly speak at conferences and meetups around the world. Check out my [Speaking](/speaking/) page for upcoming events and past presentations.
+I regularly speak at conferences and meetups around the world, including NDC, Techorama, DevSum, KCDC, Stir Trek, and many more. My talks cover topics from Azure resiliency and Kubernetes to .NET Aspire, DevSecOps, and career development.
+
+Check out my [Speaking](/speaking/) page for upcoming events and past presentations, or find me on [Sessionize](https://sessionize.com/ChrisAyers/).
+
+## Community
+
+I'm an organizer of [DevOps Days Tampa Bay](https://devopsdays.org/events/2025-tampa/welcome/) and enjoy contributing to the tech community through mentoring, open-source contributions, and knowledge sharing.
 
 ## Connect With Me
 
