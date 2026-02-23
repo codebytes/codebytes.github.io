@@ -3,6 +3,8 @@ name: Deploy Hugo site to Pages
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: '0 6 * * *'
   workflow_dispatch:
 
 permissions:
@@ -63,7 +65,6 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --buildFuture \
             --baseURL "${BASE_URL}/"
 
       - name: Upload artifact
