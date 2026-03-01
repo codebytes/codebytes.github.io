@@ -8,8 +8,8 @@ tags:
 - Security
 - Machine Learning
 - Deep Learning
-image: images/azure-openai-logo.png
-featureImage: images/azure-openai-logo.png
+image: images/logos/azure-openai-logo.png
+featureImage: images/logos/azure-openai-logo.png
 aliases:
 - /tools/ai-security/
 slug: ai-security

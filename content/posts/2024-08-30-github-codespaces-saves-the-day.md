@@ -9,14 +9,14 @@ tags:
 - VSCode
 - GitHub
 - codespaces
-image: images/github-codespaces-logo.png
-featureImage: images/github-codespaces-logo.png
+image: images/logos/github-codespaces-logo.png
+featureImage: images/logos/github-codespaces-logo.png
 aliases:
 - /2024/08/09/github-codespaces-saves-the-day/
 - /development/github-codespaces-saves-the-day/
 slug: github-codespaces-saves-the-day
 ---
-![Copenhagen Developers Festival](/images/copenhagen-developers-festival-logo.png)
+![Copenhagen Developers Festival](/images/logos/copenhagen-developers-festival-logo.png)
 
 Last week, I spoke at the [Copenhagen Developers Festival](https://cphdevfest.com/) about using [GitHub Codespaces](https://github.com/features/codespaces) for cloud-based development. This is an amazing conference with an incredible lineup. I've done this talk plenty of times, sharing how flexible and convenient cloud development environments can be. But this time, things didn't go as planned.
 
@@ -30,7 +30,7 @@ By now, I was a few minutes into my time slot, and the presentation seemed in je
 
 Despite the keyboard struggles, I managed to pull it off. I used the browser to present my slides, which are hosted on GitHub Pages at [http://chris-ayers.com/dev-containers](http://chris-ayers.com/dev-containers/). We discussed the Dev Containers spec, hosted at [containers.dev](https://containers.dev). Then, I launched [GitHub Codespaces](https://github.com/features/codespaces) using my repository [https://github.com/codebytes/dev-containers](https://github.com/codebytes/dev-containers) and a few others ([cpython](https://github.com/python/cpython) and [Home Assistant](https://github.com/home-assistant/core)) to demonstrate its capabilities.
 
-![GitHub Codespaces](/images/github-codespaces-logo.png)
+![GitHub Codespaces](/images/logos/github-codespaces-logo.png)
 
 What could have been a total disaster turned into a great example of how powerful and resilient modern development tools are. [GitHub Codespaces](https://github.com/features/codespaces) didn't just save my presentation; it became the star of the show, proving that with the right tools, we can roll with the punches and keep going.
 

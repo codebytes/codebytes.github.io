@@ -8,8 +8,8 @@ tags:
 - Prompt Engineering
 - Machine Learning
 - Deep Learning
-image: images/github-copilot-logo.png
-featureImage: images/github-copilot-logo.png
+image: images/logos/github-copilot-logo.png
+featureImage: images/logos/github-copilot-logo.png
 aliases:
 - /2025/05/08/ai-and-prompting-part-1/
 - /technology/ai/AI-and-Prompting/

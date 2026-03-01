@@ -10,8 +10,8 @@ tags:
 - VSCode
 - checkov
 - GitHub
-image: images/checkov-logo.png
-featureImage: images/checkov-logo.png
+image: images/logos/checkov-logo.png
+featureImage: images/logos/checkov-logo.png
 aliases:
 - /2023/03/24/secure-terraform-part4-checkov/
 - /devops/secure-terraform-part4-checkov/
@@ -29,7 +29,7 @@ This is part 4 of the Secure Terraform series. You can read the series of articl
 
 In this fourth installment of our Secure Terraform series, we'll discuss Checkov, a powerful open-source static code analysis tool supported by Bridgecrew. Checkov supports Terraform, Kubernetes, Dockerfiles, AWS CloudFormation, and other Infrastructure as Code (IaC) frameworks. It focuses on security best practices, policy compliance, and industry standards. You can find Checkov's documentation and samples at [https://www.checkov.io/](https://www.checkov.io/).
 
-![checkov-logo](/images/checkov-logo.png)
+![checkov-logo](/images/logos/checkov-logo.png)
 
 ## Checkov Installation and CLI
 

@@ -6,8 +6,8 @@ categories:
 tags:
 - Microsoft
 - Career
-image: images/mslogo.png
-featureImage: images/mslogo.png
+image: images/logos/mslogo.png
+featureImage: images/logos/mslogo.png
 aliases:
 - /2026/02/23/promoted-to-principal-swe/
 slug: promoted-to-principal-swe

@@ -6,8 +6,8 @@ categories:
 tags:
 - Copilot
 - ChatGPT
-image: images/github-codespaces-logo.png
-featureImage: images/github-codespaces-logo.png
+image: images/logos/github-codespaces-logo.png
+featureImage: images/logos/github-codespaces-logo.png
 aliases:
 - /2025/04/24/copilot-or-rubber-ducky/
 - /ai/copilot-or-rubber-ducky/

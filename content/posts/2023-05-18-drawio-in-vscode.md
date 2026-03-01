@@ -9,8 +9,8 @@ tags:
 - Markdown
 - speaking
 - tools
-image: images/drawio-logo.png
-featureImage: images/drawio-logo.png
+image: images/logos/drawio-logo.png
+featureImage: images/logos/drawio-logo.png
 aliases:
 - /2023/05/18/drawio-in-vscode/
 - /tools/drawio-in-vscode/
@@ -20,7 +20,7 @@ If you're like me, you love discovering new ways to boost your productivity and 
 
 <!--more-->
 
-{{< figure src="/images/drawio-logo.png" alt="draw.io logo" >}}
+{{< figure src="/images/logos/drawio-logo.png" alt="draw.io logo" >}}
 
 ## Draw.io
 

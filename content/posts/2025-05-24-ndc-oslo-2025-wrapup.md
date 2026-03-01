@@ -11,8 +11,8 @@ tags:
 - Ollama
 - chaos-engineering
 - dotnet
-image: images/ndc-logo.jpg
-featureImage: images/ndc-logo.jpg
+image: images/logos/ndc-logo.jpg
+featureImage: images/logos/ndc-logo.jpg
 aliases:
 - /2025/05/24/ndc-oslo-2025-wrapup/
 - /speaking/azure/ai/resilience/conferences/ndc-oslo-2025-wrapup/

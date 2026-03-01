@@ -11,8 +11,8 @@ tags:
 - DNS
 - Cloudflare
 - Tools
-image: images/github-logo.png
-featureImage: images/github-logo.png
+image: images/logos/github-logo.png
+featureImage: images/logos/github-logo.png
 aliases:
 - /2022/12/27/multiple-domains-on-github-pages/
 - /development/multiple-domains-on-github-pages/

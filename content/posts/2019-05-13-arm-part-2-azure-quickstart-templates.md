@@ -9,8 +9,8 @@ tags:
 - Azure
 - functions
 - json
-image: images/arm-logo.png
-featureImage: images/arm-logo.png
+image: images/logos/arm-logo.png
+featureImage: images/logos/arm-logo.png
 aliases:
 - /2019/05/13/arm-part-2-azure-quickstart-templates/
 - /devops/arm-part-2-azure-quickstart-templates/

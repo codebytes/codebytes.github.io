@@ -12,8 +12,8 @@ tags:
 - Ruby
 - Mermaid
 - Tools
-image: images/mermaid-logo.png
-featureImage: images/mermaid-logo.png
+image: images/logos/mermaid-logo.png
+featureImage: images/logos/mermaid-logo.png
 aliases:
 - /2022/12/23/customizing-the-jekyll-theme/
 - /2022/12/23/customizing-my-chosen-jekyll-theme-minimal-mistakes/

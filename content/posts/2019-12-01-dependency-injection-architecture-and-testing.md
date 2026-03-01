@@ -10,8 +10,8 @@ tags:
 - ioc
 - solid
 - testing
-image: images/dotnet-logo.png
-featureImage: images/dotnet-logo.png
+image: images/logos/dotnet-logo.png
+featureImage: images/logos/dotnet-logo.png
 aliases:
 - /2019/12/01/dependency-injection-architecture-and-testing/
 - /development/dependency-injection-architecture-and-testing/

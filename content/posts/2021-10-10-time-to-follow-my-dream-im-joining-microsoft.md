@@ -5,13 +5,13 @@ categories:
 - Blog
 tags:
 - Microsoft
-image: images/mslogo.png
-featureImage: images/mslogo.png
+image: images/logos/mslogo.png
+featureImage: images/logos/mslogo.png
 aliases:
 - /2021/10/10/time-to-follow-my-dream-im-joining-microsoft/
 slug: time-to-follow-my-dream-im-joining-microsoft
 ---
-{{< figure src="/images/mslogo.png" >}}
+{{< figure src="/images/logos/mslogo.png" >}}
 
 I'm so excited to announce that I'm joining Microsoft! I'll be joining the Fast Track for Azure - Apps team as a Senior Customer Engineer. My first day will be October 25th, the 20th anniversary of the release of Windows XP. It's been quite a journey to get here.
 

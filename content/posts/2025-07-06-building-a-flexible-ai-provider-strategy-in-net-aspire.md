@@ -14,14 +14,14 @@ tags:
 - GitHub Models
 - Foundry
 - Foundry Local
-image: images/dotnet-aspire-logo.png
-featureImage: images/dotnet-aspire-logo.png
+image: images/logos/dotnet-aspire-logo.png
+featureImage: images/logos/dotnet-aspire-logo.png
 aliases:
 - /2025/07/06/aspire-with-lots-of-ai/
 - /development/tools/building-a-flexible-ai-provider-strategy-in-net-aspire/
 slug: building-a-flexible-ai-provider-strategy-in-net-aspire
 ---
-{{< figure src="/images/dotnet-aspire-logo.png" alt=".NET Aspire Logo" class="mx-auto" >}}
+{{< figure src="/images/logos/dotnet-aspire-logo.png" alt=".NET Aspire Logo" class="mx-auto" >}}
 
 *How I architected a single codebase to seamlessly switch between Azure OpenAI, GitHub Models, Ollama, and Foundry Local without touching the API service*
 
@@ -67,7 +67,7 @@ That's it. Change a few lines in your configuration, or swap configurations/envi
 
 ### 1. Azure OpenAI - The Enterprise Choice
 
-{{< figure src="/images/azure-openai-logo.png" alt="OpenAI Logo" >}}
+{{< figure src="/images/logos/azure-openai-logo.png" alt="OpenAI Logo" >}}
 
 Azure OpenAI is my go-to for production workloads. It's reliable, scalable, and integrates seamlessly with Azure's ecosystem:
 
@@ -88,7 +88,7 @@ Azure OpenAI is my go-to for production workloads. It's reliable, scalable, and 
 
 ### 2. GitHub Models - The Developer's Friend
 
-{{< figure src="/images/github-logo-inverted.png" alt="GitHub Logo" >}}
+{{< figure src="/images/logos/github-logo-inverted.png" alt="GitHub Logo" >}}
 
 [GitHub Models](https://github.com/marketplace/models) surprised me with its generous free tier and extensive model catalog. Based on community feedback and my own testing, it's proven reliable for development and staging environments.
 
