@@ -7,8 +7,8 @@ tags:
 - CLI
 - DevOps
 - dotnet
-image: images/nuget-logo.png
-featureImage: images/nuget-logo.png
+image: images/logos/nuget-logo.png
+featureImage: images/logos/nuget-logo.png
 aliases:
 - /2021/07/05/clearing-nuget-caches/
 - /tools/clearing-nuget-caches/
@@ -16,7 +16,7 @@ slug: clearing-nuget-caches
 ---
 ## What is NuGet?
 
-{{< figure src="/images/nuget-logo.png" >}}
+{{< figure src="/images/logos/nuget-logo.png" >}}
 
 NuGet is an essential packaging tool used in the .NET ecosystem. NuGet is how packages for .NET are created, hosted, and consumed, along with the tools for each of those roles. For many, NuGet is used through Visual Studio to install and manage packages.  
 The dotnet CLI also provides functionality for adding packages, updating packages, and creating packages.

@@ -6,8 +6,8 @@ categories:
 tags:
 - regex
 - Copilot
-image: images/github-copilot-logo.png
-featureImage: images/github-copilot-logo.png
+image: images/logos/github-copilot-logo.png
+featureImage: images/logos/github-copilot-logo.png
 aliases:
 - /2024/4/09/regex-with-copilot/
 - /development/regex-with-copilot/

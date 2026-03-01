@@ -8,8 +8,8 @@ tags:
 - ARM Templates
 - Azure
 - Git
-image: images/arm-logo.png
-featureImage: images/arm-logo.png
+image: images/logos/arm-logo.png
+featureImage: images/logos/arm-logo.png
 aliases:
 - /2019/05/28/arm-part-3-hook-up-the-pipes/
 - /devops/arm-part-3-hook-up-the-pipes/

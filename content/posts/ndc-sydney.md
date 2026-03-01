@@ -8,8 +8,8 @@ tags:
 - containers
 - travel
 - NDC
-image: images/ndc-logo.jpg
-featureImage: images/ndc-logo.jpg
+image: images/logos/ndc-logo.jpg
+featureImage: images/logos/ndc-logo.jpg
 aliases:
 - /conferences/ndc-sydney/
 slug: ndc-sydney

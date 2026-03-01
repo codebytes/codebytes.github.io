@@ -8,8 +8,8 @@ tags:
 - Microsoft
 - PowerShell
 - scripts
-image: images/winget-logo.png
-featureImage: images/winget-logo.png
+image: images/logos/winget-logo.png
+featureImage: images/logos/winget-logo.png
 aliases:
 - /2021/08/01/scripting-winget/
 - /devops/tools/scripting-winget/

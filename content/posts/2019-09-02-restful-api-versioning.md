@@ -6,8 +6,8 @@ categories:
 tags:
 - API
 - REST
-image: images/rest-logo.png
-featureImage: images/rest-logo.png
+image: images/logos/rest-logo.png
+featureImage: images/logos/rest-logo.png
 aliases:
 - /2019/09/02/restful-api-versioning/
 - /development/restful-api-versioning/

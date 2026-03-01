@@ -9,14 +9,14 @@ tags:
 - containers
 - Docker
 - DevOps
-image: images/dotnet-logo.png
-featureImage: images/dotnet-logo.png
+image: images/logos/dotnet-logo.png
+featureImage: images/logos/dotnet-logo.png
 aliases:
 - /2024/2/19/containerizing-dotnet-part-2/
 - /development/containerizing-dotnet-part-2/
 slug: containerizing-dotnet-part-2
 ---
-![.NET](/images/dotnet-logo.png)
+![.NET](/images/logos/dotnet-logo.png)
 
 This is part 2 of the Containerizing .NET series. You can read the series of articles here:
 
@@ -140,7 +140,7 @@ In the realm of containerization, adherence to stringent security and compliance
 
 ### Distributed Application Runtime (DAPR)
 
-![DAPR](/images/dapr-logo.png)
+![DAPR](/images/logos/dapr-logo.png)
 
 DAPR (Distributed Application Runtime) has emerged as a transformative tool, simplifying the development of distributed applications. DAPR abstracts complex tasks such as state management, service discovery, and messaging into straightforward, consistent APIs, enabling developers to focus on business logic rather than infrastructure concerns. This abstraction is particularly beneficial in a containerized environment, where applications must be flexible, scalable, and capable of running across diverse platforms.
 

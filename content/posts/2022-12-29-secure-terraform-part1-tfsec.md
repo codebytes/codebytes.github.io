@@ -11,8 +11,8 @@ tags:
 - tfsec
 - GitHub
 - FestiveTechCalendar2022
-image: images/terraform-logo.png
-featureImage: images/terraform-logo.png
+image: images/logos/terraform-logo.png
+featureImage: images/logos/terraform-logo.png
 aliases:
 - /2022/12/29/secure-terraform-part1-tfsec/
 - /2022/12/29/securing-terraform-part1-tfsec/
@@ -41,7 +41,7 @@ This is part 1 of the Secure Terraform series. You can read the series of articl
 
 Securing Terraform starts before we even deploy anything. Our tooling is a great place to start! We can leverage one or more static code analyzers to look for misconfigurations, security issues, and other problems. Many of these great tools not only plug into our CI/CD pipeline, they also work within our IDEs. This allows us to catch issues while we work. We can also leverage pre-commit hooks to catch things before we even commit our code. With Cloud infrastructure, its easy to make mistakes, and these tools can help us catch them.
 
-![terraform logo](/images/terraform-logo.png)
+![terraform logo](/images/logos/terraform-logo.png)
 
 Today we are going to look at a one of these tools, tfsec, and how we can leverage it to secure our Terraform code. I'll work through the rest of the ones in the list in follow on posts, but there are many more out there. I encourage you to check them out and see which ones work best for you.
 
@@ -52,7 +52,7 @@ Today we are going to look at a one of these tools, tfsec, and how we can levera
 
 ## tfsec
 
-![tfsec logo](/images/tfsec-logo.png)
+![tfsec logo](/images/logos/tfsec-logo.png)
 
 Let's start with tfsec by aquasecurity. Aquasecurity supports multiple amazing tools like [trivy](https://trivy.dev/) and [tfsec](https://tfsec.dev). Tfsec is an open-source tool available on GitHub at [https://github.com/aquasecurity/tfsec](https://github.com/aquasecurity/tfsec). The docs are hosted at: [https://aquasecurity.github.io/tfsec/](https://aquasecurity.github.io/tfsec/). There are some great guides for installing it and configuring it for GitHub Actions. Tfsec even has an integration with GitHub Advanced security to show the results of the scan in the security tab of the repository.
 

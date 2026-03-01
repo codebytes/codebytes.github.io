@@ -8,8 +8,8 @@ tags:
 - speaking
 - speaking
 - VSCode
-image: images/vscode-logo.png
-featureImage: images/vscode-logo.png
+image: images/logos/vscode-logo.png
+featureImage: images/logos/vscode-logo.png
 aliases:
 - /2019/10/06/presenting-with-vs-code-screencast-mode/
 - /tools/presenting-with-vs-code-screencast-mode/

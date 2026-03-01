@@ -11,8 +11,8 @@ tags:
 - MCP
 - distributed-systems
 - GitHub-Copilot
-image: images/dotnet-aspire-logo.png
-featureImage: images/dotnet-aspire-logo.png
+image: images/logos/dotnet-aspire-logo.png
+featureImage: images/logos/dotnet-aspire-logo.png
 slug: aspire-cli-part-3-mcp
 aliases:
 - /2026/02/22/aspire-cli-part-3-mcp/

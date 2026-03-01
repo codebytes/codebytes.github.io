@@ -7,8 +7,8 @@ tags:
 - VSCode
 - SSH
 - Remote Development
-image: images/vscode-logo.png
-featureImage: images/vscode-logo.png
+image: images/logos/vscode-logo.png
+featureImage: images/logos/vscode-logo.png
 aliases:
 - /tools/remote-ssh-in-vscode/
 slug: remote-ssh-in-vscode

@@ -9,8 +9,8 @@ tags:
 - Marp
 - GitHub
 - Markdown
-image: images/marp-logo.png
-featureImage: images/marp-logo.png
+image: images/logos/marp-logo.png
+featureImage: images/logos/marp-logo.png
 aliases:
 - /2023/03/26/marp-create-presentations-with-markdown/
 - /tools/marp-create-presentations-with-markdown/
@@ -29,7 +29,7 @@ Marp is a powerful and user-friendly presentation framework that simplifies the 
 
 ## What is Marp?
 
-{{< figure src="/images/marp-logo.png" >}}
+{{< figure src="/images/logos/marp-logo.png" >}}
 
 Marp is an open-source presentation framework that allows you to create beautiful, customizable slide decks using the simplicity and flexibility of Markdown. By harnessing the power of Markdown, Marp enables you to focus on your content and message without getting bogged down in complex formatting and design choices. Marp has CLI and VS Code extensions, and it supports exporting presentations to various formats, including HTML, PDF, and PowerPoint.
 

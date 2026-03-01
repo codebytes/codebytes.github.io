@@ -11,8 +11,8 @@ tags:
 - distributed-systems
 - Deployment
 - CI/CD
-image: images/dotnet-aspire-logo.png
-featureImage: images/dotnet-aspire-logo.png
+image: images/logos/dotnet-aspire-logo.png
+featureImage: images/logos/dotnet-aspire-logo.png
 slug: aspire-cli-part-2
 aliases:
 - /2026/02/21/aspire-cli-part-2/

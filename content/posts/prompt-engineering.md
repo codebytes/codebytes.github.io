@@ -8,8 +8,8 @@ tags:
 - GPT-4
 - OpenAI
 - Prompt Engineering
-image: images/openai-logo.png
-featureImage: images/openai-logo.png
+image: images/logos/openai-logo.png
+featureImage: images/logos/openai-logo.png
 aliases:
 - /ai/prompt-engineering/
 slug: prompt-engineering

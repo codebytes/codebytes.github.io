@@ -11,8 +11,8 @@ tags:
 - GitHub Pages
 - Markdown
 - Ruby
-image: images/jekyll-logo.png
-featureImage: images/jekyll-logo.png
+image: images/logos/jekyll-logo.png
+featureImage: images/logos/jekyll-logo.png
 aliases:
 - /2022/12/20/migrating-from-wordpress-to-github-pages/
 - /development/migrating-from-wordpress-to-github-pages/

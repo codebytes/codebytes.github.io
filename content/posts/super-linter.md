@@ -8,8 +8,8 @@ tags:
 - Linting
 - Code Quality
 - CI/CD
-image: images/github-logo.png
-featureImage: images/github-logo.png
+image: images/logos/github-logo.png
+featureImage: images/logos/github-logo.png
 slug: super-linter
 ---
 ## Introduction

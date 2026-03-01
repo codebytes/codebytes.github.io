@@ -7,8 +7,8 @@ tags:
 - Terraform
 - security
 - tools
-image: images/terraform-logo.png
-featureImage: images/terraform-logo.png
+image: images/logos/terraform-logo.png
+featureImage: images/logos/terraform-logo.png
 aliases:
 - /2023/04/05/secure-terraform-part5-terraform-state/
 - /2022/04/05/secure-terraform-part5-terraform-state/
@@ -23,7 +23,7 @@ This is part 5 of the Secure Terraform series. You can read the series of articl
 - [Secure Terraform - Part 4 - checkov](/2023/03/24/secure-terraform-part4-checkov)
 - [Secure Terraform - Part 5 - terraform state](/2023/04/05/secure-terraform-part5-terraform-state)
 
-![terraform-logo](/images/terraform-logo.png)
+![terraform-logo](/images/logos/terraform-logo.png)
 
 ## Introduction
 
