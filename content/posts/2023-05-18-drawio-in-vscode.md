@@ -42,7 +42,7 @@ Draw.io's reputation for ease of use and an extensive set of features is well-de
 
 A standout feature of the [Draw.io Integration extension](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) is its unique approach to saving diagrams. You can save diagrams as drawio.png or drawio.svg files. These formats not only store the diagram as an image but also preserve the diagram data within the image metadata. This innovative feature means you can share diagrams as images viewable in any standard image viewer. If the recipients also use Draw.io or the hediet.vscode-drawio extension, they can even edit the diagrams, thanks to the original diagram data preserved in the image file.
 
-{{< figure src="/diagrams/sample.drawio.png" >}}
+{{< figure src="/images/diagrams/sample.drawio.png" >}}
 
 ## Tips
 
@@ -50,7 +50,7 @@ To truly maximize the use of Draw.io within VSCode, you should not only leverage
 
 - **Save diagrams as `drawio.png` or `drawio.svg` files**: Regularly saving your diagrams in these formats ensures you don't lose your work. These formats also allow you (or others) to edit the diagrams later, courtesy of the diagram data stored within the image metadata.
 
-{{< figure src="/diagrams/sample.drawio.svg" >}}
+{{< figure src="/images/diagrams/sample.drawio.png" >}}
 
 ---
 

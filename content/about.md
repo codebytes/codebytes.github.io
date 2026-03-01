@@ -128,21 +128,21 @@ I'm an organizer of [DevOps Days Tampa Bay](https://devopsdays.org/events/2025-t
 ## Certifications
 
 {{< gallery >}}
-  <img src="/badges/microsoft-certified-cybersecurity-architect-expert.png" class="grid-w20" alt="Cybersecurity Architect Expert" />
-  <img src="/badges/microsoft-certified-azure-solutions-architect-expert.png" class="grid-w20" alt="Azure Solutions Architect Expert" />
-  <img src="/badges/microsoft-certified-azure-devops-engineer-expert.png" class="grid-w20" alt="Azure DevOps Engineer Expert" />
-  <img src="/badges/certified-kubernetes-application-developer.png" class="grid-w20" alt="CKAD" />
-  <img src="/badges/terraform-certified-associate.png" class="grid-w20" alt="Terraform Certified Associate" />
-  <img src="/badges/github-actions.png" class="grid-w20" alt="GitHub Actions" />
-  <img src="/badges/microsoft-certified-azure-security-engineer-associate.png" class="grid-w20" alt="Azure Security Engineer" />
-  <img src="/badges/microsoft-certified-azure-network-engineer-associate.png" class="grid-w20" alt="Azure Network Engineer" />
-  <img src="/badges/microsoft-certified-azure-administrator-associate.png" class="grid-w20" alt="Azure Administrator" />
-  <img src="/badges/microsoft-certified-azure-developer-associate.png" class="grid-w20" alt="Azure Developer" />
-  <img src="/badges/microsoft-certified-azure-iot-developer-specialty.png" class="grid-w20" alt="Azure IoT Developer" />
-  <img src="/badges/microsoft-certified-azure-fundamentals.png" class="grid-w20" alt="Azure Fundamentals" />
-  <img src="/badges/microsoft-certified-azure-ai-fundamentals.png" class="grid-w20" alt="Azure AI Fundamentals" />
-  <img src="/badges/microsoft-certified-azure-data-fundamentals.png" class="grid-w20" alt="Azure Data Fundamentals" />
-  <img src="/badges/microsoft-certified-security-compliance-and-identity-fundamentals.png" class="grid-w20" alt="Security Compliance and Identity Fundamentals" />
-  <img src="/badges/microsoft-certified-power-platform-fundamentals.png" class="grid-w20" alt="Power Platform Fundamentals" />
-  <img src="/badges/muma-diversity-equity-inclusion-badge.png" class="grid-w20" alt="Diversity Equity Inclusion" />
+  <img src="/images/badges/microsoft-certified-cybersecurity-architect-expert.png" class="grid-w20" alt="Cybersecurity Architect Expert" />
+  <img src="/images/badges/microsoft-certified-azure-solutions-architect-expert.png" class="grid-w20" alt="Azure Solutions Architect Expert" />
+  <img src="/images/badges/microsoft-certified-azure-devops-engineer-expert.png" class="grid-w20" alt="Azure DevOps Engineer Expert" />
+  <img src="/images/badges/certified-kubernetes-application-developer.png" class="grid-w20" alt="CKAD" />
+  <img src="/images/badges/terraform-certified-associate.png" class="grid-w20" alt="Terraform Certified Associate" />
+  <img src="/images/badges/github-actions.png" class="grid-w20" alt="GitHub Actions" />
+  <img src="/images/badges/microsoft-certified-azure-security-engineer-associate.png" class="grid-w20" alt="Azure Security Engineer" />
+  <img src="/images/badges/microsoft-certified-azure-network-engineer-associate.png" class="grid-w20" alt="Azure Network Engineer" />
+  <img src="/images/badges/microsoft-certified-azure-administrator-associate.png" class="grid-w20" alt="Azure Administrator" />
+  <img src="/images/badges/microsoft-certified-azure-developer-associate.png" class="grid-w20" alt="Azure Developer" />
+  <img src="/images/badges/microsoft-certified-azure-iot-developer-specialty.png" class="grid-w20" alt="Azure IoT Developer" />
+  <img src="/images/badges/microsoft-certified-azure-fundamentals.png" class="grid-w20" alt="Azure Fundamentals" />
+  <img src="/images/badges/microsoft-certified-azure-ai-fundamentals.png" class="grid-w20" alt="Azure AI Fundamentals" />
+  <img src="/images/badges/microsoft-certified-azure-data-fundamentals.png" class="grid-w20" alt="Azure Data Fundamentals" />
+  <img src="/images/badges/microsoft-certified-security-compliance-and-identity-fundamentals.png" class="grid-w20" alt="Security Compliance and Identity Fundamentals" />
+  <img src="/images/badges/microsoft-certified-power-platform-fundamentals.png" class="grid-w20" alt="Power Platform Fundamentals" />
+  <img src="/images/badges/muma-diversity-equity-inclusion-badge.png" class="grid-w20" alt="Diversity Equity Inclusion" />
 {{< /gallery >}}

@@ -11,8 +11,8 @@ tags:
 - OWASP
 - Cybersecurity
 - Application Security
-image: images/14-attack-tactics.drawio.svg
-featureImage: images/14-attack-tactics.drawio.svg
+image: images/14-attack-tactics.drawio.png
+featureImage: images/14-attack-tactics.drawio.png
 aliases:
 - /security/mitre-attack-framework/
 slug: mitre-attack-framework
@@ -60,7 +60,7 @@ OWASP's strength is **prevention** — it tells you what vulnerabilities exist a
 - **D3FEND** - catalogs defensive countermeasures
 - **ATLAS** - covers AI and machine learning threats
 
-{{< figure src="/images/mitre-ecosystem.drawio.svg" alt="MITRE Cybersecurity Ecosystem" class="mx-auto" width="900" >}}
+{{< figure src="/images/mitre-ecosystem.drawio.png" alt="MITRE Cybersecurity Ecosystem" class="mx-auto" width="900" >}}
 
 ## What is MITRE ATT&CK
 
@@ -84,7 +84,7 @@ The Enterprise Matrix has **14 tactics**, over **200 techniques**, and **400+ su
 | **Stay In** | Defense Evasion, Credential Access, Discovery, Lateral Movement |
 | **Act** | Collection, Command and Control, Exfiltration, Impact |
 
-{{< figure src="/images/14-attack-tactics.drawio.svg" alt="The 14 ATT&CK Tactics" class="mx-auto" width="900" >}}
+{{< figure src="/images/14-attack-tactics.drawio.png" alt="The 14 ATT&CK Tactics" class="mx-auto" width="900" >}}
 
 ## OWASP vs ATT&CK: Why You Need Both
 
@@ -97,7 +97,7 @@ These frameworks are **complementary, not competitive**:
 | **Approach** | Prevention-first | Detection-oriented |
 | **Scope** | Application layer | Full attack lifecycle |
 
-{{< figure src="/images/owasp-attack-integration.drawio.svg" alt="OWASP and ATT&CK Integration" class="mx-auto" width="900" >}}
+{{< figure src="/images/owasp-attack-integration.drawio.png" alt="OWASP and ATT&CK Integration" class="mx-auto" width="900" >}}
 
 > "OWASP prevents vulnerabilities. ATT&CK detects adversary behavior."
 
@@ -130,7 +130,7 @@ Attackers chain multiple techniques together. A supply chain attack might unfold
 5. Attacker creates a backdoor IAM user for persistence
 6. Customer data is exfiltrated
 
-{{< figure src="/images/attack-chain-supply.drawio.svg" alt="Supply Chain Attack Chain" class="mx-auto" width="900" >}}
+{{< figure src="/images/attack-chain-supply.drawio.png" alt="Supply Chain Attack Chain" class="mx-auto" width="900" >}}
 
 Six techniques, six tactics, one continuous attack. Defend only at the perimeter and you miss five of six detection opportunities. Real attacks also loop and backtrack — ATT&CK captures this reality with a matrix rather than a linear chain.
 
@@ -150,7 +150,7 @@ Then build from there:
 - **Include ATT&CK in threat modeling** — consider how attackers would chain techniques
 - **Review code for both** — OWASP vulnerabilities AND technique resistance
 
-{{< figure src="/images/defense-in-depth.drawio.svg" alt="Defense in Depth Architecture" class="mx-auto" width="900" >}}
+{{< figure src="/images/defense-in-depth.drawio.png" alt="Defense in Depth Architecture" class="mx-auto" width="900" >}}
 
 ## Resources
 

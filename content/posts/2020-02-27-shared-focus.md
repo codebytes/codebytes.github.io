@@ -26,4 +26,4 @@ To really succeed, to improve and to grow as an organization, everyone needs to 
 
 When everyone is working towards common goals and have a shared focus, the whole is greater than the sum of the parts. I was introduced to some of these ideas as "The First Way". I read about this in ["The Phoenix Project: A Novel about IT, DevOps, and Helping Your Business Win" by Gene Kim](https://itrevolution.com/book/the-phoenix-project/) and "[The DevOps Handbook](https://itrevolution.com/book/the-devops-handbook/)". The ways were also in a blog by Gene Kim called "[The Three Ways](https://itrevolution.com/the-three-ways-principles-underpinning-devops/)". If you haven't read either of these books, please go read The Phoenix Project.
 
-{{< figure src="/books/the-phoenix-project.jpg" >}}
+{{< figure src="/images/books/the-phoenix-project.jpg" >}}
