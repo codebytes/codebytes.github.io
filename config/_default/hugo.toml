@@ -45,7 +45,7 @@ googleAnalytics = "" # Add your GA4 measurement ID
   priority = 0.5
 
 [outputs]
-  home = ["HTML", "RSS", "FEED", "JSON"]
+  home = ["HTML", "FEED", "JSON"]
 
 # Legacy feed.xml for backward compatibility with Jekyll
 [outputFormats.FEED]
