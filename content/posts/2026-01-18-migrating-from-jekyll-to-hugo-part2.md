@@ -190,7 +190,7 @@ Get-ChildItem "content/posts/*.md" | ForEach-Object {
 ```
 
 {{< alert "circle-info" >}}
-**Note:** The PowerShell script above covers the basics, but you may need additional passes for things like Liquid `{% raw %}` blocks or custom Jekyll includes. Test thoroughly!
+**Note:** The PowerShell script above covers the basics, but you may need additional passes for things like Liquid `raw`/`endraw` blocks or custom Jekyll includes. Test thoroughly!
 {{< /alert >}}
 
 ## What's Next
