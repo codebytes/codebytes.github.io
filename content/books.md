@@ -9,6 +9,7 @@ I read a lot of books, you can see some of them on [goodreads](https://www.goodr
 
 ## DevOps and Engineering
 
+{{< gallery >}}
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 not-prose">
   <a href="https://itrevolution.com/accelerate-book/" class="group block rounded-lg border border-neutral-200 dark:border-neutral-700 p-4 hover:border-primary-500 dark:hover:border-primary-400 transition-all hover:shadow-lg">
     <img src="/images/books/accelerate.jpg" alt="Accelerate" class="w-full h-48 object-contain mb-3 rounded">
@@ -41,9 +42,11 @@ I read a lot of books, you can see some of them on [goodreads](https://www.goodr
     <p class="text-xs text-neutral-500 dark:text-neutral-400">An Engineers Field Guide to Technical Writing</p>
   </a>
 </div>
+{{< /gallery >}}
 
 ## Presentations and Productivity
 
+{{< gallery >}}
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 not-prose">
   <a href="https://www.duarte.com/books/slideology/" class="group block rounded-lg border border-neutral-200 dark:border-neutral-700 p-4 hover:border-primary-500 dark:hover:border-primary-400 transition-all hover:shadow-lg">
     <img src="/images/books/slide-ology.jpg" alt="slide:ology" class="w-full h-48 object-contain mb-3 rounded">
@@ -61,9 +64,11 @@ I read a lot of books, you can see some of them on [goodreads](https://www.goodr
     <p class="text-xs text-neutral-500 dark:text-neutral-400">A Proven Method to Organize Your Digital Life</p>
   </a>
 </div>
+{{< /gallery >}}
 
 ## Leadership and Management
 
+{{< gallery >}}
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 not-prose">
   <a href="https://www.radicalcandor.com/the-book/" class="group block rounded-lg border border-neutral-200 dark:border-neutral-700 p-4 hover:border-primary-500 dark:hover:border-primary-400 transition-all hover:shadow-lg">
     <img src="/images/books/radical-candor.png" alt="Radical Candor" class="w-full h-48 object-contain mb-3 rounded">
@@ -76,3 +81,4 @@ I read a lot of books, you can see some of them on [goodreads](https://www.goodr
     <p class="text-xs text-neutral-500 dark:text-neutral-400">Being a Great Manager Is Simpler Than You Think</p>
   </a>
 </div>
+{{< /gallery >}}
