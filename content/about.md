@@ -5,11 +5,11 @@ aliases:
   - /about/
 ---
 
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; margin-bottom: 1.5rem;">
-  <a href="/images/bio-photo.jpg" target="_blank"><img src="/images/bio-photo.jpg" alt="Chris Ayers" style="width: 240px; height: 240px; border-radius: 50%; object-fit: cover; border: 3px solid var(--color-primary-500);" /></a>
-  <a href="/images/head-shoulders.png" target="_blank"><img src="/images/head-shoulders.png" alt="Chris Ayers headshot" style="width: 240px; height: 240px; border-radius: 50%; object-fit: cover; border: 3px solid var(--color-primary-500);" /></a>
-  <a href="/images/kcdc-2025-1.jpg" target="_blank"><img src="/images/kcdc-2025-1.jpg" alt="Chris Ayers speaking at KCDC 2025" style="width: 240px; height: 240px; border-radius: 50%; object-fit: cover; border: 3px solid var(--color-primary-500);" /></a>
-</div>
+{{< gallery >}}
+  <img src="/images/bio-photo.jpg" alt="Chris Ayers" class="grid-w33" style="border-radius: 50%; object-fit: cover; border: 3px solid var(--color-primary-500);" />
+  <img src="/images/head-shoulders.png" alt="Chris Ayers headshot" class="grid-w33" style="border-radius: 50%; object-fit: cover; border: 3px solid var(--color-primary-500);" />
+  <img src="/images/kcdc-2025-1.jpg" alt="Chris Ayers speaking at KCDC 2025" class="grid-w33" style="border-radius: 50%; object-fit: cover; border: 3px solid var(--color-primary-500);" />
+{{< /gallery >}}
 
 {{< lead >}}
 **Principal Software Engineer at Microsoft** | Azure Reliability | International Speaker
