@@ -53,10 +53,8 @@ On March 2, 2026, I completed renewal assessments for all six of my expiring cer
 
 ## Why Renewals Matter
 
-Certifications are more than just credentials on a resume. The renewal process is a valuable learning opportunity that keeps me current with the rapid pace of cloud innovation. Each renewal assessment covers the latest features and best practices, which directly benefits the work I do on Azure reliability at Microsoft.
+I started pursuing certifications early in my career as a consultant at a professional services company. They encouraged it, and it helped with competencies and career growth. When you're helping customers adopt a technology, having the certification carries authority - it shows you've put in the work to understand the platform deeply.
 
-For anyone considering Microsoft certifications, the renewal process is straightforward and free. You can complete the assessments at your own pace on [Microsoft Learn](https://learn.microsoft.com/en-us/credentials/), and they are a great way to stay sharp on the latest platform capabilities.
+Beyond the professional benefits, certifications force you to learn. The renewal process keeps you up to date with the latest features and changes, and it pushes you into areas of a technology that you might not use day to day. You end up with a much more complete understanding of the platform, not just the parts you happen to work with.
 
-## My Full Certification Portfolio
-
-With these renewals, I currently hold certifications across Azure, security, AI, DevOps, Kubernetes, Terraform, and GitHub Actions. You can see my full list of certifications on my [about page](/about/) or on my [Microsoft Learn profile](https://learn.microsoft.com/en-us/users/chrisayers/).
+For anyone considering Microsoft certifications, the renewal process is straightforward and free. You can complete the assessments at your own pace on [Microsoft Learn](https://learn.microsoft.com/en-us/credentials/), and they cover the latest updates since your last renewal cycle.
