@@ -134,6 +134,10 @@ I'm an organizer of [DevOps Days Tampa Bay](https://devopsdays.org/events/2025-t
   <img src="/images/badges/certified-kubernetes-application-developer.png" class="grid-w20" alt="CKAD" />
   <img src="/images/badges/terraform-certified-associate.png" class="grid-w20" alt="Terraform Certified Associate" />
   <img src="/images/badges/github-actions.png" class="grid-w20" alt="GitHub Actions" />
+  <img src="/images/badges/github-advanced-security.png" class="grid-w20" alt="GitHub Advanced Security" />
+  <img src="/images/badges/github-administration.png" class="grid-w20" alt="GitHub Administration" />
+  <img src="/images/badges/microsoft-certified-security-operations-analyst-associate.png" class="grid-w20" alt="Security Operations Analyst" />
+  <img src="/images/badges/microsoft-certified-azure-ai-engineer-associate.png" class="grid-w20" alt="Azure AI Engineer" />
   <img src="/images/badges/microsoft-certified-azure-security-engineer-associate.png" class="grid-w20" alt="Azure Security Engineer" />
   <img src="/images/badges/microsoft-certified-azure-network-engineer-associate.png" class="grid-w20" alt="Azure Network Engineer" />
   <img src="/images/badges/microsoft-certified-azure-administrator-associate.png" class="grid-w20" alt="Azure Administrator" />
