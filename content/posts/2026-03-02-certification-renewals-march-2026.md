@@ -9,7 +9,8 @@ tags:
 - Azure
 - Security
 - AI
-image: /images/badges/microsoft-certified-azure-solutions-architect-expert.png
+image: images/badges/microsoft-certified-azure-solutions-architect-expert.png
+featureImage: images/badges/microsoft-certified-azure-solutions-architect-expert.png
 aliases:
 - /2026/03/02/certification-renewals-march-2026/
 slug: certification-renewals-march-2026
