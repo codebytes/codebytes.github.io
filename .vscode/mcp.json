@@ -5,6 +5,12 @@
 			"args": [
 				"@playwright/mcp@latest"
 			]
+		},
+		"drawio": {
+			"command": "npx",
+			"args": [
+				"@drawio/mcp"
+			]
 		}
 	}
 }
