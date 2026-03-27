@@ -1,6 +1,6 @@
 ---
 title: "Agent Skills, Plugins and Marketplace: The Complete Guide"
-date: '2026-03-24'
+date: '2026-03-26'
 categories:
 - Development
 tags:
@@ -11,7 +11,7 @@ tags:
 image: images/logos/github-copilot-logo.png
 featureImage: images/logos/github-copilot-logo.png
 aliases:
-- /2026/03/24/agent-skills-plugins-marketplace/
+- /2026/03/26/agent-skills-plugins-marketplace/
 slug: agent-skills-plugins-marketplace
 ---
 
@@ -98,14 +98,7 @@ The `SKILL.md` format is identical across all tools - write once, discovered eve
 
 Skills load **only when relevant**. You can define dozens of skills in a project, and Copilot will only load the ones that match the current task. This keeps context windows focused and avoids unnecessary token usage.
 
-{{< mermaid >}}
-flowchart LR
-    A[User Prompt] --> B{Copilot Evaluates\nRelevance}
-    B -->|Relevant| C[Load SKILL.md]
-    B -->|Not Relevant| D[Skip Skill]
-    C --> E[Execute with\nSpecified Tools]
-    E --> F[Return Results]
-{{< /mermaid >}}
+{{< figure src="/images/diagrams/skill-loading-flow.drawio.png" alt="Skill Loading Flow: User Prompt to Copilot evaluation, loading relevant skills and executing with specified tools" class="mx-auto" width="900" >}}
 
 ## Plugins: Package Management for Copilot
 
@@ -220,21 +213,7 @@ Create `.github/plugin/marketplace.json` in a Git repository:
 
 Push to GitHub and you have a working marketplace.
 
-{{< mermaid >}}
-flowchart TD
-    M[Marketplace Repository] --> MJ[marketplace.json]
-    MJ --> P1[Plugin: document-tools]
-    MJ --> P2[Plugin: security-scanner]
-    MJ --> P3[Plugin: docs-generator]
-    P1 --> PJ1[.github/plugin.json]
-    P1 --> A1[agents/]
-    P1 --> S1[skills/]
-    P2 --> PJ2[.github/plugin.json]
-    P2 --> MCP2[.mcp.json]
-    P3 --> PJ3[.github/plugin.json]
-    P3 --> S3[skills/]
-    P3 --> H3[hooks.json]
-{{< /mermaid >}}
+{{< figure src="/images/diagrams/marketplace-structure.drawio.png" alt="Marketplace Structure: Repository containing marketplace.json linking to plugins with their components" class="mx-auto" width="900" >}}
 
 ### Versioning with External Sources
 
@@ -353,18 +332,7 @@ copilot plugin uninstall my-plugin
 
 After installation, components integrate automatically:
 
-{{< mermaid >}}
-flowchart LR
-    I[Install Plugin] --> R[Plugin Registry]
-    R --> AG[Agents Available]
-    R --> SK[Skills Auto-load]
-    R --> HK[Hooks Execute]
-    R --> MC[MCP Servers Connect]
-    AG --> S[Copilot Session]
-    SK --> S
-    HK --> S
-    MC --> S
-{{< /mermaid >}}
+{{< figure src="/images/diagrams/runtime-behavior.drawio.png" alt="Plugin Runtime Behavior: Install flows through registry to agents, skills, hooks, and MCP servers feeding into Copilot session" class="mx-auto" width="900" >}}
 
 - **Agents** appear in your agent selection
 - **Skills** load when relevant to your task
@@ -432,14 +400,7 @@ That's it. The agent and skills are now available across every project.
 
 The plugin system operates within Copilot's standard permission framework:
 
-{{< mermaid >}}
-flowchart LR
-    T[Plugin Tool Call] --> P{Permission\nRequired?}
-    P -->|skipPermission: true| E[Execute]
-    P -->|Standard| A[User Approval]
-    A -->|Approved| E
-    A -->|Denied| D[Blocked]
-{{< /mermaid >}}
+{{< figure src="/images/diagrams/security-permissions.drawio.png" alt="Security Permissions Flow: Plugin tool calls checked for permissions, with skipPermission bypass or user approval paths" class="mx-auto" width="900" >}}
 
 - **Folder trust** - Repository-level hooks only load after user confirms trust
 - **Tool permissions** - Standard approval prompts for plugin tools
@@ -471,18 +432,7 @@ Use VS Code Insiders for the latest fixes, and validate with Copilot CLI before 
 
 ## The Big Picture
 
-```text
-+--------------------------------------------------+
-|                  MARKETPLACE                      |
-|   marketplace.json - lists available plugins      |
-+--------------------------------------------------+
-|                   PLUGINS                         |
-|   plugin.json - bundles components                |
-+----------+----------+----------+-----------------+
-|  Agents  |  Skills  |  Hooks   |  MCP/LSP        |
-| .agent.md| SKILL.md |hooks.json|  .mcp.json      |
-+----------+----------+----------+-----------------+
-```
+{{< figure src="/images/diagrams/agent-skills-architecture.drawio.png" alt="Agent Skills Architecture: Marketplace, Plugins, and Components" class="mx-auto" width="900" >}}
 
 The ecosystem follows a clear layering:
 
@@ -496,8 +446,6 @@ The ecosystem follows a clear layering:
 - [Demo Repo: codebytes/agent-skills](https://github.com/codebytes/agent-skills) — Complete working plugin + marketplace example
 - [GitHub Docs: About CLI Plugins](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-cli-plugins)
 - [awesome-copilot: Installing and Using Plugins](https://awesome-copilot.github.com/learning-hub/installing-and-using-plugins/)
-- [Ken Muse: Creating Agent Plugins](https://www.kenmuse.com/blog/creating-agent-plugins-for-vs-code-and-copilot-cli/)
 - [GitHub Changelog: Agent Skills](https://github.blog/changelog/2025-12-18-github-copilot-now-supports-agent-skills/)
-- [DeepWiki: Plugin System and Skills](https://deepwiki.com/github/copilot-cli/5.5-plugin-system-and-skills)
 - [copilot-plugins Registry](https://github.com/github/copilot-plugins)
 - [awesome-copilot Marketplace](https://github.com/github/awesome-copilot)
