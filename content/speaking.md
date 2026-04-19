@@ -31,18 +31,6 @@ I regularly speak at conferences and meetups around the world. If you're interes
 
 {{< timeline >}}
 
-{{< timelineItem icon="comment" header="<a href='https://ndc-security.com/'>NDC Security 2026</a>" badge="Mar 2-5" >}}
-<ul><li>MITRE ATT&CK for Developers</li></ul>
-{{< /timelineItem >}}
-
-{{< timelineItem icon="comment" header="<a href='https://aspire.dev/aspireconf/'>Aspire Conf</a>" badge="Mar 23" >}}
-<ul><li>One AppHost, Many Languages</li></ul>
-{{< /timelineItem >}}
-
-{{< timelineItem icon="comment" header="<a href='http://codestock.org'>CodeStock 2026</a>" badge="Apr 9-10" >}}
-<ul><li>Modern .NET Configuration Practices</li><li>Resilient by Design</li></ul>
-{{< /timelineItem >}}
-
 {{< timelineItem icon="comment" header="<a href='https://ndcsydney.com/'>NDC Sydney 2026</a>" badge="Apr 22-24" >}}
 <ul><li>Real World CI/CD with GitHub Actions</li></ul>
 {{< /timelineItem >}}
@@ -59,6 +47,10 @@ I regularly speak at conferences and meetups around the world. If you're interes
 <ul><li>Refactoring Your Technical Identity</li></ul>
 {{< /timelineItem >}}
 
+{{< timelineItem icon="comment" header="<a href='https://www.kcdc.info/'>KCDC 2026</a>" badge="Sep 9-12" >}}
+<ul><li>The Power of Dev Containers and GitHub Codespaces</li></ul>
+{{< /timelineItem >}}
+
 {{< /timeline >}}
 
 ---
@@ -70,6 +62,11 @@ I regularly speak at conferences and meetups around the world. If you're interes
 
 | Event | Date | Talks |
 | --- | --- | --- |
+| [Orlando Code Camp 2026](https://orlandocodecamp.com/) | Apr 11 | MITRE ATT&CK for Developers |
+| [CodeStock 2026](http://codestock.org) | Apr 9-10 | Modern .NET Configuration Practices |
+| | | Resilient by Design |
+| [Aspire Conf](https://aspire.dev/aspireconf/) | Mar 23 | One AppHost, Many Languages |
+| [NDC Security 2026](https://ndc-security.com/) | Mar 2-5 | MITRE ATT&CK for Developers |
 | [NDC London 2026](https://ndclondon.com/) | Jan 26-30 | Modern .NET Configuration Practices |
 
 </details>
