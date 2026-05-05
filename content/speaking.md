@@ -43,16 +43,16 @@ I regularly speak at conferences and meetups around the world. If you're interes
 <ul><li>Refactoring Your Technical Identity</li><li>Guardians of the Containers</li></ul>
 {{< /timelineItem >}}
 
-{{< timelineItem icon="comment" header="<a href='https://sceniccitysummit.com/'>Scenic City Summit 2026</a>" badge="Jun 5" >}}
-<ul><li>MITRE ATT&CK for Developers</li></ul>
-{{< /timelineItem >}}
-
 {{< timelineItem icon="comment" header="<a href='https://beercitycode.com/'>Beer City Code 2026</a>" badge="Aug 14-15" >}}
 <ul><li>Resilient by Design</li><li>Aspire 13: One AppHost, Many Languages</li></ul>
 {{< /timelineItem >}}
 
 {{< timelineItem icon="comment" header="<a href='https://www.kcdc.info/'>KCDC 2026</a>" badge="Sep 9-11" >}}
 <ul><li>Refactoring Your Technical Identity</li><li>Aspire 13: One AppHost, Many Languages</li></ul>
+{{< /timelineItem >}}
+
+{{< timelineItem icon="comment" header="<a href='https://vslive.com/events/sandiego-2026/home.aspx'>VS Live! San Diego 2026</a>" badge="Sep 14-18" >}}
+<ul><li>Aspire 13: One AppHost, Many Languages, Fewer Headaches?</li><li>Ensuring Azure Resiliency</li></ul>
 {{< /timelineItem >}}
 
 {{< timelineItem icon="comment" header="<a href='https://prairiedevcon.com/'>Prairie Dev Con Winnipeg 2026</a>" badge="Sep 21-22" >}}
