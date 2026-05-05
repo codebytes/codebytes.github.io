@@ -78,7 +78,6 @@ I regularly speak at conferences and meetups around the world. If you're interes
 | [Orlando Code Camp 2026](https://orlandocodecamp.com/) | Apr 11 | MITRE ATT&CK for Developers |
 | [CodeStock 2026](http://codestock.org/) | Apr 9-10 | Modern .NET Configuration Practices |
 | | | Resilient by Design |
-| [Voxxed Days Zürich 2026](https://voxxeddays.com/zurich/) | Mar 24 | GitHub Actions in the Real World: CI/CD That Actually Works |
 | [Aspire Conf 2026](https://aspire.dev/aspireconf/) | Mar 23 | One AppHost, Many Languages |
 | [NDC Security 2026](https://ndc-security.com/) | Mar 2-5 | MITRE ATT&CK for Developers |
 | [NDC London 2026](https://ndclondon.com/) | Jan 26-30 | Modern .NET Configuration Practices |
