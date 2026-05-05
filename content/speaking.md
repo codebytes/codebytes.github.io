@@ -31,22 +31,6 @@ I regularly speak at conferences and meetups around the world. If you're interes
 
 {{< timeline >}}
 
-{{< timelineItem icon="comment" header="<a href='https://ndc-security.com/'>NDC Security 2026</a>" badge="Mar 2-5" >}}
-<ul><li>MITRE ATT&CK for Developers</li></ul>
-{{< /timelineItem >}}
-
-{{< timelineItem icon="comment" header="<a href='https://aspire.dev/aspireconf/'>Aspire Conf</a>" badge="Mar 23" >}}
-<ul><li>One AppHost, Many Languages</li></ul>
-{{< /timelineItem >}}
-
-{{< timelineItem icon="comment" header="<a href='http://codestock.org'>CodeStock 2026</a>" badge="Apr 9-10" >}}
-<ul><li>Modern .NET Configuration Practices</li><li>Resilient by Design</li></ul>
-{{< /timelineItem >}}
-
-{{< timelineItem icon="comment" header="<a href='https://ndcsydney.com/'>NDC Sydney 2026</a>" badge="Apr 22-24" >}}
-<ul><li>Real World CI/CD with GitHub Actions</li></ul>
-{{< /timelineItem >}}
-
 {{< timelineItem icon="comment" header="<a href='https://ndctoronto.com/'>NDC Toronto 2026</a>" badge="May 5-8" >}}
 <ul><li>Aspire 13: One AppHost, Many Languages</li></ul>
 {{< /timelineItem >}}
@@ -56,7 +40,27 @@ I regularly speak at conferences and meetups around the world. If you're interes
 {{< /timelineItem >}}
 
 {{< timelineItem icon="comment" header="<a href='https://www.devsum.se'>DevSum 2026</a>" badge="Jun 2-3" >}}
-<ul><li>Refactoring Your Technical Identity</li></ul>
+<ul><li>Refactoring Your Technical Identity</li><li>Guardians of the Containers</li></ul>
+{{< /timelineItem >}}
+
+{{< timelineItem icon="comment" header="<a href='https://sceniccitysummit.com/'>Scenic City Summit 2026</a>" badge="Jun 5" >}}
+<ul><li>MITRE ATT&CK for Developers</li></ul>
+{{< /timelineItem >}}
+
+{{< timelineItem icon="comment" header="<a href='https://beercitycode.com/'>Beer City Code 2026</a>" badge="Aug 14-15" >}}
+<ul><li>Resilient by Design</li><li>Aspire 13: One AppHost, Many Languages</li></ul>
+{{< /timelineItem >}}
+
+{{< timelineItem icon="comment" header="<a href='https://www.kcdc.info/'>KCDC 2026</a>" badge="Sep 9-11" >}}
+<ul><li>Refactoring Your Technical Identity</li><li>Aspire 13: One AppHost, Many Languages</li></ul>
+{{< /timelineItem >}}
+
+{{< timelineItem icon="comment" header="<a href='https://prairiedevcon.com/'>Prairie Dev Con Winnipeg 2026</a>" badge="Sep 21-22" >}}
+<ul><li>MITRE ATT&CK for Developers</li><li>Agent Skills, Plugins &amp; Marketplaces</li></ul>
+{{< /timelineItem >}}
+
+{{< timelineItem icon="comment" header="<a href='https://www.cloudandaisummit.com/'>The Cloud &amp; AI Summit 2026</a>" badge="Sep 30 - Oct 2" >}}
+<ul><li>MITRE ATT&CK for Developers</li><li>Resilient by Design</li></ul>
 {{< /timelineItem >}}
 
 {{< /timeline >}}
@@ -70,6 +74,13 @@ I regularly speak at conferences and meetups around the world. If you're interes
 
 | Event | Date | Talks |
 | --- | --- | --- |
+| [NDC Sydney 2026](https://ndcsydney.com/) | Apr 22-24 | Real World CI/CD with GitHub Actions |
+| [Orlando Code Camp 2026](https://orlandocodecamp.com/) | Apr 11 | MITRE ATT&CK for Developers |
+| [CodeStock 2026](http://codestock.org/) | Apr 9-10 | Modern .NET Configuration Practices |
+| | | Resilient by Design |
+| [Voxxed Days Zürich 2026](https://voxxeddays.com/zurich/) | Mar 24 | GitHub Actions in the Real World: CI/CD That Actually Works |
+| [Aspire Conf 2026](https://aspire.dev/aspireconf/) | Mar 23 | One AppHost, Many Languages |
+| [NDC Security 2026](https://ndc-security.com/) | Mar 2-5 | MITRE ATT&CK for Developers |
 | [NDC London 2026](https://ndclondon.com/) | Jan 26-30 | Modern .NET Configuration Practices |
 
 </details>
@@ -79,12 +90,13 @@ I regularly speak at conferences and meetups around the world. If you're interes
 
 | Event | Date | Talks |
 | --- | --- | --- |
-| [TechBash 2025](https://www.techbash.com/) | Nov 4-7 | Real World CI/CD with GitHub Actions |
-| | | The Well-Architected Architect |
-| | | Resilient by Design |
 | [Live! 360 Orlando 2025](https://live360events.com/events/orlando-2025/) | Nov 16-21 | .NET in a Box: Containerizing .NET Applications |
 | | | Refactoring Your Developer Identity |
 | | | Cloud & Containers Live! Panel |
+| [TechBash 2025](https://www.techbash.com/) | Nov 4-7 | Real World CI/CD with GitHub Actions |
+| | | The Well-Architected Architect |
+| | | Resilient by Design |
+| [.NET DeveloperDays 2025](https://net.developerdays.pl/) | Oct 21-22 | Refactoring Your Technical Identity |
 | [NDC Copenhagen 2025](https://cphdevfest.com/) | Sep 8-12 | Modern .NET Configuration Practices |
 | [KCDC 2025](https://www.kcdc.info/) | Aug 13-15 | The Power of Dev Containers and GitHub Codespaces |
 | [DevSum 2025](https://www.devsum.se/) | Jun 12-13 | The Well-Architected Architect |
