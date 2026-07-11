@@ -98,6 +98,7 @@ I regularly speak at conferences and meetups around the world. If you're interes
 
 | Event | Date | Talks |
 | --- | --- | --- |
+| [Build Stuff 2025](https://buildstuff.events/) | Dec 3-5 | Modern .NET Configuration Practices |
 | [Live! 360 Orlando 2025](https://live360events.com/events/orlando-2025/) | Nov 16-21 | .NET in a Box: Containerizing .NET Applications |
 | | | Refactoring Your Developer Identity |
 | | | Cloud & Containers Live! Panel |
