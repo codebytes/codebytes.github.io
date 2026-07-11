@@ -31,18 +31,6 @@ I regularly speak at conferences and meetups around the world. If you're interes
 
 {{< timeline >}}
 
-{{< timelineItem icon="comment" header="<a href='https://ndctoronto.com/'>NDC Toronto 2026</a>" badge="May 5-8" >}}
-<ul><li>Aspire 13: One AppHost, Many Languages</li></ul>
-{{< /timelineItem >}}
-
-{{< timelineItem icon="comment" header="<a href='https://techorama.be/'>Techorama Belgium 2026</a>" badge="May 11-13" >}}
-<ul><li>MITRE ATT&CK for Developers</li><li>The Well-Architected Architect</li></ul>
-{{< /timelineItem >}}
-
-{{< timelineItem icon="comment" header="<a href='https://www.devsum.se'>DevSum 2026</a>" badge="Jun 2-3" >}}
-<ul><li>Refactoring Your Technical Identity</li><li>Guardians of the Containers</li></ul>
-{{< /timelineItem >}}
-
 {{< timelineItem icon="comment" header="<a href='https://beercitycode.com/'>Beer City Code 2026</a>" badge="Aug 14-15" >}}
 <ul><li>Resilient by Design</li><li>Aspire 13: One AppHost, Many Languages</li></ul>
 {{< /timelineItem >}}
@@ -63,6 +51,22 @@ I regularly speak at conferences and meetups around the world. If you're interes
 <ul><li>MITRE ATT&CK for Developers</li><li>Resilient by Design</li></ul>
 {{< /timelineItem >}}
 
+{{< timelineItem icon="comment" header="<a href='https://www.techbash.com/'>TechBash 2026</a>" badge="Oct 13-16" >}}
+<ul><li>Aspire 13: One AppHost, Many Languages</li><li>MITRE ATT&CK for Developers</li></ul>
+{{< /timelineItem >}}
+
+{{< timelineItem icon="comment" header="<a href='https://2026.trondheimdc.no/en/'>Trondheim Developer Conference 2026</a>" badge="Oct 19" >}}
+<ul><li>Aspire 13: One AppHost, Many Languages</li></ul>
+{{< /timelineItem >}}
+
+{{< timelineItem icon="comment" header="<a href='https://www.hellostavanger.no/'>HelloStavanger 2026</a>" badge="Oct 21-22" >}}
+<ul><li>Shipping with AI Without Shipping Regret</li></ul>
+{{< /timelineItem >}}
+
+{{< timelineItem icon="comment" header="<a href='https://techorama.nl/'>Techorama Netherlands 2026</a>" badge="Oct 28" >}}
+<ul><li>MITRE ATT&CK for Developers</li><li>The Well-Architected Architect</li></ul>
+{{< /timelineItem >}}
+
 {{< /timeline >}}
 
 ---
@@ -74,6 +78,11 @@ I regularly speak at conferences and meetups around the world. If you're interes
 
 | Event | Date | Talks |
 | --- | --- | --- |
+| [DevSum 2026](https://www.devsum.se) | Jun 2-3 | Refactoring Your Technical Identity |
+| | | Guardians of the Containers |
+| [Techorama Belgium 2026](https://techorama.be/) | May 11-13 | MITRE ATT&CK for Developers |
+| | | The Well-Architected Architect |
+| [NDC Toronto 2026](https://ndctoronto.com/) | May 5-8 | Aspire 13: One AppHost, Many Languages |
 | [NDC Sydney 2026](https://ndcsydney.com/) | Apr 22-24 | Real World CI/CD with GitHub Actions |
 | [Orlando Code Camp 2026](https://orlandocodecamp.com/) | Apr 11 | MITRE ATT&CK for Developers |
 | [CodeStock 2026](http://codestock.org/) | Apr 9-10 | Modern .NET Configuration Practices |
