@@ -21,7 +21,7 @@ slug: arm-azure-resource-manager
 ---
 ## The Journey Begins
 
-I've been an azure developer for years. Originally I worked with "Classic Mode" and Cloud Services. Then I moved to ARM and Web Apps. Lately I've been doing DevOps but I only recently started working with ARM Termplates. First, let's dive into a little history.
+I've been an azure developer for years. Originally I worked with "Classic Mode" and Cloud Services. Then I moved to ARM and Web Apps. Lately I've been doing DevOps but I only recently started working with ARM Templates. First, let's dive into a little history.
 
 ## History
 

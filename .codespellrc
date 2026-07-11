@@ -1,0 +1,6 @@
+[codespell]
+# Domain terms and valid words codespell misreads as typos:
+#   aks          - Azure Kubernetes Service (flagged as "ask")
+#   statics      - static members/methods (flagged as "statistics")
+#   implementors - valid variant; also appears in external URLs
+ignore-words-list = aks,statics,implementors

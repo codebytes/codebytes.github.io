@@ -97,7 +97,7 @@ nuget locals all -clear
 
 NuGet.exe is not installed by default on Windows. Visual Studio 2017 and above include nuget package manager functionality via the NuGet Package Manager (GUI and console), but not nuget.exe.
 
-If you install newer versions of the DotNet CLI, it does include `dotnet nuget` funcationality but not nuget.exe.
+If you install newer versions of the DotNet CLI, it does include `dotnet nuget` functionality but not nuget.exe.
 
 The NuGet.exe doesn't have an installer, and the instructions on the site usually involve downloading the exe and adding it to your path.
 

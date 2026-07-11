@@ -24,7 +24,7 @@ Snake Oil
 
 But, like days of old, there are those trying to make a buck at any cost. We come across them or hear about them from customers time to time. People and Processes aren't part of the discussion. Instead the discussion centers on the tool. Snake Oil, The secret sauce, the magic technology, the silver bullet, the tool that will solve all your problems.
 
-Have you ever heard any of theses statements/promises/lies?
+Have you ever heard any of these statements/promises/lies?
 
 - If you buy this list of tools, you'll be/have/do DevOps.
 - You can't do DevOps without X tool.

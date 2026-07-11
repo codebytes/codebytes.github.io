@@ -36,7 +36,7 @@ There are a few open issues on GitHub regarding the problem, so I know they're a
 - system date is not same with windows (WSL 2) - [https://github.com/microsoft/WSL/issues/4245](https://github.com/microsoft/WSL/issues/4245)
 - WSL2: Clock skewed? - [https://github.com/microsoft/WSL/issues/4677](https://github.com/microsoft/WSL/issues/4677)
 
-For me i first fixed the symtom, then followed the recommendation and actually solved the problem.  
+For me i first fixed the symptom, then followed the recommendation and actually solved the problem.  
 Treating the symptom:
 
 ```bash
