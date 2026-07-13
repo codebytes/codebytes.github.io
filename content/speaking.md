@@ -78,6 +78,7 @@ I regularly speak at conferences and meetups around the world. If you're interes
 
 | Event | Date | Talks |
 | --- | --- | --- |
+| [Capital Area .NET User Group](https://www.meetup.com/caparea-net/) | Jul 7 | Aspire 13: One AppHost, Many Languages |
 | [DevSum 2026](https://www.devsum.se) | Jun 2-3 | Refactoring Your Technical Identity |
 | | | Guardians of the Containers |
 | [Techorama Belgium 2026](https://techorama.be/) | May 11-13 | MITRE ATT&CK for Developers |
