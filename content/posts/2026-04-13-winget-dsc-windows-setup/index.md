@@ -10,7 +10,8 @@ tags:
 - PowerShell
 - DevOps
 - Automation
-image: images/diagrams/winget-dsc-architecture.drawio.png
+image: "featured.png"
+featureImage: "featured.png"
 aliases:
 - /2026/04/13/winget-dsc-windows-setup/
 slug: winget-dsc-windows-setup
@@ -101,7 +102,7 @@ The YAML file is organized by category. Here's what mine includes:
 | Category | Packages |
 |----------|----------|
 | **Git & GitHub** | Git, GitHub CLI, GitHub Desktop, GitHub Copilot CLI |
-| **Editors** | VS Code, Visual Studio Enterprise 2026 |
+| **Editors** | VS Code, Visual Studio Enterprise |
 | **Runtimes** | .NET 8, .NET 9, .NET 10, Python 3.12, Node.js |
 | **Containers** | Docker Desktop |
 | **Terminal** | Windows Terminal, PowerShell 7, Oh My Posh |
@@ -109,7 +110,7 @@ The YAML file is organized by category. Here's what mine includes:
 | **Dev Tools** | UniGetUI, LINQPad 8, Azure CLI, Azure Developer CLI, Foundry Local, Ollama, Kusto Explorer |
 | **Daily Apps** | Chrome, PowerToys |
 | **Personalization** | PowerShell profile, Oh My Posh theme, Nerd Fonts, Windows Terminal config |
-| **Cleanup & Security** | Bloatware removal, PUA protection, autoplay/autorun disabled |
+| **Cleanup & Security** | Bloatware removal, PUA protection, autoplay/autorun/delivery-optimization disabled |
 
 ### Beyond Packages: Settings and Scripts
 
@@ -143,7 +144,8 @@ For things without native DSC resources — bloatware removal, registry tweaks, 
             $pua = (Get-MpPreference).PUAProtection -eq 1
             $autoplay = (Get-ItemProperty -Path 'HKCU:\...\AutoplayHandlers' ...).DisableAutoplay -eq 1
             $autorun = (Get-ItemProperty -Path 'HKLM:\...\Policies\Explorer' ...).NoDriveTypeAutoRun -eq 255
-            return ($pua -and $autoplay -and $autorun)
+            $delopt = (Get-ItemProperty -Path 'HKLM:\...\DeliveryOptimization' ...).DODownloadMode -eq 100
+            return ($pua -and $autoplay -and $autorun -and $delopt)
           } catch { return $false }
         SetScript: |
           Set-MpPreference -PUAProtection 1
@@ -169,7 +171,7 @@ One of my favorite additions is automatic [Dev Drive](https://learn.microsoft.co
           # Skip if D: is already available
           return (Test-Path 'D:\')
         SetScript: |
-          $vhdPath = 'C:\DevDrive\devdrive.vhdx'
+          $vhdPath = 'C:\Users\Public\devdrive.vhdx'
           $vhd = New-VHD -Path $vhdPath -Dynamic -SizeBytes 50GB
           $disk = $vhd | Mount-VHD -Passthru
           $init = $disk | Initialize-Disk -Passthru
@@ -201,8 +203,10 @@ The config also cleans up pre-installed apps you probably don't want on a dev ma
         TestScript: |
           $packages = @(
             'Disney.37853FC22B2CE', 'Microsoft.BingNews',
-            'Microsoft.GetHelp', 'Microsoft.MicrosoftSolitaireCollection',
-            'SpotifyAB.SpotifyMusic', 'TeamViewer.TeamViewer.Host'
+            'Microsoft.GetHelp', 'Microsoft.Getstarted',
+            'Microsoft.MicrosoftSolitaireCollection', 'Microsoft.MicrosoftOfficeHub',
+            'Microsoft.WindowsFeedbackHub', 'SpotifyAB.SpotifyMusic',
+            'TeamViewer.TeamViewer.Host'
           )
           $found = $packages | Where-Object {
             Get-AppxPackage -Name $_ -ErrorAction SilentlyContinue }
@@ -218,7 +222,7 @@ The configuration goes further than just installing Oh My Posh — it sets up th
 - Downloads the Oh My Posh theme from the repo
 - Creates PowerShell 7 and Windows PowerShell profiles
 - Installs Terminal-Icons and z modules
-- Installs CascadiaCode Nerd Font
+- Installs the CascadiaCode and Meslo Nerd Fonts
 - Configures Windows Terminal to use the font
 
 All of this is handled by a single `PSDscResources/Script` block with dependencies on the terminal tools being installed first.
