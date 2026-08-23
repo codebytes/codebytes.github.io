@@ -1,6 +1,6 @@
 ---
 title: "Automate Your Windows Dev Machine with WinGet DSC"
-date: '2026-04-13'
+date: '2026-08-23'
 categories:
 - Development
 tags:
@@ -20,6 +20,10 @@ slug: winget-dsc-windows-setup
 Stop manually installing tools on a fresh Windows machine — declare what you want and let WinGet DSC handle the rest.
 
 <!--more-->
+
+I recently got a new work laptop, which meant setting everything up from scratch again — the perfect excuse to finally revise my machine setup and move it to something more maintainable. What I wanted was simple: run one command, walk away, and come back to a fully configured dev box — the same way every time, on any machine.
+
+This post walks through how I got there with WinGet DSC: the declarative config that drives the whole thing, the bootstrapper that makes a fresh machine ready to run it, and the extras — Dev Drive, security hardening, and shell setup — that turn a pile of installers into a single source of truth.
 
 ## The Problem
 
