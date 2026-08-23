@@ -13,14 +13,18 @@ updates:
       github-actions:
         patterns:
           - "*"
-  - package-ecosystem: 'bundler'
+  - package-ecosystem: 'npm'
     directory: '/' # Location of package manifests
     schedule:
       interval: 'weekly'
     groups:
-      bundler:
+      npm:
         patterns:
           - "*"
+  - package-ecosystem: 'gitsubmodule'
+    directory: '/' # Location of package manifests
+    schedule:
+      interval: 'weekly'
   - package-ecosystem: 'devcontainers'
     directory: '/' # Location of package manifests
     schedule:
