@@ -26,7 +26,7 @@ I arrived early, as usual, to set up and greet attendees. When I tried to connec
 
 By now, I was a few minutes into my time slot, and the presentation seemed in jeopardy. I borrowed a local laptop, only to discover it was in Danish. Cue the comedy of errors! Finding the `*` for my password and the `/` for URLs was a nightmare. I ended up copying and pasting the `/` multiple times just to get around. Hopefully, the audience found it more amusing than I did.
 
-![the Danish keyboard layout](https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/KB_Danish.svg/630px-KB_Danish.svg.png)
+![the Danish keyboard layout](https://upload.wikimedia.org/wikipedia/commons/8/84/KB_Danish.svg)
 
 Despite the keyboard struggles, I managed to pull it off. I used the browser to present my slides, which are hosted on GitHub Pages at [http://chris-ayers.com/dev-containers](http://chris-ayers.com/dev-containers/). We discussed the Dev Containers spec, hosted at [containers.dev](https://containers.dev). Then, I launched [GitHub Codespaces](https://github.com/features/codespaces) using my repository [https://github.com/codebytes/dev-containers](https://github.com/codebytes/dev-containers) and a few others ([cpython](https://github.com/python/cpython) and [Home Assistant](https://github.com/home-assistant/core)) to demonstrate its capabilities.
 

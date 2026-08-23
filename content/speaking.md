@@ -23,7 +23,7 @@ I regularly speak at conferences and meetups around the world. If you're interes
 
 </div>
 
-{{< youtubeLite id="Eze7xKlRBwY" label="Chris Ayers Speaking Playlist" params="list=PLwaSWcZSuko7QvN0zXuHGlhh_Dxp3UmyP" >}}
+{{< youtubeLite id="qGnOnPMFDv0" label="Chris Ayers Speaking Playlist" params="list=PLwaSWcZSuko7QvN0zXuHGlhh_Dxp3UmyP" >}}
 
 ---
 
