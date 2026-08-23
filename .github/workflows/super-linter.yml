@@ -58,5 +58,5 @@ jobs:
           VALIDATE_JSCPD: 'false'
           # Use repo's markdownlint config (disables MD013 line-length)
           MARKDOWN_CONFIG_FILE: '.markdownlint.yml'
-          # Exclude themes directory from linting
-          FILTER_REGEX_EXCLUDE: 'themes/.*'
+          # Exclude themes directory and Hugo XML templates (Go template syntax) from linting
+          FILTER_REGEX_EXCLUDE: 'themes/.*|layouts/.*\.xml$'

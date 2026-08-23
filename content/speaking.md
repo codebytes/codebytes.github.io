@@ -31,32 +31,40 @@ I regularly speak at conferences and meetups around the world. If you're interes
 
 {{< timeline >}}
 
-{{< timelineItem icon="comment" header="<a href='https://ndc-security.com/'>NDC Security 2026</a>" badge="Mar 2-5" >}}
-<ul><li>MITRE ATT&CK for Developers</li></ul>
+{{< timelineItem icon="comment" header="<a href='https://beercitycode.com/'>Beer City Code 2026</a>" badge="Aug 14-15" >}}
+<ul><li>Resilient by Design</li><li>Aspire 13: One AppHost, Many Languages</li></ul>
 {{< /timelineItem >}}
 
-{{< timelineItem icon="comment" header="<a href='https://aspire.dev/aspireconf/'>Aspire Conf</a>" badge="Mar 23" >}}
-<ul><li>One AppHost, Many Languages</li></ul>
+{{< timelineItem icon="comment" header="<a href='https://www.kcdc.info/'>KCDC 2026</a>" badge="Sep 9-11" >}}
+<ul><li>Refactoring Your Technical Identity</li><li>Aspire 13: One AppHost, Many Languages</li></ul>
 {{< /timelineItem >}}
 
-{{< timelineItem icon="comment" header="<a href='http://codestock.org'>CodeStock 2026</a>" badge="Apr 9-10" >}}
-<ul><li>Modern .NET Configuration Practices</li><li>Resilient by Design</li></ul>
+{{< timelineItem icon="comment" header="<a href='https://vslive.com/events/sandiego-2026/home.aspx'>VS Live! San Diego 2026</a>" badge="Sep 14-18" >}}
+<ul><li>Aspire 13: One AppHost, Many Languages, Fewer Headaches?</li><li>Ensuring Azure Resiliency</li></ul>
 {{< /timelineItem >}}
 
-{{< timelineItem icon="comment" header="<a href='https://ndcsydney.com/'>NDC Sydney 2026</a>" badge="Apr 22-24" >}}
-<ul><li>Real World CI/CD with GitHub Actions</li></ul>
+{{< timelineItem icon="comment" header="<a href='https://prairiedevcon.com/'>Prairie Dev Con Winnipeg 2026</a>" badge="Sep 21-22" >}}
+<ul><li>MITRE ATT&CK for Developers</li><li>Agent Skills, Plugins &amp; Marketplaces</li></ul>
 {{< /timelineItem >}}
 
-{{< timelineItem icon="comment" header="<a href='https://ndctoronto.com/'>NDC Toronto 2026</a>" badge="May 5-8" >}}
+{{< timelineItem icon="comment" header="<a href='https://www.cloudandaisummit.com/'>The Cloud &amp; AI Summit 2026</a>" badge="Sep 30 - Oct 2" >}}
+<ul><li>MITRE ATT&CK for Developers</li><li>Resilient by Design</li></ul>
+{{< /timelineItem >}}
+
+{{< timelineItem icon="comment" header="<a href='https://www.techbash.com/'>TechBash 2026</a>" badge="Oct 13-16" >}}
+<ul><li>Aspire 13: One AppHost, Many Languages</li><li>MITRE ATT&CK for Developers</li></ul>
+{{< /timelineItem >}}
+
+{{< timelineItem icon="comment" header="<a href='https://2026.trondheimdc.no/en/'>Trondheim Developer Conference 2026</a>" badge="Oct 19" >}}
 <ul><li>Aspire 13: One AppHost, Many Languages</li></ul>
 {{< /timelineItem >}}
 
-{{< timelineItem icon="comment" header="<a href='https://techorama.be/'>Techorama Belgium 2026</a>" badge="May 11-13" >}}
-<ul><li>MITRE ATT&CK for Developers</li><li>The Well-Architected Architect</li></ul>
+{{< timelineItem icon="comment" header="<a href='https://www.hellostavanger.no/'>HelloStavanger 2026</a>" badge="Oct 21-22" >}}
+<ul><li>Shipping with AI Without Shipping Regret</li></ul>
 {{< /timelineItem >}}
 
-{{< timelineItem icon="comment" header="<a href='https://www.devsum.se'>DevSum 2026</a>" badge="Jun 2-3" >}}
-<ul><li>Refactoring Your Technical Identity</li></ul>
+{{< timelineItem icon="comment" header="<a href='https://techorama.nl/'>Techorama Netherlands 2026</a>" badge="Oct 28" >}}
+<ul><li>MITRE ATT&CK for Developers</li><li>The Well-Architected Architect</li></ul>
 {{< /timelineItem >}}
 
 {{< /timeline >}}
@@ -70,6 +78,18 @@ I regularly speak at conferences and meetups around the world. If you're interes
 
 | Event | Date | Talks |
 | --- | --- | --- |
+| [Capital Area .NET User Group](https://www.meetup.com/caparea-net/) | Jul 7 | Aspire 13: One AppHost, Many Languages |
+| [DevSum 2026](https://www.devsum.se) | Jun 2-3 | Refactoring Your Technical Identity |
+| | | Guardians of the Containers |
+| [Techorama Belgium 2026](https://techorama.be/) | May 11-13 | MITRE ATT&CK for Developers |
+| | | The Well-Architected Architect |
+| [NDC Toronto 2026](https://ndctoronto.com/) | May 5-8 | Aspire 13: One AppHost, Many Languages |
+| [NDC Sydney 2026](https://ndcsydney.com/) | Apr 22-24 | Real World CI/CD with GitHub Actions |
+| [Orlando Code Camp 2026](https://orlandocodecamp.com/) | Apr 11 | MITRE ATT&CK for Developers |
+| [CodeStock 2026](http://codestock.org/) | Apr 9-10 | Modern .NET Configuration Practices |
+| | | Resilient by Design |
+| [Aspire Conf 2026](https://aspire.dev/aspireconf/) | Mar 23 | One AppHost, Many Languages |
+| [NDC Security 2026](https://ndc-security.com/) | Mar 2-5 | MITRE ATT&CK for Developers |
 | [NDC London 2026](https://ndclondon.com/) | Jan 26-30 | Modern .NET Configuration Practices |
 
 </details>
@@ -79,12 +99,14 @@ I regularly speak at conferences and meetups around the world. If you're interes
 
 | Event | Date | Talks |
 | --- | --- | --- |
-| [TechBash 2025](https://www.techbash.com/) | Nov 4-7 | Real World CI/CD with GitHub Actions |
-| | | The Well-Architected Architect |
-| | | Resilient by Design |
+| [Build Stuff 2025](https://buildstuff.events/) | Dec 3-5 | Modern .NET Configuration Practices |
 | [Live! 360 Orlando 2025](https://live360events.com/events/orlando-2025/) | Nov 16-21 | .NET in a Box: Containerizing .NET Applications |
 | | | Refactoring Your Developer Identity |
 | | | Cloud & Containers Live! Panel |
+| [TechBash 2025](https://www.techbash.com/) | Nov 4-7 | Real World CI/CD with GitHub Actions |
+| | | The Well-Architected Architect |
+| | | Resilient by Design |
+| [.NET DeveloperDays 2025](https://net.developerdays.pl/) | Oct 21-22 | Refactoring Your Technical Identity |
 | [NDC Copenhagen 2025](https://cphdevfest.com/) | Sep 8-12 | Modern .NET Configuration Practices |
 | [KCDC 2025](https://www.kcdc.info/) | Aug 13-15 | The Power of Dev Containers and GitHub Codespaces |
 | [DevSum 2025](https://www.devsum.se/) | Jun 12-13 | The Well-Architected Architect |
