@@ -31,10 +31,6 @@ I regularly speak at conferences and meetups around the world. If you're interes
 
 {{< timeline >}}
 
-{{< timelineItem icon="comment" header="<a href='https://beercitycode.com/'>Beer City Code 2026</a>" badge="Aug 14-15" >}}
-<ul><li>Resilient by Design</li><li>Aspire 13: One AppHost, Many Languages</li></ul>
-{{< /timelineItem >}}
-
 {{< timelineItem icon="comment" header="<a href='https://www.kcdc.info/'>KCDC 2026</a>" badge="Sep 9-11" >}}
 <ul><li>Refactoring Your Technical Identity</li><li>Aspire 13: One AppHost, Many Languages</li></ul>
 {{< /timelineItem >}}
@@ -67,6 +63,10 @@ I regularly speak at conferences and meetups around the world. If you're interes
 <ul><li>MITRE ATT&CK for Developers</li><li>The Well-Architected Architect</li></ul>
 {{< /timelineItem >}}
 
+{{< timelineItem icon="comment" header="<a href='https://buildstuff.events/'>Build Stuff 2026</a>" badge="Dec 2-4" >}}
+<ul><li>Resilient by Design</li></ul>
+{{< /timelineItem >}}
+
 {{< /timeline >}}
 
 ---
@@ -78,6 +78,8 @@ I regularly speak at conferences and meetups around the world. If you're interes
 
 | Event | Date | Talks |
 | --- | --- | --- |
+| [Beer City Code 2026](https://beercitycode.com/) | Aug 14-15 | Resilient by Design |
+| | | Aspire 13: One AppHost, Many Languages |
 | [Capital Area .NET User Group](https://www.meetup.com/caparea-net/) | Jul 7 | Aspire 13: One AppHost, Many Languages |
 | [DevSum 2026](https://www.devsum.se) | Jun 2-3 | Refactoring Your Technical Identity |
 | | | Guardians of the Containers |
