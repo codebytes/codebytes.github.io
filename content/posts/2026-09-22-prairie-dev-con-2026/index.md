@@ -11,6 +11,9 @@ tags:
   - "GitHub Copilot"
   - "Agent Skills"
   - "Plugins"
+  - "Security"
+  - "MITRE"
+  - "ATT&CK"
 permalink: "/posts/prairie-dev-con-2026/"
 slug: "prairie-dev-con-2026"
 image: "featured.svg"
@@ -19,10 +22,10 @@ header:
   teaser: "featured.svg"
   og_image: "featured.svg"
 excerpt_separator: "<!--more-->"
-description: "Thanks to the Prairie Dev Con organizers and sponsors, and a look at my new talk on agent skills, plugins, and marketplaces."
+description: "Thanks to the Prairie Dev Con organizers and sponsors, and conversations about MITRE ATT&CK for Developers, AI agents, reusable skills, and distribution."
 ---
 
-It's good to be back in Winnipeg for [Prairie Dev Con](https://www.prairiedevcon.com/), September 21-22, 2026. This year, I brought a new talk: **Agent Skills, Plugins & Marketplaces**. We got into a discussion about agents, reusable workflows, and how to share those workflows with a team. Thank you to everyone who asked questions and joined in.
+It's good to be back in Winnipeg for [Prairie Dev Con](https://www.prairiedevcon.com/), September 21-22, 2026. I presented **MITRE ATT&CK for Developers** and brought a new talk: **Agent Skills, Plugins & Marketplaces**. We got into discussions about security, agents, reusable workflows, and how to share those workflows with a team. Thank you to everyone who asked questions and joined in.
 
 <!--more-->
 
@@ -45,6 +48,16 @@ Thank you as well to the [2026 sponsors](https://www.prairiedevcon.com/#sponsors
 And thanks to [New Media Manitoba](https://newmediamanitoba.com/), the conference's community partner. That support helps bring developers together to learn in person.
 
 To everyone making time for the conference: thank you. Being able to share what I'm working on with other developers is a big part of why I keep speaking.
+
+## MITRE ATT&CK for Developers
+
+I also gave my **MITRE ATT&CK for Developers** talk. It looks at how attackers operate and how developers can use that knowledge alongside OWASP when building and reviewing applications.
+
+The goal is to look beyond an individual vulnerability and consider how it could fit into a longer attack chain. What could an attacker do with a compromised account? Where could they go next? What would our application logs tell us? Those are useful questions to bring into design discussions and code reviews.
+
+The audience was engaged, with questions and a lot of nodding as I went through the material. I really appreciated that feedback. It makes a difference when you're presenting: you get a conversation to work with, rather than having to guess whether people are following along.
+
+For more on the topic, I've written about [MITRE ATT&CK for Developers: Beyond OWASP](/posts/mitre-attack-framework/), including attack chains and practical ways to use the framework in development.
 
 ## My new talk: Agent Skills, Plugins & Marketplaces
 
