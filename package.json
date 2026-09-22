@@ -1,7 +1,8 @@
 {
+  "name": "codebytes.github.io",
   "devDependencies": {
     "@playwright/test": "^1.63.0",
-    "playwright": "^1.62.1",
+    "playwright": "^1.63.0",
     "stylelint": "^17.15.0",
     "stylelint-config-standard": "^40.0.0"
   }

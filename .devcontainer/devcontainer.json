@@ -4,22 +4,18 @@
 	"features": {
 		"ghcr.io/devcontainers/features/hugo:1": {
 			"extended": true,
-			"version": "0.165.0"
+			"version": "0.166.0"
 		},
 		"ghcr.io/devcontainers/features/node:2": {
 			"version": "lts"
 		},
 		"ghcr.io/devcontainers/features/git:1": {}
 	},
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
-		// Hugo server
 		1313
 	],
-	// Use 'postCreateCommand' to run commands after the container is created.
 	"postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
 	"postCreateCommand": "hugo version",
-	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -33,7 +29,6 @@
 			]
 		}
 	},
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	"remoteUser": "root"
 }
   
