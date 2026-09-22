@@ -8,9 +8,10 @@
 
 ## Hugo & Blowfish Theme
 - This site uses Hugo with the Blowfish theme (submodule in `themes/blowfish`)
+- Update Blowfish through its submodule commit, not by editing its bundled dependencies
 - Hugo version must stay within the range declared in `themes/blowfish/config.toml` (`[module.hugoVersion]` min/max)
 - Before upgrading Hugo, check the Blowfish `config.toml` `max` version constraint
-- Update `HUGO_VERSION` in `.github/workflows/hugo.yml` to match any local Hugo version changes
+- Keep `HUGO_VERSION` in `.github/workflows/hugo.yml` and the Hugo feature version in `.devcontainer/devcontainer.json` in sync with any local Hugo version changes
 - If Blowfish warns "is not compatible with this Hugo version", downgrade Hugo to the declared `max`
 
 ## Markdown Guidelines
