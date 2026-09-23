@@ -29,90 +29,45 @@ excerpt_separator: "<!--more-->"
 description: "Thanks to the Prairie Dev Con organizers and sponsors, and conversations about MITRE ATT&CK for Developers, AI agents, reusable skills, and distribution."
 ---
 
-It's good to be back in Winnipeg for [Prairie Dev Con](https://www.prairiedevcon.com/), September 21-22, 2026. I presented **MITRE ATT&CK for Developers** and brought a new talk: **Agent Skills, Plugins & Marketplaces**. We got into discussions about security, agents, reusable workflows, and how to share those workflows with a team. Thank you to everyone who asked questions and joined in.
+It was great to be back in Winnipeg for [Prairie Dev Con](https://www.prairiedevcon.com/), September 21-22, 2026. I started with my new talk, **Agent Skills, Plugins & Marketplaces**, and finished with **MITRE ATT&CK for Developers**. There was plenty of energy and engagement in both sessions, and I really enjoyed the questions and discussions.
 
 <!--more-->
 
 ## Thank you to the organizers and sponsors
 
-Thank you to D'Arcy Lussier and the organizing team for having me back. Putting together a conference takes a lot of work that attendees never see. I appreciate the time and care that go into making these two days happen.
+Thank you to D'Arcy Lussier and the organizing team for having me back. A lot of the work behind a conference happens before anyone arrives for a session. I appreciate the time and care that went into putting these two days together.
 
-Thank you as well to the [2026 sponsors](https://www.prairiedevcon.com/#sponsors-section) for helping make the conference possible.
-
-And thanks to [New Media Manitoba](https://newmediamanitoba.com/), the conference's community partner. That support helps bring developers together to learn in person.
-
-To everyone making time for the conference: thank you. Being able to share what I'm working on with other developers is a big part of why I keep speaking.
-
-## MITRE ATT&CK for Developers
-
-I also gave my **MITRE ATT&CK for Developers** talk. It looks at how attackers operate and how developers can use that knowledge alongside OWASP when building and reviewing applications.
-
-The goal is to look beyond an individual vulnerability and consider how it could fit into a longer attack chain. What could an attacker do with a compromised account? Where could they go next? What would our application logs tell us? Those are useful questions to bring into design discussions and code reviews.
-
-The audience was engaged, with questions and a lot of nodding as I went through the material. I really appreciated that feedback. It makes a difference when you're presenting: you get a conversation to work with, rather than having to guess whether people are following along.
-
-For more on the topic, I've written about [MITRE ATT&CK for Developers: Beyond OWASP](/posts/mitre-attack-framework/), including attack chains and practical ways to use the framework in development.
+Thanks as well to the [2026 sponsors](https://www.prairiedevcon.com/#sponsors-section) and community partner [New Media Manitoba](https://newmediamanitoba.com/) for supporting the event. That support helps bring developers together to learn in person, and I'm grateful to be part of it.
 
 ## My new talk: Agent Skills, Plugins & Marketplaces
 
-I want to spend less time re-explaining a workflow every time I start a conversation with an AI assistant. Once I've worked out a useful approach, I want to keep it in source control, improve it, and share it with someone else.
+I was excited to bring this new session to Prairie Dev Con. It's about teaching AI assistants reusable workflows, then packaging and sharing those skills with other people.
 
-That's the problem behind this talk. A prompt that works once is useful. A workflow someone else can find, understand, and use is worth maintaining.
+We had great discussions about agents, what makes a skill worth reusing, and how to distribute skills across a team. There was a lot of interest in the topic, and the audience's questions made it a fun session to give.
 
-## Agents and skills have different jobs
+That back-and-forth is especially helpful with a new talk. I enjoy hearing what people want to explore further, and I came away excited about the conversation we'd started.
 
-An agent carries out the work: it reasons about the request, uses the tools available to it, and works through the task. A custom agent profile lets us specialize that behavior with a role, instructions, and a configured set of tools.
+The longer walkthrough is in [my post on agent skills, plugins, and marketplaces](/posts/agent-skills-plugins-marketplace/).
 
-A skill describes how to do a particular job. It starts with a `SKILL.md` file and can include scripts, reference material, or templates. Loading a skill gives the agent a procedure to follow. It doesn't create another agent, launch a separate worker, or grant new permissions.
+## MITRE ATT&CK for Developers
 
-That distinction came into the discussion because there are several ways to customize an assistant. Project instructions are a place for recurring guidance, such as coding conventions. An agent profile defines a role. A skill holds a task-specific workflow. You can use a skill with a general coding agent; you don't have to build a custom agent first.
+This session looks at how understanding attacker behavior can help developers build better defenses, alongside the application security guidance in OWASP.
 
-Context is part of that choice, too. An assistant has a limited amount of information it can work with at once. In the usual loading model, the host makes skill names and descriptions available first, then loads the full instructions when a skill is selected. Supporting resources can be read when needed. That gives us somewhere to put detailed procedures without loading every procedure into every conversation.[^skills]
+There were questions and a lot of nodding from the audience as I went through the material. That feedback is encouraging when you're presenting. I appreciated how engaged people were and the conversation that came out of the session.
 
-## What makes a skill reusable?
+For the technical details, I've written more in [MITRE ATT&CK for Developers: Beyond OWASP](/posts/mitre-attack-framework/).
 
-The first example in the talk is a release-note skill. The whole thing is one `SKILL.md` file. That's enough to explain the task and the output I want, and it's small enough to read in one sitting.
+## Thanks for joining in
 
-For a skill to be useful to someone else, it needs to say when it applies, what information it needs, and what a good result looks like. Instructions that depend on an unexplained local path or knowledge from an earlier conversation won't travel very well.
-
-The CSV analysis example adds supporting files because the task needs them: a Python profiler, a methodology reference, and a report template. The script handles the calculations, while the instructions explain how to use the results. That lets us check the arithmetic separately from whether the assistant produces a useful explanation.
-
-A well-written skill still needs to be tried on real inputs. Does the agent choose it for the right task? Does it ask for missing information? Does the result match what we asked for? Those are different checks from whether a script runs successfully.
-
-I like starting small here. Pick a task you repeat, write down how you want it done, and try it. Add supporting files when they solve a problem. The [demo repository](https://github.com/codebytes/agent-skills) includes both examples so you can compare them.
-
-## Getting skills into other people's hands
-
-Distribution deserves as much thought as authoring. A skill sitting on my machine only helps me.
-
-For a workflow that belongs to one project, committing the skill alongside the code is a useful starting point. Teammates get the same files, can review changes in a pull request, and can improve the workflow together. For something I use across my own projects, a supported personal skills directory may be enough.
-
-When several projects or people need the same capabilities, a plugin gives us an installable package. It can hold skills and, depending on the host, custom agents, hooks, and MCP server configuration. A marketplace is a catalog where people can discover and install those packages.[^plugins]
-
-That gives us a way to maintain a shared source instead of passing around copies that gradually drift apart. It also creates some ordinary maintenance work: deciding who owns the package, versioning changes, and giving people a way to tell what changed before they update.
-
-The Agent Skills format is an open standard, but installation still depends on the tool. Discovery paths, marketplace formats, and permissions differ between clients. A Copilot-specific agent or hook doesn't automatically become portable because it's packaged alongside a skill. The talk includes host-specific setup so we can share the reusable parts while being clear about those differences.
-
-I also cover reviewing what you install. If a plugin includes scripts, hooks, or MCP integrations, look at what can run and what data it can access. Instructions about safe behavior aren't a substitute for permissions or for checking the output.
-
-## The questions and discussion
-
-I really appreciated the audience's engagement with this new talk. The questions gave us time to dig into agents, what makes a skill reusable, and how to get those skills into other people's hands.
-
-Those topics connect quickly. Choosing what an agent should do affects which workflows are worth turning into skills. Sharing a skill means thinking about someone who wasn't there when you wrote it. Distributing it means taking responsibility for changes after that first install.
-
-That's why I enjoy the discussion around a talk like this. Showing the files is useful, but talking through how people might use them gives us more to work with. Thank you to everyone who asked a question or contributed to the conversation.
+To everyone who came to the sessions, asked a question, or joined the discussion: thank you. Being able to share what I'm working on and hear from other developers is a big part of why I keep speaking. I appreciated the enthusiasm and the chance to have these conversations with you.
 
 ## Slides and examples
 
-If you'd like to try the examples or revisit the material:
+The repositories and slides for both talks are here:
 
 | Talk | Repository | HTML slides | PDF slides |
 | --- | --- | --- | --- |
-| MITRE ATT&CK for Developers | [GitHub](https://github.com/codebytes/mitre-attack-for-devs) | [View](https://chris-ayers.com/mitre-attack-for-devs/) | [Download](https://chris-ayers.com/mitre-attack-for-devs/Slides.pdf) |
 | Agent Skills, Plugins & Marketplaces | [GitHub](https://github.com/codebytes/agent-skills) | [View](https://chris-ayers.com/agent-skills/) | [Download](https://chris-ayers.com/agent-skills/Slides.pdf) |
+| MITRE ATT&CK for Developers | [GitHub](https://github.com/codebytes/mitre-attack-for-devs) | [View](https://chris-ayers.com/mitre-attack-for-devs/) | [Download](https://chris-ayers.com/mitre-attack-for-devs/Slides.pdf) |
 
 You can also [browse my reusable skills](https://chris-ayers.com/skills/).
-
-[^skills]: GitHub Docs: [About agent skills](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills).
-[^plugins]: GitHub Docs: [About GitHub Copilot plugins](https://docs.github.com/en/copilot/concepts/agents/about-plugins).
