@@ -16,11 +16,15 @@ tags:
   - "ATT&CK"
 permalink: "/posts/prairie-dev-con-2026/"
 slug: "prairie-dev-con-2026"
-image: "featured.svg"
-featureImage: "featured.svg"
+image: "featured.png"
+featureImage: "featured.png"
+showHero: true
+heroStyle: "big"
+alt: "Prairie Dev Con logo with a pixel-art prairie landscape"
+featureImageCaption: "Conference artwork from [Prairie Dev Con](https://www.prairiedevcon.com/)."
 header:
-  teaser: "featured.svg"
-  og_image: "featured.svg"
+  teaser: "featured.png"
+  og_image: "featured.png"
 excerpt_separator: "<!--more-->"
 description: "Thanks to the Prairie Dev Con organizers and sponsors, and conversations about MITRE ATT&CK for Developers, AI agents, reusable skills, and distribution."
 ---
@@ -33,17 +37,7 @@ It's good to be back in Winnipeg for [Prairie Dev Con](https://www.prairiedevcon
 
 Thank you to D'Arcy Lussier and the organizing team for having me back. Putting together a conference takes a lot of work that attendees never see. I appreciate the time and care that go into making these two days happen.
 
-Thank you as well to the [2026 sponsors](https://www.prairiedevcon.com/#sponsors-section):
-
-- [Payworks](https://www.payworks.ca/)
-- [Improving](https://www.improving.com/)
-- [WorkWranglers](https://www.workwranglers.com/)
-- [Laivly](https://laivly.com/)
-- [Conquest Planning](https://conquestplanning.com/en-ca)
-- [Pollard Banknote](https://www.pollardbanknote.com/)
-- [Skip](https://www.skipthedishes.com/)
-- [Richardson International](https://www.richardson.ca/)
-- [Carahsoft/Google](https://www.carahsoft.com/markets/canada)
+Thank you as well to the [2026 sponsors](https://www.prairiedevcon.com/#sponsors-section) for helping make the conference possible.
 
 And thanks to [New Media Manitoba](https://newmediamanitoba.com/), the conference's community partner. That support helps bring developers together to learn in person.
 
