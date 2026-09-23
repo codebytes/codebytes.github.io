@@ -107,10 +107,12 @@ That's why I enjoy the discussion around a talk like this. Showing the files is 
 
 If you'd like to try the examples or revisit the material:
 
-- [View the slides](https://chris-ayers.com/agent-skills/)
-- [Download the slides as a PDF](https://chris-ayers.com/agent-skills/Slides.pdf)
-- [Get the talk source and demo plugin](https://github.com/codebytes/agent-skills)
-- [Browse my reusable skills](https://chris-ayers.com/skills/)
+| Talk | Repository | HTML slides | PDF slides |
+| --- | --- | --- | --- |
+| MITRE ATT&CK for Developers | [GitHub](https://github.com/codebytes/mitre-attack-for-devs) | [View](https://chris-ayers.com/mitre-attack-for-devs/) | [Download](https://chris-ayers.com/mitre-attack-for-devs/Slides.pdf) |
+| Agent Skills, Plugins & Marketplaces | [GitHub](https://github.com/codebytes/agent-skills) | [View](https://chris-ayers.com/agent-skills/) | [Download](https://chris-ayers.com/agent-skills/Slides.pdf) |
+
+You can also [browse my reusable skills](https://chris-ayers.com/skills/).
 
 [^skills]: GitHub Docs: [About agent skills](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills).
 [^plugins]: GitHub Docs: [About GitHub Copilot plugins](https://docs.github.com/en/copilot/concepts/agents/about-plugins).
