@@ -207,6 +207,7 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 | [Orlando Code Camp 2023](https://orlandocodecamp.com/) | Mar 25 | Starting an Allyship Journey |
 | | | Securely Deploying Terraform |
 | [Python Web Conf 2023](https://sixfeetup.com/company/events/python-web-conference-2023) | Mar 13-17 | CI/CD with GitHub Actions |
+| [Come Cloud With Us](https://www.youtube.com/watch?v=wqG29Gck0ZY) | Mar 2 | Building in the Cloud with Bicep |
 | [DeveloperWeek 2023](https://www.developerweek.com/) | Feb 21-23 | Feature Flags - The Art of the IF and Deployment |
 | [NDC Security 2023](https://ndcsecurity.com/) | Jan 16-19 | Securely Deploying Infrastructure as Code |
 | [CodeMash 2023](https://codemash.org/) | Jan 10-13 | Building in the Cloud with Bicep |
@@ -220,7 +221,7 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 | Event | Date | Talks |
 | --- | --- | --- |
 | [Festive Tech Calendar 2022](https://festivetechcalendar.com/) | Dec 29 | Securely Deploying Infrastructure as Code |
-| [HashiTalks: Deploy](https://hashi.co/hashitalks-deploy) | Dec | - |
+| [HashiTalks: Deploy](https://hashi.co/hashitalks-deploy) | Dec 7-8 | - |
 | [Conf42: DevSecOps 2022](https://www.conf42.com/devsecops2022) | Dec 1 | [CI/CD with GitHub Actions](https://www.conf42.com/DevSecOps_2022_Chris_Ayers_cicd_github_actions) |
 | [Granite State Code Camp 2022](https://www.granitestatecodecamp.org/) | Nov 12 | Dev Containers in VS Code |
 | [.NET Conf 2022](https://dotnetconf.net/) | Nov 10 | .NET Configuration In Depth |
@@ -228,24 +229,40 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 | | | Feature Flags - The Art of the IF and Deployment |
 | | | CI/CD with GitHub Actions |
 | [DevOpsDays Tampa Bay 2022](https://devopsdays.org/events/2022-tampa/welcome/) | Oct | Organizer |
+| [Learn Live: FastTrack for Azure](https://learn.microsoft.com/en-us/shows/learn-live/fasttrack-for-azure-season-1-ep06-supercharge-your-devops-skills-with-azure-load-testing) | Oct 25 | [Supercharge Your DevOps Skills with Azure Load Testing](https://www.youtube.com/watch?v=FFng7ki_vI8) |
 | [Momentum 2022](https://momentumdevcon.com/) | Oct 20 | Feature Flags - The Art of the IF and Deployment |
 | [Tampa Code Camp 2022](https://www.meetup.com/TampaCC/events/284918793) | Oct 8 | Building in the Cloud with Bicep |
 | | | Dev Containers in VS Code |
+| [Strange Loop 2022](https://thestrangeloop.com/2022/sessions.html) | Sep 22 | CI/CD with GitHub Actions (Workshop) |
 | Code PaLOUsa 2022 | Aug 17-19 | Feature Flags - The Art of the IF and Deployment |
 | | | CI/CD with GitHub Actions |
+| [On .NET Live](https://www.youtube.com/watch?v=6Fg54CEBVno) | Aug 15 | Configuration in .NET 6 |
 | [KCDC 2022](https://www.kcdc.info/) | Aug 8-10 | .NET Configuration In Depth |
 | | | Feature Flags - The Art of the IF and Deployment |
 | [THAT Conference Wisconsin 2022](https://that.us/) | Jul 25-28 | Building in the Cloud with Bicep |
 | [Cloud Lunch and Learn](https://www.cloudlunchlearn.com/) | Jul | - |
+| [Cincinnati Software Craftsmanship](https://www.youtube.com/watch?v=l1ZT3kRItKI) | Jul 6 | CI/CD with GitHub Actions |
+| [Learn Live: FastTrack for Azure](https://learn.microsoft.com/en-us/shows/learn-live/fasttrack-for-azure-ep05-building-deploying-azure-github-actions) | Jun 29 | [Building and Deploying to Azure with GitHub Actions](https://www.youtube.com/watch?v=JIevEq6dcP0) |
 | [Azure Day Rome 2022](http://www.azureday.it) | Jun 24 | Building in the Cloud with Bicep |
 | [THAT Conference Texas 2022](https://that.us/) | May 23-26 | Feature Flags - The Art of the IF and Deployment |
+| [.NET DC User Group](https://www.youtube.com/watch?v=AHH84gEudQA) | May 17 | Feature Flags - The Art of the IF and Deployment |
 | [CodeStock 2022](http://codestock.org/) | Apr 7-8 | Feature Flags - The Art of the IF and Deployment |
 | | | Monitoring and Troubleshooting with Application Insights |
 | [Microsoft Azure + AI Conference Spring 2022](https://azureaiconf.com/) | Apr 5-7 | Feature Flags - The Art of the IF and Deployment |
 | | | CI/CD with GitHub Actions |
-| [philly.NET Code Camp 2022](https://www.meetup.com/Philly-NET/events/281245125/) | Mar | - |
+| [Tampa Bay DevOps](https://www.youtube.com/watch?v=NUh66aVnE94) | Apr 1 | Dev Containers in VS Code |
+| [philly.NET Code Camp 2022](https://www.meetup.com/Philly-NET/events/281245125/) | Mar 4 | [Monitoring and Troubleshooting with Azure Application Insights](https://www.youtube.com/watch?v=aiURxUCRLZI) |
+| [Cloud With Chris](https://www.cloudwithchris.com/episode/feature-flags-art-of-if-and-deployment/) | Feb 17 | [Feature Flags - The Art of the IF and Deployment](https://www.youtube.com/watch?v=f5AIx_90Bxo) |
 | [DeveloperWeek 2022](https://www.developerweek.com/) | Feb 7-9 | Feature Flags - The Art of the IF and Deployment |
-| .NET Virtual Conference 2022 | Jan | - |
+| [.NET Virtual Conference 2022](https://www.c-sharpcorner.com/events/net-conference-2022) | Jan 24-26 | .NET Configuration In Depth |
+
+### Interviews and Panels
+
+| Show | Date | Appearance |
+| --- | --- | --- |
+| [Tales from the Field](https://www.youtube.com/watch?v=7ZPVU1i4Pmw) | Oct 27 | Community Round Table with Chris Ayers |
+| [Coffee & Open Source](https://www.coffeeandopensource.com/guest/chris-ayers.html) | Jul 20 | [Conversation with Chris Ayers](https://www.youtube.com/watch?v=kbBEwcBXsCM) |
+| [Jonnychipz](https://jonnychipz.com/2022/03/25/jonnychipz-in-conversation-with-chris-ayers/) | Apr 1 | [In Conversation with Chris Ayers](https://www.youtube.com/watch?v=dm1VTPOFubg) |
 
 </details>
 
@@ -327,4 +344,4 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 
 </details>
 
-[^speaking-history]: Entries are reconciled with my [Sessionize profile](https://sessionize.com/ChrisAyers/#events), PaperCall history, speaker correspondence, and the linked public event archives. Older talk titles and dates are preserved from my [original speaking archive](https://github.com/codebytes/codebytes.github.io/blob/fdc7c0ec8c01394b3c0657c56dbbfa67055acabe/_pages/speaking.md).
+[^speaking-history]: Entries are reconciled with my [Sessionize profile](https://sessionize.com/ChrisAyers/#events), PaperCall history, speaker correspondence, and the linked public event archives and recordings. Older talk titles and dates are preserved from my [original speaking archive](https://github.com/codebytes/codebytes.github.io/blob/fdc7c0ec8c01394b3c0657c56dbbfa67055acabe/_pages/speaking.md).
