@@ -6,4 +6,5 @@ skip = *package-lock.json,*.lock,*.min.js,*.min.css
 #   aks          - Azure Kubernetes Service (flagged as "ask")
 #   statics      - static members/methods (flagged as "statistics")
 #   implementors - valid variant; also appears in external URLs
-ignore-words-list = aks,statics,implementors
+#   hashi        - HashiCorp short-link domain (hashi.co)
+ignore-words-list = aks,statics,implementors,hashi
