@@ -65,7 +65,7 @@ I regularly speak at conferences and meetups around the world. If you're interes
 
 ## Past Events
 
-Events are grouped by year, newest first. Month-only dates reflect the available records, and a dash means the talk title was not recorded. Canceled or postponed events are marked explicitly.[^speaking-history]
+Events are grouped by year, newest first. Month-only dates reflect the available records, and a dash means the talk title was not recorded. Unconfirmed presentations and canceled or postponed events are marked explicitly.[^speaking-history]
 
 <details>
 <summary><strong>2026</strong></summary>
@@ -206,6 +206,7 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 | | | Continuous Load Testing with GitHub Actions |
 | [Orlando Code Camp 2023](https://orlandocodecamp.com/) | Mar 25 | Starting an Allyship Journey |
 | | | Securely Deploying Terraform |
+| [Python Web Conf 2023](https://sixfeetup.com/company/events/python-web-conference-2023) | Mar 13-17 | CI/CD with GitHub Actions |
 | [DeveloperWeek 2023](https://www.developerweek.com/) | Feb 21-23 | Feature Flags - The Art of the IF and Deployment |
 | [NDC Security 2023](https://ndcsecurity.com/) | Jan 16-19 | Securely Deploying Infrastructure as Code |
 | [CodeMash 2023](https://codemash.org/) | Jan 10-13 | Building in the Cloud with Bicep |
@@ -220,6 +221,7 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 | --- | --- | --- |
 | [Festive Tech Calendar 2022](https://festivetechcalendar.com/) | Dec 29 | Securely Deploying Infrastructure as Code |
 | [HashiTalks: Deploy](https://hashi.co/hashitalks-deploy) | Dec | - |
+| [Conf42: DevSecOps 2022](https://www.conf42.com/devsecops2022) | Dec 1 | [CI/CD with GitHub Actions](https://www.conf42.com/DevSecOps_2022_Chris_Ayers_cicd_github_actions) |
 | [Granite State Code Camp 2022](https://www.granitestatecodecamp.org/) | Nov 12 | Dev Containers in VS Code |
 | [.NET Conf 2022](https://dotnetconf.net/) | Nov 10 | .NET Configuration In Depth |
 | [TechBash 2022](https://www.techbash.com/) | Nov 8-10 | Building in the Cloud with Bicep |
@@ -282,7 +284,7 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 | Event | Date | Talks |
 | --- | --- | --- |
 | [Azure Advent Calendar](https://azureadventcalendar.com/) | Dec 15 | [Azure Application Insights](https://www.youtube.com/watch?v=W-i6s46uxdM) |
-| [Granite State Code Camp 2019](http://www.granitestateusersgroups.net/code-camp/) | Nov | - |
+| [Granite State Code Camp 2019](http://www.granitestateusersgroups.net/code-camp/) | Nov | Automate Azure DevOps (accepted; presentation unconfirmed) |
 | [Tampa Code Camp 2019](https://tampacc.org/) | Oct 26 | [Automate Azure DevOps](https://speakerdeck.com/cayers/automate-azure-devops) |
 | | | [DevOps Is More Than a Title](https://speakerdeck.com/cayers/devops-is-more-than-a-title) |
 | [philly.NET Code Camp 2019.2](http://phillydotnet.org/2019-2.html) | Oct 19 | Automate Azure DevOps |
@@ -325,4 +327,4 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 
 </details>
 
-[^speaking-history]: Event names and years are checked against my [Sessionize profile](https://sessionize.com/ChrisAyers/#events). Older talk titles and dates are preserved from my [original speaking archive](https://github.com/codebytes/codebytes.github.io/blob/fdc7c0ec8c01394b3c0657c56dbbfa67055acabe/_pages/speaking.md).
+[^speaking-history]: Entries are reconciled with my [Sessionize profile](https://sessionize.com/ChrisAyers/#events), accepted PaperCall submissions, acceptance notices, and the linked public event archives. Older talk titles and dates are preserved from my [original speaking archive](https://github.com/codebytes/codebytes.github.io/blob/fdc7c0ec8c01394b3c0657c56dbbfa67055acabe/_pages/speaking.md).
