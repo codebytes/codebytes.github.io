@@ -86,6 +86,10 @@ section.grid .font-bold.text-xl {
   background-repeat: no-repeat !important;
 }
 
+.single_hero_round {
+  object-fit: contain;
+}
+
 /* Make article card images contain instead of cover (no cropping) */
 .thumbnail_card img.object-cover,
 img.object-cover.nozoom {
