@@ -121,22 +121,24 @@ Open `artifacts/compose/docker-compose.yaml`, `.env`, and the generated `web.Doc
 
 - `api`, `inventory`, `postgres`, and `web` are present.
 - The API has database and inventory references.
-- `DATA_PATH` is `/data` and the API's `catalog-state` volume is mounted there.
+- `DATA_PATH` is `/data`, and a named volume (`catalog-state` in the generated output) is mounted there.
 - The frontend's `/api/{**catch-all}` route preserves the `/api` prefix.
 - Only the frontend and optional dashboard expose host ports.
 - The intentional fault is disabled, and the database password is represented by a secret placeholder.
 
-The resulting `review.json` contains `deployed: false` and no secret values. It does not fill `.env` with credentials or resolve deployment-specific image placeholders.
+The resulting `review.json` contains `deployed: false`, the reviewed Compose file's SHA-256, and no secret values. The script clears any earlier review before publishing, so a stale passing result cannot sit beside newly generated files. It does not fill `.env` with credentials or resolve deployment-specific image placeholders.
+
+Read the generated image references as well. With 13.6.1, `web.Dockerfile` builds the frontend on `node:22-slim` and serves it from `mcr.microsoft.com/dotnet/nightly/yarp:2.3-preview`, and the Compose dashboard uses `mcr.microsoft.com/dotnet/nightly/aspire-dashboard:13.6`. Nightly and preview images are a deliberate review item before any real deployment; pin or replace them according to your own image policy.
 
 The frontend's publishing configuration explains why the browser route remains the same:
 
 ```csharp
-#pragma warning disable ASPIREJAVASCRIPT001
+#pragma warning disable ASPIREJAVASCRIPT001 // PublishAsStaticWebsite is still experimental in 13.6.
 web.PublishAsStaticWebsite("/api", api, options => options.StripPrefix = false);
 #pragma warning restore ASPIREJAVASCRIPT001
 ```
 
-This experimental 13.6 API generates a static-site/YARP publishing model. Without preserving the prefix, the backend could receive `/catalog` instead of its actual `/api/catalog` endpoint. Vite's development proxy is not the production server.
+`PublishAsStaticWebsite` dates from 13.3 and is still experimental in 13.6. It generates a static-site and YARP publishing model. `StripPrefix` already defaults to `false`, so the generated route forwards `/api/catalog` unchanged; the companion sets it explicitly to document that contract. Setting it to `true` would remove the prefix, and the API would receive `/catalog` instead of its actual `/api/catalog` endpoint. Vite's development proxy is not the production server.
 
 For the separate Sandboxes target, published Bicep describes infrastructure while sandboxes, disk images, ports, and URLs are created through its deployment workflow. That is another reason a static publish folder is not a completed deployment.
 

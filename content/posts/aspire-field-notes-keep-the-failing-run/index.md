@@ -33,7 +33,7 @@ This is part one of [Aspire Field Notes](/series/aspire-field-notes/). We are st
 
 The [first companion exercise](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/01-keep-the-failing-run) uses the [shared catalog application](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/catalog) in `blog-samples`.
 
-Follow the [collection's prerequisites and review checkout instructions](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes) first. The commands in this article run from the sample checkout's `aspire-field-notes/` directory. The `scripts/aspire.sh` wrapper selects Aspire 13.6.0 explicitly instead of silently using a different globally installed CLI.
+Follow the [collection's prerequisites and review checkout instructions](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes) first. The commands in this article run from the sample checkout's `aspire-field-notes/` directory. The `scripts/aspire.sh` wrapper selects Aspire 13.6.1 explicitly instead of silently using a different globally installed CLI.
 
 Initialize the sample's PostgreSQL secret once before the first run:
 
@@ -114,13 +114,22 @@ node scripts/smoke.mjs fault
 
 The expected result is a **503**, even though resource readiness passed. In `fault` mode, a passing smoke check means that it observed the intended failure, not a 200 response.
 
-The check asserts the parent-child chain from the API server span to its HTTP client span and then inventory's server span, with 503 on all three. It captures console logs, structured logs, spans, and the request result under `artifacts/fault-<trace-id>/`. Its telemetry-export wait does not retry the business request.
+The check asserts the parent-child chain from the API server span to its HTTP client span and then inventory's server span, with 503 on all three. It captures console logs, structured logs, spans, and the request result under `artifacts/fault-<trace-id>/`. That folder is the script's own evidence copy; it does not add console logs to the dashboard's run history. Its telemetry-export wait does not retry the business request.
 
-Inspect both `api` and `inventory` in the dashboard. You can also select **Load catalog** in the frontend; the failed response clears any previous successful rows rather than presenting stale data as a result.
+While the failing run is still live, open the dashboard's **Console logs** page for `api` and for `inventory`. The dashboard keeps a console stream in a run's history only after you have viewed or exported it there. You can also select **Load catalog** in the frontend; the failed response clears any previous successful rows rather than presenting stale data as a result.
+
+The CLI can narrow the evidence for the running AppHost too:
+
+```bash
+bash scripts/aspire.sh otel traces api --has-error --limit 5 \
+  --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj --non-interactive
+```
+
+That is a query against the currently running app, so run it before recovery. Selecting a historical run in the browser does not change the target of a separate CLI command. Use the dashboard's run selector for the historical comparison described below.
 
 ### Keep the failure and compare recovery
 
-Open **Select run** and pin the failing run before stopping the AppHost. Then recover explicitly:
+Open the run selector in the dashboard header, which shows **Live run**, and select **Pin run** on the failing run before stopping the AppHost. Then recover explicitly:
 
 ```bash
 bash scripts/aspire.sh stop --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
@@ -131,7 +140,7 @@ Inventory__FaultEnabled=false bash scripts/aspire.sh start \
 node scripts/smoke.mjs recovery
 ```
 
-Open the new dashboard URL and compare its live run with the pinned failure. The request now returns 200 and three products through the same call path. The old failure should remain inspectable. Pinning retains a useful run; it is not the switch that enables history.
+Open the new dashboard URL and compare its live run with the pinned failure. The request now returns 200 and three products through the same call path. In the pinned run, the failed trace and the `api` and `inventory` **Console logs** you viewed earlier should remain inspectable. Pinning retains a useful run; it is not the switch that enables history.
 
 Keep the checkout and AppHost path the same across this exercise. Changing packages, request data, storage, and the fault setting together would make the comparison harder to interpret.
 
@@ -146,26 +155,19 @@ The comparison should answer a specific question:
 
 These are measurements to collect, not benchmark results from this article. A faster second request might reflect warmed caches or connection pools rather than the fix.
 
-For the running companion AppHost, the CLI is another way to narrow the evidence:
-
-```bash
-bash scripts/aspire.sh otel traces api --has-error --limit 5 \
-  --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj --non-interactive
-```
-
-That is a query against the selected running app. Do not assume changing the historical run in a browser silently changes the target of a separate CLI command. Use the dashboard's run selector for the historical comparison described here.
-
 ## The console-log detail that is easy to miss
 
 Persisted history does not mean every byte written to stdout is automatically archived.
 
-**Console logs are stored after their stream has been viewed or exported.** If nobody captured that stream, a historical run can lack the console output you expected. Structured logs sent through OpenTelemetry follow the telemetry-storage path instead.[^persistence]
+**Console logs are stored only after their stream has been viewed or exported in the dashboard.** Reading them with `aspire logs`, or copying them into an artifact folder as the companion's smoke check does, does not add them to the run's history. If nobody opened that stream, a historical run can lack the console output you expected. Structured logs sent through OpenTelemetry follow the telemetry-storage path instead.[^persistence]
 
-This is why opening the relevant console view is part of the reproduction procedure. If an investigation depends on a startup message, capture it before stopping the app. For longer-term evidence requirements, use a logging backend designed for them.
+This is why opening the relevant **Console logs** pages is part of the reproduction procedure. If an investigation depends on a startup message, view it in the dashboard before stopping the app. For longer-term evidence requirements, use a logging backend designed for them.
 
 ## Retained does not mean unlimited
 
 By default, the dashboard retains up to **ten unpinned runs per application**. Pinned runs do not count toward that limit.
+
+Run history is keyed by the dashboard's application name, not by checkout path. Two clones of the same AppHost share one history and one ten-run limit, so a burst of runs in another checkout can evict an unpinned reproduction from this one.
 
 Within a database, console logs, structured logs, and traces each have a default limit of 100,000 entries or traces, shared across resources. Metric points have their own limits. Old data can be evicted even when you keep the run.
 
@@ -207,6 +209,8 @@ For production retention and access controls, use Application Insights or anothe
 ## Try this before the next refactor
 
 Start with the [companion's repeatable failure](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/01-keep-the-failing-run). Capture it, pin it, change one thing, and repeat the same request. Then apply that discipline to an actual bug. The useful outcome is being able to explain the difference between runs with evidence.
+
+When you finish, stop the catalog AppHost with the collection's scoped cleanup command. A normal stop keeps the dashboard history, application data, and database volume.
 
 [Next: model the whole application](/posts/aspire-field-notes-model-the-whole-app/) so configuration, readiness, and telemetry describe the same system.
 

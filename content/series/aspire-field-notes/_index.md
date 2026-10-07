@@ -23,7 +23,7 @@ Read them in order for the full story, or start with the problem you have today.
 
 ## The application behind the examples
 
-The companions live in the [`aspire-field-notes` collection in blog-samples](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes). One shared catalog application supports parts one, two, four, and five: a Vite frontend named `web`, a catalog API named `api`, PostgreSQL's `catalogdb`, and a separate `inventory` service.
+The companions live in the [`aspire-field-notes` collection in blog-samples](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes). One shared catalog application underpins all six parts: a Vite frontend named `web`, a catalog API named `api`, PostgreSQL's `catalogdb`, and a separate `inventory` service.
 
 A deliberate inventory failure makes `/api/catalog` return a 503 while resource health remains green. A separate `/api/state` exercise demonstrates data retained through `DATA_PATH`. These are controlled teaching scenarios, not claims of production readiness.
 
@@ -48,13 +48,13 @@ git clone --branch codebytes-aspire-companion-samples \
 cd blog-samples-field-notes/aspire-field-notes
 ```
 
-Use the collection README for prerequisites and setup, including the one-time database-secret initialization. Its `scripts/aspire.sh` wrapper selects Aspire 13.6.0 without requiring a global CLI upgrade. The links above deliberately point to the review branch rather than to files that have not yet reached `main`.
+Use the collection README for prerequisites and setup, including the one-time database-secret initialization. Its `scripts/install-cli.sh` and `scripts/aspire.sh` scripts install and select a local Aspire 13.6.1 CLI without replacing a globally installed one. The links above deliberately point to the review branch rather than to files that have not yet reached `main`.
 
-The exercises include their own assertions: `smoke.mjs` distinguishes healthy, fault, and recovery outcomes; `state-smoke.mjs` requires a new process with retained data; the terminal helper uses fresh computed markers; and the Compose reviewer checks generated routing and storage without deploying it. Optional agent-guidance setup is not required to run any of these checks.
+The exercises include their own assertions: `smoke.mjs` asserts the healthy and intentional-fault outcomes, and its recovery mode reruns the healthy assertions under a separate evidence label; `state-smoke.mjs` requires a new process with retained data; the terminal helper uses fresh computed markers; and the Compose reviewer checks generated routing and storage without deploying it. Optional agent-guidance setup is not required to run any of these checks.
 
 The [official Node.js weather-map sample](https://aspire.dev/reference/samples/aspire-with-node/) is an additional example of a frontend, instrumented API, and external dependency under a TypeScript AppHost. The Java and Rust sections explain optional preview integrations; those languages are not required to run the catalog companion.
 
-The series targets **Aspire 13.6.0**. Preview packages and experimental APIs are identified where they appear. Examples do not require migrating stable `AddProject` resources to the prerelease .NET project model, deploying Azure resources, or giving an agent access to credentials.
+The series targets **Aspire 13.6.1**, the [first 13.6 patch](https://github.com/microsoft/aspire/releases/tag/v13.6.1), released October 7, 2026, with fixes for 13.6.0 regressions. Preview packages and experimental APIs are identified where they appear. Examples do not require migrating stable `AddProject` resources to the prerelease .NET project model, deploying Azure resources, or giving an agent access to credentials.
 
 ## What this builds on
 

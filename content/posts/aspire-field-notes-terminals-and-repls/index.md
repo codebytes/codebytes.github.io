@@ -34,7 +34,7 @@ The [terminal companion exercise](https://github.com/codebytes/blog-samples/tree
 
 ## Three surfaces with different jobs
 
-Mitch Denny's [terminal deep dive](https://devblogs.microsoft.com/aspire/aspire-terminal-support/) shows how the pieces fit together:
+Mitch Denny's [terminal deep dive](https://devblogs.microsoft.com/aspire/aspire-terminal-support/) introduces these surfaces. The boundaries below come from the [13.6 release documentation](https://aspire.dev/whats-new/aspire-13-6/#apphost-terminals-and-automation):
 
 | Surface                                | Purpose                                           | Important boundary                                      |
 | -------------------------------------- | ------------------------------------------------- | ------------------------------------------------------- |
@@ -49,8 +49,7 @@ Resource terminals started in 13.5. Aspire 13.6 adds the docked workflows and op
 The catalog AppHost from [part two](/posts/aspire-field-notes-model-the-whole-app/) already contains the opt-in guard:
 
 ```csharp
-if (builder.ExecutionContext.IsRunMode &&
-    builder.Configuration.GetValue<bool>("Diagnostics:EnableRepl"))
+if (builder.ExecutionContext.IsRunMode && builder.Configuration.GetValue<bool>("Diagnostics:EnableRepl"))
 {
     postgres.WithRepl();
 }
@@ -67,7 +66,7 @@ bash scripts/aspire.sh wait api --apphost "$apphost" \
 bash scripts/aspire.sh resource postgres repl --apphost "$apphost" --non-interactive
 ```
 
-You can also use **postgres > Actions > REPL** in the dashboard. It opens the `psql` client bundled in the container, authenticated using the resource's credentials. You do not need a separately installed PostgreSQL client.[^postgres]
+You can also use **postgres > Actions > REPL** in the dashboard. Either path opens the `psql` client bundled in the container in the dashboard's terminal dock, authenticated using the resource's credentials. The CLI command reports that the command ran; it does not attach your shell, so switch to the dashboard to use the session. You do not need a separately installed PostgreSQL client.[^postgres]
 
 The session initially connects to the `postgres` database. Switch to the application's database explicitly:
 
@@ -92,7 +91,7 @@ Expect `catalogdb` and three seeded products. These queries use the sample's rea
 
 The read-only transaction limits this example's queries. It does **not** make the REPL a read-only security boundary: the same credentials may be able to modify or delete data in another transaction.
 
-Exit `psql` with `\q` before closing the tab. Closing the tab alone can leave the client process alive inside the container.
+Exit `psql` with `\q` before closing the tab. Closing the tab alone can leave the client process alive inside the container. Running both the CLI command and the menu action opens two separate sessions, and each needs its own `\q`.
 
 ## A useful shortcut is also a permission
 
@@ -111,7 +110,7 @@ The checked-in [`Terminal.AppHost`](https://github.com/codebytes/blog-samples/tr
 ```csharp
 var builder = DistributedApplication.CreateBuilder(args);
 
-#pragma warning disable ASPIRETERMINAL001
+#pragma warning disable ASPIRETERMINAL001 // Resource terminals are experimental in 13.6.
 builder.AddExecutable("node-repl", "node", ".", "--interactive")
     .WithEnvironment("NODE_REPL_HISTORY", "")
     .WithTerminal(options =>
@@ -136,13 +135,14 @@ bash scripts/aspire.sh wait node-repl --apphost "$terminal_apphost" \
 bash scripts/aspire.sh terminal ps --apphost "$terminal_apphost" --non-interactive
 ```
 
-Begin from a fresh, idle Node prompt. Coordinate with anyone else viewing that terminal, because input is shared.
+Begin from a fresh, idle Node prompt. Coordinate with anyone else viewing that terminal, because input and terminal size are shared. Attaching from a very small window can shrink the terminal enough to break the output check; restart `node-repl` if that happens.
 
 ## Automate output, not a fixed sleep
 
 The companion's [`node-smoke.tape`](https://github.com/codebytes/blog-samples/blob/codebytes-aspire-companion-samples/aspire-field-notes/terminals/node-smoke.tape) is a template:
 
 ```text
+# Use scripts/terminal-smoke.mjs to replace RUN_NONCE with a fresh nonce per run.
 Set WaitTimeout 5s
 Set TypingSpeed 1ms
 Wait+Line /> *$/
@@ -178,7 +178,8 @@ An exit code of zero means the tape completed. It does not prove that every prog
 After this separate experiment, stop its AppHost explicitly:
 
 ```bash
-bash scripts/aspire.sh stop --apphost "$terminal_apphost" --non-interactive
+bash scripts/aspire.sh stop \
+  --apphost terminals/Terminal.AppHost/Terminal.AppHost.csproj --non-interactive
 ```
 
 If you also started the catalog for the REPL exercise, stop that AppHost using the collection's scoped cleanup command. Do not use broad process-name cleanup on a machine where other applications may be running.

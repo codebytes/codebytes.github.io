@@ -50,7 +50,7 @@ David Fowler's [developer-loop article](https://devblogs.microsoft.com/aspire/de
 
 ## Start with the companion's service graph
 
-The [catalog AppHost project](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/catalog/Catalog.AppHost) models five named resources:
+The [catalog AppHost project](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/catalog/Catalog.AppHost) models five application resources, plus the `postgres-password` and `catalog-region` parameters:
 
 | Resource    | Role                    | Contract to inspect                                                         |
 | ----------- | ----------------------- | --------------------------------------------------------------------------- |
@@ -107,33 +107,30 @@ The extra `API_BASE_URL` setting in our AppHost is intentional. It maps a specif
 
 The checked-in [`vite.config.mjs`](https://github.com/codebytes/blog-samples/blob/codebytes-aspire-companion-samples/aspire-field-notes/catalog/web/vite.config.mjs) provides the health endpoint and configures the development proxy:
 
+<!-- prettier-ignore -->
 ```javascript
 import { defineConfig } from "vite";
 import { apiTarget } from "./proxy-config.mjs";
 
 export default defineConfig(({ command }) => ({
-  plugins: [
-    {
-      name: "field-notes-health",
-      configureServer(server) {
-        server.middlewares.use("/health", (_request, response) => {
-          response.setHeader("Content-Type", "text/plain");
-          response.end("Healthy");
-        });
+  plugins: [{
+    name: "field-notes-health",
+    configureServer(server) {
+      server.middlewares.use("/health", (_request, response) => {
+        response.setHeader("Content-Type", "text/plain");
+        response.end("Healthy");
+      });
+    },
+  }],
+  // Production uses the generated YARP proxy, not a build-time VITE_* API URL.
+  server: command === "serve" ? {
+    proxy: {
+      "/api": {
+        target: apiTarget(process.env),
+        changeOrigin: true,
       },
     },
-  ],
-  server:
-    command === "serve"
-      ? {
-          proxy: {
-            "/api": {
-              target: apiTarget(process.env),
-              changeOrigin: true,
-            },
-          },
-        }
-      : undefined,
+  } : undefined,
 }));
 ```
 
@@ -147,7 +144,7 @@ Settings with Vite's `VITE_` prefix can be embedded in browser code; they are no
 
 Aspire 13.6 moves Java and Rust hosting into first-party **preview packages**, building on Community Toolkit contributions. That is different from saying every language feature is generally available.[^release]
 
-In a separate AppHost experiment with `Aspire.Hosting.Java` and `Aspire.Hosting.Rust` pinned to the documented `13.6.0-preview.1.26479.8` packages, these resource definitions illustrate the new surface:
+In a separate AppHost experiment with `Aspire.Hosting.Java` and `Aspire.Hosting.Rust` pinned to the `13.6.1-preview.1.26506.6` packages that accompany the 13.6.1 patch, these resource definitions illustrate the new surface:
 
 ```csharp
 var catalog = builder.AddSpringBootApp("catalog", "../catalog");
@@ -171,7 +168,7 @@ There is the language of the **AppHost**, and there are the languages of the **s
 | Choice                            | Position in the 13.6 story                                                          |
 | --------------------------------- | ----------------------------------------------------------------------------------- |
 | C# or TypeScript AppHost          | Established authoring options; TypeScript reached GA in 13.4                        |
-| JavaScript, Python, or Go service | Existing first-party hosting integrations, not all new in 13.6                      |
+| JavaScript, Python, or Go service | Existing first-party hosting integrations (Go since 13.4); none is new in 13.6      |
 | Java or Rust service              | New first-party preview hosting packages                                            |
 | Additional AppHost languages      | Experimental, feature-flagged authoring paths                                       |
 | Deno                              | Deno 2 can run a TypeScript AppHost; the new Deno guest-hosting API is experimental |
@@ -180,7 +177,7 @@ A TypeScript AppHost does not require rewriting the API in TypeScript. A C# AppH
 
 ## Look at a real frontend, not another console message
 
-David Pine's September 29 [Bluesky post](https://bsky.app/profile/davidpine.dev/post/3mwmut6556k2a) and [Mastodon post](https://dotnet.social/@davidpine/117352196531501696) point to the [official Node.js weather-map sample](https://aspire.dev/reference/samples/aspire-with-node/).
+David Pine's [Bluesky post](https://bsky.app/profile/davidpine.dev/post/3mwmut6556k2a) and [Mastodon post](https://dotnet.social/@davidpine/117352196531501696) point to the [official Node.js weather-map sample](https://aspire.dev/reference/samples/aspire-with-node/).
 
 It combines Express and OpenTelemetry, React 19, Vite, Leaflet, and a TypeScript AppHost. The external weather API is modeled too. More importantly, it shows different run and publish arrangements: a development proxy locally, and frontend build output served with the API in the published application.
 

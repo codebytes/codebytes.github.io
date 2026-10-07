@@ -38,15 +38,17 @@ Run its commands from the sample checkout's `aspire-field-notes/` directory. The
 
 The catalog companion stores that JSON record beneath `DATA_PATH`. The API reads the setting rather than inferring whether it is running under Docker. The same pattern can apply to an image cache or another application-owned directory, with different durability requirements.
 
-Aspire 13.6 adds an `env` argument to volume mounts on projects and executables. In the existing AppHost, extend the `api` resource:
+Aspire 13.6 adds an `env` argument to volume mounts on projects and executables. The companion's `api` resource already declares it in the chain shown in [part two](/posts/aspire-field-notes-model-the-whole-app/):
 
 ```csharp
-api.WithVolume("catalog-state", "/data", env: "DATA_PATH");
+    .WithVolume("catalog-state", "/data", env: "DATA_PATH")
 ```
 
 In local process execution, `DATA_PATH` identifies a deterministic, workload-scoped directory in the AppHost's local store. In a published container, it identifies the configured mount path, `/data`.[^volumes]
 
-The application code does not need a special container branch:
+For the companion, that local store is under `catalog/Catalog.AppHost/obj/.aspire/volumes/`. Deleting the `obj` folder or running `git clean -fdX` removes the saved note along with other build output.
+
+The application code does not need a special container branch. The companion's API reads the value through a small `Require` configuration helper, and its `StateStore` constructor rejects a relative path and creates the directory. A minimal equivalent is:
 
 ```csharp
 var dataPath = builder.Configuration["DATA_PATH"]
@@ -60,9 +62,9 @@ if (!Path.IsPathFullyQualified(dataPath))
 Directory.CreateDirectory(dataPath);
 ```
 
-This is startup code inside the existing .NET API, not the AppHost. A missing setting or inaccessible directory should fail visibly rather than silently redirect data to a temporary folder.
+This pattern belongs in the .NET API's startup code, not the AppHost. A missing setting or inaccessible directory should fail visibly rather than silently redirect data to a temporary folder.
 
-The `env` overload is for projects and executables. A container resource already has its target mount path; configure its setting explicitly when needed.
+The `env` argument targets projects and executables, whose run-mode path is computed on the host. Containers always see the target path: in C#, the overload also compiles for a container and simply sets the variable to that target, while TypeScript AppHosts expose `env` only for projects and executables.
 
 ## Prove that the value survived a real restart
 
@@ -92,7 +94,7 @@ The frontend's **Save note** action sends a payload such as:
 }
 ```
 
-Messages must contain 1-256 non-blank characters. The API stores `state.json` beneath `DATA_PATH`; the helper stores its expected result separately in ignored `artifacts/state-check.json`.
+Messages must be non-blank and no longer than 256 characters. The API stores `state.json` beneath `DATA_PATH`; the helper stores its expected result separately in ignored `artifacts/state-check.json`.
 
 Writes are serialized within one API process and replace the file atomically. This is a teaching example for a single writer, not a claim of coordination between multiple replicas.
 
@@ -132,7 +134,7 @@ The companion consumes the simple connection name `catalogdb` through .NET confi
 
 Existing applications often have names such as `catalog-db`.
 
-In 13.6, a logical name containing a hyphen can have a portable environment-variable alias:
+In 13.6, a logical name containing a hyphen, or any other character that isn't an ASCII letter, digit, or underscore, gets a portable environment-variable alias. Leading digits and repeated underscores are normalized too:
 
 | Logical name | Original variable               | Portable alias                  |
 | ------------ | ------------------------------- | ------------------------------- |

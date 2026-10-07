@@ -30,7 +30,7 @@ The improvement I want is not a more confident answer. It is a developer loop th
 
 This is part four of [Aspire Field Notes](/series/aspire-field-notes/). We have a model of the application, diagnostic evidence, and resource-level tools. Now we can give an agent the same path a developer would follow.
 
-The [companion investigation](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/04-agents-with-evidence) uses the same catalog application as part one. Follow the collection's setup, including `node scripts/init-secret.mjs`, then run the commands below from the sample checkout's `aspire-field-notes/` directory. The sample's `scripts/aspire.sh` wrapper enforces CLI 13.6.0. The business operation to investigate is `GET /api/catalog`, not an invented endpoint.
+The [companion investigation](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/04-agents-with-evidence) uses the same catalog application as part one. Follow the collection's setup, including `node scripts/init-secret.mjs`, then run the commands below from the sample checkout's `aspire-field-notes/` directory. The sample's `scripts/aspire.sh` wrapper enforces CLI 13.6.1. The business operation to investigate is `GET /api/catalog`, not an invented endpoint.
 
 ## Instructions are not observations
 
@@ -46,7 +46,7 @@ In Aspire 13.6, `aspire agent init` installs selected workflow skills. MCP confi
 
 The companion exercises do not require this setup command. Skip it if your agent already has suitable guidance, or if you do not want it to modify your agent configuration.
 
-**This is not a wholly project-local operation.** In CLI 13.6, setup can register hooks in detected agent clients' user-level configuration even when the skill files target a project directory. `ASPIRE_CLI_TELEMETRY_OPTOUT=true` suppresses telemetry transmission while it is set; it does not prevent hook registration. The per-command assignment below does not disable telemetry for later hook executions.[^setup-scope]
+**This is not a wholly project-local operation.** In CLI 13.6, setup registers a `PostToolUse` telemetry hook in the user-level configuration of detected GitHub Copilot and Claude Code clients, and copies the hook scripts into your Aspire home directory (`~/.aspire` by default). That happens even when the skill files target a project directory. `ASPIRE_CLI_TELEMETRY_OPTOUT=true` suppresses telemetry transmission while it is set; it does not prevent hook registration. The per-command assignment below does not disable telemetry for later hook executions.[^setup-scope]
 
 If you intentionally want that setup, the following command selects the catalog workspace and puts its GitHub-compatible skill files in `catalog/.github/skills`:
 
@@ -57,11 +57,11 @@ ASPIRE_CLI_TELEMETRY_OPTOUT=true bash scripts/aspire.sh agent init \
   --mcp=false --non-interactive
 ```
 
-The `github` location scopes the skill files, not all setup side effects. In 13.6, `standard` additionally targets user-level `~/.agents/skills`; it is not a synonym for "only this project." This command skips MCP configuration; it does not remove an existing MCP connection.
+The `github` location scopes the skill files, not all setup side effects. In 13.6, `standard` additionally targets user-level `~/.agents/skills`; it is not a synonym for "only this project." `--mcp=false` skips new MCP server configuration and does not remove an existing MCP connection. Setup can still rewrite deprecated `aspire mcp start` entries it finds in the workspace's MCP configuration files to `aspire agent mcp`.
 
 Name the workflow skills rather than using `--skills all`, which can include optional companion-tool installation. The top-level `aspire` skill routes to the others; installing only that router leaves the guidance incomplete.
 
-Run setup deliberately and review its file changes. Re-running it with different selections can remove skills from deselected locations. Other agent hosts may require a different location, but that should be a separate, informed choice rather than an unnoticed change to personal tooling.
+Run setup deliberately and review its file changes. Do not rely on a later run to clean up: the command reference says deselected locations are removed, but the 13.6 implementation, unchanged in 13.6.1, only removes `playwright-cli` folders it created during that same run. Review each location's files yourself after changing selections. Other agent hosts may require a different location, but that should be a separate, informed choice rather than an unnoticed change to personal tooling.
 
 If the chosen agent environment needs MCP, opt into it with `--mcp`. Do not copy the old dashboard transport and `aspire mcp init` configuration from the February article and assume it describes 13.6.
 
@@ -81,10 +81,12 @@ bash scripts/aspire.sh wait api --apphost ./catalog/Catalog.AppHost/Catalog.AppH
   --status healthy --timeout 90 --non-interactive &&
 node scripts/smoke.mjs fault &&
 bash scripts/aspire.sh describe --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
-  --format Json --non-interactive
+  --format Table --non-interactive
 ```
 
 In CLI 13.6, `ps` lists AppHosts; `describe --apphost ...` is the resource inventory. Inspect the `api` and `inventory` entries in that result rather than treating an AppHost listing as proof that its services are healthy.
+
+Use the table form here. The JSON form includes environment values, and the API's `ConnectionStrings__catalogdb` and `CATALOGDB_URI` variables embed the database password. `describe` redacts secret variables, but it does not detect a secret inside a larger connection string.
 
 `--isolated` randomizes ports and isolates user secrets. It is not a guarantee that a hard-coded bind mount, named database, or external cloud dependency is isolated. Review those shared surfaces separately, and provide the credentials needed by the isolated development instance through the appropriate store.
 
@@ -107,10 +109,10 @@ A useful agent task identifies an operation, the allowed scope, and the result t
 ```text
 Investigate the failing catalog lookup in this worktree.
 Use catalog/Catalog.AppHost/Catalog.AppHost.csproj.
-Run Aspire commands through bash scripts/aspire.sh to select CLI 13.6.0.
+Run Aspire commands through bash scripts/aspire.sh to select CLI 13.6.1.
 The request is GET /api/catalog through the web resource.
 
-Inspect api, inventory, and the request's logs and trace before editing.
+Inspect api, inventory, and the request's logs and trace.
 Run node scripts/smoke.mjs fault and report its trace ID and evidence directory.
 Determine whether Inventory__FaultEnabled intentionally selects the failure.
 Identify which server first returned 503 and show the parent-child span chain.
@@ -151,7 +153,7 @@ bash scripts/aspire.sh resource api --help \
   --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj
 ```
 
-If `rebuild` is exposed, use it for that resource's code change and wait for readiness again. If the AppHost model changed, restart the AppHost through its owning lifecycle tool. Frontend HMR and framework-specific hot reload remain separate mechanisms.
+In the companion, even the stable `AddProject` API lists `rebuild`, `restart`, and `stop`, and `restart` states that source code is not recompiled. Use `rebuild` after changing a resource's code, then wait for readiness again. If the AppHost model changed, restart the AppHost through its owning lifecycle tool. Frontend HMR and framework-specific hot reload remain separate mechanisms.
 
 Do not replace every stable `AddProject` call just to use the rest of 13.6. Project V2 is prerelease, and custom integrations tied to `ProjectResource` or unsupported resource types require assessment.
 
@@ -205,7 +207,7 @@ The goal is an agent that can explain what it observed and what changed, not one
 
 [^skills]: [Aspire skills](https://aspire.dev/get-started/aspire-skills/) and [`aspire agent init` selection, removal, and MCP behavior](https://aspire.dev/reference/cli/commands/aspire-agent-init/).
 
-[^setup-scope]: The 13.6.0 tagged implementations of [skill locations](https://github.com/microsoft/aspire/blob/v13.6.0/src/Aspire.Cli/Agents/SkillLocation.cs) and [agent initialization, including phase 6 hook registration](https://github.com/microsoft/aspire/blob/v13.6.0/src/Aspire.Cli/Commands/AgentInitCommand.cs) define the actual setup scope.
+[^setup-scope]: The 13.6.1 tagged implementations of [skill locations](https://github.com/microsoft/aspire/blob/v13.6.1/src/Aspire.Cli/Agents/SkillLocation.cs) and [agent initialization, including phase 6 hook registration](https://github.com/microsoft/aspire/blob/v13.6.1/src/Aspire.Cli/Commands/AgentInitCommand.cs) define the actual setup scope; both files are unchanged from 13.6.0. The [CLI telemetry reference](https://aspire.dev/reference/cli/microsoft-collected-cli-telemetry/#ai-agent-skill-usage) documents the hook.
 
 [^release]: [Aspire 13.6 CLI and VS Code changes](https://aspire.dev/whats-new/aspire-13-6/).
 
