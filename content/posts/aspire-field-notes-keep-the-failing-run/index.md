@@ -118,7 +118,7 @@ The expected result is a **503**, even though resource readiness passed. In `fau
 
 The check asserts the parent-child chain from the API server span to its HTTP client span and then inventory's server span, with 503 on all three. It captures console logs, structured logs, spans, and the request result under `artifacts/fault-<trace-id>/`. That folder is the script's own evidence copy; it does not add console logs to the dashboard's run history. Its telemetry-export wait does not retry the business request.
 
-While the failing run is still live, open the dashboard's **Console logs** page for `api` and for `inventory`. The dashboard keeps a console stream in a run's history only after you have viewed or exported it there. You can also select **Load catalog** in the frontend; the failed response clears any previous successful rows rather than presenting stale data as a result.
+While the failing run is still live, open the dashboard's **Console logs** page for `api` and for `inventory`. The dashboard keeps a console stream in a run's history only after you have viewed or exported it there, and opening the dashboard is also what starts recording the run's resources. You can also select **Load catalog** in the frontend; the failed response clears any previous successful rows rather than presenting stale data as a result.
 
 The CLI can narrow the evidence for the running AppHost too:
 
@@ -181,7 +181,7 @@ Treat pinning as part of an investigation's lifecycle: keep the useful reproduct
 
 Historical views are read-only. You cannot restart last Tuesday's database, change an old parameter, or replay a request by selecting its trace.
 
-The stored resource snapshot also is not a full application event log. It is useful context for what the dashboard retained, not proof of every configuration transition during the run.
+The stored resource snapshot also is not a full application event log. The dashboard starts watching the AppHost's resources only when a page first needs them, so a run that nobody opens in a browser can keep traces and structured logs without any resource snapshot.[^client] When a snapshot exists, it is useful context for what the dashboard retained, not proof of every configuration transition during the run.
 
 Schema compatibility matters across dashboard upgrades. Incompatible historical `Run` databases can remain visible but unavailable to open. `Resume` can replace an incompatible database after reading its schema version successfully. Preserve important evidence deliberately before upgrading; do not assume persistence promises indefinite forward compatibility.[^persistence]
 
@@ -219,5 +219,7 @@ When you finish, stop the catalog AppHost with the collection's scoped cleanup c
 [^release]: Maddy Montaquila, [Aspire 13.6: Your dashboard gets memory](https://devblogs.microsoft.com/aspire/whats-new-aspire-13-6/), September 29, 2026.
 
 [^persistence]: [Dashboard persistence modes, captured data, retention, compatibility, and security](https://aspire.dev/dashboard/data-persistence/).
+
+[^client]: The 13.6.1 dashboard's [`DashboardClient`](https://github.com/microsoft/aspire/blob/v13.6.1/src/Aspire.Dashboard/ServiceClient/DashboardClient.cs) connects to the AppHost's resource service on first use, then watches resources for the dashboard's lifetime.
 
 [^aot]: James Newton-King, [Bringing Native AOT to the Aspire dashboard](https://devblogs.microsoft.com/aspire/aspire-dashboard-native-aot/), October 6, 2026.

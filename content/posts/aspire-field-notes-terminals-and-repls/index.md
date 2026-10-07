@@ -68,7 +68,7 @@ bash scripts/aspire.sh wait api --apphost "$apphost" \
 bash scripts/aspire.sh resource postgres repl --apphost "$apphost" --non-interactive
 ```
 
-You can also use **postgres > Actions > REPL** in the dashboard. Either path opens the `psql` client bundled in the container in the dashboard's terminal dock, authenticated using the resource's credentials. The CLI command reports that the command ran; it does not attach your shell, so switch to the dashboard to use the session. You do not need a separately installed PostgreSQL client.[^postgres]
+You can also use **postgres > Actions > REPL** in the dashboard. Either path opens the `psql` client bundled in the container in the dashboard's terminal dock, authenticated using the resource's credentials. The CLI command reports that the command ran; it does not attach your shell, so switch to the dashboard to use the session. If the dock is hidden, press the backtick (`` ` ``) key in the dashboard to toggle it. You do not need a separately installed PostgreSQL client.[^postgres]
 
 The session initially connects to the `postgres` database. Switch to the application's database explicitly:
 
@@ -137,7 +137,7 @@ bash scripts/aspire.sh wait node-repl --apphost "$terminal_apphost" \
 bash scripts/aspire.sh terminal ps --apphost "$terminal_apphost" --non-interactive
 ```
 
-Begin from a fresh, idle Node prompt. Coordinate with anyone else viewing that terminal, because input and terminal size are shared. Attaching from a very small window can shrink the terminal enough to break the output check; restart `node-repl` if that happens.
+Begin from a fresh, idle Node prompt. Coordinate with anyone else viewing that terminal, because input and terminal size are shared. By default, `terminal attach` takes the primary role and resizes the terminal to your window, so attaching from a very small window can shrink it enough to break the output check. Restarting only `node-repl` can keep the reduced size. Attach again from a normal-size window and detach with **Ctrl+B D**, or stop and start the Terminal AppHost. Pass `--viewer` when you only want to watch.[^attach]
 
 ## Automate output, not a fixed sleep
 
@@ -205,5 +205,7 @@ The win is less context switching and less undocumented procedure, not giving ev
 [^release]: [Aspire 13.6 terminal and REPL additions](https://devblogs.microsoft.com/aspire/whats-new-aspire-13-6/).
 
 [^postgres]: [PostgreSQL REPL authentication, initial database, and lifecycle](https://aspire.dev/integrations/databases/postgres/postgres-host/#open-an-interactive-repl).
+
+[^attach]: [`aspire terminal attach` roles, hotkeys, and viewer mode](https://aspire.dev/reference/cli/commands/aspire-terminal-attach/).
 
 [^tapes]: [Terminal tape workflow and supported syntax](https://aspire.dev/dashboard/terminal-tape-playback/) and [command reference, targeting, and exit codes](https://aspire.dev/reference/cli/commands/aspire-terminal-tape-play/).

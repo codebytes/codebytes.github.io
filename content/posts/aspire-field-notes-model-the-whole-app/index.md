@@ -62,6 +62,8 @@ The [catalog AppHost project](https://github.com/codebytes/blog-samples/tree/cod
 | `api`       | Catalog API             | Reads PostgreSQL and makes one inventory request for `/api/catalog`         |
 | `web`       | Vite frontend           | Same-origin `/api` requests proxied to the API's assigned endpoint          |
 
+The resource list also shows `web-installer`, a child resource that runs `npm ci` for the frontend; `web` waits for it to finish. With the two parameters, `describe` lists eight entries.
+
 Use the checked-in project and service implementations rather than assembling disconnected snippets. The explicit AppHost path from the collection root is `catalog/Catalog.AppHost/Catalog.AppHost.csproj`.
 
 This excerpt from the AppHost shows the API's configuration and readiness wiring. `catalogdb`, `inventory`, and `region` are defined earlier in that file:
