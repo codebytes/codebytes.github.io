@@ -30,14 +30,18 @@ Each workaround is small. Together, they make "works locally" a poor predictor o
 
 In part five of [Aspire Field Notes](/series/aspire-field-notes/), the goal is a stable application-facing contract. Aspire can translate that contract into target-specific configuration without pretending every environment has identical storage, networking, or permissions.
 
+The [portable-state companion exercise](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/05-portable-state-and-config) uses the shared catalog app's `GET /api/state` and `POST /api/state` endpoints. Follow the exercise's request payload and restart sequence to write a disposable JSON record, restart without deleting storage, and check that the same value remains.
+
+Run its commands from the sample checkout's `aspire-field-notes/` directory. The state endpoint is a local teaching surface, not a production API or a substitute for access controls.
+
 ## Give the application a setting, not a platform detector
 
-Suppose our catalog API writes a local image cache. It should read a setting such as `DATA_PATH`, not infer whether it is running under Docker.
+The catalog companion stores that JSON record beneath `DATA_PATH`. The API reads the setting rather than inferring whether it is running under Docker. The same pattern can apply to an image cache or another application-owned directory, with different durability requirements.
 
 Aspire 13.6 adds an `env` argument to volume mounts on projects and executables. In the existing AppHost, extend the `api` resource:
 
 ```csharp
-api.WithVolume("catalog-data", "/data", env: "DATA_PATH");
+api.WithVolume("catalog-state", "/data", env: "DATA_PATH");
 ```
 
 In local process execution, `DATA_PATH` identifies a deterministic, workload-scoped directory in the AppHost's local store. In a published container, it identifies the configured mount path, `/data`.[^volumes]
@@ -59,6 +63,38 @@ Directory.CreateDirectory(dataPath);
 This is startup code inside the existing .NET API, not the AppHost. A missing setting or inaccessible directory should fail visibly rather than silently redirect data to a temporary folder.
 
 The `env` overload is for projects and executables. A container resource already has its target mount path; configure its setting explicitly when needed.
+
+## Prove that the value survived a real restart
+
+After collection setup, use a healthy catalog run. If you have a previous run active, stop only that sample's AppHost first:
+
+```bash
+apphost=catalog/Catalog.AppHost/Catalog.AppHost.csproj
+Inventory__FaultEnabled=false bash scripts/aspire.sh start \
+  --apphost "$apphost" --isolated --non-interactive &&
+node scripts/smoke.mjs healthy &&
+node scripts/state-smoke.mjs write
+
+bash scripts/aspire.sh stop --apphost "$apphost" --non-interactive &&
+Inventory__FaultEnabled=false bash scripts/aspire.sh start \
+  --apphost "$apphost" --isolated --non-interactive &&
+node scripts/smoke.mjs healthy &&
+node scripts/state-smoke.mjs verify
+```
+
+The write check posts a fresh note, reads it back, and confirms that a rejected blank write does not mutate the saved state. The verification requires a **different API instance ID** but the **same note, revision, and timestamp**. Running verification without restarting is intentionally a failure.
+
+The frontend's **Save note** action sends a payload such as:
+
+```json
+{
+  "message": "Retained after a restart"
+}
+```
+
+Messages must contain 1-256 non-blank characters. The API stores `state.json` beneath `DATA_PATH`; the helper stores its expected result separately in ignored `artifacts/state-check.json`.
+
+Writes are serialized within one API process and replace the file atomically. This is a teaching example for a single writer, not a claim of coordination between multiple replicas.
 
 ## A portable path is not portable durability
 
@@ -92,7 +128,9 @@ The distinction also affects cleanup. The 13.6 `--volumes` option on a forced st
 
 ## The less visible 13.6 change: connection names
 
-The catalog example uses the simple connection name `catalogdb`. Existing applications often have names such as `catalog-db`.
+The companion consumes the simple connection name `catalogdb` through .NET configuration and `Aspire.Npgsql`. The hyphenated-name discussion below is a migration note for other applications, not an alias conversion silently performed by a Node or Python client in this sample.
+
+Existing applications often have names such as `catalog-db`.
 
 In 13.6, a logical name containing a hyphen can have a portable environment-variable alias:
 

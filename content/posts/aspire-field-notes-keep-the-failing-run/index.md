@@ -29,9 +29,25 @@ If the old trace and resource state disappeared with the restart, the answer is 
 
 This is part one of [Aspire Field Notes](/series/aspire-field-notes/). We are starting with a debugging problem, not with installing another tool.
 
+## Run the companion
+
+The [first companion exercise](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/01-keep-the-failing-run) uses the [shared catalog application](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/catalog) in `blog-samples`.
+
+Follow the [collection's prerequisites and review checkout instructions](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes) first. The commands in this article run from the sample checkout's `aspire-field-notes/` directory. The `scripts/aspire.sh` wrapper selects Aspire 13.6.0 explicitly instead of silently using a different globally installed CLI.
+
+Initialize the sample's PostgreSQL secret once before the first run:
+
+```bash
+node scripts/init-secret.mjs
+```
+
+The script preserves an existing value. Do not regenerate the database password between the failure and recovery runs. Aspire 13.6's isolated mode copies the original user secrets into the isolated context.
+
+The application has a Vite frontend named `web`, a catalog API named `api`, PostgreSQL's `catalogdb`, and a separate `inventory` service. A request to `/api/catalog` reads the catalog and makes one instrumented HTTP call to inventory. There is no retry hiding the deliberate failure.
+
 ## A green dashboard is not the result
 
-Our example is a catalog application. A browser calls an API, which queries a database or another service. One request fails, but all the processes remain running.
+The sample's inventory fault affects a business request, not `/health`. With the fault enabled, the catalog request fails while the service remains running and its health endpoint stays healthy.
 
 A resource graph full of green indicators tells us something about process and health state. It does not prove that the catalog request worked. We need evidence from the operation itself: the request, the downstream call, its duration, and the error.
 
@@ -54,21 +70,70 @@ An **AppHost-launched dashboard uses `Run` by default**. You do not need to add 
 A **standalone dashboard still defaults to `None`**. If you want it to continue from the same database:
 
 ```bash
-aspire dashboard run --application-name catalog-notes --persistence Resume
+bash scripts/aspire.sh dashboard run \
+  --application-name catalog-notes --persistence Resume
 ```
 
 Keep the application name, data directory, and mode consistent. `Resume` is not the setting for before-and-after run comparison; it continues one database. Only one process can write that resumed database at a time.
 
-## A better failure-to-fix workflow
+## Capture a baseline, a failure, and recovery
 
-Use a development-only failure you control, such as a stub that returns a 503 for one catalog lookup. Do not create failures in a shared production dependency to try this.
+The sample uses `Inventory__FaultEnabled` to select a controlled, development-only 503. Do not create failures in a shared production dependency to try this.
 
-1. **Establish the baseline.** Run the same request successfully and verify that the expected services appear in its trace.
-2. **Reproduce the failure.** Keep the request inputs and record the failing trace ID, error, and relevant resource configuration.
-3. **Capture the console evidence.** Open the relevant console log stream before ending the run if those logs matter to the investigation.
-4. **Pin the run.** Use the dashboard's run selector to retain the reproduction before restarting.
-5. **Change one thing.** Fix the suspected cause without simultaneously changing packages, retry counts, and test data.
-6. **Repeat the operation.** Open the earlier run and compare it with the new one.
+A controlled fault makes the exercise repeatable. Turning that fault off demonstrates recovery; it does not prove that you diagnosed an unknown bug. In a real investigation, the proposed fix still needs to address the observed cause.
+
+### Establish the healthy baseline
+
+```bash
+Inventory__FaultEnabled=false bash scripts/aspire.sh start \
+  --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
+  --isolated --non-interactive &&
+bash scripts/aspire.sh wait api --status healthy --timeout 120 \
+  --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj --non-interactive &&
+node scripts/smoke.mjs healthy
+```
+
+The smoke check discovers the current `web` endpoint, waits for the relevant health checks, and makes one same-origin `/api/catalog` request. It expects a successful response with three products, a PostgreSQL span, and one correlated API-to-inventory HTTP call.
+
+For the interactive version, open `web` from the dashboard and select **Load catalog**. The page shows the result and its trace ID. Use the assigned endpoint, not a port copied from another run.
+
+### Reproduce the failure
+
+Stop this AppHost without deleting its volumes, then start the same application with the fault enabled:
+
+```bash
+bash scripts/aspire.sh stop --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
+  --non-interactive &&
+Inventory__FaultEnabled=true bash scripts/aspire.sh start \
+  --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
+  --isolated --non-interactive &&
+bash scripts/aspire.sh wait api --status healthy --timeout 120 \
+  --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj --non-interactive &&
+node scripts/smoke.mjs fault
+```
+
+The expected result is a **503**, even though resource readiness passed. In `fault` mode, a passing smoke check means that it observed the intended failure, not a 200 response.
+
+The check asserts the parent-child chain from the API server span to its HTTP client span and then inventory's server span, with 503 on all three. It captures console logs, structured logs, spans, and the request result under `artifacts/fault-<trace-id>/`. Its telemetry-export wait does not retry the business request.
+
+Inspect both `api` and `inventory` in the dashboard. You can also select **Load catalog** in the frontend; the failed response clears any previous successful rows rather than presenting stale data as a result.
+
+### Keep the failure and compare recovery
+
+Open **Select run** and pin the failing run before stopping the AppHost. Then recover explicitly:
+
+```bash
+bash scripts/aspire.sh stop --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
+  --non-interactive &&
+Inventory__FaultEnabled=false bash scripts/aspire.sh start \
+  --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
+  --isolated --non-interactive &&
+node scripts/smoke.mjs recovery
+```
+
+Open the new dashboard URL and compare its live run with the pinned failure. The request now returns 200 and three products through the same call path. The old failure should remain inspectable. Pinning retains a useful run; it is not the switch that enables history.
+
+Keep the checkout and AppHost path the same across this exercise. Changing packages, request data, storage, and the fault setting together would make the comparison harder to interpret.
 
 The comparison should answer a specific question:
 
@@ -81,11 +146,11 @@ The comparison should answer a specific question:
 
 These are measurements to collect, not benchmark results from this article. A faster second request might reflect warmed caches or connection pools rather than the fix.
 
-For a running AppHost, the CLI is another way to narrow the evidence. With an AppHost at `./AppHost/AppHost.csproj` and a resource named `api`:
+For the running companion AppHost, the CLI is another way to narrow the evidence:
 
 ```bash
-aspire otel traces api --has-error true --limit 5 \
-  --apphost ./AppHost/AppHost.csproj --non-interactive
+bash scripts/aspire.sh otel traces api --has-error --limit 5 \
+  --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj --non-interactive
 ```
 
 That is a query against the selected running app. Do not assume changing the historical run in a browser silently changes the target of a separate CLI command. Use the dashboard's run selector for the historical comparison described here.
@@ -141,7 +206,7 @@ For production retention and access controls, use Application Insights or anothe
 
 ## Try this before the next refactor
 
-Pick one local failure. Capture it, pin it, change one thing, and repeat the same request. The useful outcome is being able to explain the difference between the two runs with evidence.
+Start with the [companion's repeatable failure](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/01-keep-the-failing-run). Capture it, pin it, change one thing, and repeat the same request. Then apply that discipline to an actual bug. The useful outcome is being able to explain the difference between runs with evidence.
 
 [Next: model the whole application](/posts/aspire-field-notes-model-the-whole-app/) so configuration, readiness, and telemetry describe the same system.
 

@@ -15,7 +15,7 @@ A working demo answers one question: can the application start? A useful develop
 | 1    | [Stop Losing the Bug When You Restart Aspire](/posts/aspire-field-notes-keep-the-failing-run/)               | Preserve a failure, compare diagnostic runs, and understand what the dashboard actually retains                    |
 | 2    | [A Polyglot App Is More Than a Process List](/posts/aspire-field-notes-model-the-whole-app/)                 | Connect configuration, readiness, and telemetry across languages, including the new Java and Rust hosting previews |
 | 3    | [Put the Debugging Tools Next to the App](/posts/aspire-field-notes-terminals-and-repls/)                    | Inspect a database through the terminal dock and build a bounded, repeatable terminal check                        |
-| 4    | [Give Your Coding Agent a Developer Loop, Not a Guess](/posts/aspire-field-notes-agents-with-evidence/)      | Scope an agent to the right AppHost, wait for real readiness, and verify a change with runtime evidence            |
+| 4    | [Give Your Coding Agent a Developer Loop, Not a Guess](/posts/aspire-field-notes-agents-with-evidence/)      | Scope an agent to the right AppHost and report a diagnosis grounded in runtime evidence                            |
 | 5    | [One Configuration Contract, From Laptop to Container](/posts/aspire-field-notes-portable-state-and-config/) | Keep application settings stable while paths, connection names, credentials, and storage change                    |
 | 6    | [Same AppHost, Different Deployment Promises](/posts/aspire-field-notes-choose-your-deployment/)             | Choose a deployment target from workload constraints rather than assume every publisher behaves alike              |
 
@@ -23,9 +23,36 @@ Read them in order for the full story, or start with the problem you have today.
 
 ## The application behind the examples
 
-Imagine a small catalog application: a Vite frontend named `web`, an API named `api`, and PostgreSQL holding the catalog. The API might be .NET, an existing service might be Java, and a specialized worker might be Rust or Python. The point is to describe that system, not add languages to make the diagram look impressive.
+The companions live in the [`aspire-field-notes` collection in blog-samples](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes). One shared catalog application supports parts one, two, four, and five: a Vite frontend named `web`, a catalog API named `api`, PostgreSQL's `catalogdb`, and a separate `inventory` service.
 
-The AppHost snippets are integration recipes for existing services, not a claim that this blog repository contains a complete catalog application. Each recipe names its prerequisites. For a complete app you can run, the [official Node.js weather-map sample](https://aspire.dev/reference/samples/aspire-with-node/) demonstrates a frontend, instrumented API, and external dependency under a TypeScript AppHost.
+A deliberate inventory failure makes `/api/catalog` return a 503 while resource health remains green. A separate `/api/state` exercise demonstrates data retained through `DATA_PATH`. These are controlled teaching scenarios, not claims of production readiness.
+
+Part three has a small independent terminal AppHost as well as the catalog's opt-in database REPL. Part six publishes Docker Compose artifacts for review. It does not deploy cloud resources; Express, Sandboxes, and other cloud targets remain documented comparisons rather than silently provisioned dependencies.
+
+## Companion exercises
+
+| Part | Companion guide                                                                                                                                                                                         |
+| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1    | [Baseline, failure, retained run, and recovery](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/01-keep-the-failing-run)                 |
+| 2    | [Configuration, readiness, and telemetry across the catalog app](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/02-model-the-whole-app) |
+| 3    | [PostgreSQL REPL and an independent terminal experiment](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/03-terminals-and-repls)         |
+| 4    | [A scoped, evidence-driven agent investigation](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/04-agents-with-evidence)                 |
+| 5    | [Portable configuration and retained application state](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/05-portable-state-and-config)    |
+| 6    | [Compose publishing and artifact review](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/06-choose-your-deployment)                      |
+
+For review, clone the sample feature branch into a separate directory:
+
+```bash
+git clone --branch codebytes-aspire-companion-samples \
+  https://github.com/codebytes/blog-samples.git blog-samples-field-notes
+cd blog-samples-field-notes/aspire-field-notes
+```
+
+Use the collection README for prerequisites and setup, including the one-time database-secret initialization. Its `scripts/aspire.sh` wrapper selects Aspire 13.6.0 without requiring a global CLI upgrade. The links above deliberately point to the review branch rather than to files that have not yet reached `main`.
+
+The exercises include their own assertions: `smoke.mjs` distinguishes healthy, fault, and recovery outcomes; `state-smoke.mjs` requires a new process with retained data; the terminal helper uses fresh computed markers; and the Compose reviewer checks generated routing and storage without deploying it. Optional agent-guidance setup is not required to run any of these checks.
+
+The [official Node.js weather-map sample](https://aspire.dev/reference/samples/aspire-with-node/) is an additional example of a frontend, instrumented API, and external dependency under a TypeScript AppHost. The Java and Rust sections explain optional preview integrations; those languages are not required to run the catalog companion.
 
 The series targets **Aspire 13.6.0**. Preview packages and experimental APIs are identified where they appear. Examples do not require migrating stable `AddProject` resources to the prerelease .NET project model, deploying Azure resources, or giving an agent access to credentials.
 

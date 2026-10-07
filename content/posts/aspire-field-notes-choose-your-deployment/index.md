@@ -30,6 +30,8 @@ What should stay the same is the application's intent. What does not automatical
 
 This final part of [Aspire Field Notes](/series/aspire-field-notes/) is about choosing those promises deliberately. My [deployment and pipelines article](/posts/aspire-cli-part-2/) covers the command-oriented introduction; this is the 13.6 decision that comes after it.
 
+The [deployment companion](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/06-choose-your-deployment) explicitly selects **Docker Compose** and publishes artifacts for review. It does not provision Azure resources or apply a cloud deployment. The cloud targets below are comparisons against their documented contracts, not additional environments quietly created by the exercise.
+
 ## Start with constraints, not a platform preference
 
 For the catalog example, write down the requirements before selecting an integration:
@@ -77,21 +79,7 @@ For an application relying on protected cookies or other data-protection behavio
 
 Azure Container Apps Sandboxes is a preview Azure service, and `Aspire.Hosting.Azure.Sandboxes` is a prerelease package. You need preview access in the target subscription and region.[^sandboxes]
 
-In a separate experimental AppHost with that package installed, and a real Dockerfile under `../web` that serves HTTP on port 8080, the application code can be:
-
-```csharp
-var builder = DistributedApplication.CreateBuilder(args);
-
-builder.AddAzureSandboxGroup("sandbox-experiment");
-
-builder.AddDockerfile("web", "../web")
-    .WithHttpEndpoint(port: 8080, targetPort: 8080, name: "http")
-    .WithExternalHttpEndpoints();
-
-builder.Build().Run();
-```
-
-This is not a replacement for the catalog application's deployment configuration. It is a deliberately small experiment to evaluate the new target.
+The companion does not contain a Sandbox deployment AppHost. If this target fits your requirements, use the [official Sandboxes setup](https://aspire.dev/deployment/azure/sandboxes/) in a separate, explicitly authorized experiment. It adds a sandbox group and suitable container-backed compute resources; it is not a drop-in replacement for the catalog's Compose target.
 
 The group affects publishing and deployment; a local run does not provision Azure sandboxes. Deployment requires permissions to create the group, registry, identities, and scoped role assignments. Review the generated plan and costs before authorizing it.
 
@@ -109,23 +97,48 @@ The deployment identity, image-pull identity, and workload identities also have 
 
 ## Publishing is a review point, not proof of a deployment
 
-Before running a publish pipeline, inspect its steps for the AppHost you intend to use:
+The companion's commands run from the sample checkout's `aspire-field-notes/` directory. Stop the catalog AppHost you started before its assemblies are rebuilt, then select the implemented target explicitly:
 
 ```bash
-aspire publish --apphost ./AppHost/AppHost.csproj \
-  --list-steps --non-interactive
+apphost=catalog/Catalog.AppHost/Catalog.AppHost.csproj
+bash scripts/aspire.sh stop --apphost "$apphost" --non-interactive
+bash scripts/publish.sh compose
 ```
 
-After reviewing the configured pipeline, generate its artifacts:
+The script rejects missing or unsupported targets. Its underlying commands first list the selected pipeline, then publish and review the artifacts:
 
 ```bash
-aspire publish --apphost ./AppHost/AppHost.csproj \
-  --output-path ./artifacts --non-interactive
+Deployment__Target=compose bash scripts/aspire.sh publish \
+  --apphost "$apphost" --list-steps --non-interactive
+Deployment__Target=compose bash scripts/aspire.sh publish \
+  --apphost "$apphost" --output-path "$PWD/artifacts/compose" --non-interactive
+node scripts/review-compose.mjs artifacts/compose
 ```
 
-Publishing executes registered pipeline steps and can build code or invoke tools. Review custom steps instead of treating it as a passive text renderer.[^publish]
+Publishing executes registered pipeline steps and can build code or invoke tools. Review custom steps instead of treating it as a passive text renderer.[^publish] In this companion, publication does not build container images, run `docker compose up`, or deploy anything.
 
-For Sandboxes specifically, published Bicep describes the group, registry, identities, and role assignments. The actual sandboxes, disk images, ports, and URLs are created through the data-plane deployment workflow. They are not all present in a static publish folder.
+Open `artifacts/compose/docker-compose.yaml`, `.env`, and the generated `web.Dockerfile`. The review script parses Compose configuration without interpolation and asserts:
+
+- `api`, `inventory`, `postgres`, and `web` are present.
+- The API has database and inventory references.
+- `DATA_PATH` is `/data` and the API's `catalog-state` volume is mounted there.
+- The frontend's `/api/{**catch-all}` route preserves the `/api` prefix.
+- Only the frontend and optional dashboard expose host ports.
+- The intentional fault is disabled, and the database password is represented by a secret placeholder.
+
+The resulting `review.json` contains `deployed: false` and no secret values. It does not fill `.env` with credentials or resolve deployment-specific image placeholders.
+
+The frontend's publishing configuration explains why the browser route remains the same:
+
+```csharp
+#pragma warning disable ASPIREJAVASCRIPT001
+web.PublishAsStaticWebsite("/api", api, options => options.StripPrefix = false);
+#pragma warning restore ASPIREJAVASCRIPT001
+```
+
+This experimental 13.6 API generates a static-site/YARP publishing model. Without preserving the prefix, the backend could receive `/catalog` instead of its actual `/api/catalog` endpoint. Vite's development proxy is not the production server.
+
+For the separate Sandboxes target, published Bicep describes infrastructure while sandboxes, disk images, ports, and URLs are created through its deployment workflow. That is another reason a static publish folder is not a completed deployment.
 
 For other targets, inspect the generated routing, environment-variable names, mounts, secret references, and image configuration. A successful pipeline says its steps completed; it does not prove that an application-level request or access-control rule is correct.
 
@@ -158,7 +171,9 @@ An upgrade is not permission to delete old Front Door origins or recreate a loca
 
 ## Make the release gate an application check
 
-For the selected target, verify the same kind of operation we used to begin the series:
+The companion stops at artifact review. The following are requirements for a subsequent real deployment, not outcomes claimed by the publish-only exercise.
+
+For your selected target, verify the same kind of operation we used to begin the series:
 
 1. The intended request succeeds using the deployed route and identity.
 2. A caller without permission is rejected where access is required.

@@ -30,6 +30,8 @@ That often means finding a port, installing a client, and copying credentials fr
 
 This is part three of [Aspire Field Notes](/series/aspire-field-notes/). The terminal APIs and tape workflow discussed here are experimental. Keep them in a deliberate development workflow rather than assuming they are a production administration interface.
 
+The [terminal companion exercise](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/03-terminals-and-repls) contains the catalog's opt-in PostgreSQL REPL workflow and a separate terminal AppHost. Use that guide to run the checked-in projects; the sections below explain the permissions, lifecycle, and output checks involved.
+
 ## Three surfaces with different jobs
 
 Mitch Denny's [terminal deep dive](https://devblogs.microsoft.com/aspire/aspire-terminal-support/) shows how the pieces fit together:
@@ -44,16 +46,28 @@ Resource terminals started in 13.5. Aspire 13.6 adds the docked workflows and op
 
 ## Inspect PostgreSQL without moving its password
 
-For the catalog AppHost from [part two](/posts/aspire-field-notes-model-the-whole-app/), replace the PostgreSQL definition with:
+The catalog AppHost from [part two](/posts/aspire-field-notes-model-the-whole-app/) already contains the opt-in guard:
 
 ```csharp
-var postgres = builder.AddPostgres("postgres").WithRepl();
-var database = postgres.AddDatabase("catalogdb");
+if (builder.ExecutionContext.IsRunMode &&
+    builder.Configuration.GetValue<bool>("Diagnostics:EnableRepl"))
+{
+    postgres.WithRepl();
+}
 ```
 
-Keep the API's existing reference to `database`. This uses `Aspire.Hosting.PostgreSQL` 13.6.0 and requires the local PostgreSQL container to be running.
+It applies `WithRepl()` to the `postgres` server, not the `catalogdb` database. After the collection setup, stop any catalog run you started, then run these commands from the sample checkout's `aspire-field-notes/` directory:
 
-The server gets a **REPL** command in the dashboard. It opens the `psql` client bundled in the container, authenticated using the resource's credentials. You do not need a separately installed PostgreSQL client.[^postgres]
+```bash
+apphost=catalog/Catalog.AppHost/Catalog.AppHost.csproj
+Diagnostics__EnableRepl=true bash scripts/aspire.sh start \
+  --apphost "$apphost" --isolated --non-interactive &&
+bash scripts/aspire.sh wait api --apphost "$apphost" \
+  --status healthy --timeout 120 --non-interactive &&
+bash scripts/aspire.sh resource postgres repl --apphost "$apphost" --non-interactive
+```
+
+You can also use **postgres > Actions > REPL** in the dashboard. It opens the `psql` client bundled in the container, authenticated using the resource's credentials. You do not need a separately installed PostgreSQL client.[^postgres]
 
 The session initially connects to the `postgres` database. Switch to the application's database explicitly:
 
@@ -68,14 +82,13 @@ BEGIN READ ONLY;
 
 SELECT current_database(), current_user;
 
-SELECT count(*) AS visible_tables
-FROM information_schema.tables
-WHERE table_schema = 'public';
+SELECT sku, name, price FROM catalog_items ORDER BY sku;
+SELECT count(*) AS products FROM catalog_items;
 
 ROLLBACK;
 ```
 
-This answers where the session connected and whether it can see tables. It does not depend on an invented `products` schema or create data just to make the demonstration work.
+Expect `catalogdb` and three seeded products. These queries use the sample's real `catalog_items` table rather than a hypothetical schema.
 
 The read-only transaction limits this example's queries. It does **not** make the REPL a read-only security boundary: the same credentials may be able to modify or delete data in another transaction.
 
@@ -93,59 +106,66 @@ For repeated team operations, a narrowly defined resource command can be a bette
 
 A REPL dock is useful for investigation. A resource terminal is useful when you need to drive an interactive program predictably.
 
-The following is a complete, separate file-based C# AppHost for a local Node.js REPL. It requires Aspire 13.6 and Node.js on `PATH`; it does not need PostgreSQL or a container runtime. Save it as `apphost.cs` in a scratch project, not over your catalog AppHost:
+The checked-in [`Terminal.AppHost`](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/terminals/Terminal.AppHost) is a separate SDK-style project. It requires the collection's .NET/Aspire tooling and Node.js, but no PostgreSQL or container runtime. Its application code is:
 
 ```csharp
-#:sdk Aspire.AppHost.Sdk@13.6.0
-
 var builder = DistributedApplication.CreateBuilder(args);
 
 #pragma warning disable ASPIRETERMINAL001
-builder.AddExecutable("probe", "node", ".", "--interactive")
-    .WithTerminal();
+builder.AddExecutable("node-repl", "node", ".", "--interactive")
+    .WithEnvironment("NODE_REPL_HISTORY", "")
+    .WithTerminal(options =>
+    {
+        options.Columns = 160;
+        options.Rows = 30;
+    });
 #pragma warning restore ASPIRETERMINAL001
 
 builder.Build().Run();
 ```
 
-The scoped warning suppression marks a real experimental API. It is not a recommendation to disable warnings across an application.
+The scoped warning suppression marks a real experimental API. It is not a recommendation to disable warnings across an application. The empty `NODE_REPL_HISTORY` setting prevents this exercise from writing personal REPL history.
 
 Start the experiment and inspect its terminal:
 
 ```bash
-aspire start --apphost ./apphost.cs --non-interactive
-aspire terminal ps --apphost ./apphost.cs --non-interactive
+terminal_apphost=terminals/Terminal.AppHost/Terminal.AppHost.csproj
+bash scripts/aspire.sh start --apphost "$terminal_apphost" --isolated --non-interactive &&
+bash scripts/aspire.sh wait node-repl --apphost "$terminal_apphost" \
+  --status up --timeout 90 --non-interactive &&
+bash scripts/aspire.sh terminal ps --apphost "$terminal_apphost" --non-interactive
 ```
 
 Begin from a fresh, idle Node prompt. Coordinate with anyone else viewing that terminal, because input is shared.
 
 ## Automate output, not a fixed sleep
 
-Save this as `probe.tape` beside the experimental AppHost:
+The companion's [`node-smoke.tape`](https://github.com/codebytes/blog-samples/blob/codebytes-aspire-companion-samples/aspire-field-notes/terminals/node-smoke.tape) is a template:
 
 ```text
-Set TypingSpeed 0
-Set WaitTimeout 10s
-
+Set WaitTimeout 5s
+Set TypingSpeed 1ms
 Wait+Line /> *$/
-Type "console.log('FIELD_NOTES_' + 'READY_13_6')"
+Type "console.log(['FIELD','NOTES',6*7,'RUN_NONCE'].join('_'))"
 Enter
-Wait+Screen /FIELD_NOTES_READY_13_6/
-Wait+Line /> *$/
+Wait+Screen@5s /FIELD_NOTES_42_RUN_NONCE/
 ```
 
-Play it against the already running resource:
+Use the helper rather than playing the template literally. It substitutes a fresh nonce, writes an ignored tape under `artifacts/terminals`, and plays it against `node-repl`:
 
 ```bash
-aspire terminal tape play probe --tape-file probe.tape \
-  --apphost ./apphost.cs --timeout 30 --non-interactive
+node scripts/terminal-smoke.mjs
+node scripts/terminal-smoke.mjs
+node scripts/terminal-smoke.mjs --negative-control
 ```
 
-The marker is split in the typed JavaScript expression so the input echo does not contain the complete expected output. That avoids passing the wait merely because the terminal echoed what we typed.
+The first two runs must pass with different markers. The typed JavaScript computes `6*7` and joins separate pieces, so input echo cannot contain the full `FIELD_NOTES_42_<nonce>` result. The helper also checks that the final screen contains that computed marker.
 
-There is another trap: `Wait+Screen` can match text left from an earlier attempt. Use a fresh resource or a new marker when repeating this check. A successful wait is evidence that matching text is visible, not proof that the latest command produced it.
+`Wait+Screen` can match text left from an earlier attempt. A new nonce prevents the previous run's output from satisfying this run's assertion. `RUN_NONCE` is substituted by the helper, not by Aspire; do not reuse a generated nonce as a repeatability check.
 
-The per-wait limit and overall timeout have different jobs. Both should be bounded so a missing prompt becomes an explicit failure instead of an indefinitely occupied developer session.[^tapes]
+The helper uses five-second output waits, a 20-second playback deadline, and a 35-second outer process deadline. It saves the generated tape, final screen, and diagnostics. A missing prompt or wrong result therefore becomes a bounded failure.[^tapes]
+
+The third command is a deliberate negative control. It generates a fresh tape that computes `6*8` while still waiting for 42, without editing the checked-in template. The helper reports a passing negative control only when the CLI exits with code 16, the screen actually contains the computed 48, and the expected-42 marker is absent. A missing prompt or broken connection cannot masquerade as that successful negative test.
 
 ## Know what a tape can and cannot target
 
@@ -153,15 +173,15 @@ Tape playback attaches to a resource configured with `WithTerminal()`. It does n
 
 It also **cannot target a `WithRepl()` client in the AppHost-owned dock**. The PostgreSQL workflow above and the Node terminal experiment are intentionally separate. A terminal-looking interface is not enough to make them interchangeable.
 
-An exit code of zero means the tape completed. It does not prove that every program it typed into a shell succeeded. A real smoke test should also verify an application result: an API response, a recorded state transition, or another independent assertion.
+An exit code of zero means the tape completed. It does not prove that every program it typed into a shell succeeded. This companion additionally asserts the fresh computed value; for a business application, also verify an API response, state transition, or another independent result.
 
 After this separate experiment, stop its AppHost explicitly:
 
 ```bash
-aspire stop --apphost ./apphost.cs --non-interactive
+bash scripts/aspire.sh stop --apphost "$terminal_apphost" --non-interactive
 ```
 
-Do not use broad process-name cleanup on a machine where other applications may be running.
+If you also started the catalog for the REPL exercise, stop that AppHost using the collection's scoped cleanup command. Do not use broad process-name cleanup on a machine where other applications may be running.
 
 ## Text recordings, not release-demo videos
 

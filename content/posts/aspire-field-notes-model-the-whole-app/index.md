@@ -6,6 +6,7 @@ categories:
   - "Development"
 tags:
   - "Aspire"
+  - "JavaScript"
   - "TypeScript"
   - "dotnet"
   - "Java"
@@ -31,6 +32,8 @@ That is the interesting polyglot story in Aspire 13.6. Not how many language log
 
 In [part one](/posts/aspire-field-notes-keep-the-failing-run/), we kept the failing run. Now we need a useful model of the application that produced it.
 
+The [modeling companion exercise](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/02-model-the-whole-app) uses the shared catalog app in `blog-samples`. Start with the collection's prerequisites and review checkout, then run the exercise from that checkout's `aspire-field-notes/` directory.
+
 ## Three contracts, not one
 
 An AppHost relationship can serve several purposes, but they are not interchangeable:
@@ -45,40 +48,48 @@ An AppHost relationship can serve several purposes, but they are not interchange
 
 David Fowler's [developer-loop article](https://devblogs.microsoft.com/aspire/dev-loop-tribal-knowledge/) makes the broader case: describe the relationships that otherwise live in shell history and a teammate's memory. You can adopt that model incrementally.
 
-## Start with the services you already have
+## Start with the companion's service graph
 
-For the catalog example, assume:
+The [catalog AppHost project](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/catalog/Catalog.AppHost) models five named resources:
 
-- A .NET project named `CatalogApi`, referenced by the C# AppHost.
-- An HTTP launch profile called `http` and an implemented `/health` endpoint.
-- A Vite app in `../web`.
-- Aspire 13.6.0 hosting packages for PostgreSQL and JavaScript, their required toolchains, and a container runtime.
+| Resource    | Role                    | Contract to inspect                                                         |
+| ----------- | ----------------------- | --------------------------------------------------------------------------- |
+| `postgres`  | Local PostgreSQL server | Container readiness and credentials                                         |
+| `catalogdb` | The catalog database    | Connection information supplied to the API                                  |
+| `inventory` | Downstream HTTP service | An instrumented business call, separate from its healthy `/health` endpoint |
+| `api`       | Catalog API             | Reads PostgreSQL and makes one inventory request for `/api/catalog`         |
+| `web`       | Vite frontend           | Same-origin `/api` requests proxied to the API's assigned endpoint          |
 
-The AppHost application code can be:
+Use the checked-in project and service implementations rather than assembling disconnected snippets. The explicit AppHost path from the collection root is `catalog/Catalog.AppHost/Catalog.AppHost.csproj`.
+
+This excerpt from the AppHost shows the API's configuration and readiness wiring. `catalogdb`, `inventory`, and `region` are defined earlier in that file:
 
 ```csharp
-var builder = DistributedApplication.CreateBuilder(args);
-
-var database = builder.AddPostgres("postgres")
-    .AddDatabase("catalogdb");
-
-var api = builder.AddProject<Projects.CatalogApi>(
-        "api", launchProfileName: "http")
-    .WithReference(database)
-    .WaitFor(database)
-    .WithHttpHealthCheck("/health");
-
-builder.AddViteApp("web", "../web")
-    .WithReference(api)
-    .WithEnvironment("API_BASE_URL", api.GetEndpoint("http"))
-    .WaitFor(api);
-
-builder.Build().Run();
+var api = builder.AddProject<Projects.Catalog_Api>("api")
+    .WithReference(catalogdb)
+    .WithReference(inventory)
+    .WithEnvironment("Catalog__Region", region)
+    .WithVolume("catalog-state", "/data", env: "DATA_PATH")
+    .WithHttpHealthCheck("/health")
+    .WaitFor(catalogdb)
+    .WaitFor(inventory);
 ```
+
+From the collection root, run the full request-path check:
+
+```bash
+bash scripts/aspire.sh start \
+  --apphost catalog/Catalog.AppHost/Catalog.AppHost.csproj --isolated --non-interactive &&
+node scripts/smoke.mjs healthy
+```
+
+The check waits for readiness and then verifies the browser-facing route, response shape, database span, and correlated inventory call. A green process alone cannot satisfy it.
 
 The API still needs to use the supplied database configuration. An AppHost reference does not install a database client or register one in the API's dependency-injection container.
 
-Likewise, the API must implement `/health`. Adding a probe for an endpoint that does not exist makes a dependency look permanently unhealthy. A bare process with no health checks can satisfy a readiness wait once it is running, which is a weaker guarantee than application readiness.
+The companion implements `/health` in the API, inventory service, and Vite server. The API seeds its catalog before accepting traffic, and its database check participates in readiness. Vite uses an actual health middleware, not a catch-all HTML page mistaken for a successful probe.
+
+When adapting the sample, adding a probe for an endpoint that does not exist makes a dependency look permanently unhealthy. A bare process with no health checks can satisfy a readiness wait once it is running, which is a weaker guarantee than application readiness.
 
 `AddViteApp` handles Vite's development endpoint and port arguments. For other programs, declaring an endpoint and an environment variable only works when the application actually listens on that value.
 
@@ -94,37 +105,43 @@ The extra `API_BASE_URL` setting in our AppHost is intentional. It maps a specif
 
 ## Keep server configuration out of the browser bundle
 
-Merge this development proxy into the Vite app's existing configuration, preserving its framework plugins and other settings:
+The checked-in [`vite.config.mjs`](https://github.com/codebytes/blog-samples/blob/codebytes-aspire-companion-samples/aspire-field-notes/catalog/web/vite.config.mjs) provides the health endpoint and configures the development proxy:
 
-```typescript
+```javascript
 import { defineConfig } from "vite";
+import { apiTarget } from "./proxy-config.mjs";
 
-export default defineConfig(({ command, isPreview }) => {
-  if (command !== "serve" || isPreview) {
-    return {};
-  }
-
-  const apiUrl = process.env.API_BASE_URL;
-  if (!apiUrl) {
-    throw new Error("API_BASE_URL was not configured.");
-  }
-
-  return {
-    server: {
-      proxy: {
-        "/api": {
-          target: apiUrl,
-          changeOrigin: true,
-        },
+export default defineConfig(({ command }) => ({
+  plugins: [
+    {
+      name: "field-notes-health",
+      configureServer(server) {
+        server.middlewares.use("/health", (_request, response) => {
+          response.setHeader("Content-Type", "text/plain");
+          response.end("Healthy");
+        });
       },
     },
-  };
-});
+  ],
+  server:
+    command === "serve"
+      ? {
+          proxy: {
+            "/api": {
+              target: apiTarget(process.env),
+              changeOrigin: true,
+            },
+          },
+        }
+      : undefined,
+}));
 ```
 
-Browser code can call `/api/products` without learning the local API port. Build and preview modes do not require the AppHost-injected URL.
+`apiTarget` rejects a missing value or a URL that is not an HTTP(S) origin. It also rejects embedded credentials, a path, query parameters, or a fragment. Browser code calls `/api/catalog` without learning the local API port.
 
-This is a development proxy. Production needs its own routing arrangement. Also, settings with Vite's `VITE_` prefix can be embedded in browser code; they are not an appropriate place for secrets or private server-only configuration.
+The production build does not need the injected URL. The companion does not use Vite's development or preview server for production; [part six](/posts/aspire-field-notes-choose-your-deployment/) inspects the generated static-site and YARP proxy configuration instead.
+
+Settings with Vite's `VITE_` prefix can be embedded in browser code; they are not an appropriate place for secrets or private server-only configuration.
 
 ## What Java and Rust add in 13.6
 
@@ -139,7 +156,7 @@ var pricing = builder.AddRustApp("pricing", "../pricing")
     .WithHttpEndpoint(env: "PORT");
 ```
 
-These are fragments added before the existing builder's `Build().Run()`. They assume real applications at those paths, not generated sample services.
+These are optional integration fragments, not services included in the catalog companion. They go before an existing builder's `Build().Run()` and require real applications at those paths. Running the companion does not require Java or Rust.
 
 Spring Boot uses the application's Maven or Gradle wrapper and receives its port through `SERVER_PORT`. Add an `/actuator/health` check only if the application includes and exposes the corresponding Actuator support. `WithOtelAgent()` is available when you want Java-agent instrumentation; configuring an exporter by itself does not create spans.[^java]
 

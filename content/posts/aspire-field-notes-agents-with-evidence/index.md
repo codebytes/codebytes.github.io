@@ -30,6 +30,8 @@ The improvement I want is not a more confident answer. It is a developer loop th
 
 This is part four of [Aspire Field Notes](/series/aspire-field-notes/). We have a model of the application, diagnostic evidence, and resource-level tools. Now we can give an agent the same path a developer would follow.
 
+The [companion investigation](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/04-agents-with-evidence) uses the same catalog application as part one. Follow the collection's setup, including `node scripts/init-secret.mjs`, then run the commands below from the sample checkout's `aspire-field-notes/` directory. The sample's `scripts/aspire.sh` wrapper enforces CLI 13.6.0. The business operation to investigate is `GET /api/catalog`, not an invented endpoint.
+
 ## Instructions are not observations
 
 Aspire skills teach an agent how to use the tools. They do not start services, instrument applications, or prove that a fix worked.
@@ -38,19 +40,28 @@ The runtime tools provide observations and operations: which resources exist, wh
 
 This builds on the distinction in my [skills and plugins guide](/posts/agent-skills-plugins-marketplace/) rather than repeating how to author a `SKILL.md`. David Fowler's [developer-loop article](https://devblogs.microsoft.com/aspire/dev-loop-tribal-knowledge/) gives a useful architectural explanation: humans, scripts, and agents should operate the same explicit application model.
 
-## Configure the current workflow, not the historical one
+## Optional: install Aspire guidance
 
 In Aspire 13.6, `aspire agent init` installs selected workflow skills. MCP configuration is an **explicit opt-in**, not a prerequisite for using the CLI.[^skills]
 
-For a repository intentionally adopting the standard skill location, the documented workflow skills can be selected explicitly:
+The companion exercises do not require this setup command. Skip it if your agent already has suitable guidance, or if you do not want it to modify your agent configuration.
+
+**This is not a wholly project-local operation.** In CLI 13.6, setup can register hooks in detected agent clients' user-level configuration even when the skill files target a project directory. `ASPIRE_CLI_TELEMETRY_OPTOUT=true` suppresses telemetry transmission while it is set; it does not prevent hook registration. The per-command assignment below does not disable telemetry for later hook executions.[^setup-scope]
+
+If you intentionally want that setup, the following command selects the catalog workspace and puts its GitHub-compatible skill files in `catalog/.github/skills`:
 
 ```bash
-aspire agent init --skill-locations standard \
-  --skills aspire,aspire-init,aspire-orchestration,aspire-monitoring,aspire-deployment,aspire-project-v2-migration,aspireify \
-  --non-interactive
+ASPIRE_CLI_TELEMETRY_OPTOUT=true bash scripts/aspire.sh agent init \
+  --workspace-root "$PWD/catalog" --skill-locations github \
+  --skills aspire,aspire-init,aspireify,aspire-orchestration,aspire-monitoring,aspire-deployment,aspire-project-v2-migration \
+  --mcp=false --non-interactive
 ```
 
-Run setup deliberately and review its file changes. Re-running it with different selections can remove skills from deselected locations. The top-level `aspire` skill routes to the others; installing only that router leaves the guidance incomplete.
+The `github` location scopes the skill files, not all setup side effects. In 13.6, `standard` additionally targets user-level `~/.agents/skills`; it is not a synonym for "only this project." This command skips MCP configuration; it does not remove an existing MCP connection.
+
+Name the workflow skills rather than using `--skills all`, which can include optional companion-tool installation. The top-level `aspire` skill routes to the others; installing only that router leaves the guidance incomplete.
+
+Run setup deliberately and review its file changes. Re-running it with different selections can remove skills from deselected locations. Other agent hosts may require a different location, but that should be a separate, informed choice rather than an unnoticed change to personal tooling.
 
 If the chosen agent environment needs MCP, opt into it with `--mcp`. Do not copy the old dashboard transport and `aspire mcp init` configuration from the February article and assume it describes 13.6.
 
@@ -60,16 +71,20 @@ Installing a migration skill also does not authorize or execute a migration. The
 
 Multiple worktrees and multiple AppHosts make implicit discovery convenient for humans and risky for unattended scripts.
 
-The following Bash sequence assumes a dedicated local worktree, an AppHost at `./AppHost/AppHost.csproj`, and the catalog API resource named `api`. The chained commands stop before inspection if startup or the readiness wait fails:
+The following Bash sequence selects the companion's catalog AppHost explicitly and enables its intentional inventory fault. Use a dedicated local worktree, stopping any previous catalog run you started first. The chained commands stop if startup, readiness, or the expected-failure assertion fails:
 
 ```bash
-aspire start --apphost ./AppHost/AppHost.csproj \
+Inventory__FaultEnabled=true bash scripts/aspire.sh start \
+  --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
   --isolated --format Json --non-interactive &&
-aspire wait api --apphost ./AppHost/AppHost.csproj \
+bash scripts/aspire.sh wait api --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
   --status healthy --timeout 90 --non-interactive &&
-aspire describe api --apphost ./AppHost/AppHost.csproj \
+node scripts/smoke.mjs fault &&
+bash scripts/aspire.sh describe --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
   --format Json --non-interactive
 ```
+
+In CLI 13.6, `ps` lists AppHosts; `describe --apphost ...` is the resource inventory. Inspect the `api` and `inventory` entries in that result rather than treating an AppHost listing as proof that its services are healthy.
 
 `--isolated` randomizes ports and isolates user secrets. It is not a guarantee that a hard-coded bind mount, named database, or external cloud dependency is isolated. Review those shared surfaces separately, and provide the credentials needed by the isolated development instance through the appropriate store.
 
@@ -91,25 +106,32 @@ A useful agent task identifies an operation, the allowed scope, and the result t
 
 ```text
 Investigate the failing catalog lookup in this worktree.
-Use the AppHost at ./AppHost/AppHost.csproj.
+Use catalog/Catalog.AppHost/Catalog.AppHost.csproj.
+Run Aspire commands through bash scripts/aspire.sh to select CLI 13.6.0.
+The request is GET /api/catalog through the web resource.
 
-Inspect the api resource and the request's logs and trace before editing.
-Reproduce the failure using local test data.
-Make the smallest change that addresses the observed cause.
-Repeat the same request and report the result with its trace evidence.
+Inspect api, inventory, and the request's logs and trace before editing.
+Run node scripts/smoke.mjs fault and report its trace ID and evidence directory.
+Determine whether Inventory__FaultEnabled intentionally selects the failure.
+Identify which server first returned 503 and show the parent-child span chain.
+Stop after the evidence report.
 
-Do not deploy, reset databases, delete volumes, reveal credentials,
-or change dependencies without a separate decision.
+Do not disable the fault, add retries, fake success, weaken assertions,
+deploy, reset databases, delete volumes, or reveal credentials.
 If the evidence is missing, say what is missing instead of guessing.
 ```
 
 The particular wording is less important than the contract. "Fix the app" is not a reproduction procedure.
 
+With a deliberately injected sample failure, the correct diagnosis can be that the development fault is enabled. Do not reward an agent for hiding the 503 behind a success response, removing a check, or adding retries until the exercise looks green. The expected result and the reason for the failure must remain observable.
+
+The fault check proves healthy resources and a failed business operation together. Its artifacts include console logs, structured logs, and spans; the API-to-inventory call is real. Follow part one's separate recovery sequence when you intentionally want to turn off the fault.
+
 Query a narrow set of relevant traces rather than handing the agent an entire telemetry database:
 
 ```bash
-aspire otel traces api --limit 5 --has-error true \
-  --apphost ./AppHost/AppHost.csproj --non-interactive
+bash scripts/aspire.sh otel traces api --limit 5 --has-error \
+  --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj --non-interactive
 ```
 
 Historical comparisons still need a deliberate choice of evidence. Pin the earlier run as described in [part one](/posts/aspire-field-notes-keep-the-failing-run/); do not assume the current CLI query represents the browser's selected historical run.
@@ -118,12 +140,15 @@ Historical comparisons still need a deliberate choice of evidence. Pin the earli
 
 This distinction becomes especially important with the prerelease `Aspire.Hosting.Dotnet` project experience in 13.6.
 
+The companion deliberately uses stable `AddProject` resources. The Project V2 discussion below is an optional migration consideration, not a hidden prerequisite or a migration performed by the exercise.
+
 `AddDotnetProject` can coordinate compatible projects into shared restore/build groups. A resource's **Start** and **Restart** reuse coordinated output; **Rebuild** is the operation to use after changing its source.[^projects]
 
 Discover the selected resource's commands before relying on one:
 
 ```bash
-aspire resource api --help --apphost ./AppHost/AppHost.csproj
+bash scripts/aspire.sh resource api --help \
+  --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj
 ```
 
 If `rebuild` is exposed, use it for that resource's code change and wait for readiness again. If the AppHost model changed, restart the AppHost through its owning lifecycle tool. Frontend HMR and framework-specific hot reload remain separate mechanisms.
@@ -154,15 +179,17 @@ The .NET 11 multithreaded build optimization is applied only with a sufficiently
 
 A useful handoff should separate these observations:
 
-| Observation                              | What it establishes                              |
-| ---------------------------------------- | ------------------------------------------------ |
-| Build completed                          | The selected source compiles in that environment |
-| Resource reached readiness               | The configured readiness condition passed        |
-| Original request succeeded               | The actual operation was exercised               |
-| Expected downstream behavior occurred    | The change did not merely hide a failure         |
-| Remaining checks or evidence are missing | The limits of the conclusion                     |
+| Observation                              | What it establishes                                                    |
+| ---------------------------------------- | ---------------------------------------------------------------------- |
+| Build completed                          | The selected source compiles in that environment                       |
+| Resource reached readiness               | The configured readiness condition passed                              |
+| Expected request result was observed     | The actual operation matched the healthy or intentionally failing case |
+| Expected downstream behavior occurred    | The change did not merely hide a failure                               |
+| Remaining checks or evidence are missing | The limits of the conclusion                                           |
 
-For a flaky failure, one passing request is weak evidence. Repeat the relevant scenario and report the sample size rather than declaring the entire application fixed.
+For a flaky failure, one passing request is weak evidence. Repeat the relevant scenario and report the sample size rather than declaring the entire application fixed. For this controlled exercise, use the checked-in assertions rather than changing their expected 503 into 200.
+
+After stopping the sample's AppHosts, run `bash scripts/check.sh` for the build and regression checks. Those checks are useful evidence, but they do not replace the request-level reproduction.
 
 ## Keep authority smaller than capability
 
@@ -177,6 +204,8 @@ The goal is an agent that can explain what it observed and what changed, not one
 [Next: keep state and configuration predictable across environments](/posts/aspire-field-notes-portable-state-and-config/).
 
 [^skills]: [Aspire skills](https://aspire.dev/get-started/aspire-skills/) and [`aspire agent init` selection, removal, and MCP behavior](https://aspire.dev/reference/cli/commands/aspire-agent-init/).
+
+[^setup-scope]: The 13.6.0 tagged implementations of [skill locations](https://github.com/microsoft/aspire/blob/v13.6.0/src/Aspire.Cli/Agents/SkillLocation.cs) and [agent initialization, including phase 6 hook registration](https://github.com/microsoft/aspire/blob/v13.6.0/src/Aspire.Cli/Commands/AgentInitCommand.cs) define the actual setup scope.
 
 [^release]: [Aspire 13.6 CLI and VS Code changes](https://aspire.dev/whats-new/aspire-13-6/).
 
