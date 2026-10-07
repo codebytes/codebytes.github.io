@@ -99,23 +99,19 @@ The deployment identity, image-pull identity, and workload identities also have 
 
 ## Publishing is a review point, not proof of a deployment
 
-The companion's commands run from the sample checkout's `aspire-field-notes/` directory. Stop the catalog AppHost you started before its assemblies are rebuilt, then select the implemented target explicitly:
+The companion's commands run from the sample checkout's `aspire-field-notes/` directory. Stop the catalog AppHost you started before its assemblies are rebuilt. Then select the implemented target explicitly, list its pipeline steps, publish, and review the artifacts:
 
 ```bash
 apphost=catalog/Catalog.AppHost/Catalog.AppHost.csproj
 aspire stop --apphost "$apphost" --non-interactive
-bash scripts/publish.sh compose
-```
-
-The script rejects missing or unsupported targets. Its underlying commands first list the selected pipeline, then publish and review the artifacts:
-
-```bash
 Deployment__Target=compose aspire publish \
-  --apphost "$apphost" --list-steps --non-interactive
+  --apphost "$apphost" --list-steps --non-interactive &&
 Deployment__Target=compose aspire publish \
-  --apphost "$apphost" --output-path "$PWD/artifacts/compose" --non-interactive
+  --apphost "$apphost" --output-path "$PWD/artifacts/compose" --non-interactive &&
 node scripts/review-compose.mjs artifacts/compose
 ```
+
+In publish mode, the AppHost rejects a missing or unsupported `Deployment__Target`, so the target is never chosen implicitly. The `&&` chain skips the review if publishing fails.
 
 Publishing executes registered pipeline steps and can build code or invoke tools. Review custom steps instead of treating it as a passive text renderer.[^publish] In this companion, publication does not build container images, run `docker compose up`, or deploy anything.
 
@@ -128,7 +124,7 @@ Open `artifacts/compose/docker-compose.yaml`, `.env`, and the generated `web.Doc
 - Only the frontend and optional dashboard expose host ports.
 - The intentional fault is disabled, and the database password is represented by a secret placeholder.
 
-The resulting `review.json` contains `deployed: false`, the reviewed Compose file's SHA-256, and no secret values. The script clears any earlier review before publishing, so a stale passing result cannot sit beside newly generated files. It does not fill `.env` with credentials or resolve deployment-specific image placeholders.
+The resulting `review.json` contains `deployed: false`, the reviewed Compose file's SHA-256, and no secret values. The review script deletes any earlier `review.json` before checking and writes a new one only when every assertion passes, so a stale passing result cannot sit beside newly generated files. It does not fill `.env` with credentials or resolve deployment-specific image placeholders.
 
 Read the generated image references as well. With 13.6.1, `web.Dockerfile` builds the frontend on `node:22-slim` and serves it from `mcr.microsoft.com/dotnet/nightly/yarp:2.3-preview`, and the Compose dashboard uses `mcr.microsoft.com/dotnet/nightly/aspire-dashboard:13.6`. Nightly and preview images are a deliberate review item before any real deployment; pin or replace them according to your own image policy.
 
