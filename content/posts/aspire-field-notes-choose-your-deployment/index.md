@@ -15,9 +15,11 @@ series:
 series_order: 6
 permalink: "/posts/aspire-field-notes-choose-your-deployment/"
 slug: "aspire-field-notes-choose-your-deployment"
+image: "featured.png"
+featureImage: "featured.png"
 header:
-  teaser: ""
-  og_image: ""
+  teaser: "featured.png"
+  og_image: "featured.png"
 excerpt_separator: "<!--more-->"
 description: "Compare deployment contracts in Aspire 13.6, understand Express and Sandboxes preview boundaries, and review an upgrade before treating a local success as production readiness."
 ---

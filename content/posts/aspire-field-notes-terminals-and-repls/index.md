@@ -15,9 +15,11 @@ series:
 series_order: 3
 permalink: "/posts/aspire-field-notes-terminals-and-repls/"
 slug: "aspire-field-notes-terminals-and-repls"
+image: "featured.png"
+featureImage: "featured.png"
 header:
-  teaser: ""
-  og_image: ""
+  teaser: "featured.png"
+  og_image: "featured.png"
 excerpt_separator: "<!--more-->"
 description: "Use Aspire 13.6's terminal dock and database REPLs, distinguish their lifetimes, and automate a resource terminal without mistaking a successful tape for a successful application."
 ---

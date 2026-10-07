@@ -15,9 +15,11 @@ series:
 series_order: 4
 permalink: "/posts/aspire-field-notes-agents-with-evidence/"
 slug: "aspire-field-notes-agents-with-evidence"
+image: "featured.png"
+featureImage: "featured.png"
 header:
-  teaser: ""
-  og_image: ""
+  teaser: "featured.png"
+  og_image: "featured.png"
 excerpt_separator: "<!--more-->"
 description: "Use Aspire 13.6's skills-first setup, scoped lifecycle commands, and runtime evidence to give coding agents a repeatable development workflow."
 ---

@@ -14,9 +14,11 @@ series:
 series_order: 1
 permalink: "/posts/aspire-field-notes-keep-the-failing-run/"
 slug: "aspire-field-notes-keep-the-failing-run"
+image: "featured.png"
+featureImage: "featured.png"
 header:
-  teaser: ""
-  og_image: ""
+  teaser: "featured.png"
+  og_image: "featured.png"
 excerpt_separator: "<!--more-->"
 description: "Use Aspire 13.6 run history to keep a reproduction, compare a fix, and avoid confusing retained telemetry with a replayable or production-grade system."
 ---

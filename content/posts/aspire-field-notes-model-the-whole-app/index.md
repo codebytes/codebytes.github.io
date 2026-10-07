@@ -17,9 +17,11 @@ series:
 series_order: 2
 permalink: "/posts/aspire-field-notes-model-the-whole-app/"
 slug: "aspire-field-notes-model-the-whole-app"
+image: "featured.png"
+featureImage: "featured.png"
 header:
-  teaser: ""
-  og_image: ""
+  teaser: "featured.png"
+  og_image: "featured.png"
 excerpt_separator: "<!--more-->"
 description: "Model configuration, readiness, and telemetry as separate contracts, then use Aspire 13.6's language integrations without confusing hosting with AppHost authoring."
 ---

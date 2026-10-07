@@ -15,9 +15,11 @@ series:
 series_order: 5
 permalink: "/posts/aspire-field-notes-portable-state-and-config/"
 slug: "aspire-field-notes-portable-state-and-config"
+image: "featured.png"
+featureImage: "featured.png"
 header:
-  teaser: ""
-  og_image: ""
+  teaser: "featured.png"
+  og_image: "featured.png"
 excerpt_separator: "<!--more-->"
 description: "Use Aspire 13.6's portable volume paths and connection-string aliases while keeping configuration, credentials, and persistent state as separate responsibilities."
 ---
