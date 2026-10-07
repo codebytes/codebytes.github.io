@@ -1,0 +1,187 @@
+---
+title: "Same AppHost, Different Deployment Promises"
+date: "2026-10-06"
+draft: true
+categories:
+  - "Development"
+tags:
+  - "Aspire"
+  - "Azure"
+  - "Deployment"
+  - "Kubernetes"
+  - "Containers"
+series:
+  - "Aspire Field Notes"
+series_order: 6
+permalink: "/posts/aspire-field-notes-choose-your-deployment/"
+slug: "aspire-field-notes-choose-your-deployment"
+header:
+  teaser: ""
+  og_image: ""
+excerpt_separator: "<!--more-->"
+description: "Compare deployment contracts in Aspire 13.6, understand Express and Sandboxes preview boundaries, and review an upgrade before treating a local success as production readiness."
+---
+
+The catalog application works locally. Its references resolve, the database is ready, and we can follow a request through the dashboard. Now we add a deployment environment.
+
+What should stay the same is the application's intent. What does not automatically stay the same is its networking, identity, storage, lifecycle, or operational support.
+
+<!--more-->
+
+This final part of [Aspire Field Notes](/series/aspire-field-notes/) is about choosing those promises deliberately. My [deployment and pipelines article](/posts/aspire-cli-part-2/) covers the command-oriented introduction; this is the 13.6 decision that comes after it.
+
+## Start with constraints, not a platform preference
+
+For the catalog example, write down the requirements before selecting an integration:
+
+- Does the API need private access to other services?
+- Which data must survive a restart, redeploy, or failed node?
+- Can the frontend and API tolerate cold starts?
+- Which identity calls the database or secret store?
+- Who owns capacity, upgrades, ingress, and incident response?
+- Are preview services and packages acceptable for this workload?
+
+An AppHost makes these decisions easier to express. It does not remove the decisions.
+
+## Compare the contract you actually need
+
+| Target or mode                   | Good reason to evaluate it                                               | Question to resolve first                                                       |
+| -------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
+| Docker Compose                   | Validate the app's container behavior on a known host                    | Who owns that host, its storage, backups, and exposure?                         |
+| Regular Azure Container Apps     | Use a managed application platform without owning a Kubernetes cluster   | Do its networking, storage, scaling, and identity choices fit this application? |
+| Kubernetes or AKS                | Use cluster capabilities and policies your organization already operates | Is the team prepared to own the corresponding cluster complexity?               |
+| Container Apps Express preview   | Explore a smaller environment model for suitable HTTP workloads          | Can the app accept its public-endpoint and feature constraints?                 |
+| Container Apps Sandboxes preview | Explore isolated sandbox execution and lifecycle policies                | Does the workload fit the currently narrow supported surface?                   |
+
+The last two are not spelling variations of ordinary Container Apps. They have different constraints and should not be recommended merely because they are new in 13.6.
+
+## Express is simpler because it promises less
+
+The `AsExpress()` API is experimental, reports `ASPIREACAEXPRESS001`, and selects the Container Apps Express preview environment type.[^express]
+
+The changes include:
+
+- Minimum replicas default to zero when you have not specified them, so cold starts are part of the workload's behavior.
+- The environment does not include the managed Aspire Dashboard.
+- Aspire omits automatic .NET data-protection configuration.
+- Referenced endpoints must be explicitly public; there is no private `.internal` hostname for this reference path.
+- HTTPS ingress is required.
+
+The local dashboard still works. A local run therefore cannot demonstrate that the managed dashboard or private service discovery will exist after deployment.
+
+Most importantly, `WithExternalHttpEndpoints()` exposes an endpoint; it does not add application authentication or authorization. Do not solve a deployment error about an internal reference by making it public without reviewing who can call it.
+
+For an application relying on protected cookies or other data-protection behavior, treat the missing automatic configuration as a requirement to resolve, not an implementation detail to discover during a restart.
+
+## Sandboxes are a separate experiment
+
+Azure Container Apps Sandboxes is a preview Azure service, and `Aspire.Hosting.Azure.Sandboxes` is a prerelease package. You need preview access in the target subscription and region.[^sandboxes]
+
+In a separate experimental AppHost with that package installed, and a real Dockerfile under `../web` that serves HTTP on port 8080, the application code can be:
+
+```csharp
+var builder = DistributedApplication.CreateBuilder(args);
+
+builder.AddAzureSandboxGroup("sandbox-experiment");
+
+builder.AddDockerfile("web", "../web")
+    .WithHttpEndpoint(port: 8080, targetPort: 8080, name: "http")
+    .WithExternalHttpEndpoints();
+
+builder.Build().Run();
+```
+
+This is not a replacement for the catalog application's deployment configuration. It is a deliberately small experiment to evaluate the new target.
+
+The group affects publishing and deployment; a local run does not provision Azure sandboxes. Deployment requires permissions to create the group, registry, identities, and scoped role assignments. Review the generated plan and costs before authorizing it.
+
+Only external endpoints receive public HTTPS URLs. Sandbox endpoints require Microsoft Entra ID authentication by default unless a specific endpoint opts into anonymous access. Egress is deny-by-default.
+
+That is different from Express, where exposing an endpoint does not supply authentication. Treating these defaults as interchangeable would be a serious design mistake.
+
+### Check the exclusions before writing the demo
+
+The documented Sandboxes integration does not currently support volumes or container mounts, TCP ports, private service discovery, or endpoint references across sandbox groups. Images must provide a Linux/amd64 manifest; Windows and ARM64 images are not supported.
+
+That immediately excludes moving our catalog's local PostgreSQL container and data volume over unchanged. A working local volume setting from [part five](/posts/aspire-field-notes-portable-state-and-config/) does not override a deployment target's limitations.
+
+The deployment identity, image-pull identity, and workload identities also have different jobs. Permission to pull an image from a registry does not grant the running application access to a database.
+
+## Publishing is a review point, not proof of a deployment
+
+Before running a publish pipeline, inspect its steps for the AppHost you intend to use:
+
+```bash
+aspire publish --apphost ./AppHost/AppHost.csproj \
+  --list-steps --non-interactive
+```
+
+After reviewing the configured pipeline, generate its artifacts:
+
+```bash
+aspire publish --apphost ./AppHost/AppHost.csproj \
+  --output-path ./artifacts --non-interactive
+```
+
+Publishing executes registered pipeline steps and can build code or invoke tools. Review custom steps instead of treating it as a passive text renderer.[^publish]
+
+For Sandboxes specifically, published Bicep describes the group, registry, identities, and role assignments. The actual sandboxes, disk images, ports, and URLs are created through the data-plane deployment workflow. They are not all present in a static publish folder.
+
+For other targets, inspect the generated routing, environment-variable names, mounts, secret references, and image configuration. A successful pipeline says its steps completed; it does not prove that an application-level request or access-control rule is correct.
+
+## What 13.6 improves for an existing deployment
+
+The new preview targets are only part of the release. Existing Kubernetes and Azure workflows also get useful corrections:[^release]
+
+- Routes without an explicit hostname can inherit the configured hostname rather than losing it.
+- Helm values retain parameters embedded in environment expressions.
+- AKS environments can provision persistent-volume resources.
+- Deployment state is scoped beneath `ASPIRE_HOME`, including separate identities for sibling single-file AppHosts.
+
+These changes make it easier to express the intended deployment. They are still reasons to compare the generated output before and after an upgrade, especially if a previous workaround compensated for an older behavior.
+
+## Upgrade the behavior, not just the version number
+
+Use a branch and keep the prior known-good deployment artifacts available. The release has several changes that deserve conditional checks:
+
+| If the application uses...           | Review before rollout                                                                                         |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| Custom connection-string readers     | The portable aliases and lookup behavior described in part five                                               |
+| Local MongoDB or Cosmos DB emulators | TLS expectations, changed emulator defaults, and re-seeding requirements                                      |
+| Azure Front Door                     | Changed origin naming and whether old origins need explicit cleanup after confirming the new ones are healthy |
+| Prerelease .NET Project V2           | Restore hooks, custom `ProjectResource` integrations, and Rebuild versus Restart behavior                     |
+| GitHub Models                        | The retired service and the migration to a supported integration                                              |
+
+The GitHub Models service was retired on July 30, 2026; Aspire deprecated its hosting integration in 13.5 and removed its source from the repository in 13.6. An old provider-selection example is not evidence that the service remains available.[^models]
+
+An upgrade is not permission to delete old Front Door origins or recreate a location-immutable resource automatically. Review the live resources, confirm replacements, and approve any destructive cleanup separately.
+
+## Make the release gate an application check
+
+For the selected target, verify the same kind of operation we used to begin the series:
+
+1. The intended request succeeds using the deployed route and identity.
+2. A caller without permission is rejected where access is required.
+3. The application's data survives the lifecycle it is supposed to survive.
+4. A controlled dependency failure produces a useful, bounded response.
+5. Production telemetry reaches the intended backend rather than relying on a developer's local dashboard.
+
+Add cold-start, scale, or concurrency checks when they are part of the workload's requirements. Do not publish invented performance numbers to fill a results table; collect them for the environment you actually deploy.
+
+## The loop is the point
+
+We started by keeping a failure instead of losing it during a restart. We modeled the application, brought diagnostic tools to its resources, gave agents an evidence-based workflow, and made state and configuration explicit.
+
+Deployment should preserve that habit. Choose the target for the promises it can keep, and verify those promises with an application result.
+
+Return to the [series reading path](/series/aspire-field-notes/) when the next problem is local rather than deployed. The tool changes; the need for a clear observation and a repeatable check does not.
+
+[^express]: [Container Apps Express behavior, limitations, and experimental diagnostic](https://aspire.dev/deployment/azure/container-apps/#express-environments).
+
+[^sandboxes]: [Sandboxes prerequisites, identities, publishing, deployment, and limitations](https://aspire.dev/deployment/azure/sandboxes/).
+
+[^publish]: [`aspire publish` pipeline and command options](https://aspire.dev/reference/cli/commands/aspire-publish/).
+
+[^release]: [Aspire 13.6 deployment changes and migration guidance](https://aspire.dev/whats-new/aspire-13-6/).
+
+[^models]: [GitHub Models retirement](https://github.blog/changelog/2026-07-30-github-models-is-now-retired/) and [Aspire migration guidance](https://aspire.dev/integrations/ai/github-models/github-models-get-started/).
