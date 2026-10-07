@@ -32,7 +32,7 @@ Each workaround is small. Together, they make "works locally" a poor predictor o
 
 In part five of [Aspire Field Notes](/series/aspire-field-notes/), the goal is a stable application-facing contract. Aspire can translate that contract into target-specific configuration without pretending every environment has identical storage, networking, or permissions.
 
-The [portable-state companion exercise](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/05-portable-state-and-config) uses the shared catalog app's `GET /api/state` and `POST /api/state` endpoints. Follow the exercise's request payload and restart sequence to write a disposable JSON record, restart without deleting storage, and check that the same value remains.
+The [portable-state companion walkthrough](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/05-portable-state-and-config) uses the shared catalog app's `GET /api/state` and `POST /api/state` endpoints. Follow the walkthrough's request payload and restart sequence to write a disposable JSON record, restart without deleting storage, and check that the same value remains.
 
 Run its commands from the sample checkout's `aspire-field-notes/` directory. The state endpoint is a local teaching surface, not a production API or a substitute for access controls.
 

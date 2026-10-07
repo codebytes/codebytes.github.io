@@ -25,20 +25,20 @@ Read them in order for the full story, or start with the problem you have today.
 
 The companions live in the [`aspire-field-notes` collection in blog-samples](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes). One shared catalog application underpins all six parts: a Vite frontend named `web`, a catalog API named `api`, PostgreSQL's `catalogdb`, and a separate `inventory` service.
 
-A deliberate inventory failure makes `/api/catalog` return a 503 while resource health remains green. A separate `/api/state` exercise demonstrates data retained through `DATA_PATH`. These are controlled teaching scenarios, not claims of production readiness.
+A deliberate inventory failure makes `/api/catalog` return a 503 while resource health remains green. A separate `/api/state` endpoint demonstrates data retained through `DATA_PATH`. These are controlled teaching scenarios, not claims of production readiness.
 
 Part three has a small independent terminal AppHost as well as the catalog's opt-in database REPL. Part six publishes Docker Compose artifacts for review. It does not deploy cloud resources; Express, Sandboxes, and other cloud targets remain documented comparisons rather than silently provisioned dependencies.
 
-## Companion exercises
+## Companion walkthroughs
 
-| Part | Companion guide                                                                                                                                                                                         |
-| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1    | [Baseline, failure, retained run, and recovery](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/01-keep-the-failing-run)                 |
-| 2    | [Configuration, readiness, and telemetry across the catalog app](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/02-model-the-whole-app) |
-| 3    | [PostgreSQL REPL and an independent terminal experiment](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/03-terminals-and-repls)         |
-| 4    | [A scoped, evidence-driven agent investigation](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/04-agents-with-evidence)                 |
-| 5    | [Portable configuration and retained application state](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/05-portable-state-and-config)    |
-| 6    | [Compose publishing and artifact review](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/06-choose-your-deployment)                      |
+| Part | Walkthrough                                                                                                                                                                                                |
+| ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1    | [Baseline, failure, retained run, and recovery](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/01-keep-the-failing-run)                 |
+| 2    | [Configuration, readiness, and telemetry across the catalog app](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/02-model-the-whole-app) |
+| 3    | [PostgreSQL REPL and an independent terminal experiment](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/03-terminals-and-repls)         |
+| 4    | [A scoped, evidence-driven agent investigation](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/04-agents-with-evidence)                 |
+| 5    | [Portable configuration and retained application state](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/05-portable-state-and-config)    |
+| 6    | [Compose publishing and artifact review](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/06-choose-your-deployment)                      |
 
 For review, clone the sample feature branch into a separate directory:
 
@@ -50,7 +50,7 @@ cd blog-samples-field-notes/aspire-field-notes
 
 Use the collection README for prerequisites and setup, including the one-time database-secret initialization. The commands call the `aspire` CLI directly. You need [Aspire CLI](https://aspire.dev/get-started/install-cli/) 13.6 or later; the steps assume the latest release. The links above deliberately point to the review branch rather than to files that have not yet reached `main`.
 
-The exercises include their own assertions: `smoke.mjs` asserts the healthy and intentional-fault outcomes, and its recovery mode reruns the healthy assertions under a separate evidence label; `state-smoke.mjs` requires a new process with retained data; the terminal helper uses fresh computed markers; and the Compose reviewer checks generated routing and storage without deploying it. Optional agent-guidance setup is not required to run any of these checks.
+The walkthroughs include their own assertions: `smoke.mjs` asserts the healthy and intentional-fault outcomes, and its recovery mode reruns the healthy assertions under a separate evidence label; `state-smoke.mjs` requires a new process with retained data; the terminal helper uses fresh computed markers; and the Compose reviewer checks generated routing and storage without deploying it. Optional agent-guidance setup is not required to run any of these checks.
 
 The [official Node.js weather-map sample](https://aspire.dev/reference/samples/aspire-with-node/) is an additional example of a frontend, instrumented API, and external dependency under a TypeScript AppHost. The Java and Rust sections explain optional preview integrations; those languages are not required to run the catalog companion.
 

@@ -32,7 +32,7 @@ What should stay the same is the application's intent. What does not automatical
 
 This final part of [Aspire Field Notes](/series/aspire-field-notes/) is about choosing those promises deliberately. My [deployment and pipelines article](/posts/aspire-cli-part-2/) covers the command-oriented introduction; this is the 13.6 decision that comes after it.
 
-The [deployment companion](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/06-choose-your-deployment) explicitly selects **Docker Compose** and publishes artifacts for review. It does not provision Azure resources or apply a cloud deployment. The cloud targets below are comparisons against their documented contracts, not additional environments quietly created by the exercise.
+The [deployment companion](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/06-choose-your-deployment) explicitly selects **Docker Compose** and publishes artifacts for review. It does not provision Azure resources or apply a cloud deployment. The cloud targets below are comparisons against their documented contracts, not additional environments quietly created by the walkthrough.
 
 ## Start with constraints, not a platform preference
 
@@ -171,7 +171,7 @@ An upgrade is not permission to delete old Front Door origins or recreate a loca
 
 ## Make the release gate an application check
 
-The companion stops at artifact review. The following are requirements for a subsequent real deployment, not outcomes claimed by the publish-only exercise.
+The companion stops at artifact review. The following are requirements for a subsequent real deployment, not outcomes claimed by the publish-only walkthrough.
 
 For your selected target, verify the same kind of operation we used to begin the series:
 

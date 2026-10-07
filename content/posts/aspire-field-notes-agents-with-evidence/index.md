@@ -32,7 +32,7 @@ The improvement I want is not a more confident answer. It is a developer loop th
 
 This is part four of [Aspire Field Notes](/series/aspire-field-notes/). We have a model of the application, diagnostic evidence, and resource-level tools. Now we can give an agent the same path a developer would follow.
 
-The [companion investigation](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/04-agents-with-evidence) uses the same catalog application as part one. Follow the collection's setup, including `node scripts/init-secret.mjs`, then run the commands below from the sample checkout's `aspire-field-notes/` directory. They call the `aspire` CLI directly and need version 13.6 or later. The business operation to investigate is `GET /api/catalog`, not an invented endpoint.
+The [companion investigation](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/04-agents-with-evidence) uses the same catalog application as part one. Follow the collection's setup, including `node scripts/init-secret.mjs`, then run the commands below from the sample checkout's `aspire-field-notes/` directory. They call the `aspire` CLI directly and need version 13.6 or later. The business operation to investigate is `GET /api/catalog`, not an invented endpoint.
 
 ## Instructions are not observations
 
@@ -46,7 +46,7 @@ This builds on the distinction in my [skills and plugins guide](/posts/agent-ski
 
 In Aspire 13.6, `aspire agent init` installs selected workflow skills. MCP configuration is an **explicit opt-in**, not a prerequisite for using the CLI.[^skills]
 
-The companion exercises do not require this setup command. Skip it if your agent already has suitable guidance, or if you do not want it to modify your agent configuration.
+The companion walkthroughs do not require this setup command. Skip it if your agent already has suitable guidance, or if you do not want it to modify your agent configuration.
 
 **This is not a wholly project-local operation.** In CLI 13.6, setup registers a `PostToolUse` telemetry hook in the user-level configuration of detected GitHub Copilot and Claude Code clients, and copies the hook scripts into your Aspire home directory (`~/.aspire` by default). That happens even when the skill files target a project directory. `ASPIRE_CLI_TELEMETRY_OPTOUT=true` suppresses telemetry transmission while it is set; it does not prevent hook registration. The per-command assignment below does not disable telemetry for later hook executions.[^setup-scope]
 
@@ -126,7 +126,7 @@ If the evidence is missing, say what is missing instead of guessing.
 
 The particular wording is less important than the contract. "Fix the app" is not a reproduction procedure.
 
-With a deliberately injected sample failure, the correct diagnosis can be that the development fault is enabled. Do not reward an agent for hiding the 503 behind a success response, removing a check, or adding retries until the exercise looks green. The expected result and the reason for the failure must remain observable.
+With a deliberately injected sample failure, the correct diagnosis can be that the development fault is enabled. Do not reward an agent for hiding the 503 behind a success response, removing a check, or adding retries until the check looks green. The expected result and the reason for the failure must remain observable.
 
 The fault check proves healthy resources and a failed business operation together. Its artifacts include console logs, structured logs, and spans; the API-to-inventory call is real. Follow part one's separate recovery sequence when you intentionally want to turn off the fault.
 
@@ -143,7 +143,7 @@ Historical comparisons still need a deliberate choice of evidence. Pin the earli
 
 This distinction becomes especially important with the prerelease `Aspire.Hosting.Dotnet` project experience in 13.6.
 
-The companion deliberately uses stable `AddProject` resources. The Project V2 discussion below is an optional migration consideration, not a hidden prerequisite or a migration performed by the exercise.
+The companion deliberately uses stable `AddProject` resources. The Project V2 discussion below is an optional migration consideration, not a hidden prerequisite or a migration performed by the walkthrough.
 
 `AddDotnetProject` can coordinate compatible projects into shared restore/build groups. A resource's **Start** and **Restart** reuse coordinated output; **Rebuild** is the operation to use after changing its source.[^projects]
 
@@ -190,7 +190,7 @@ A useful handoff should separate these observations:
 | Expected downstream behavior occurred    | The change did not merely hide a failure                               |
 | Remaining checks or evidence are missing | The limits of the conclusion                                           |
 
-For a flaky failure, one passing request is weak evidence. Repeat the relevant scenario and report the sample size rather than declaring the entire application fixed. For this controlled exercise, use the checked-in assertions rather than changing their expected 503 into 200.
+For a flaky failure, one passing request is weak evidence. Repeat the relevant scenario and report the sample size rather than declaring the entire application fixed. For this controlled failure, use the checked-in assertions rather than changing their expected 503 into 200.
 
 After stopping the sample's AppHosts, run `bash scripts/check.sh` for the build and regression checks. Those checks are useful evidence, but they do not replace the request-level reproduction.
 

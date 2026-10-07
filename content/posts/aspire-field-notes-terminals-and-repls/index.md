@@ -32,7 +32,7 @@ That often means finding a port, installing a client, and copying credentials fr
 
 This is part three of [Aspire Field Notes](/series/aspire-field-notes/). The terminal APIs and tape workflow discussed here are experimental. Keep them in a deliberate development workflow rather than assuming they are a production administration interface.
 
-The [terminal companion exercise](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/03-terminals-and-repls) contains the catalog's opt-in PostgreSQL REPL workflow and a separate terminal AppHost. Use that guide to run the checked-in projects; the sections below explain the permissions, lifecycle, and output checks involved.
+The [terminal companion walkthrough](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/03-terminals-and-repls) contains the catalog's opt-in PostgreSQL REPL workflow and a separate terminal AppHost. Use that guide to run the checked-in projects; the sections below explain the permissions, lifecycle, and output checks involved.
 
 ## Three surfaces with different jobs
 
@@ -125,7 +125,7 @@ builder.AddExecutable("node-repl", "node", ".", "--interactive")
 builder.Build().Run();
 ```
 
-The scoped warning suppression marks a real experimental API. It is not a recommendation to disable warnings across an application. The empty `NODE_REPL_HISTORY` setting prevents this exercise from writing personal REPL history.
+The scoped warning suppression marks a real experimental API. It is not a recommendation to disable warnings across an application. The empty `NODE_REPL_HISTORY` setting keeps the Node REPL from writing to your personal REPL history.
 
 Start the experiment and inspect its terminal:
 
@@ -184,7 +184,7 @@ aspire stop \
   --apphost terminals/Terminal.AppHost/Terminal.AppHost.csproj --non-interactive
 ```
 
-If you also started the catalog for the REPL exercise, stop that AppHost using the collection's scoped cleanup command. Do not use broad process-name cleanup on a machine where other applications may be running.
+If you also started the catalog for the PostgreSQL REPL, stop that AppHost using the collection's scoped cleanup command. Do not use broad process-name cleanup on a machine where other applications may be running.
 
 ## Text recordings, not release-demo videos
 

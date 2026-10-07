@@ -34,7 +34,7 @@ That is the interesting polyglot story in Aspire 13.6. Not how many language log
 
 In [part one](/posts/aspire-field-notes-keep-the-failing-run/), we kept the failing run. Now we need a useful model of the application that produced it.
 
-The [modeling companion exercise](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/02-model-the-whole-app) uses the shared catalog app in `blog-samples`. Start with the collection's prerequisites and review checkout, then run the exercise from that checkout's `aspire-field-notes/` directory.
+The [modeling companion walkthrough](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/02-model-the-whole-app) uses the shared catalog app in `blog-samples`. Start with the collection's prerequisites and review checkout, then run the walkthrough from that checkout's `aspire-field-notes/` directory.
 
 ## Three contracts, not one
 
@@ -185,7 +185,7 @@ David Pine's [Bluesky post](https://bsky.app/profile/davidpine.dev/post/3mwmut65
 
 It combines Express and OpenTelemetry, React 19, Vite, Leaflet, and a TypeScript AppHost. The external weather API is modeled too. More importantly, it shows different run and publish arrangements: a development proxy locally, and frontend build output served with the API in the published application.
 
-That is a better learning exercise than counting supported languages. Run it, follow one weather request, and identify which component owns each connection.
+That teaches more than counting supported languages. Run it, follow one weather request, and identify which component owns each connection.
 
 It remains a demo. Its public endpoints do not supply a production authentication, rate-limiting, caching, or quota strategy.
 

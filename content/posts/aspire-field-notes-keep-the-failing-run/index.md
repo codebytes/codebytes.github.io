@@ -33,7 +33,7 @@ This is part one of [Aspire Field Notes](/series/aspire-field-notes/). We are st
 
 ## Run the companion
 
-The [first companion exercise](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/01-keep-the-failing-run) uses the [shared catalog application](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/catalog) in `blog-samples`.
+The [first companion walkthrough](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/01-keep-the-failing-run) uses the [shared catalog application](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/catalog) in `blog-samples`.
 
 Follow the [collection's prerequisites and review checkout instructions](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes) first. The commands in this article run from the sample checkout's `aspire-field-notes/` directory and call the `aspire` CLI directly. You need [Aspire CLI](https://aspire.dev/get-started/install-cli/) 13.6 or later; the steps assume the latest release.
 
@@ -82,7 +82,7 @@ Keep the application name, data directory, and mode consistent. `Resume` is not 
 
 The sample uses `Inventory__FaultEnabled` to select a controlled, development-only 503. Do not create failures in a shared production dependency to try this.
 
-A controlled fault makes the exercise repeatable. Turning that fault off demonstrates recovery; it does not prove that you diagnosed an unknown bug. In a real investigation, the proposed fix still needs to address the observed cause.
+A controlled fault makes the reproduction repeatable. Turning that fault off demonstrates recovery; it does not prove that you diagnosed an unknown bug. In a real investigation, the proposed fix still needs to address the observed cause.
 
 ### Establish the healthy baseline
 
@@ -144,7 +144,7 @@ node scripts/smoke.mjs recovery
 
 Open the new dashboard URL and compare its live run with the pinned failure. The request now returns 200 and three products through the same call path. In the pinned run, the failed trace and the `api` and `inventory` **Console logs** you viewed earlier should remain inspectable. Pinning retains a useful run; it is not the switch that enables history.
 
-Keep the checkout and AppHost path the same across this exercise. Changing packages, request data, storage, and the fault setting together would make the comparison harder to interpret.
+Keep the checkout and AppHost path the same across this walkthrough. Changing packages, request data, storage, and the fault setting together would make the comparison harder to interpret.
 
 The comparison should answer a specific question:
 
@@ -210,7 +210,7 @@ For production retention and access controls, use Application Insights or anothe
 
 ## Try this before the next refactor
 
-Start with the [companion's repeatable failure](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/01-keep-the-failing-run). Capture it, pin it, change one thing, and repeat the same request. Then apply that discipline to an actual bug. The useful outcome is being able to explain the difference between runs with evidence.
+Start with the [companion's repeatable failure](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/01-keep-the-failing-run). Capture it, pin it, change one thing, and repeat the same request. Then apply that discipline to an actual bug. The useful outcome is being able to explain the difference between runs with evidence.
 
 When you finish, stop the catalog AppHost with the collection's scoped cleanup command. A normal stop keeps the dashboard history, application data, and database volume.
 
