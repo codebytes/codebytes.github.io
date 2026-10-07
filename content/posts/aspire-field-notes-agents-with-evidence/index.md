@@ -32,7 +32,7 @@ The improvement I want is not a more confident answer. It is a developer loop th
 
 This is part four of [Aspire Field Notes](/series/aspire-field-notes/). We have a model of the application, diagnostic evidence, and resource-level tools. Now we can give an agent the same path a developer would follow.
 
-The [companion investigation](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/04-agents-with-evidence) uses the same catalog application as part one. Follow the collection's setup, including `node scripts/init-secret.mjs`, then run the commands below from the sample checkout's `aspire-field-notes/` directory. They call the `aspire` CLI directly and assume version 13.6.1 or later. The business operation to investigate is `GET /api/catalog`, not an invented endpoint.
+The [companion investigation](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/04-agents-with-evidence) uses the same catalog application as part one. Follow the collection's setup, including `node scripts/init-secret.mjs`, then run the commands below from the sample checkout's `aspire-field-notes/` directory. They call the `aspire` CLI directly and need version 13.6 or later. The business operation to investigate is `GET /api/catalog`, not an invented endpoint.
 
 ## Instructions are not observations
 
@@ -111,7 +111,6 @@ A useful agent task identifies an operation, the allowed scope, and the result t
 ```text
 Investigate the failing catalog lookup in this worktree.
 Use catalog/Catalog.AppHost/Catalog.AppHost.csproj.
-Confirm that aspire --version reports 13.6.1 or later before running Aspire commands.
 The request is GET /api/catalog through the web resource.
 
 Inspect api, inventory, and the request's logs and trace.

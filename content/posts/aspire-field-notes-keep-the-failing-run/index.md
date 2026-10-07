@@ -35,7 +35,7 @@ This is part one of [Aspire Field Notes](/series/aspire-field-notes/). We are st
 
 The [first companion exercise](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/01-keep-the-failing-run) uses the [shared catalog application](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/catalog) in `blog-samples`.
 
-Follow the [collection's prerequisites and review checkout instructions](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes) first. The commands in this article run from the sample checkout's `aspire-field-notes/` directory and call the `aspire` CLI directly. They assume [Aspire CLI](https://aspire.dev/get-started/install-cli/) 13.6.1 or later; check with `aspire --version`.
+Follow the [collection's prerequisites and review checkout instructions](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes) first. The commands in this article run from the sample checkout's `aspire-field-notes/` directory and call the `aspire` CLI directly. You need [Aspire CLI](https://aspire.dev/get-started/install-cli/) 13.6 or later; the steps assume the latest release.
 
 Initialize the sample's PostgreSQL secret once before the first run:
 

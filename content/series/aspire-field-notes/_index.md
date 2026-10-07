@@ -48,7 +48,7 @@ git clone --branch codebytes-aspire-companion-samples \
 cd blog-samples-field-notes/aspire-field-notes
 ```
 
-Use the collection README for prerequisites and setup, including the one-time database-secret initialization. The commands call the `aspire` CLI directly and assume [Aspire CLI](https://aspire.dev/get-started/install-cli/) 13.6.1 or later is installed; check with `aspire --version`. The links above deliberately point to the review branch rather than to files that have not yet reached `main`.
+Use the collection README for prerequisites and setup, including the one-time database-secret initialization. The commands call the `aspire` CLI directly. You need [Aspire CLI](https://aspire.dev/get-started/install-cli/) 13.6 or later; the steps assume the latest release. The links above deliberately point to the review branch rather than to files that have not yet reached `main`.
 
 The exercises include their own assertions: `smoke.mjs` asserts the healthy and intentional-fault outcomes, and its recovery mode reruns the healthy assertions under a separate evidence label; `state-smoke.mjs` requires a new process with retained data; the terminal helper uses fresh computed markers; and the Compose reviewer checks generated routing and storage without deploying it. Optional agent-guidance setup is not required to run any of these checks.
 
