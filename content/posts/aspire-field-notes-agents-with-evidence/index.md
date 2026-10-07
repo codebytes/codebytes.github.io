@@ -32,7 +32,7 @@ The improvement I want is not a more confident answer. It is a developer loop th
 
 This is part four of [Aspire Field Notes](/series/aspire-field-notes/). We have a model of the application, diagnostic evidence, and resource-level tools. Now we can give an agent the same path a developer would follow.
 
-The [companion investigation](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/04-agents-with-evidence) uses the same catalog application as part one. Follow the collection's setup, including `node scripts/init-secret.mjs`, then run the commands below from the sample checkout's `aspire-field-notes/` directory. The sample's `scripts/aspire.sh` wrapper enforces CLI 13.6.1. The business operation to investigate is `GET /api/catalog`, not an invented endpoint.
+The [companion investigation](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/04-agents-with-evidence) uses the same catalog application as part one. Follow the collection's setup, including `node scripts/init-secret.mjs`, then run the commands below from the sample checkout's `aspire-field-notes/` directory. They call the `aspire` CLI directly and assume version 13.6.1 or later. The business operation to investigate is `GET /api/catalog`, not an invented endpoint.
 
 ## Instructions are not observations
 
@@ -53,7 +53,7 @@ The companion exercises do not require this setup command. Skip it if your agent
 If you intentionally want that setup, the following command selects the catalog workspace and puts its GitHub-compatible skill files in `catalog/.github/skills`:
 
 ```bash
-ASPIRE_CLI_TELEMETRY_OPTOUT=true bash scripts/aspire.sh agent init \
+ASPIRE_CLI_TELEMETRY_OPTOUT=true aspire agent init \
   --workspace-root "$PWD/catalog" --skill-locations github \
   --skills aspire,aspire-init,aspireify,aspire-orchestration,aspire-monitoring,aspire-deployment,aspire-project-v2-migration \
   --mcp=false --non-interactive
@@ -76,13 +76,13 @@ Multiple worktrees and multiple AppHosts make implicit discovery convenient for 
 The following Bash sequence selects the companion's catalog AppHost explicitly and enables its intentional inventory fault. Use a dedicated local worktree, stopping any previous catalog run you started first. The chained commands stop if startup, readiness, or the expected-failure assertion fails:
 
 ```bash
-Inventory__FaultEnabled=true bash scripts/aspire.sh start \
+Inventory__FaultEnabled=true aspire start \
   --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
   --isolated --format Json --non-interactive &&
-bash scripts/aspire.sh wait api --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
+aspire wait api --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
   --status healthy --timeout 90 --non-interactive &&
 node scripts/smoke.mjs fault &&
-bash scripts/aspire.sh describe --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
+aspire describe --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
   --format Table --non-interactive
 ```
 
@@ -111,7 +111,7 @@ A useful agent task identifies an operation, the allowed scope, and the result t
 ```text
 Investigate the failing catalog lookup in this worktree.
 Use catalog/Catalog.AppHost/Catalog.AppHost.csproj.
-Run Aspire commands through bash scripts/aspire.sh to select CLI 13.6.1.
+Confirm that aspire --version reports 13.6.1 or later before running Aspire commands.
 The request is GET /api/catalog through the web resource.
 
 Inspect api, inventory, and the request's logs and trace.
@@ -134,7 +134,7 @@ The fault check proves healthy resources and a failed business operation togethe
 Query a narrow set of relevant traces rather than handing the agent an entire telemetry database:
 
 ```bash
-bash scripts/aspire.sh otel traces api --limit 5 --has-error \
+aspire otel traces api --limit 5 --has-error \
   --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj --non-interactive
 ```
 
@@ -151,7 +151,7 @@ The companion deliberately uses stable `AddProject` resources. The Project V2 di
 Discover the selected resource's commands before relying on one:
 
 ```bash
-bash scripts/aspire.sh resource api --help \
+aspire resource api --help \
   --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj
 ```
 

@@ -61,11 +61,11 @@ It applies `WithRepl()` to the `postgres` server, not the `catalogdb` database. 
 
 ```bash
 apphost=catalog/Catalog.AppHost/Catalog.AppHost.csproj
-Diagnostics__EnableRepl=true bash scripts/aspire.sh start \
+Diagnostics__EnableRepl=true aspire start \
   --apphost "$apphost" --isolated --non-interactive &&
-bash scripts/aspire.sh wait api --apphost "$apphost" \
+aspire wait api --apphost "$apphost" \
   --status healthy --timeout 120 --non-interactive &&
-bash scripts/aspire.sh resource postgres repl --apphost "$apphost" --non-interactive
+aspire resource postgres repl --apphost "$apphost" --non-interactive
 ```
 
 You can also use **postgres > Actions > REPL** in the dashboard. Either path opens the `psql` client bundled in the container in the dashboard's terminal dock, authenticated using the resource's credentials. The CLI command reports that the command ran; it does not attach your shell, so switch to the dashboard to use the session. If the dock is hidden, press the backtick (`` ` ``) key in the dashboard to toggle it. You do not need a separately installed PostgreSQL client.[^postgres]
@@ -131,10 +131,10 @@ Start the experiment and inspect its terminal:
 
 ```bash
 terminal_apphost=terminals/Terminal.AppHost/Terminal.AppHost.csproj
-bash scripts/aspire.sh start --apphost "$terminal_apphost" --isolated --non-interactive &&
-bash scripts/aspire.sh wait node-repl --apphost "$terminal_apphost" \
+aspire start --apphost "$terminal_apphost" --isolated --non-interactive &&
+aspire wait node-repl --apphost "$terminal_apphost" \
   --status up --timeout 90 --non-interactive &&
-bash scripts/aspire.sh terminal ps --apphost "$terminal_apphost" --non-interactive
+aspire terminal ps --apphost "$terminal_apphost" --non-interactive
 ```
 
 Begin from a fresh, idle Node prompt. Coordinate with anyone else viewing that terminal, because input and terminal size are shared. By default, `terminal attach` takes the primary role and resizes the terminal to your window, so attaching from a very small window can shrink it enough to break the output check. Restarting only `node-repl` can keep the reduced size. Attach again from a normal-size window and detach with **Ctrl+B D**, or stop and start the Terminal AppHost. Pass `--viewer` when you only want to watch.[^attach]
@@ -180,7 +180,7 @@ An exit code of zero means the tape completed. It does not prove that every prog
 After this separate experiment, stop its AppHost explicitly:
 
 ```bash
-bash scripts/aspire.sh stop \
+aspire stop \
   --apphost terminals/Terminal.AppHost/Terminal.AppHost.csproj --non-interactive
 ```
 

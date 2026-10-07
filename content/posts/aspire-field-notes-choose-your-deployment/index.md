@@ -103,16 +103,16 @@ The companion's commands run from the sample checkout's `aspire-field-notes/` di
 
 ```bash
 apphost=catalog/Catalog.AppHost/Catalog.AppHost.csproj
-bash scripts/aspire.sh stop --apphost "$apphost" --non-interactive
+aspire stop --apphost "$apphost" --non-interactive
 bash scripts/publish.sh compose
 ```
 
 The script rejects missing or unsupported targets. Its underlying commands first list the selected pipeline, then publish and review the artifacts:
 
 ```bash
-Deployment__Target=compose bash scripts/aspire.sh publish \
+Deployment__Target=compose aspire publish \
   --apphost "$apphost" --list-steps --non-interactive
-Deployment__Target=compose bash scripts/aspire.sh publish \
+Deployment__Target=compose aspire publish \
   --apphost "$apphost" --output-path "$PWD/artifacts/compose" --non-interactive
 node scripts/review-compose.mjs artifacts/compose
 ```

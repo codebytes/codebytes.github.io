@@ -82,7 +82,7 @@ var api = builder.AddProject<Projects.Catalog_Api>("api")
 From the collection root, run the full request-path check:
 
 ```bash
-bash scripts/aspire.sh start \
+aspire start \
   --apphost catalog/Catalog.AppHost/Catalog.AppHost.csproj --isolated --non-interactive &&
 node scripts/smoke.mjs healthy
 ```

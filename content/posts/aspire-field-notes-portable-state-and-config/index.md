@@ -74,13 +74,13 @@ After collection setup, use a healthy catalog run. If you have a previous run ac
 
 ```bash
 apphost=catalog/Catalog.AppHost/Catalog.AppHost.csproj
-Inventory__FaultEnabled=false bash scripts/aspire.sh start \
+Inventory__FaultEnabled=false aspire start \
   --apphost "$apphost" --isolated --non-interactive &&
 node scripts/smoke.mjs healthy &&
 node scripts/state-smoke.mjs write
 
-bash scripts/aspire.sh stop --apphost "$apphost" --non-interactive &&
-Inventory__FaultEnabled=false bash scripts/aspire.sh start \
+aspire stop --apphost "$apphost" --non-interactive &&
+Inventory__FaultEnabled=false aspire start \
   --apphost "$apphost" --isolated --non-interactive &&
 node scripts/smoke.mjs healthy &&
 node scripts/state-smoke.mjs verify

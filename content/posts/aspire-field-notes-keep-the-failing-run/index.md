@@ -35,7 +35,7 @@ This is part one of [Aspire Field Notes](/series/aspire-field-notes/). We are st
 
 The [first companion exercise](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/exercises/01-keep-the-failing-run) uses the [shared catalog application](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/catalog) in `blog-samples`.
 
-Follow the [collection's prerequisites and review checkout instructions](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes) first. The commands in this article run from the sample checkout's `aspire-field-notes/` directory. The `scripts/aspire.sh` wrapper selects Aspire 13.6.1 explicitly instead of silently using a different globally installed CLI.
+Follow the [collection's prerequisites and review checkout instructions](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes) first. The commands in this article run from the sample checkout's `aspire-field-notes/` directory and call the `aspire` CLI directly. They assume [Aspire CLI](https://aspire.dev/get-started/install-cli/) 13.6.1 or later; check with `aspire --version`.
 
 Initialize the sample's PostgreSQL secret once before the first run:
 
@@ -72,7 +72,7 @@ An **AppHost-launched dashboard uses `Run` by default**. You do not need to add 
 A **standalone dashboard still defaults to `None`**. If you want it to continue from the same database:
 
 ```bash
-bash scripts/aspire.sh dashboard run \
+aspire dashboard run \
   --application-name catalog-notes --persistence Resume
 ```
 
@@ -87,10 +87,10 @@ A controlled fault makes the exercise repeatable. Turning that fault off demonst
 ### Establish the healthy baseline
 
 ```bash
-Inventory__FaultEnabled=false bash scripts/aspire.sh start \
+Inventory__FaultEnabled=false aspire start \
   --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
   --isolated --non-interactive &&
-bash scripts/aspire.sh wait api --status healthy --timeout 120 \
+aspire wait api --status healthy --timeout 120 \
   --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj --non-interactive &&
 node scripts/smoke.mjs healthy
 ```
@@ -104,12 +104,12 @@ For the interactive version, open `web` from the dashboard and select **Load cat
 Stop this AppHost without deleting its volumes, then start the same application with the fault enabled:
 
 ```bash
-bash scripts/aspire.sh stop --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
+aspire stop --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
   --non-interactive &&
-Inventory__FaultEnabled=true bash scripts/aspire.sh start \
+Inventory__FaultEnabled=true aspire start \
   --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
   --isolated --non-interactive &&
-bash scripts/aspire.sh wait api --status healthy --timeout 120 \
+aspire wait api --status healthy --timeout 120 \
   --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj --non-interactive &&
 node scripts/smoke.mjs fault
 ```
@@ -123,7 +123,7 @@ While the failing run is still live, open the dashboard's **Console logs** page 
 The CLI can narrow the evidence for the running AppHost too:
 
 ```bash
-bash scripts/aspire.sh otel traces api --has-error --limit 5 \
+aspire otel traces api --has-error --limit 5 \
   --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj --non-interactive
 ```
 
@@ -134,9 +134,9 @@ That is a query against the currently running app, so run it before recovery. Se
 Open the run selector in the dashboard header, which shows **Live run**, and select **Pin run** on the failing run before stopping the AppHost. Then recover explicitly:
 
 ```bash
-bash scripts/aspire.sh stop --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
+aspire stop --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
   --non-interactive &&
-Inventory__FaultEnabled=false bash scripts/aspire.sh start \
+Inventory__FaultEnabled=false aspire start \
   --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
   --isolated --non-interactive &&
 node scripts/smoke.mjs recovery
