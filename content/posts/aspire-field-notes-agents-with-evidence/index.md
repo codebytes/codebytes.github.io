@@ -31,8 +31,6 @@ The improvement I want is not a more confident answer. It is a developer loop th
 
 This is part four of [Aspire Field Notes](/series/aspire-field-notes/). We have a model of the application, diagnostic evidence, and resource-level tools. Now we can give an agent the same path a developer would follow.
 
-[Walkthrough 04](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/04-agents-with-evidence) has the setup and every command used here. It uses the same catalog app as part one, with the intentional inventory fault turned on. The business operation to investigate is `GET /api/catalog`, not an invented endpoint.
-
 ## Instructions are not observations
 
 Aspire skills teach an agent how to use the tools. They do not start services, instrument applications, or prove that a fix worked.
@@ -65,7 +63,7 @@ Installing a migration skill also does not authorize or execute a migration. The
 
 Multiple worktrees and multiple AppHosts make implicit discovery convenient for humans and risky for unattended scripts.
 
-The walkthrough passes `--apphost catalog/Catalog.AppHost/Catalog.AppHost.csproj` to every command. It starts the app with `--isolated` and the inventory fault enabled, waits for readiness, takes an inventory with `aspire describe`, and only then runs **Load catalog**, which is expected to fail with the 503. Use a dedicated local worktree, and stop any previous catalog run you started first.
+Our investigation uses the same catalog app as part one, with the intentional inventory fault enabled. The operation is `GET /api/catalog`. Each Aspire runtime command explicitly selects `--apphost catalog/Catalog.AppHost/Catalog.AppHost.csproj`. We start with `--isolated`, wait for readiness, take an inventory with `aspire describe`, and only then run **Load catalog**, which is expected to fail with the 503. Use a dedicated local worktree, and stop any previous catalog run you started first.
 
 In CLI 13.6, `ps` lists AppHosts; `describe --apphost ...` is the resource inventory. Inspect the `api` and `inventory` entries in that result rather than treating an AppHost listing as proof that its services are healthy.
 
@@ -95,7 +93,8 @@ Use catalog/Catalog.AppHost/Catalog.AppHost.csproj.
 The request is GET /api/catalog through the web resource.
 
 Inspect api, inventory, and the request's logs and trace.
-Run aspire resource web load-catalog and report its HTTP status and trace ID.
+Run aspire resource web load-catalog with --apphost set to that project.
+Report its HTTP status and trace ID.
 Determine whether Inventory__FaultEnabled intentionally selects the failure.
 Identify which server first returned 503 and show the parent-child span chain.
 Stop after the evidence report.
@@ -165,9 +164,9 @@ A useful handoff should separate these observations:
 | Expected downstream behavior occurred    | The change did not merely hide a failure                               |
 | Remaining checks or evidence are missing | The limits of the conclusion                                           |
 
-For a flaky failure, one passing request is weak evidence. Repeat the relevant scenario and report the sample size rather than declaring the entire application fixed. For this controlled failure, the expected result stays a 503; do not change the code or the check until it reports a 200.
+For a flaky failure, one passing request is weak evidence. Repeat the relevant scenario and report the sample size rather than declaring the entire application fixed. For this controlled failure, the expected result stays a 503. A successful investigation explains that result; it does not force the code or the check to report a 200.
 
-After stopping the sample's AppHosts, run `bash scripts/check.sh` for the build and regression checks. Those checks are useful evidence, but they do not replace the request-level reproduction.
+[Walkthrough 04](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/04-agents-with-evidence) has the optional guidance setup and exact commands for this investigation. After stopping the sample's AppHosts, run `bash scripts/check.sh` for the build and regression checks. Those checks are useful evidence, but they do not replace the request-level reproduction.
 
 ## Keep authority smaller than capability
 

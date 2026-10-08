@@ -85,7 +85,7 @@ With the fault off, **Load catalog** returns a 200 and three products. That is t
 
 ### Reproduce the failure
 
-Restart the same app with the fault on and run **Load catalog** again. Every resource still reports **Running**, but the command fails with `HTTP 503: Inventory unavailable` and the trace ID of the request that failed. That failure is the observation you want, not a broken step:
+Restart the same app with the fault on and run **Load catalog** again. The frontend, API, inventory service, and database remain healthy, but the command fails with `HTTP 503: Inventory unavailable` and the trace ID of the request that failed. That failure is the observation you want, not a broken step:
 
 {{< figure src="load-catalog-503.png" alt="Aspire dashboard Resources page with the Load catalog action highlighted on the web resource and a failure notification reading HTTP 503: Inventory unavailable, with the request's trace ID" figureClass="full-width" >}}
 
@@ -95,7 +95,7 @@ Open that trace. You should see the API's request, its PostgreSQL query, exactly
 
 While the failing run is still live, open the dashboard's **Console logs** page for `api` and for `inventory`. The dashboard keeps a console stream in a run's history only after you have viewed or exported it there, and opening the dashboard is also what starts recording the run's resources.
 
-The CLI can query the same evidence, for example with `aspire otel traces --has-error`, but it always targets the running app. Selecting a historical run in the browser does not change what a separate CLI command sees, so use the dashboard's run selector for the comparison below.
+AppHost-scoped CLI queries, such as `aspire otel traces --has-error`, read the live run. Selecting a historical run in the browser does not change what a separate CLI command sees, so use the dashboard's run selector for the comparison below.
 
 ### Keep the failure and compare recovery
 

@@ -31,11 +31,9 @@ Each workaround is small. Together, they make "works locally" a poor predictor o
 
 In part five of [Aspire Field Notes](/series/aspire-field-notes/), the goal is a stable application-facing contract. Aspire can translate that contract into target-specific configuration without pretending every environment has identical storage, networking, or permissions.
 
-[Walkthrough 05](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/05-portable-state-and-config) has the setup and every command used here. It writes a disposable note through the catalog app's `/api/state` endpoints, restarts without deleting storage, and checks that the same value remains. The state endpoint is a local teaching surface, not a production API or a substitute for access controls.
-
 ## Give the application a setting, not a platform detector
 
-The catalog companion stores that JSON record beneath `DATA_PATH`. The API reads the setting rather than inferring whether it is running under Docker. The same pattern can apply to an image cache or another application-owned directory, with different durability requirements.
+The catalog companion stores a small JSON record beneath `DATA_PATH`. The API reads the setting rather than inferring whether it is running under Docker. The same pattern can apply to an image cache or another application-owned directory, with different durability requirements.
 
 Aspire 13.6 adds an `env` argument to volume mounts on projects and executables. The companion's `api` resource already declares it in the chain shown in [part two](/posts/aspire-field-notes-model-the-whole-app/):
 
@@ -67,7 +65,7 @@ The `env` argument targets projects and executables, whose run-mode path is comp
 
 ## Prove that the value survived a real restart
 
-Save a note from the frontend, restart the app without deleting its storage, and read the note back. The API instance ID changes, but the message, revision, and timestamp do not:
+The catalog app's `/api/state` endpoints let us test that contract with a disposable note. This is a local teaching surface, not a production API or a substitute for access controls. Save a note from the frontend, restart the app without deleting its storage, and read the note back. The API instance ID changes, but the message, revision, and timestamp do not:
 
 {{< figure src="retained-note.png" alt="The companion frontend after a restart: State read from application storage, with a new API instance ID and the same message, revision 5, and update timestamp saved before the restart" figureClass="full-width" >}}
 
@@ -203,6 +201,8 @@ Run a small check in both the local and intended container environments:
 5. Remove or rename a required setting and verify that startup fails clearly.
 
 The desired result is not identical physical paths. It is identical application expectations, with storage and security differences made explicit.
+
+[Walkthrough 05](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/05-portable-state-and-config) has the setup and exact commands to write a note, restart without deleting storage, and verify the retained value.
 
 [Next: choose a deployment target that can honor those expectations](/posts/aspire-field-notes-choose-your-deployment/).
 

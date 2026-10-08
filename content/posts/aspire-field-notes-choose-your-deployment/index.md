@@ -31,8 +31,6 @@ What should stay the same is the application's intent. What does not automatical
 
 This final part of [Aspire Field Notes](/series/aspire-field-notes/) is about choosing those promises deliberately. My [deployment and pipelines article](/posts/aspire-cli-part-2/) covers the command-oriented introduction; this is the 13.6 decision that comes after it.
 
-[Walkthrough 06](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/06-choose-your-deployment) has every command used here. It explicitly selects **Docker Compose** and publishes artifacts for review. It does not provision Azure resources or apply a cloud deployment. The cloud targets below are comparisons against their documented contracts, not additional environments quietly created by the walkthrough.
-
 ## Start with constraints, not a platform preference
 
 For the catalog example, write down the requirements before selecting an integration:
@@ -98,7 +96,9 @@ The deployment identity, image-pull identity, and workload identities also have 
 
 ## Publishing is a review point, not proof of a deployment
 
-The walkthrough stops the running catalog AppHost, then publishes with `Deployment__Target=compose`. In publish mode, the AppHost rejects a missing or unsupported target, so the target is never chosen implicitly. `aspire publish --list-steps` shows the pipeline before anything runs, and a real publish reports each step it executed:
+For the runnable companion, we select **Docker Compose** and publish artifacts for review. No Azure resources are provisioned; the cloud targets above are comparisons against their documented contracts.
+
+Stop the running catalog AppHost, then publish with `Deployment__Target=compose`. In publish mode, the AppHost rejects a missing or unsupported target, so the target is never chosen implicitly. `aspire publish --list-steps` lists the planned pipeline without executing its steps; it still prepares and evaluates the AppHost. A real publish reports each step it executed:
 
 {{< figure src="publish-summary.png" alt="Terminal output from aspire publish with Deployment__Target=compose: 8 of 8 steps succeeded, a step timeline from validate-compute-environments through publish-compose, and Pipeline succeeded" figureClass="full-width" >}}
 
@@ -177,6 +177,8 @@ Add cold-start, scale, or concurrency checks when they are part of the workload'
 We started by keeping a failure instead of losing it during a restart. We modeled the application, brought diagnostic tools to its resources, gave agents an evidence-based workflow, and made state and configuration explicit.
 
 Deployment should preserve that habit. Choose the target for the promises it can keep, and verify those promises with an application result.
+
+[Walkthrough 06](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/06-choose-your-deployment) has the exact Compose publishing and artifact-review commands. It stops at review, without building container images or applying a deployment.
 
 Return to the [series reading path](/series/aspire-field-notes/) when the next problem is local rather than deployed. The tool changes; the need for a clear observation and a repeatable check does not.
 

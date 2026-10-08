@@ -33,8 +33,6 @@ That is the interesting polyglot story in Aspire 13.6. Not how many language log
 
 In [part one](/posts/aspire-field-notes-keep-the-failing-run/), we kept the failing run. Now we need a useful model of the application that produced it.
 
-The examples use the same catalog app as part one. [Walkthrough 02](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/02-model-the-whole-app) has the setup and every command used here.
-
 ## Three contracts, not one
 
 An AppHost relationship can serve several purposes, but they are not interchangeable:
@@ -61,9 +59,9 @@ The [catalog AppHost project](https://github.com/codebytes/blog-samples/tree/mai
 | `api`       | Catalog API             | Reads PostgreSQL and makes one inventory request for `/api/catalog`         |
 | `web`       | Vite frontend           | Same-origin `/api` requests proxied to the API's assigned endpoint          |
 
-The resource list also shows `web-installer`, a child resource that runs `npm ci` for the frontend; `web` waits for it to finish. The dashboard's **Graph** view draws the same model, with each reference as an arrow and each health check as a badge:
+The resource list also shows `web-installer`, a child resource that runs `npm ci` for the frontend; `web` waits for it to finish. The dashboard's **Graph** view draws the same model, with relationships as arrows and resource health shown on the nodes:
 
-{{< figure src="resource-graph.png" alt="Aspire dashboard Graph view: web-installer feeds web, web points to api, api points to inventory and catalogdb, and catalogdb belongs to postgres, each with a green health badge" figureClass="full-width" >}}
+{{< figure src="resource-graph.png" alt="Aspire dashboard Graph view: the finished web-installer feeds web, web points to api, api points to inventory and catalogdb, and catalogdb belongs to postgres; the application resources have green health badges" figureClass="full-width" >}}
 
 This excerpt from the AppHost shows the API's configuration and readiness wiring. `catalogdb`, `inventory`, and `region` are defined earlier in that file:
 
@@ -195,6 +193,8 @@ Take one operation through your application and check:
 - A missing setting fails explicitly rather than falling back to an unrelated localhost service.
 
 A shared dashboard does not apply .NET retry handlers to Go or Node. Browser trace propagation also needs its own setup. Keep those responsibilities visible rather than assuming the graph handles them.
+
+Use [walkthrough 02](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/02-model-the-whole-app) to follow that path through the catalog app. The setup and exact commands live with the sample.
 
 [Next: put diagnostic tools beside those resources](/posts/aspire-field-notes-terminals-and-repls/), without turning convenience into unrestricted access.
 

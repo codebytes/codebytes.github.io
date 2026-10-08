@@ -29,9 +29,7 @@ That often means finding a port, installing a client, and copying credentials fr
 
 <!--more-->
 
-This is part three of [Aspire Field Notes](/series/aspire-field-notes/). The terminal APIs and tape workflow discussed here are experimental. Keep them in a deliberate development workflow rather than assuming they are a production administration interface.
-
-[Walkthrough 03](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/03-terminals-and-repls) has the setup and every command used here: the catalog's opt-in PostgreSQL REPL and a separate terminal AppHost. The sections below explain the permissions, lifecycle, and output checks involved.
+This is part three of [Aspire Field Notes](/series/aspire-field-notes/). The `WithTerminal()` hosting API is experimental. Keep terminal automation in a deliberate development workflow rather than assuming it is a production administration interface.
 
 ## Three surfaces with different jobs
 
@@ -153,6 +151,8 @@ Keep recordings free of secrets. Hiding input from a recording is not the same a
 Use a REPL to answer a narrow diagnostic question. Use a resource terminal when a program truly needs interactive input. Use a tape when that interaction should be repeatable, and pair it with an independent result check.
 
 The win is less context switching and less undocumented procedure, not giving every tool an unrestricted terminal.
+
+[Walkthrough 03](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/03-terminals-and-repls) has the setup and exact commands for both experiments: the catalog's opt-in PostgreSQL REPL and the separate Node terminal AppHost.
 
 [Next: give a coding agent the same evidence-driven loop](/posts/aspire-field-notes-agents-with-evidence/).
 
