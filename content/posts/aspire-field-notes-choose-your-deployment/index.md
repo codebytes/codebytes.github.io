@@ -1,7 +1,6 @@
 ---
 title: "Same AppHost, Different Deployment Promises"
-date: "2026-10-06"
-draft: true
+date: "2026-10-07T09:05:00-04:00"
 categories:
   - "Development"
 tags:
@@ -32,7 +31,7 @@ What should stay the same is the application's intent. What does not automatical
 
 This final part of [Aspire Field Notes](/series/aspire-field-notes/) is about choosing those promises deliberately. My [deployment and pipelines article](/posts/aspire-cli-part-2/) covers the command-oriented introduction; this is the 13.6 decision that comes after it.
 
-[Walkthrough 06](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/06-choose-your-deployment) has every command used here. It explicitly selects **Docker Compose** and publishes artifacts for review. It does not provision Azure resources or apply a cloud deployment. The cloud targets below are comparisons against their documented contracts, not additional environments quietly created by the walkthrough.
+[Walkthrough 06](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/06-choose-your-deployment) has every command used here. It explicitly selects **Docker Compose** and publishes artifacts for review. It does not provision Azure resources or apply a cloud deployment. The cloud targets below are comparisons against their documented contracts, not additional environments quietly created by the walkthrough.
 
 ## Start with constraints, not a platform preference
 

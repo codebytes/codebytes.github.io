@@ -1,7 +1,6 @@
 ---
 title: "Aspire Field Notes: A Better Developer Loop"
 description: "Six practical workflows for Aspire 13.6: preserve evidence, model the application, inspect dependencies, guide agents, move configuration, and choose a deployment."
-draft: true
 ---
 
 A working demo answers one question: can the application start? A useful developer loop answers the next ones. What failed? Can someone else reproduce it? Does the fix change the right thing? What happens when this leaves my laptop?
@@ -23,7 +22,7 @@ Read them in order for the full story, or start with the problem you have today.
 
 ## The application behind the examples
 
-The companions live in the [`aspire-field-notes` collection in blog-samples](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes). One shared catalog application underpins all six parts: a Vite frontend named `web`, a catalog API named `api`, PostgreSQL's `catalogdb`, and a separate `inventory` service.
+The companions live in the [`aspire-field-notes` collection in blog-samples](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes). One shared catalog application underpins all six parts: a Vite frontend named `web`, a catalog API named `api`, PostgreSQL's `catalogdb`, and a separate `inventory` service.
 
 A deliberate inventory failure makes `/api/catalog` return a 503 while resource health remains green. A separate `/api/state` endpoint demonstrates data retained through `DATA_PATH`. These are controlled teaching scenarios, not claims of production readiness.
 
@@ -31,16 +30,16 @@ Part three has a small independent terminal AppHost as well as the catalog's opt
 
 ## Companion walkthroughs
 
-| Part | Walkthrough                                                                                                                                                                                                |
-| ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1    | [Baseline, failure, retained run, and recovery](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/01-keep-the-failing-run)                 |
-| 2    | [Configuration, readiness, and telemetry across the catalog app](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/02-model-the-whole-app) |
-| 3    | [PostgreSQL REPL and an independent terminal experiment](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/03-terminals-and-repls)         |
-| 4    | [A scoped, evidence-driven agent investigation](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/04-agents-with-evidence)                 |
-| 5    | [Portable configuration and retained application state](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/05-portable-state-and-config)    |
-| 6    | [Compose publishing and artifact review](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/06-choose-your-deployment)                      |
+| Part | Walkthrough                                                                                                                                                                  |
+| ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1    | [Baseline, failure, retained run, and recovery](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/01-keep-the-failing-run)                 |
+| 2    | [Configuration, readiness, and telemetry across the catalog app](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/02-model-the-whole-app) |
+| 3    | [PostgreSQL REPL and an independent terminal experiment](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/03-terminals-and-repls)         |
+| 4    | [A scoped, evidence-driven agent investigation](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/04-agents-with-evidence)                 |
+| 5    | [Portable configuration and retained application state](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/05-portable-state-and-config)    |
+| 6    | [Compose publishing and artifact review](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/06-choose-your-deployment)                      |
 
-Each walkthrough has the setup and exact commands for its post. Start with the [collection README](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes) for prerequisites, the clone command, and the one-time database secret. You need [Aspire CLI](https://aspire.dev/get-started/install-cli/) 13.6 or later; the steps assume the latest release. The links above deliberately point to the review branch rather than to files that have not yet reached `main`.
+Each walkthrough has the setup and exact commands for its post. Start with the [collection README](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes) for prerequisites, the clone command, and the one-time database secret. You need [Aspire CLI](https://aspire.dev/get-started/install-cli/) 13.6 or later; the steps assume the latest release.
 
 The walkthroughs check their own results. The catalog AppHost adds a **Load catalog** command to `web`, available in the dashboard and as `aspire resource web load-catalog`; it makes one request and returns the status and trace ID for you to inspect. `state-smoke.mjs` requires a new process with retained data; the terminal helper uses fresh computed markers; and the Compose reviewer checks generated routing and storage without deploying it. Optional agent-guidance setup is not required to run any of these checks.
 
@@ -62,5 +61,3 @@ Detailed retry-policy design and AI-provider selection deserve their own space. 
 - [David Fowler's developer-loop article](https://devblogs.microsoft.com/aspire/dev-loop-tribal-knowledge/) provides the broader argument for turning undocumented setup knowledge into explicit operations.
 - [David Pine's weather-map post](https://bsky.app/profile/davidpine.dev/post/3mwmut6556k2a) points to a concrete non-.NET application rather than a language-support checklist.
 - [Mitch Denny's terminal deep dive](https://devblogs.microsoft.com/aspire/aspire-terminal-support/) and [James Newton-King's Native AOT dashboard article](https://devblogs.microsoft.com/aspire/aspire-dashboard-native-aot/) explain the engineering behind the new experiences.
-
-All six articles are drafts awaiting review. Publication dates will be chosen separately.

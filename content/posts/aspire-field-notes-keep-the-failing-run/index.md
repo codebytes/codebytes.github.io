@@ -1,6 +1,6 @@
 ---
 title: "Stop Losing the Bug When You Restart Aspire"
-date: "2026-10-06"
+date: "2026-10-07T09:00:00-04:00"
 categories:
   - "Development"
 tags:
@@ -32,9 +32,9 @@ This is part one of [Aspire Field Notes](/series/aspire-field-notes/). We are st
 
 ## The companion app
 
-The examples use a small catalog app from the [companion samples](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes): a Vite frontend named `web`, a catalog API named `api`, a PostgreSQL database named `catalogdb`, and a separate `inventory` service. Loading the catalog reads the database and makes one instrumented HTTP call to inventory, with no retry to hide a failure.
+The examples use a small catalog app from the [companion samples](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes): a Vite frontend named `web`, a catalog API named `api`, a PostgreSQL database named `catalogdb`, and a separate `inventory` service. Loading the catalog reads the database and makes one instrumented HTTP call to inventory, with no retry to hide a failure.
 
-A development-only switch, `Inventory__FaultEnabled`, makes inventory return a 503. That gives us a failure we can reproduce on demand without breaking anything shared. [Walkthrough 01](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/01-keep-the-failing-run) has the setup, including the one-time database secret, and every command used here. You need [Aspire CLI](https://aspire.dev/get-started/install-cli/) 13.6 or later.
+A development-only switch, `Inventory__FaultEnabled`, makes inventory return a 503. That gives us a failure we can reproduce on demand without breaking anything shared. [Walkthrough 01](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/01-keep-the-failing-run) has the setup, including the one-time database secret, and every command used here. You need [Aspire CLI](https://aspire.dev/get-started/install-cli/) 13.6 or later.
 
 ## A green dashboard is not the result
 
@@ -83,7 +83,7 @@ web.WithHttpCommand(
     });
 ```
 
-The [full registration](https://github.com/codebytes/blog-samples/blob/codebytes-aspire-companion-samples/aspire-field-notes/catalog/Catalog.AppHost/AppHost.cs) also reports a non-success status as a failed command, so a broken request never looks like a passing one.
+The [full registration](https://github.com/codebytes/blog-samples/blob/main/aspire-field-notes/catalog/Catalog.AppHost/AppHost.cs) also reports a non-success status as a failed command, so a broken request never looks like a passing one.
 
 With the fault off, **Load catalog** returns a 200 and three products. That is the baseline.
 
@@ -181,7 +181,7 @@ For production retention and access controls, use Application Insights or anothe
 
 ## Try this before the next refactor
 
-Start with [walkthrough 01](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/01-keep-the-failing-run) and its repeatable failure. Capture it, pin it, change one thing, and repeat the same request. Then apply that discipline to an actual bug. The useful outcome is being able to explain the difference between runs with evidence.
+Start with [walkthrough 01](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/01-keep-the-failing-run) and its repeatable failure. Capture it, pin it, change one thing, and repeat the same request. Then apply that discipline to an actual bug. The useful outcome is being able to explain the difference between runs with evidence.
 
 A normal stop keeps the dashboard history, application data, and database volume, so you can come back to the pinned run later.
 

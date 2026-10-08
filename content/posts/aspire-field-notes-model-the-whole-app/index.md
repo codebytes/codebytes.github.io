@@ -1,7 +1,6 @@
 ---
 title: "A Polyglot App Is More Than a Process List"
-date: "2026-10-06"
-draft: true
+date: "2026-10-07T09:01:00-04:00"
 categories:
   - "Development"
 tags:
@@ -34,7 +33,7 @@ That is the interesting polyglot story in Aspire 13.6. Not how many language log
 
 In [part one](/posts/aspire-field-notes-keep-the-failing-run/), we kept the failing run. Now we need a useful model of the application that produced it.
 
-The examples use the same catalog app as part one. [Walkthrough 02](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/02-model-the-whole-app) has the setup and every command used here.
+The examples use the same catalog app as part one. [Walkthrough 02](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/02-model-the-whole-app) has the setup and every command used here.
 
 ## Three contracts, not one
 
@@ -52,7 +51,7 @@ David Fowler's [developer-loop article](https://devblogs.microsoft.com/aspire/de
 
 ## Start with the companion's service graph
 
-The [catalog AppHost project](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/catalog/Catalog.AppHost) models five application resources, plus the `postgres-password` and `catalog-region` parameters:
+The [catalog AppHost project](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/catalog/Catalog.AppHost) models five application resources, plus the `postgres-password` and `catalog-region` parameters:
 
 | Resource    | Role                    | Contract to inspect                                                         |
 | ----------- | ----------------------- | --------------------------------------------------------------------------- |
@@ -105,7 +104,7 @@ The extra `API_BASE_URL` setting in our AppHost is intentional. It maps a specif
 
 ## Keep server configuration out of the browser bundle
 
-The checked-in [`vite.config.mjs`](https://github.com/codebytes/blog-samples/blob/codebytes-aspire-companion-samples/aspire-field-notes/catalog/web/vite.config.mjs) provides the health endpoint and configures the development proxy:
+The checked-in [`vite.config.mjs`](https://github.com/codebytes/blog-samples/blob/main/aspire-field-notes/catalog/web/vite.config.mjs) provides the health endpoint and configures the development proxy:
 
 <!-- prettier-ignore -->
 ```javascript

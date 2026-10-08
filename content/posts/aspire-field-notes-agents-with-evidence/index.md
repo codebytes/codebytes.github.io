@@ -1,7 +1,6 @@
 ---
 title: "Give Your Coding Agent a Developer Loop, Not a Guess"
-date: "2026-10-06"
-draft: true
+date: "2026-10-07T09:03:00-04:00"
 categories:
   - "Development"
 tags:
@@ -32,7 +31,7 @@ The improvement I want is not a more confident answer. It is a developer loop th
 
 This is part four of [Aspire Field Notes](/series/aspire-field-notes/). We have a model of the application, diagnostic evidence, and resource-level tools. Now we can give an agent the same path a developer would follow.
 
-[Walkthrough 04](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/04-agents-with-evidence) has the setup and every command used here. It uses the same catalog app as part one, with the intentional inventory fault turned on. The business operation to investigate is `GET /api/catalog`, not an invented endpoint.
+[Walkthrough 04](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/04-agents-with-evidence) has the setup and every command used here. It uses the same catalog app as part one, with the intentional inventory fault turned on. The business operation to investigate is `GET /api/catalog`, not an invented endpoint.
 
 ## Instructions are not observations
 

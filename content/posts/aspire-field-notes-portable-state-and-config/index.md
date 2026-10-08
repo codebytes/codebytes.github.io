@@ -1,7 +1,6 @@
 ---
 title: "One Configuration Contract, From Laptop to Container"
-date: "2026-10-06"
-draft: true
+date: "2026-10-07T09:04:00-04:00"
 categories:
   - "Development"
 tags:
@@ -32,7 +31,7 @@ Each workaround is small. Together, they make "works locally" a poor predictor o
 
 In part five of [Aspire Field Notes](/series/aspire-field-notes/), the goal is a stable application-facing contract. Aspire can translate that contract into target-specific configuration without pretending every environment has identical storage, networking, or permissions.
 
-[Walkthrough 05](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/05-portable-state-and-config) has the setup and every command used here. It writes a disposable note through the catalog app's `/api/state` endpoints, restarts without deleting storage, and checks that the same value remains. The state endpoint is a local teaching surface, not a production API or a substitute for access controls.
+[Walkthrough 05](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/05-portable-state-and-config) has the setup and every command used here. It writes a disposable note through the catalog app's `/api/state` endpoints, restarts without deleting storage, and checks that the same value remains. The state endpoint is a local teaching surface, not a production API or a substitute for access controls.
 
 ## Give the application a setting, not a platform detector
 

@@ -1,7 +1,6 @@
 ---
 title: "Put the Debugging Tools Next to the App"
-date: "2026-10-06"
-draft: true
+date: "2026-10-07T09:02:00-04:00"
 categories:
   - "Development"
 tags:
@@ -32,7 +31,7 @@ That often means finding a port, installing a client, and copying credentials fr
 
 This is part three of [Aspire Field Notes](/series/aspire-field-notes/). The terminal APIs and tape workflow discussed here are experimental. Keep them in a deliberate development workflow rather than assuming they are a production administration interface.
 
-[Walkthrough 03](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/03-terminals-and-repls) has the setup and every command used here: the catalog's opt-in PostgreSQL REPL and a separate terminal AppHost. The sections below explain the permissions, lifecycle, and output checks involved.
+[Walkthrough 03](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/03-terminals-and-repls) has the setup and every command used here: the catalog's opt-in PostgreSQL REPL and a separate terminal AppHost. The sections below explain the permissions, lifecycle, and output checks involved.
 
 ## Three surfaces with different jobs
 
@@ -81,7 +80,7 @@ For repeated team operations, a narrowly defined resource command can be a bette
 
 A REPL dock is useful for investigation. A resource terminal is useful when you need to drive an interactive program predictably.
 
-The checked-in [`Terminal.AppHost`](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/terminals/Terminal.AppHost) is a separate SDK-style project. It requires the collection's .NET/Aspire tooling and Node.js, but no PostgreSQL or container runtime. Its application code is:
+The checked-in [`Terminal.AppHost`](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/terminals/Terminal.AppHost) is a separate SDK-style project. It requires the collection's .NET/Aspire tooling and Node.js, but no PostgreSQL or container runtime. Its application code is:
 
 ```csharp
 var builder = DistributedApplication.CreateBuilder(args);
@@ -107,7 +106,7 @@ Begin from a fresh, idle Node prompt. Coordinate with anyone else viewing that t
 
 ## Automate output, not a fixed sleep
 
-The companion's [`node-smoke.tape`](https://github.com/codebytes/blog-samples/blob/codebytes-aspire-companion-samples/aspire-field-notes/terminals/node-smoke.tape) is a template:
+The companion's [`node-smoke.tape`](https://github.com/codebytes/blog-samples/blob/main/aspire-field-notes/terminals/node-smoke.tape) is a template:
 
 ```text
 # Use scripts/terminal-smoke.mjs to replace RUN_NONCE with a fresh nonce per run.
