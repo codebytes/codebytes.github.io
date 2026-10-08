@@ -135,6 +135,10 @@ aspire resource web load-catalog \
 
 The expected result is a **503**, even though resource readiness passed. The command reports it as a failure, `HTTP 503: Inventory unavailable. Trace ID: …`, and exits with code 16. Here, that failure is the observation you want, not a broken step.
 
+Run the command from the dashboard instead and the failure appears as a notification with the same status, problem title, and trace ID. **View response** opens the JSON:
+
+{{< figure src="load-catalog-503.png" alt="Aspire dashboard Resources page with the Load catalog action highlighted on the web resource and a failure notification reading HTTP 503: Inventory unavailable, with the request's trace ID" figureClass="full-width" >}}
+
 Inspect that trace in the dashboard's **Traces** page, or set `trace_id` to the returned ID and query it:
 
 ```bash
@@ -144,6 +148,8 @@ Inspect that trace in the dashboard's **Traces** page, or set `trace_id` to the 
 ```
 
 Expect the API's server span, exactly one HTTP client span calling inventory, inventory's server span, and the PostgreSQL query, with 503 on the three HTTP spans. A single client span means no retry is hiding the failure. The command only makes the request; checking that chain is up to you.
+
+{{< figure src="failed-trace.png" alt="Trace detail for GET /api/catalog showing the API request, its PostgreSQL query to catalogdb, one HTTP GET call that returned 503, and the inventory service's GET /inventory span" figureClass="full-width" >}}
 
 While the failing run is still live, open the dashboard's **Console logs** page for `api` and for `inventory`. The dashboard keeps a console stream in a run's history only after you have viewed or exported it there, and opening the dashboard is also what starts recording the run's resources. You can also select **Load catalog** in the frontend; the failed response clears any previous successful rows rather than presenting stale data as a result.
 
@@ -172,7 +178,15 @@ aspire resource web load-catalog \
   --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj --non-interactive
 ```
 
-Open the new dashboard URL and compare its live run with the pinned failure. The request now returns 200 and three products through the same call path. In the pinned run, the failed trace and the `api` and `inventory` **Console logs** you viewed earlier should remain inspectable. Pinning retains a useful run; it is not the switch that enables history.
+Open the new dashboard URL and compare its live run with the pinned failure. The request now returns 200 and three products through the same call path. The run selector lists the pinned failing run beside the live one:
+
+{{< figure src="pinned-run-selector.png" alt="Run selector open in the recovered dashboard, listing the live run and the pinned 10:08:18 PM failing run" figureClass="full-width" >}}
+
+Select the pinned run. Its failed trace and the `api` and `inventory` **Console logs** you viewed earlier should remain inspectable:
+
+{{< figure src="pinned-run-console.png" alt="Console logs for api in the pinned 10:08:18 PM run, filtered to 503, ending with Inventory returned HTTP 503; no retry and the same trace ID" figureClass="full-width" >}}
+
+Pinning retains a useful run; it is not the switch that enables history.
 
 Keep the checkout and AppHost path the same across this walkthrough. Changing packages, request data, storage, and the fault setting together would make the comparison harder to interpret.
 
