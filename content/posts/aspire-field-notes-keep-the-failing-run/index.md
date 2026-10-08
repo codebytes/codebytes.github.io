@@ -30,17 +30,11 @@ If the old trace and resource state disappeared with the restart, the answer is 
 
 This is part one of [Aspire Field Notes](/series/aspire-field-notes/). We are starting with a debugging problem, not with installing another tool.
 
-## The companion app
-
-The examples use a small catalog app from the [companion samples](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes): a Vite frontend named `web`, a catalog API named `api`, a PostgreSQL database named `catalogdb`, and a separate `inventory` service. Loading the catalog reads the database and makes one instrumented HTTP call to inventory, with no retry to hide a failure.
-
-A development-only switch, `Inventory__FaultEnabled`, makes inventory return a 503. That gives us a failure we can reproduce on demand without breaking anything shared. [Walkthrough 01](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/01-keep-the-failing-run) has the setup, including the one-time database secret, and every command used here. You need [Aspire CLI](https://aspire.dev/get-started/install-cli/) 13.6 or later.
-
 ## A green dashboard is not the result
 
-The sample's inventory fault affects a business request, not `/health`. With the fault enabled, the catalog request fails while the service remains running and its health endpoint stays healthy.
+A failure in a business request does not have to show up in `/health`. When a downstream dependency rejects a call, the request fails while the service keeps running and its health endpoint stays healthy.
 
-A resource graph full of green indicators tells us something about process and health state. It does not prove that the catalog request worked. We need evidence from the operation itself: the request, the downstream call, its duration, and the error.
+A resource graph full of green indicators tells us something about process and health state. It does not prove that the request worked. We need evidence from the operation itself: the request, the downstream call, its duration, and the error.
 
 Before changing code, make sure the application emits that evidence. The dashboard can receive OpenTelemetry, but it cannot reconstruct spans that the application never produced. For .NET, Service Defaults is a useful starting point. Node, Java, Python, and Rust still need the appropriate instrumentation.
 
@@ -62,7 +56,9 @@ A **standalone dashboard still defaults to `None`**. To continue from the same d
 
 ## Capture a baseline, a failure, and recovery
 
-A controlled fault makes the reproduction repeatable. Turning that fault off demonstrates recovery; it does not prove that you diagnosed an unknown bug. In a real investigation, the proposed fix still needs to address the observed cause. Do not create failures in a shared production dependency to try this.
+To make this concrete, the rest of this post uses a small catalog app from the [companion samples](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes): a Vite frontend named `web`, a catalog API named `api`, a PostgreSQL database named `catalogdb`, and a separate `inventory` service. Loading the catalog reads the database and makes one instrumented HTTP call to inventory, with no retry to hide a failure.
+
+A development-only switch, `Inventory__FaultEnabled`, makes inventory return a 503 while its health endpoint stays green. A controlled fault like this makes the reproduction repeatable without breaking anything shared. Turning it off demonstrates recovery; it does not prove that you diagnosed an unknown bug. In a real investigation, the proposed fix still needs to address the observed cause. Do not create failures in a shared production dependency to try this.
 
 ### A request you can repeat
 
@@ -181,7 +177,7 @@ For production retention and access controls, use Application Insights or anothe
 
 ## Try this before the next refactor
 
-Start with [walkthrough 01](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/01-keep-the-failing-run) and its repeatable failure. Capture it, pin it, change one thing, and repeat the same request. Then apply that discipline to an actual bug. The useful outcome is being able to explain the difference between runs with evidence.
+[Walkthrough 01](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/01-keep-the-failing-run) has the setup, including the one-time database secret, and every command used here. You need [Aspire CLI](https://aspire.dev/get-started/install-cli/) 13.6 or later. Start with its repeatable failure: capture it, pin it, change one thing, and repeat the same request. Then apply that discipline to an actual bug. The useful outcome is being able to explain the difference between runs with evidence.
 
 A normal stop keeps the dashboard history, application data, and database volume, so you can come back to the pinned run later.
 
