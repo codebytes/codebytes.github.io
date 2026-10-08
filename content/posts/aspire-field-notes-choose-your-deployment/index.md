@@ -32,7 +32,7 @@ What should stay the same is the application's intent. What does not automatical
 
 This final part of [Aspire Field Notes](/series/aspire-field-notes/) is about choosing those promises deliberately. My [deployment and pipelines article](/posts/aspire-cli-part-2/) covers the command-oriented introduction; this is the 13.6 decision that comes after it.
 
-The [deployment companion](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/06-choose-your-deployment) explicitly selects **Docker Compose** and publishes artifacts for review. It does not provision Azure resources or apply a cloud deployment. The cloud targets below are comparisons against their documented contracts, not additional environments quietly created by the walkthrough.
+[Walkthrough 06](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/06-choose-your-deployment) has every command used here. It explicitly selects **Docker Compose** and publishes artifacts for review. It does not provision Azure resources or apply a cloud deployment. The cloud targets below are comparisons against their documented contracts, not additional environments quietly created by the walkthrough.
 
 ## Start with constraints, not a platform preference
 
@@ -99,23 +99,13 @@ The deployment identity, image-pull identity, and workload identities also have 
 
 ## Publishing is a review point, not proof of a deployment
 
-The companion's commands run from the sample checkout's `aspire-field-notes/` directory. Stop the catalog AppHost you started before its assemblies are rebuilt. Then select the implemented target explicitly, list its pipeline steps, publish, and review the artifacts:
+The walkthrough stops the running catalog AppHost, then publishes with `Deployment__Target=compose`. In publish mode, the AppHost rejects a missing or unsupported target, so the target is never chosen implicitly. `aspire publish --list-steps` shows the pipeline before anything runs, and a real publish reports each step it executed:
 
-```bash
-apphost=catalog/Catalog.AppHost/Catalog.AppHost.csproj
-aspire stop --apphost "$apphost" --non-interactive
-Deployment__Target=compose aspire publish \
-  --apphost "$apphost" --list-steps --non-interactive &&
-Deployment__Target=compose aspire publish \
-  --apphost "$apphost" --output-path "$PWD/artifacts/compose" --non-interactive &&
-node scripts/review-compose.mjs artifacts/compose
-```
-
-In publish mode, the AppHost rejects a missing or unsupported `Deployment__Target`, so the target is never chosen implicitly. The `&&` chain skips the review if publishing fails.
+{{< figure src="publish-summary.png" alt="Terminal output from aspire publish with Deployment__Target=compose: 8 of 8 steps succeeded, a step timeline from validate-compute-environments through publish-compose, and Pipeline succeeded" figureClass="full-width" >}}
 
 Publishing executes registered pipeline steps and can build code or invoke tools. Review custom steps instead of treating it as a passive text renderer.[^publish] In this companion, publication does not build container images, run `docker compose up`, or deploy anything.
 
-Open `artifacts/compose/docker-compose.yaml`, `.env`, and the generated `web.Dockerfile`. The review script parses Compose configuration without interpolation and asserts:
+Open `artifacts/compose/docker-compose.yaml`, `.env`, and the generated `web.Dockerfile`. The companion's `review-compose.mjs` script parses Compose configuration without interpolation and asserts:
 
 - `api`, `inventory`, `postgres`, and `web` are present.
 - The API has database and inventory references.

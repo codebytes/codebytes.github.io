@@ -32,9 +32,7 @@ Each workaround is small. Together, they make "works locally" a poor predictor o
 
 In part five of [Aspire Field Notes](/series/aspire-field-notes/), the goal is a stable application-facing contract. Aspire can translate that contract into target-specific configuration without pretending every environment has identical storage, networking, or permissions.
 
-The [portable-state companion walkthrough](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/05-portable-state-and-config) uses the shared catalog app's `GET /api/state` and `POST /api/state` endpoints. Follow the walkthrough's request payload and restart sequence to write a disposable JSON record, restart without deleting storage, and check that the same value remains.
-
-Run its commands from the sample checkout's `aspire-field-notes/` directory. The state endpoint is a local teaching surface, not a production API or a substitute for access controls.
+[Walkthrough 05](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/05-portable-state-and-config) has the setup and every command used here. It writes a disposable note through the catalog app's `/api/state` endpoints, restarts without deleting storage, and checks that the same value remains. The state endpoint is a local teaching surface, not a production API or a substitute for access controls.
 
 ## Give the application a setting, not a platform detector
 
@@ -70,35 +68,11 @@ The `env` argument targets projects and executables, whose run-mode path is comp
 
 ## Prove that the value survived a real restart
 
-After collection setup, use a healthy catalog run. If you have a previous run active, stop only that sample's AppHost first:
+Save a note from the frontend, restart the app without deleting its storage, and read the note back. The API instance ID changes, but the message, revision, and timestamp do not:
 
-```bash
-apphost=catalog/Catalog.AppHost/Catalog.AppHost.csproj
-Inventory__FaultEnabled=false aspire start \
-  --apphost "$apphost" --isolated --non-interactive &&
-aspire wait web --apphost "$apphost" --status healthy --timeout 120 --non-interactive &&
-aspire resource web load-catalog --apphost "$apphost" --non-interactive &&
-node scripts/state-smoke.mjs write
+{{< figure src="retained-note.png" alt="The companion frontend after a restart: State read from application storage, with a new API instance ID and the same message, revision 5, and update timestamp saved before the restart" figureClass="full-width" >}}
 
-aspire stop --apphost "$apphost" --non-interactive &&
-Inventory__FaultEnabled=false aspire start \
-  --apphost "$apphost" --isolated --non-interactive &&
-aspire wait web --apphost "$apphost" --status healthy --timeout 120 --non-interactive &&
-aspire resource web load-catalog --apphost "$apphost" --non-interactive &&
-node scripts/state-smoke.mjs verify
-```
-
-The write check posts a fresh note, reads it back, and confirms that a rejected blank write does not mutate the saved state. The verification requires a **different API instance ID** but the **same note, revision, and timestamp**. Running verification without restarting is intentionally a failure.
-
-The frontend's **Save note** action sends a payload such as:
-
-```json
-{
-  "message": "Retained after a restart"
-}
-```
-
-Messages must be non-blank and no longer than 256 characters. The API stores `state.json` beneath `DATA_PATH`; the helper stores its expected result separately in ignored `artifacts/state-check.json`.
+The walkthrough's `state-smoke.mjs` check automates the same proof. It also confirms that a rejected blank write leaves the saved state unchanged, and that verifying without a restart fails. Messages must be non-blank and no longer than 256 characters.
 
 Writes are serialized within one API process and replace the file atomically. This is a teaching example for a single writer, not a claim of coordination between multiple replicas.
 
@@ -192,6 +166,10 @@ For application-side validation, my [earlier configuration article](/posts/dotne
 A database volume can retain credentials initialized during an earlier run. If the AppHost supplies a different generated password on the next run, keeping the data and changing the credential can produce an authentication failure.
 
 Use the integration's documented secret-parameter mechanism and a local secret store to keep the intended value stable. When rotating it, update the actual database credential and its consumers together; changing an environment variable alone is not a database password-rotation procedure.[^volumes]
+
+The dashboard's **Parameters** tab shows the split in the companion: `catalog-region` is an ordinary value, while `postgres-password` is a secret parameter whose value stays masked:
+
+{{< figure src="parameters-masked.png" alt="Aspire dashboard Parameters tab: catalog-region with the value local, and postgres-password with its value masked" figureClass="full-width" >}}
 
 Outside local development, prefer workload identity and a managed secret service where the chosen integration supports them. Supplying an endpoint or connection reference is not granting a cloud role.
 

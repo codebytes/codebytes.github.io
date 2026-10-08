@@ -40,15 +40,7 @@ Part three has a small independent terminal AppHost as well as the catalog's opt
 | 5    | [Portable configuration and retained application state](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/05-portable-state-and-config)    |
 | 6    | [Compose publishing and artifact review](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/06-choose-your-deployment)                      |
 
-For review, clone the sample feature branch into a separate directory:
-
-```bash
-git clone --branch codebytes-aspire-companion-samples \
-  https://github.com/codebytes/blog-samples.git blog-samples-field-notes
-cd blog-samples-field-notes/aspire-field-notes
-```
-
-Use the collection README for prerequisites and setup, including the one-time database-secret initialization. The commands call the `aspire` CLI directly. You need [Aspire CLI](https://aspire.dev/get-started/install-cli/) 13.6 or later; the steps assume the latest release. The links above deliberately point to the review branch rather than to files that have not yet reached `main`.
+Each walkthrough has the setup and exact commands for its post. Start with the [collection README](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes) for prerequisites, the clone command, and the one-time database secret. You need [Aspire CLI](https://aspire.dev/get-started/install-cli/) 13.6 or later; the steps assume the latest release. The links above deliberately point to the review branch rather than to files that have not yet reached `main`.
 
 The walkthroughs check their own results. The catalog AppHost adds a **Load catalog** command to `web`, available in the dashboard and as `aspire resource web load-catalog`; it makes one request and returns the status and trace ID for you to inspect. `state-smoke.mjs` requires a new process with retained data; the terminal helper uses fresh computed markers; and the Compose reviewer checks generated routing and storage without deploying it. Optional agent-guidance setup is not required to run any of these checks.
 

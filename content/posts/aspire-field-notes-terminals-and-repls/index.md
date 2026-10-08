@@ -32,7 +32,7 @@ That often means finding a port, installing a client, and copying credentials fr
 
 This is part three of [Aspire Field Notes](/series/aspire-field-notes/). The terminal APIs and tape workflow discussed here are experimental. Keep them in a deliberate development workflow rather than assuming they are a production administration interface.
 
-The [terminal companion walkthrough](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/03-terminals-and-repls) contains the catalog's opt-in PostgreSQL REPL workflow and a separate terminal AppHost. Use that guide to run the checked-in projects; the sections below explain the permissions, lifecycle, and output checks involved.
+[Walkthrough 03](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/03-terminals-and-repls) has the setup and every command used here: the catalog's opt-in PostgreSQL REPL and a separate terminal AppHost. The sections below explain the permissions, lifecycle, and output checks involved.
 
 ## Three surfaces with different jobs
 
@@ -57,39 +57,13 @@ if (builder.ExecutionContext.IsRunMode && builder.Configuration.GetValue<bool>("
 }
 ```
 
-It applies `WithRepl()` to the `postgres` server, not the `catalogdb` database. After the collection setup, stop any catalog run you started, then run these commands from the sample checkout's `aspire-field-notes/` directory:
+It applies `WithRepl()` to the `postgres` server, not the `catalogdb` database. Start the catalog with `Diagnostics__EnableRepl=true`, then choose **postgres > Actions > REPL** in the dashboard, or run `aspire resource postgres repl`. Either path opens the `psql` client bundled in the container in the dashboard's terminal dock, already authenticated with the resource's credentials. The CLI command does not attach your shell, so switch to the dashboard to use the session; if the dock is hidden, press the backtick (`` ` ``) key. You do not need a separately installed PostgreSQL client.[^postgres]
 
-```bash
-apphost=catalog/Catalog.AppHost/Catalog.AppHost.csproj
-Diagnostics__EnableRepl=true aspire start \
-  --apphost "$apphost" --isolated --non-interactive &&
-aspire wait api --apphost "$apphost" \
-  --status healthy --timeout 120 --non-interactive &&
-aspire resource postgres repl --apphost "$apphost" --non-interactive
-```
+The session starts in the `postgres` database. Connect to `catalogdb`, open a read-only transaction, and ask a narrow question, such as which products the API is serving:
 
-You can also use **postgres > Actions > REPL** in the dashboard. Either path opens the `psql` client bundled in the container in the dashboard's terminal dock, authenticated using the resource's credentials. The CLI command reports that the command ran; it does not attach your shell, so switch to the dashboard to use the session. If the dock is hidden, press the backtick (`` ` ``) key in the dashboard to toggle it. You do not need a separately installed PostgreSQL client.[^postgres]
+{{< figure src="psql-repl-dock.png" alt="Aspire dashboard with the psql (postgres) terminal docked below the resources: it connects to catalogdb, begins a read-only transaction, and lists the mug, notebook, and sticker from catalog_items" figureClass="full-width" >}}
 
-The session initially connects to the `postgres` database. Switch to the application's database explicitly:
-
-```text
-\connect catalogdb
-```
-
-Then make a small, read-only observation:
-
-```sql
-BEGIN READ ONLY;
-
-SELECT current_database(), current_user;
-
-SELECT sku, name, price FROM catalog_items ORDER BY sku;
-SELECT count(*) AS products FROM catalog_items;
-
-ROLLBACK;
-```
-
-Expect `catalogdb` and three seeded products. These queries use the sample's real `catalog_items` table rather than a hypothetical schema.
+The query uses the sample's real `catalog_items` table and returns the three seeded products.
 
 The read-only transaction limits this example's queries. It does **not** make the REPL a read-only security boundary: the same credentials may be able to modify or delete data in another transaction.
 
@@ -127,15 +101,7 @@ builder.Build().Run();
 
 The scoped warning suppression marks a real experimental API. It is not a recommendation to disable warnings across an application. The empty `NODE_REPL_HISTORY` setting keeps the Node REPL from writing to your personal REPL history.
 
-Start the experiment and inspect its terminal:
-
-```bash
-terminal_apphost=terminals/Terminal.AppHost/Terminal.AppHost.csproj
-aspire start --apphost "$terminal_apphost" --isolated --non-interactive &&
-aspire wait node-repl --apphost "$terminal_apphost" \
-  --status up --timeout 90 --non-interactive &&
-aspire terminal ps --apphost "$terminal_apphost" --non-interactive
-```
+Start the Terminal AppHost and open `node-repl`'s **Console logs** page. For a resource with `WithTerminal()`, that page is the interactive terminal, sized 160×30 by the options above. `aspire terminal ps` lists the same session from a terminal.
 
 Begin from a fresh, idle Node prompt. Coordinate with anyone else viewing that terminal, because input and terminal size are shared. By default, `terminal attach` takes the primary role and resizes the terminal to your window, so attaching from a very small window can shrink it enough to break the output check. Restarting only `node-repl` can keep the reduced size. Attach again from a normal-size window and detach with **Ctrl+B D**, or stop and start the Terminal AppHost. Pass `--viewer` when you only want to watch.[^attach]
 
@@ -153,21 +119,17 @@ Enter
 Wait+Screen@5s /FIELD_NOTES_42_RUN_NONCE/
 ```
 
-Use the helper rather than playing the template literally. It substitutes a fresh nonce, writes an ignored tape under `artifacts/terminals`, and plays it against `node-repl`:
+The companion's `terminal-smoke.mjs` helper fills in a fresh nonce, writes the tape, and plays it against `node-repl` with `aspire terminal tape play`. The dashboard terminal shows the line the tape typed and the result Node computed:
 
-```bash
-node scripts/terminal-smoke.mjs
-node scripts/terminal-smoke.mjs
-node scripts/terminal-smoke.mjs --negative-control
-```
+{{< figure src="node-repl-terminal.png" alt="The node-repl terminal in the Aspire dashboard after tape playback: the typed console.log line and its output, FIELD_NOTES_42 followed by a fresh nonce" figureClass="full-width" >}}
 
-The first two runs must pass with different markers. The typed JavaScript computes `6*7` and joins separate pieces, so input echo cannot contain the full `FIELD_NOTES_42_<nonce>` result. The helper also checks that the final screen contains that computed marker.
+Each run uses a different marker. The typed JavaScript computes `6*7` and joins separate pieces, so input echo cannot contain the full `FIELD_NOTES_42_<nonce>` result. The helper also checks that the final screen contains that computed marker.
 
 `Wait+Screen` can match text left from an earlier attempt. A new nonce prevents the previous run's output from satisfying this run's assertion. `RUN_NONCE` is substituted by the helper, not by Aspire; do not reuse a generated nonce as a repeatability check.
 
 The helper uses five-second output waits, a 20-second playback deadline, and a 35-second outer process deadline. It saves the generated tape, final screen, and diagnostics. A missing prompt or wrong result therefore becomes a bounded failure.[^tapes]
 
-The third command is a deliberate negative control. It generates a fresh tape that computes `6*8` while still waiting for 42, without editing the checked-in template. The helper reports a passing negative control only when the CLI exits with code 16, the screen actually contains the computed 48, and the expected-42 marker is absent. A missing prompt or broken connection cannot masquerade as that successful negative test.
+The helper's `--negative-control` mode is a deliberate negative control. It generates a fresh tape that computes `6*8` while still waiting for 42, without editing the checked-in template. The helper reports a passing negative control only when the CLI exits with code 16, the screen actually contains the computed 48, and the expected-42 marker is absent. A missing prompt or broken connection cannot masquerade as that successful negative test.
 
 ## Know what a tape can and cannot target
 
@@ -177,14 +139,7 @@ It also **cannot target a `WithRepl()` client in the AppHost-owned dock**. The P
 
 An exit code of zero means the tape completed. It does not prove that every program it typed into a shell succeeded. This companion additionally asserts the fresh computed value; for a business application, also verify an API response, state transition, or another independent result.
 
-After this separate experiment, stop its AppHost explicitly:
-
-```bash
-aspire stop \
-  --apphost terminals/Terminal.AppHost/Terminal.AppHost.csproj --non-interactive
-```
-
-If you also started the catalog for the PostgreSQL REPL, stop that AppHost using the collection's scoped cleanup command. Do not use broad process-name cleanup on a machine where other applications may be running.
+When you finish, stop each AppHost with its own scoped `aspire stop --apphost` command. Do not use broad process-name cleanup on a machine where other applications may be running.
 
 ## Text recordings, not release-demo videos
 

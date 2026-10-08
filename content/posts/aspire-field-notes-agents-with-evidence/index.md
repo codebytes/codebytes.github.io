@@ -32,7 +32,7 @@ The improvement I want is not a more confident answer. It is a developer loop th
 
 This is part four of [Aspire Field Notes](/series/aspire-field-notes/). We have a model of the application, diagnostic evidence, and resource-level tools. Now we can give an agent the same path a developer would follow.
 
-The [companion investigation](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/04-agents-with-evidence) uses the same catalog application as part one. Follow the collection's setup, including `node scripts/init-secret.mjs`, then run the commands below from the sample checkout's `aspire-field-notes/` directory. They call the `aspire` CLI directly and need version 13.6 or later. The business operation to investigate is `GET /api/catalog`, not an invented endpoint.
+[Walkthrough 04](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/04-agents-with-evidence) has the setup and every command used here. It uses the same catalog app as part one, with the intentional inventory fault turned on. The business operation to investigate is `GET /api/catalog`, not an invented endpoint.
 
 ## Instructions are not observations
 
@@ -48,16 +48,9 @@ In Aspire 13.6, `aspire agent init` installs selected workflow skills. MCP confi
 
 The companion walkthroughs do not require this setup command. Skip it if your agent already has suitable guidance, or if you do not want it to modify your agent configuration.
 
-**This is not a wholly project-local operation.** In CLI 13.6, setup registers a `PostToolUse` telemetry hook in the user-level configuration of detected GitHub Copilot and Claude Code clients, and copies the hook scripts into your Aspire home directory (`~/.aspire` by default). That happens even when the skill files target a project directory. `ASPIRE_CLI_TELEMETRY_OPTOUT=true` suppresses telemetry transmission while it is set; it does not prevent hook registration. The per-command assignment below does not disable telemetry for later hook executions.[^setup-scope]
+**This is not a wholly project-local operation.** In CLI 13.6, setup registers a `PostToolUse` telemetry hook in the user-level configuration of detected GitHub Copilot and Claude Code clients, and copies the hook scripts into your Aspire home directory (`~/.aspire` by default). That happens even when the skill files target a project directory. `ASPIRE_CLI_TELEMETRY_OPTOUT=true` suppresses telemetry transmission while it is set; it does not prevent hook registration. Setting it for a single command does not disable telemetry for later hook executions.[^setup-scope]
 
-If you intentionally want that setup, the following command selects the catalog workspace and puts its GitHub-compatible skill files in `catalog/.github/skills`:
-
-```bash
-ASPIRE_CLI_TELEMETRY_OPTOUT=true aspire agent init \
-  --workspace-root "$PWD/catalog" --skill-locations github \
-  --skills aspire,aspire-init,aspireify,aspire-orchestration,aspire-monitoring,aspire-deployment,aspire-project-v2-migration \
-  --mcp=false --non-interactive
-```
+If you intentionally want that setup, walkthrough 04 shows an `aspire agent init` command that targets the catalog workspace, puts GitHub-compatible skill files in `catalog/.github/skills`, names the workflow skills, and passes `--mcp=false`.
 
 The `github` location scopes the skill files, not all setup side effects. In 13.6, `standard` additionally targets user-level `~/.agents/skills`; it is not a synonym for "only this project." `--mcp=false` skips new MCP server configuration and does not remove an existing MCP connection. Setup can still rewrite deprecated `aspire mcp start` entries it finds in the workspace's MCP configuration files to `aspire agent mcp`.
 
@@ -73,19 +66,7 @@ Installing a migration skill also does not authorize or execute a migration. The
 
 Multiple worktrees and multiple AppHosts make implicit discovery convenient for humans and risky for unattended scripts.
 
-The following Bash sequence selects the companion's catalog AppHost explicitly and enables its intentional inventory fault. Use a dedicated local worktree, stopping any previous catalog run you started first. The chained commands stop if startup or readiness fails, and the final request is expected to fail with the intentional 503:
-
-```bash
-Inventory__FaultEnabled=true aspire start \
-  --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
-  --isolated --format Json --non-interactive &&
-aspire wait web --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
-  --status healthy --timeout 90 --non-interactive &&
-aspire describe --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
-  --format Table --non-interactive &&
-aspire resource web load-catalog \
-  --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj --non-interactive
-```
+The walkthrough passes `--apphost catalog/Catalog.AppHost/Catalog.AppHost.csproj` to every command. It starts the app with `--isolated` and the inventory fault enabled, waits for readiness, takes an inventory with `aspire describe`, and only then runs **Load catalog**, which is expected to fail with the 503. Use a dedicated local worktree, and stop any previous catalog run you started first.
 
 In CLI 13.6, `ps` lists AppHosts; `describe --apphost ...` is the resource inventory. Inspect the `api` and `inventory` entries in that result rather than treating an AppHost listing as proof that its services are healthy.
 
@@ -131,12 +112,9 @@ With a deliberately injected sample failure, the correct diagnosis can be that t
 
 The readiness wait and the failing command together show healthy resources alongside a failed business operation, and the trace shows that the API-to-inventory call is real. An agent connected through Aspire's MCP server can run the same command with its `execute_resource_command` tool. Follow part one's separate recovery sequence when you intentionally want to turn off the fault.
 
-Query a narrow set of relevant traces rather than handing the agent an entire telemetry database:
+Query a narrow set of relevant traces rather than handing the agent an entire telemetry database. `aspire otel traces --has-error` returns the failing requests. The dashboard's **Traces** page shows the same evidence, with the errored spans marked:
 
-```bash
-aspire otel traces api --limit 5 --has-error \
-  --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj --non-interactive
-```
+{{< figure src="failed-traces.png" alt="Aspire dashboard Traces page with two failed api GET /api/catalog traces, each spanning api, catalogdb, and inventory, with error markers on api and inventory" figureClass="full-width" >}}
 
 Historical comparisons still need a deliberate choice of evidence. Pin the earlier run as described in [part one](/posts/aspire-field-notes-keep-the-failing-run/); do not assume the current CLI query represents the browser's selected historical run.
 
@@ -148,12 +126,9 @@ The companion deliberately uses stable `AddProject` resources. The Project V2 di
 
 `AddDotnetProject` can coordinate compatible projects into shared restore/build groups. A resource's **Start** and **Restart** reuse coordinated output; **Rebuild** is the operation to use after changing its source.[^projects]
 
-Discover the selected resource's commands before relying on one:
+Discover the selected resource's commands before relying on one. `aspire resource api --help` lists them, and so does the resource's **Actions** menu in the dashboard:
 
-```bash
-aspire resource api --help \
-  --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj
-```
+{{< figure src="api-actions-menu.png" alt="Actions menu for the api resource in the Aspire dashboard, listing View details, Console logs, View JSON, Export .env, Structured logs, Traces, Metrics, Stop, Restart, and Rebuild" figureClass="full-width" >}}
 
 In the companion, even the stable `AddProject` API lists `rebuild`, `restart`, and `stop`, and `restart` states that source code is not recompiled. Use `rebuild` after changing a resource's code, then wait for readiness again. If the AppHost model changed, restart the AppHost through its owning lifecycle tool. Frontend HMR and framework-specific hot reload remain separate mechanisms.
 

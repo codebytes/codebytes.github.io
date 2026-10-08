@@ -34,7 +34,7 @@ That is the interesting polyglot story in Aspire 13.6. Not how many language log
 
 In [part one](/posts/aspire-field-notes-keep-the-failing-run/), we kept the failing run. Now we need a useful model of the application that produced it.
 
-The [modeling companion walkthrough](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/02-model-the-whole-app) uses the shared catalog app in `blog-samples`. Start with the collection's prerequisites and review checkout, then run the walkthrough from that checkout's `aspire-field-notes/` directory.
+The examples use the same catalog app as part one. [Walkthrough 02](https://github.com/codebytes/blog-samples/tree/codebytes-aspire-companion-samples/aspire-field-notes/walkthroughs/02-model-the-whole-app) has the setup and every command used here.
 
 ## Three contracts, not one
 
@@ -62,9 +62,9 @@ The [catalog AppHost project](https://github.com/codebytes/blog-samples/tree/cod
 | `api`       | Catalog API             | Reads PostgreSQL and makes one inventory request for `/api/catalog`         |
 | `web`       | Vite frontend           | Same-origin `/api` requests proxied to the API's assigned endpoint          |
 
-The resource list also shows `web-installer`, a child resource that runs `npm ci` for the frontend; `web` waits for it to finish. With the two parameters, `describe` lists eight entries.
+The resource list also shows `web-installer`, a child resource that runs `npm ci` for the frontend; `web` waits for it to finish. The dashboard's **Graph** view draws the same model, with each reference as an arrow and each health check as a badge:
 
-Use the checked-in project and service implementations rather than assembling disconnected snippets. The explicit AppHost path from the collection root is `catalog/Catalog.AppHost/Catalog.AppHost.csproj`.
+{{< figure src="resource-graph.png" alt="Aspire dashboard Graph view: web-installer feeds web, web points to api, api points to inventory and catalogdb, and catalogdb belongs to postgres, each with a green health badge" figureClass="full-width" >}}
 
 This excerpt from the AppHost shows the API's configuration and readiness wiring. `catalogdb`, `inventory`, and `region` are defined earlier in that file:
 
@@ -79,18 +79,11 @@ var api = builder.AddProject<Projects.Catalog_Api>("api")
     .WaitFor(inventory);
 ```
 
-From the collection root, start the app and send one request along the whole path:
+Start the app and select **Load catalog** in the frontend. The browser calls `/api/catalog` on its own origin; Vite forwards the request to the API, which reads PostgreSQL and calls inventory once:
 
-```bash
-aspire start \
-  --apphost catalog/Catalog.AppHost/Catalog.AppHost.csproj --isolated --non-interactive &&
-aspire wait web --apphost catalog/Catalog.AppHost/Catalog.AppHost.csproj \
-  --status healthy --timeout 120 --non-interactive &&
-aspire resource web load-catalog \
-  --apphost catalog/Catalog.AppHost/Catalog.AppHost.csproj --non-interactive
-```
+{{< figure src="catalog-frontend.png" alt="The companion frontend after Load catalog: 3 products loaded from local, HTTP 200, a trace ID, and a table with the debugging mug, field notebook, and trace sticker" figureClass="full-width" >}}
 
-The `load-catalog` command, also a **Load catalog** button on `web` in the dashboard, sends the browser-facing request through the frontend's proxy. It returns the status, the trace ID, and three products. Open that trace to see the database query and the single correlated inventory call; a green process alone cannot produce them.
+Open that trace ID in the dashboard to see the database query and the single correlated inventory call. A green process alone cannot produce them. The same request is also the **Load catalog** command on `web` in the dashboard, and `aspire resource web load-catalog` from a terminal.
 
 The API still needs to use the supplied database configuration. An AppHost reference does not install a database client or register one in the API's dependency-injection container.
 
