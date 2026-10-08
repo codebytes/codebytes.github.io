@@ -1,7 +1,13 @@
 ---
 title: "Stop Losing the Bug When You Restart Aspire"
 date: "2026-10-06"
-draft: true
+draft: false
+build:
+  list: never
+  render: always
+sitemap:
+  disable: true
+robots: "noindex, nofollow"
 categories:
   - "Development"
 tags:
