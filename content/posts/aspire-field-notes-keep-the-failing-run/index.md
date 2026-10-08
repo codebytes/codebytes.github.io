@@ -89,14 +89,33 @@ A controlled fault makes the reproduction repeatable. Turning that fault off dem
 Inventory__FaultEnabled=false aspire start \
   --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
   --isolated --non-interactive &&
-aspire wait api --status healthy --timeout 120 \
+aspire wait web --status healthy --timeout 120 \
   --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj --non-interactive &&
-node scripts/smoke.mjs healthy
+aspire resource web load-catalog \
+  --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj --non-interactive
 ```
 
-The smoke check discovers the current `web` endpoint, waits for the relevant health checks, and makes one same-origin `/api/catalog` request. It expects a successful response with three products, a PostgreSQL span, and one correlated API-to-inventory HTTP call.
+`load-catalog` is a custom command that the companion's AppHost adds to the `web` resource. It sends one `GET /api/catalog` request through the frontend, the same path the browser uses, and never retries it. It prints a small JSON result with the HTTP status, the trace ID, and the API's response: here a 200 with three products.
 
-For the interactive version, open `web` from the dashboard and select **Load catalog**. The page shows the result and its trace ID. Use the assigned endpoint, not a port copied from another run.
+The same command appears in the dashboard as a highlighted **Load catalog** button on `web`. Its notification shows the status and trace ID, and **View response** opens the JSON. An abridged version of the registration:
+
+```csharp
+web.WithHttpCommand(
+    path: "/api/catalog",
+    displayName: "Load catalog",
+    endpointName: "http",
+    commandName: "load-catalog",
+    commandOptions: new HttpCommandOptions
+    {
+        Method = HttpMethod.Get,
+        IsHighlighted = true,
+        // PrepareRequest sets a ten-second timeout.
+        // GetCommandResult returns the status, trace ID, and response as JSON,
+        // and reports a non-success status as a failed command.
+    });
+```
+
+See the companion's [AppHost](https://github.com/codebytes/blog-samples/blob/codebytes-aspire-companion-samples/aspire-field-notes/catalog/Catalog.AppHost/AppHost.cs) for the full result handling. The frontend also has its own **Load catalog** button: open `web` from the dashboard and select it to see the result and trace ID in the page. Use the assigned endpoint, not a port copied from another run.
 
 ### Reproduce the failure
 
@@ -108,14 +127,23 @@ aspire stop --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
 Inventory__FaultEnabled=true aspire start \
   --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
   --isolated --non-interactive &&
-aspire wait api --status healthy --timeout 120 \
+aspire wait web --status healthy --timeout 120 \
   --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj --non-interactive &&
-node scripts/smoke.mjs fault
+aspire resource web load-catalog \
+  --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj --non-interactive
 ```
 
-The expected result is a **503**, even though resource readiness passed. In `fault` mode, a passing smoke check means that it observed the intended failure, not a 200 response.
+The expected result is a **503**, even though resource readiness passed. The command reports it as a failure, `HTTP 503: Inventory unavailable. Trace ID: …`, and exits with code 16. Here, that failure is the observation you want, not a broken step.
 
-The check asserts the parent-child chain from the API server span to its HTTP client span and then inventory's server span, with 503 on all three. It captures console logs, structured logs, spans, and the request result under `artifacts/fault-<trace-id>/`. That folder is the script's own evidence copy; it does not add console logs to the dashboard's run history. Its telemetry-export wait does not retry the business request.
+Inspect that trace in the dashboard's **Traces** page, or set `trace_id` to the returned ID and query it:
+
+```bash
+: "${trace_id:?Set trace_id to the trace ID returned by load-catalog}" &&
+  aspire otel spans --trace-id "$trace_id" \
+    --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj --format Json --non-interactive
+```
+
+Expect the API's server span, exactly one HTTP client span calling inventory, inventory's server span, and the PostgreSQL query, with 503 on the three HTTP spans. A single client span means no retry is hiding the failure. The command only makes the request; checking that chain is up to you.
 
 While the failing run is still live, open the dashboard's **Console logs** page for `api` and for `inventory`. The dashboard keeps a console stream in a run's history only after you have viewed or exported it there, and opening the dashboard is also what starts recording the run's resources. You can also select **Load catalog** in the frontend; the failed response clears any previous successful rows rather than presenting stale data as a result.
 
@@ -138,7 +166,10 @@ aspire stop --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
 Inventory__FaultEnabled=false aspire start \
   --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
   --isolated --non-interactive &&
-node scripts/smoke.mjs recovery
+aspire wait web --status healthy --timeout 120 \
+  --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj --non-interactive &&
+aspire resource web load-catalog \
+  --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj --non-interactive
 ```
 
 Open the new dashboard URL and compare its live run with the pinned failure. The request now returns 200 and three products through the same call path. In the pinned run, the failed trace and the `api` and `inventory` **Console logs** you viewed earlier should remain inspectable. Pinning retains a useful run; it is not the switch that enables history.
@@ -160,7 +191,7 @@ These are measurements to collect, not benchmark results from this article. A fa
 
 Persisted history does not mean every byte written to stdout is automatically archived.
 
-**Console logs are stored only after their stream has been viewed or exported in the dashboard.** Reading them with `aspire logs`, or copying them into an artifact folder as the companion's smoke check does, does not add them to the run's history. If nobody opened that stream, a historical run can lack the console output you expected. Structured logs sent through OpenTelemetry follow the telemetry-storage path instead.[^persistence]
+**Console logs are stored only after their stream has been viewed or exported in the dashboard.** Reading them with `aspire logs` does not add them to the run's history. If nobody opened that stream, a historical run can lack the console output you expected. Structured logs sent through OpenTelemetry follow the telemetry-storage path instead.[^persistence]
 
 This is why opening the relevant **Console logs** pages is part of the reproduction procedure. If an investigation depends on a startup message, view it in the dashboard before stopping the app. For longer-term evidence requirements, use a logging backend designed for them.
 

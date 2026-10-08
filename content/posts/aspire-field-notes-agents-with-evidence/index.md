@@ -73,17 +73,18 @@ Installing a migration skill also does not authorize or execute a migration. The
 
 Multiple worktrees and multiple AppHosts make implicit discovery convenient for humans and risky for unattended scripts.
 
-The following Bash sequence selects the companion's catalog AppHost explicitly and enables its intentional inventory fault. Use a dedicated local worktree, stopping any previous catalog run you started first. The chained commands stop if startup, readiness, or the expected-failure assertion fails:
+The following Bash sequence selects the companion's catalog AppHost explicitly and enables its intentional inventory fault. Use a dedicated local worktree, stopping any previous catalog run you started first. The chained commands stop if startup or readiness fails, and the final request is expected to fail with the intentional 503:
 
 ```bash
 Inventory__FaultEnabled=true aspire start \
   --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
   --isolated --format Json --non-interactive &&
-aspire wait api --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
+aspire wait web --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
   --status healthy --timeout 90 --non-interactive &&
-node scripts/smoke.mjs fault &&
 aspire describe --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj \
-  --format Table --non-interactive
+  --format Table --non-interactive &&
+aspire resource web load-catalog \
+  --apphost ./catalog/Catalog.AppHost/Catalog.AppHost.csproj --non-interactive
 ```
 
 In CLI 13.6, `ps` lists AppHosts; `describe --apphost ...` is the resource inventory. Inspect the `api` and `inventory` entries in that result rather than treating an AppHost listing as proof that its services are healthy.
@@ -114,7 +115,7 @@ Use catalog/Catalog.AppHost/Catalog.AppHost.csproj.
 The request is GET /api/catalog through the web resource.
 
 Inspect api, inventory, and the request's logs and trace.
-Run node scripts/smoke.mjs fault and report its trace ID and evidence directory.
+Run aspire resource web load-catalog and report its HTTP status and trace ID.
 Determine whether Inventory__FaultEnabled intentionally selects the failure.
 Identify which server first returned 503 and show the parent-child span chain.
 Stop after the evidence report.
@@ -128,7 +129,7 @@ The particular wording is less important than the contract. "Fix the app" is not
 
 With a deliberately injected sample failure, the correct diagnosis can be that the development fault is enabled. Do not reward an agent for hiding the 503 behind a success response, removing a check, or adding retries until the check looks green. The expected result and the reason for the failure must remain observable.
 
-The fault check proves healthy resources and a failed business operation together. Its artifacts include console logs, structured logs, and spans; the API-to-inventory call is real. Follow part one's separate recovery sequence when you intentionally want to turn off the fault.
+The readiness wait and the failing command together show healthy resources alongside a failed business operation, and the trace shows that the API-to-inventory call is real. An agent connected through Aspire's MCP server can run the same command with its `execute_resource_command` tool. Follow part one's separate recovery sequence when you intentionally want to turn off the fault.
 
 Query a narrow set of relevant traces rather than handing the agent an entire telemetry database:
 
@@ -190,7 +191,7 @@ A useful handoff should separate these observations:
 | Expected downstream behavior occurred    | The change did not merely hide a failure                               |
 | Remaining checks or evidence are missing | The limits of the conclusion                                           |
 
-For a flaky failure, one passing request is weak evidence. Repeat the relevant scenario and report the sample size rather than declaring the entire application fixed. For this controlled failure, use the checked-in assertions rather than changing their expected 503 into 200.
+For a flaky failure, one passing request is weak evidence. Repeat the relevant scenario and report the sample size rather than declaring the entire application fixed. For this controlled failure, the expected result stays a 503; do not change the code or the check until it reports a 200.
 
 After stopping the sample's AppHosts, run `bash scripts/check.sh` for the build and regression checks. Those checks are useful evidence, but they do not replace the request-level reproduction.
 

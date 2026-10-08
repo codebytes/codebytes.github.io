@@ -50,7 +50,7 @@ cd blog-samples-field-notes/aspire-field-notes
 
 Use the collection README for prerequisites and setup, including the one-time database-secret initialization. The commands call the `aspire` CLI directly. You need [Aspire CLI](https://aspire.dev/get-started/install-cli/) 13.6 or later; the steps assume the latest release. The links above deliberately point to the review branch rather than to files that have not yet reached `main`.
 
-The walkthroughs include their own assertions: `smoke.mjs` asserts the healthy and intentional-fault outcomes, and its recovery mode reruns the healthy assertions under a separate evidence label; `state-smoke.mjs` requires a new process with retained data; the terminal helper uses fresh computed markers; and the Compose reviewer checks generated routing and storage without deploying it. Optional agent-guidance setup is not required to run any of these checks.
+The walkthroughs check their own results. The catalog AppHost adds a **Load catalog** command to `web`, available in the dashboard and as `aspire resource web load-catalog`; it makes one request and returns the status and trace ID for you to inspect. `state-smoke.mjs` requires a new process with retained data; the terminal helper uses fresh computed markers; and the Compose reviewer checks generated routing and storage without deploying it. Optional agent-guidance setup is not required to run any of these checks.
 
 The [official Node.js weather-map sample](https://aspire.dev/reference/samples/aspire-with-node/) is an additional example of a frontend, instrumented API, and external dependency under a TypeScript AppHost. The Java and Rust sections explain optional preview integrations; those languages are not required to run the catalog companion.
 

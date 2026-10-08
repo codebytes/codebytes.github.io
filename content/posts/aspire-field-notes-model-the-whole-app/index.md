@@ -79,15 +79,18 @@ var api = builder.AddProject<Projects.Catalog_Api>("api")
     .WaitFor(inventory);
 ```
 
-From the collection root, run the full request-path check:
+From the collection root, start the app and send one request along the whole path:
 
 ```bash
 aspire start \
   --apphost catalog/Catalog.AppHost/Catalog.AppHost.csproj --isolated --non-interactive &&
-node scripts/smoke.mjs healthy
+aspire wait web --apphost catalog/Catalog.AppHost/Catalog.AppHost.csproj \
+  --status healthy --timeout 120 --non-interactive &&
+aspire resource web load-catalog \
+  --apphost catalog/Catalog.AppHost/Catalog.AppHost.csproj --non-interactive
 ```
 
-The check waits for readiness and then verifies the browser-facing route, response shape, database span, and correlated inventory call. A green process alone cannot satisfy it.
+The `load-catalog` command, also a **Load catalog** button on `web` in the dashboard, sends the browser-facing request through the frontend's proxy. It returns the status, the trace ID, and three products. Open that trace to see the database query and the single correlated inventory call; a green process alone cannot produce them.
 
 The API still needs to use the supplied database configuration. An AppHost reference does not install a database client or register one in the API's dependency-injection container.
 

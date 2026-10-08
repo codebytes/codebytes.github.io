@@ -76,13 +76,15 @@ After collection setup, use a healthy catalog run. If you have a previous run ac
 apphost=catalog/Catalog.AppHost/Catalog.AppHost.csproj
 Inventory__FaultEnabled=false aspire start \
   --apphost "$apphost" --isolated --non-interactive &&
-node scripts/smoke.mjs healthy &&
+aspire wait web --apphost "$apphost" --status healthy --timeout 120 --non-interactive &&
+aspire resource web load-catalog --apphost "$apphost" --non-interactive &&
 node scripts/state-smoke.mjs write
 
 aspire stop --apphost "$apphost" --non-interactive &&
 Inventory__FaultEnabled=false aspire start \
   --apphost "$apphost" --isolated --non-interactive &&
-node scripts/smoke.mjs healthy &&
+aspire wait web --apphost "$apphost" --status healthy --timeout 120 --non-interactive &&
+aspire resource web load-catalog --apphost "$apphost" --non-interactive &&
 node scripts/state-smoke.mjs verify
 ```
 
