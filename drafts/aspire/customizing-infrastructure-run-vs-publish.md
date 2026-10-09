@@ -1,86 +1,55 @@
-# Customize the Infrastructure, Not the Application Contract
+# Customizing Azure Infrastructure From the Aspire AppHost
 
-> Draft for external publication, outside this site's content feed. The C# AppHost fragments target Aspire 13.6.1; they illustrate the model rather than a complete uploads application or an Azure deployment.
+> Draft for external publication, outside this site's content feed. The C# AppHost fragments target Aspire 13.6.1. Bicep excerpts come from `aspire publish`; nothing was deployed.
 
-An upload works against local blob storage. Before deploying it to Azure, you still need to choose storage redundancy, decide who can upload files, and check whether anonymous access is allowed.
+An upload API works against Azurite on a laptop. Before it goes to Azure, the infrastructure review asks for five changes:
 
-A local emulator can't answer those questions. The AppHost can describe the Azure resource as well as the local dependency, but application settings and infrastructure properties go through different APIs.
+1. Geo-redundant storage in production only.
+2. No anonymous blob access.
+3. An `application` tag on the storage account.
+4. Blob access for the API, and nothing else in the account.
+5. A cap of three API replicas.
 
-We'll keep the API's blob-storage dependency in place while changing how storage is provided for Run and Publish.
+None of these are API settings. `api.WithEnvironment("Storage__Sku", "Standard_LRS")` would only hand the API a string. They're properties of the Azure resources Aspire generates, so they belong in the AppHost.
 
-## There is more than one kind of configuration
-
-Adding this setting to the API won't change an Azure storage account:
-
-```csharp
-api.WithEnvironment("Storage__Sku", "Standard_LRS");
-```
-
-That declaration delivers a value to the API process. It does not change the SKU of the storage account Aspire provisions.
-
-The API could read the value, but unless it performs provisioning itself, the storage account remains unchanged.
-
-There are at least three layers to distinguish:
-
-| Layer                        | Example                                                             | What it controls                           |
-| ---------------------------- | ------------------------------------------------------------------- | ------------------------------------------ |
-| Application configuration    | A value passed with `WithEnvironment`                               | What the workload reads                    |
-| Application model            | Resources, references, endpoints, and readiness                     | What the AppHost composes                  |
-| Infrastructure customization | Azure Provisioning properties set through `ConfigureInfrastructure` | What the generated Azure resource declares |
-
-A reference supplies storage connection information, a readiness relationship gates startup, and an infrastructure callback changes Azure resource properties. We'll use each where it belongs.
-
-## Keep the dependency visible in both modes
-
-A small uploads application can declare the same storage dependency for local orchestration and Azure publication:
+## Start from what Aspire generates
 
 ```csharp
-var storage = builder.AddAzureStorage("storage");
+var storage = builder.AddAzureStorage("storage")
+    .RunAsEmulator();
 
-if (builder.ExecutionContext.IsRunMode)
-{
-    storage.RunAsEmulator();
-}
+var uploads = storage.AddBlobContainer("uploads");
 
-var uploads = storage.AddBlobs("uploads");
+builder.AddAzureContainerAppEnvironment("aca");
 
 var api = builder.AddProject<Projects.Api>("api")
     .WithReference(uploads)
     .WaitFor(uploads);
 ```
 
-This is an AppHost fragment. It requires `Aspire.Hosting.Azure.Storage`, an existing referenced API project, and a builder created earlier. The declarations belong before `builder.Build().Run()`.
+These fragments need the `Aspire.Hosting.Azure.Storage` and `Aspire.Hosting.Azure.AppContainers` packages and go before `builder.Build().Run()`.
 
-The API depends on `uploads` in both modes. In this local run, storage uses Azurite. In the Azure publishing model, the resource represents Azure Storage.
+There are no mode checks. `RunAsEmulator` only applies to a local run, so `aspire run` gets Azurite and `aspire publish` generates an Azure Storage account.[^storage] The Container Apps environment works the other way: it's only added to the model when publishing.[^aca]
 
-The integration supplies the appropriate connection information. The API needs the matching client registration and configuration handling to use it.
+Run `aspire publish` before changing anything and read the output. These are the 13.6.1 defaults behind the five requests:
 
-The explicit guard makes the local choice easy to see. For Azure Storage specifically, the 13.6.1 `RunAsEmulator` implementation already returns without applying the emulator in Publish mode. The guard documents intent; it is not a workaround for that integration.[^storage]
+| Review request                 | Aspire 13.6.1 default                   | Where to change it           |
+| ------------------------------ | --------------------------------------- | ---------------------------- |
+| Production-only geo-redundancy | `Standard_GRS` in every environment     | `ConfigureInfrastructure`    |
+| No anonymous blob access       | `allowBlobPublicAccess` not set         | `ConfigureInfrastructure`    |
+| Application tag                | Only `aspire-resource-name`             | `ConfigureInfrastructure`    |
+| Blob-only access for the API   | Blob, Table, and Queue Data Contributor | `WithRoleAssignments`        |
+| Three-replica cap              | `minReplicas: 1`, no maximum            | `PublishAsAzureContainerApp` |
 
-The API can keep using `uploads` without detecting whether it's on a laptop. Azure networking, managed identity, RBAC, and scale still need separate checks; Azurite doesn't reproduce them.
+The account also requires TLS 1.2 and disables shared-key access by default, so the examples don't repeat those settings.
 
-## Run mode is not a synonym for Development
+## Change the storage account
 
-`IsRunMode` and `IsPublishMode` describe the AppHost operation. An environment name such as `Development` or `Production` selects configuration; it doesn't select the operation.[^context]
-
-| Invocation                     | Execution context | Main purpose                                                |
-| ------------------------------ | ----------------- | ----------------------------------------------------------- |
-| `aspire run` or `aspire start` | Run mode          | Orchestrate the application                                 |
-| `aspire publish`               | Publish mode      | Execute the publishing pipeline                             |
-| `aspire deploy`                | Publish mode      | Execute the deployment pipeline, including its dependencies |
-
-A local run can use real Azure resources. A publishing operation can select a non-production environment. Changing the configuration environment does not turn one operation into the other.
-
-Use the execution context for the emulator choice above. Also note that both `publish` and `deploy` use Publish mode: the pipeline operation and its registered steps determine whether they generate artifacts, build code, or change infrastructure.
-
-## Customize the resource Aspire already generates
-
-For Azure resources backed by `AzureProvisioningResource`, `ConfigureInfrastructure` exposes the generated provisioning constructs before their Bicep is emitted.[^customization]
-
-In a C# AppHost, the types come from the Azure Provisioning SDK:
+`ConfigureInfrastructure` gives you the provisioning model Aspire built for the resource before it becomes Bicep:[^customize]
 
 ```csharp
 using Azure.Provisioning.Storage;
+using Microsoft.Extensions.Hosting;
 
 storage.ConfigureInfrastructure(infrastructure =>
 {
@@ -90,101 +59,103 @@ storage.ConfigureInfrastructure(infrastructure =>
 
     account.Sku = new StorageSku
     {
-        Name = StorageSkuName.StandardLrs
+        Name = builder.Environment.IsProduction()
+            ? StorageSkuName.StandardGrs
+            : StorageSkuName.StandardLrs
     };
     account.AllowBlobPublicAccess = false;
-    account.MinimumTlsVersion = StorageMinimumTlsVersion.Tls1_2;
     account.Tags["application"] = "uploads";
 });
 ```
 
-Place this after the `storage` declaration and before the AppHost is built. The `using` belongs at the top of the file.
+The `using` directives go at the top of the AppHost file. `Single()` expects exactly one storage account in this resource's model. If that ever changes, publishing fails instead of customizing the wrong account.
 
-The callback selects the storage account already created by the integration. It does not query Azure to find a live account, and it does not declare a second account.
+The SKU follows the AppHost environment, which `aspire publish` sets to `Production` unless you pass `--environment`. Publishing with `--environment Staging` produced:
 
-`Single()` is intentional: this callback expects exactly one storage account. If that changes, it should fail rather than customize the wrong account.
-
-The example chooses locally redundant storage. Select redundancy from your workload's recovery requirements rather than carrying this sample value into production unchanged.
-
-The explicit TLS minimum also documents a policy that Aspire 13.6.1 already applies by default. Repeating a required value can make the expectation clear without claiming it is a newly added protection.
-
-## Anonymous access, networking, and identity are separate decisions
-
-`AllowBlobPublicAccess = false` disables the account's ability to permit anonymous public access to blobs. It does not make the account's endpoint private.
-
-Public-network access, firewall rules, private endpoints, and DNS have their own configuration. If you disable public-network access, provide a private path the workload can actually reach.
-
-Identity is another separate layer. Aspire's Azure integrations can generate default role assignments based on resource references, including storage data roles. Review those assignments and the identities receiving them rather than assuming every reference expresses the least privilege your application needs.[^roles]
-
-A deployment identity, an image-pull identity, and the workload's data-access identity can have different responsibilities. Permission to deploy an account is not automatically permission to upload a blob from the application.
-
-The local emulator bypasses much of that operational context. A successful upload there validates the local path, not the Azure authorization design.
-
-## Infrastructure callbacks are not "publish-only hooks"
-
-A blanket `if (builder.ExecutionContext.IsPublishMode)` guard can skip policy you need in Run mode. A developer using real Azure backing services may need the same storage restrictions as the deployed application.
-
-Use the execution context when the difference is deliberate, such as choosing an emulator for local orchestration. Apply common infrastructure policy to the common resource definition.
-
-`ConfigureInfrastructure` configures a provisioning model. Whether that model is used to generate artifacts or provision resources depends on the operation and integration. It is not a general application startup callback, and its registration alone is not a cloud deployment.
-
-## Select the publishing target separately
-
-An Azure backing resource is not the deployment destination of the API.
-
-For an application targeting Azure Container Apps, the AppHost can declare that compute environment for its publishing model:
-
-```csharp
-if (builder.ExecutionContext.IsPublishMode)
-{
-    builder.AddAzureContainerAppEnvironment("azure");
-}
+```bicep
+  sku: {
+    name: 'Standard_LRS'
+  }
+  properties: {
+    accessTier: 'Hot'
+    allowBlobPublicAccess: false
+    allowSharedKeyAccess: false
+    isHnsEnabled: false
+    minimumTlsVersion: 'TLS1_2'
+    networkAcls: {
+      defaultAction: 'Allow'
+    }
+  }
+  tags: {
+    'aspire-resource-name': 'storage'
+    application: 'uploads'
+  }
 ```
 
-This fragment requires `Aspire.Hosting.Azure.AppContainers` and belongs before the AppHost is built. With a single compatible compute environment, Aspire can infer the destination of the API. Multiple environments need explicit assignments.
+Look at `networkAcls`. Blocking anonymous blob access doesn't make the account private; its network rule still allows public traffic. Private networking is a separate change. In 13.6.1, giving the account a private endpoint switches that default to `Deny`.
 
-The mode check keeps this publishing-target declaration out of the local orchestration model. It does not decide whether the storage account uses public networking or which identity can access it.
+Don't wrap this callback in an `IsPublishMode` check. If a developer drops the emulator and runs against Azure Storage, Aspire provisions their account from the same callback.[^provisioning] A Publish-only guard would give them the defaults instead.
 
-## Existing resources are not newly managed resources
+## Narrow the API's access
 
-Not every storage account should be created by the application.
+By default, the API's reference grants its managed identity three data roles on the account. Replace them with the one it needs:[^roles]
 
-If the platform team owns an existing resource, referencing it can be the correct contract. Aspire provides mode-aware existing-resource APIs, including `RunAsExisting`, `PublishAsExisting`, and `AsExisting`.[^customization]
+```csharp
+api.WithRoleAssignments(storage, StorageBuiltInRole.StorageBlobDataContributor);
+```
 
-An existing declaration identifies a resource to use. It should not be treated as an instruction to retrofit every property from a new-resource customization example onto the deployed account.
+`WithRoleAssignments` replaces the defaults for this resource instead of adding to them. The generated `api-roles-storage` module went from three role assignments to one.
 
-An application using a platform team's shared account may have no authority to change its redundancy, network policy, naming, or lifecycle. Make the ownership clear before applying a new-resource customization example to it.
+These roles control what the running API can do. The identity that runs the deployment needs its own permissions.
 
-## Review artifacts without moving the source of truth
+## Customize the container app
 
-If a reviewer wants a different SKU, change the AppHost and regenerate the Bicep. Editing only the generated file leaves the AppHost unchanged, so the next publish can restore the old value.
+The API's compute resource has its own hook:
 
-Publishing deserves its own review. `aspire publish --list-steps` lists the planned steps without executing those steps, but still prepares and evaluates the AppHost. A real publication executes the registered pipeline, which can include builds and custom tooling.[^pipeline]
+```csharp
+api.PublishAsAzureContainerApp((infrastructure, app) =>
+{
+    app.Template.Scale.MaxReplicas = 3;
+});
+```
 
-Inspect the infrastructure output for the actual properties, not merely the presence of a callback in source:
+```bicep
+      scale: {
+        minReplicas: 1
+        maxReplicas: 3
+      }
+```
 
-- The intended storage SKU and resource kind are declared.
-- Anonymous blob access and the TLS minimum match the policy.
-- Endpoint outputs and parameter references are retained.
-- Identities and role assignments match their intended responsibilities.
-- The cloud model does not accidentally publish the emulator's development endpoints.
+This hook only runs when publishing. During a local run, the call returns without changing anything.[^aca] The storage callback is different: it applies wherever Aspire provisions the account.
 
-A generated template can establish those declarations. It cannot establish that Azure accepted the deployment, that DNS resolves from the workload, or that a particular caller has access.
+## When the platform team owns the account
 
-After an authorized deployment, test an upload with the intended identity, a rejected request from an unauthorized caller, and the data-retention behavior the workload requires.
+If the storage account already exists, reference it instead of creating one:
 
-The fragments here describe the model and generated declarations. They don't establish those deployed results.
+```csharp
+storage.AsExisting(
+    builder.AddParameter("storageName"),
+    builder.AddParameter("storageResourceGroup"));
+```
 
-## Keep the API focused on the upload
+Use `RunAsExisting` or `PublishAsExisting` to do this in only one mode. The generated Bicep declares the account as `existing` but still declares the `uploads` container inside it, so the deployment needs permission to create that container.
 
-The API still depends on `uploads`. The AppHost chooses Azurite for the local run and declares Azure Storage policy for provisioning. That keeps environment-specific decisions out of the upload handler and puts them where a reviewer can compare the model, generated Bicep, and deployed behavior.
+The account's own properties are no longer the AppHost's to set. With `AsExisting`, the callback above fails during publishing with `Cannot assign to output value AllowBlobPublicAccess`. Take SKU and access-policy requests to the account's owner.
 
-[^storage]: The [13.6.1 Azure Storage implementation](https://github.com/microsoft/aspire/blob/v13.6.1/src/Aspire.Hosting.Azure.Storage/AzureStorageExtensions.cs) defines the Azurite Run-mode behavior, Azure storage defaults, and generated storage resources.
+## Review the Bicep, change the AppHost
 
-[^context]: The [13.6.1 execution context](https://github.com/microsoft/aspire/blob/v13.6.1/src/Aspire.Hosting/DistributedApplicationExecutionContext.cs) defines Run and Publish operations. [Azure deployment](https://aspire.dev/deployment/azure/) explains the publishing model's target selection and deployment workflow.
+Because `aspire publish` writes the Bicep, each change above shows up as a diff you can review. If a reviewer wants something different, change the AppHost and publish again. The next publish regenerates the Bicep from the AppHost, so edits made only to the generated files don't last.
 
-[^customization]: [Customize Azure resources](https://aspire.dev/integrations/cloud/azure/customize-resources/) covers typed infrastructure customization, existing resources, and output references.
+The Bicep shows what will be declared. It doesn't show that Azure accepted the deployment or that the access rules work. After an authorized deployment, upload a file as the API and confirm that a caller without the role is rejected.
 
-[^roles]: [Manage Azure role assignments](https://aspire.dev/integrations/cloud/azure/role-assignments/) explains default assignments and explicit customization.
+None of the five changes touched the API's code or configuration. They're in the AppHost, next to the resources they change.
 
-[^pipeline]: [`aspire publish`](https://aspire.dev/reference/cli/commands/aspire-publish/) and [`aspire deploy`](https://aspire.dev/reference/cli/commands/aspire-deploy/) describe the pipeline operations and command options.
+[^storage]: The [13.6.1 Azure Storage integration](https://github.com/microsoft/aspire/blob/v13.6.1/src/Aspire.Hosting.Azure.Storage/AzureStorageExtensions.cs) defines the account defaults, the default role assignments, and the `RunAsEmulator` behavior.
+
+[^aca]: In 13.6.1, the [Container Apps environment](https://github.com/microsoft/aspire/blob/v13.6.1/src/Aspire.Hosting.Azure.AppContainers/AzureContainerAppExtensions.cs) is only added to the model when publishing, and [`PublishAsAzureContainerApp`](https://github.com/microsoft/aspire/blob/v13.6.1/src/Aspire.Hosting.Azure.AppContainers/AzureContainerAppProjectExtensions.cs) returns early outside Publish mode.
+
+[^customize]: [Customize Azure resources](https://aspire.dev/integrations/cloud/azure/customize-resources/) covers `ConfigureInfrastructure` and existing resources.
+
+[^provisioning]: In 13.6.1, the [run-mode Bicep provisioner](https://github.com/microsoft/aspire/blob/v13.6.1/src/Aspire.Hosting.Azure/Provisioning/Provisioners/BicepProvisioner.cs) renders each resource through [`GetBicepTemplateFile`](https://github.com/microsoft/aspire/blob/v13.6.1/src/Aspire.Hosting.Azure/AzureProvisioningResource.cs), which applies its infrastructure callbacks.
+
+[^roles]: [Manage Azure role assignments](https://aspire.dev/integrations/cloud/azure/role-assignments/) explains default and explicit role assignments.
