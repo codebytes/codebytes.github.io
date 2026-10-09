@@ -1,7 +1,7 @@
 ---
 title: "Stop Losing the Bug When You Restart Aspire"
 date: "2026-10-07T09:00:00-04:00"
-lastmod: "2026-10-08T22:21:37-04:00"
+lastmod: "2026-10-08T23:04:45-04:00"
 categories:
   - "Development"
 tags:
@@ -20,32 +20,30 @@ header:
   teaser: "featured.png"
   og_image: "featured.png"
 excerpt_separator: "<!--more-->"
-description: "Use Aspire 13.6 run history to keep a reproduction, compare a fix, and avoid confusing retained telemetry with a replayable or production-grade system."
+description: "Keep a failing Aspire run, restart the app, and compare the traces. A catalog example shows what the 13.6 dashboard saves and what you need to capture yourself."
 ---
 
-Imagine reproducing an intermittent failure, changing one line, and restarting the application. The new run works. Great. But what actually changed?
+You reproduce an intermittent failure, change one line, and restart the application. This time the request works. Now you need the old trace to work out why.
 
-If the old trace and resource state disappeared with the restart, the answer is often a screenshot, a memory, or a guess. Aspire 13.6's most useful new feature addresses that gap: the dashboard keeps completed runs so you can return to the evidence.[^release]
+If it disappeared with the restart, you're left comparing the new run with whatever you remember. Aspire 13.6's dashboard keeps completed runs, so you can go back to the failed request instead.[^release]
 
 <!--more-->
 
-This is part one of [Aspire Field Notes](/series/aspire-field-notes/). We are starting with a debugging problem, not with installing another tool.
+This is where [Aspire Field Notes](/series/aspire-field-notes/) starts: keeping enough of a failure to investigate it after the app has moved on.
 
 ## A green dashboard is not the result
 
 A failure in a business request does not have to show up in `/health`. When a downstream dependency rejects a call, the request fails while the service keeps running and its health endpoint stays healthy.
 
-A resource graph full of green indicators tells us something about process and health state. It does not prove that the request worked. We need evidence from the operation itself: the request, the downstream call, its duration, and the error.
+A resource graph full of green indicators tells us about process and health state. To diagnose the failed request, we need its downstream calls, durations, and errors.
 
 Before changing code, make sure the application emits that evidence. The dashboard can receive OpenTelemetry, but it cannot reconstruct spans that the application never produced. For .NET, Service Defaults is a useful starting point. Node, Java, Python, and Rust still need the appropriate instrumentation.
-
-That distinction makes retained runs valuable. We are keeping observations, not collecting reassuring colors.
 
 ## Choose the right kind of persistence
 
 Aspire 13.6 uses SQLite for dashboard storage. Its three modes have different purposes:[^persistence]
 
-| Mode     | What survives                                                     | When I would use it                          |
+| Mode     | Storage behavior                                                  | When I would use it                          |
 | -------- | ----------------------------------------------------------------- | -------------------------------------------- |
 | `None`   | A temporary database for one dashboard process                    | A disposable standalone diagnostic session   |
 | `Run`    | A separate database for each dashboard run, with a run selector   | Comparing a failing run with a later attempt |
@@ -57,13 +55,15 @@ A **standalone dashboard still defaults to `None`**. To continue from the same d
 
 ## Capture a baseline, a failure, and recovery
 
-To make this concrete, the rest of this post uses a small catalog app from the [companion samples](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes): a Vite frontend named `web`, a catalog API named `api`, a PostgreSQL database named `catalogdb`, and a separate `inventory` service. Loading the catalog reads the database and makes one instrumented HTTP call to inventory, with no retry to hide a failure.
+The [companion catalog app](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes) gives us a repeatable request: a Vite frontend named `web` calls a catalog API named `api`, which reads PostgreSQL's `catalogdb` and calls a separate `inventory` service. There is one instrumented HTTP call to inventory, with no retry to hide a failure.
 
-A development-only switch, `Inventory__FaultEnabled`, makes inventory return a 503 while its health endpoint stays green. A controlled fault like this makes the reproduction repeatable without breaking anything shared. Turning it off demonstrates recovery; it does not prove that you diagnosed an unknown bug. In a real investigation, the proposed fix still needs to address the observed cause. Do not create failures in a shared production dependency to try this.
+A development-only switch, `Inventory__FaultEnabled`, makes inventory return a 503 while its health endpoint stays green. Turning it off lets us compare failure and recovery without breaking a shared dependency. We know the cause in this example; with an actual bug, the trace would need to support the proposed fix.
+
+If you're following along, [walkthrough 01](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/01-keep-the-failing-run) has the setup and one-time database secret. The sample targets Aspire 13.6.1 and requires Aspire CLI 13.6 or later.
 
 ### A request you can repeat
 
-Comparing runs only works if you make the same request each time. The companion's AppHost adds a **Load catalog** command to the `web` resource. It sends one `GET /api/catalog` request through the frontend, the same path the browser uses, and reports the HTTP status, the trace ID, and the response. It appears as a highlighted button on `web` in the dashboard, and `aspire resource web load-catalog` runs it from a terminal. An abridged version of the registration:
+Use the same request for each run. The companion's AppHost adds a **Load catalog** command to `web` that sends one `GET /api/catalog` through the frontend, following the browser's path. It reports the HTTP status, trace ID, and response. You can use the highlighted button in the dashboard or run `aspire resource web load-catalog` from a terminal. Here's the abridged registration:
 
 ```csharp
 web.WithHttpCommand(
@@ -86,29 +86,31 @@ With the fault off, **Load catalog** returns a 200 and three products. That is t
 
 ### Reproduce the failure
 
-Restart the same app with the fault on and run **Load catalog** again. The frontend, API, inventory service, and database remain healthy, but the command fails with `HTTP 503: Inventory unavailable` and the trace ID of the request that failed. That failure is the observation you want, not a broken step:
+Restart the same app with the fault on and run **Load catalog** again. The frontend, API, inventory service, and database remain healthy, but the command fails with `HTTP 503: Inventory unavailable` and a trace ID. That's the expected result with the fault enabled:
 
-{{< figure src="load-catalog-503.png" alt="Aspire dashboard Resources page with the Load catalog action highlighted on the web resource and a failure notification reading HTTP 503: Inventory unavailable, with the request's trace ID" figureClass="full-width" >}}
+{{< figure src="load-catalog-503.png" alt="Aspire dashboard Resources page with the Load catalog action highlighted on the web resource and a failure notification reading HTTP 503: Inventory unavailable, with the request's trace ID" caption="The resources are healthy, but Load catalog returns HTTP 503." figureClass="full-width" >}}
 
-Open that trace. You should see the API's request, its PostgreSQL query, exactly one HTTP call to inventory, and inventory's own span, with 503 on the three HTTP spans. A single client span means no retry is hiding the failure. The command makes the request; reading that chain is your job:
+Open that trace. You should see the API's request, its PostgreSQL query, exactly one HTTP call to inventory, and inventory's own span, with 503 on the three HTTP spans. The single inventory client span confirms that this request wasn't retried:
 
-{{< figure src="failed-trace.png" alt="Trace detail for GET /api/catalog showing the API request, its PostgreSQL query to catalogdb, one HTTP GET call that returned 503, and the inventory service's GET /inventory span" figureClass="full-width" >}}
+{{< figure src="failed-trace.png" alt="Trace detail for GET /api/catalog showing the API request, its PostgreSQL query to catalogdb, one HTTP GET call that returned 503, and the inventory service's GET /inventory span" caption="The database query completes; the inventory call returns 503 and the API passes that failure back." figureClass="full-width" >}}
 
-While the failing run is still live, open the dashboard's **Console logs** page for `api` and for `inventory`. The dashboard keeps a console stream in a run's history only after you have viewed or exported it there, and opening the dashboard is also what starts recording the run's resources.
+Before stopping the failing run, open the dashboard's **Console logs** page for both `api` and `inventory`. **A console stream is stored in history only after you view or export it in the dashboard.** Reading it with `aspire logs` doesn't capture it there. Structured logs sent through OpenTelemetry are stored separately.[^persistence]
+
+This is easy to miss when a startup message is the clue you need. Open the relevant console pages while the run is live, even if you've already read the output in your terminal.
 
 AppHost-scoped CLI queries, such as `aspire otel traces --has-error`, read the live run. Selecting a historical run in the browser does not change what a separate CLI command sees, so use the dashboard's run selector for the comparison below.
 
 ### Keep the failure and compare recovery
 
-Open the run selector in the dashboard header, which shows **Live run**, and select **Pin run** on the failing run. Then stop the app, turn the fault off, start it again, and run **Load catalog**. The request returns a 200 and three products through the same call path.
+Open the run selector in the dashboard header. Hover or focus the **Live run** row to reveal **Pin run**, then pin the failing run. Stop the app, turn the fault off, start it again, and run **Load catalog**. The request returns a 200 and three products through the same call path.
 
 In the new dashboard, the run selector lists the pinned failing run beside the live one:
 
-{{< figure src="pinned-run-selector.png" alt="Run selector open in the recovered dashboard, listing the live run and the pinned 10:08:18 PM failing run" figureClass="full-width" >}}
+{{< figure src="pinned-run-selector.png" alt="Run selector open in the recovered dashboard, listing the live run and the pinned 10:08:18 PM failing run" caption="The pinned failure is still available beside the new live run." figureClass="full-width" >}}
 
 Select the pinned run. Its failed trace and the `api` and `inventory` **Console logs** you viewed earlier are still there:
 
-{{< figure src="pinned-run-console.png" alt="Console logs for api in the pinned 10:08:18 PM run, filtered to 503, ending with Inventory returned HTTP 503; no retry and the same trace ID" figureClass="full-width" >}}
+{{< figure src="pinned-run-console.png" alt="Console logs for api in the pinned 10:08:18 PM run, filtered to 503, ending with Inventory returned HTTP 503; no retry and the same trace ID" caption="The historical API console contains the original 503 and its trace ID." figureClass="full-width" >}}
 
 Pinning retains a useful run; it is not the switch that enables history.
 
@@ -123,15 +125,7 @@ The comparison should answer a specific question:
 | Did a retry hide the problem?   | Downstream attempts and elapsed time, where instrumented                  |
 | Did the environment change?     | Resource properties, endpoints, and configuration relevant to the failure |
 
-These are measurements to collect, not benchmark results from this article. A faster second request might reflect warmed caches or connection pools rather than the fix.
-
-## The console-log detail that is easy to miss
-
-Persisted history does not mean every byte written to stdout is automatically archived.
-
-**Console logs are stored only after their stream has been viewed or exported in the dashboard.** Reading them with `aspire logs` does not add them to the run's history. If nobody opened that stream, a historical run can lack the console output you expected. Structured logs sent through OpenTelemetry follow the telemetry-storage path instead.[^persistence]
-
-This is why opening the relevant **Console logs** pages is part of the reproduction procedure. If an investigation depends on a startup message, view it in the dashboard before stopping the app. For longer-term evidence requirements, use a logging backend designed for them.
+Be careful with duration alone. A faster second request might reflect warmed caches or connection pools rather than the fix.
 
 ## Retained does not mean unlimited
 
@@ -143,38 +137,34 @@ Within a database, console logs, structured logs, and traces each have a default
 
 Those limits are not disk quotas. Large attributes and high-cardinality metrics consume space. Removing rows lets SQLite reuse pages; it does not necessarily shrink the database file.
 
-Treat pinning as part of an investigation's lifecycle: keep the useful reproduction, then retire it when it no longer serves a purpose. A directory full of pinned runs is not a backup strategy.
+Unpin runs when you're finished with the investigation. For longer-term retention, use a telemetry backend with a retention policy and backups.
 
-## A historical run is evidence, not a time machine
+## What a historical run can tell you
 
 Historical views are read-only. You cannot restart last Tuesday's database, change an old parameter, or replay a request by selecting its trace.
 
-The stored resource snapshot also is not a full application event log. The dashboard starts watching the AppHost's resources only when a page first needs them, so a run that nobody opens in a browser can keep traces and structured logs without any resource snapshot.[^client] When a snapshot exists, it is useful context for what the dashboard retained, not proof of every configuration transition during the run.
+The dashboard starts watching the AppHost's resources only when a page first needs them. A run that nobody opens in a browser can therefore keep traces and structured logs without a resource snapshot.[^client] Even when captured, that snapshot won't tell you about every configuration change during the run.
 
 Schema compatibility matters across dashboard upgrades. Incompatible historical `Run` databases can remain visible but unavailable to open. `Resume` can replace an incompatible database after reading its schema version successfully. Preserve important evidence deliberately before upgrading; do not assume persistence promises indefinite forward compatibility.[^persistence]
 
 If you must inspect or copy a database, follow the storage guidance, including SQLite's write-ahead log files. Do not edit dashboard databases with external tools.
 
-## Why keeping more evidence can use less memory
+## Under the hood: SQLite and Native AOT
 
 James Newton-King's persistence deep dive explains the design behind this workflow. SQLite runs inside the dashboard, without another database server to manage. Dapper queries filter, count, sort, and page the stored telemetry before materializing the requested results. Keeping a run does not require keeping its entire history as live .NET objects.[^persistence-design]
 
 The article's large-telemetry comparison measured private memory at roughly 1,007 MB for Aspire 13.5 and 241 MB for 13.6. Its chart reports one run per version, after forced garbage collection. Those are the author's measurements for that workload, not results from this catalog sample or a promised reduction on your laptop.
 
-## Why Native AOT belongs in this story
-
-The other dashboard improvement in 13.6 is less visible: it ships as a Native AOT executable.
+The dashboard also ships as a Native AOT executable in 13.6.
 
 James Newton-King's engineering write-up explains the work across Blazor, Fluent UI, serialization, and Dapper. The practical benefit for this workflow is less startup and first-use JIT work when you repeatedly stop and start the dashboard.[^aot]
 
-The persistence implementation connects the two changes: Dapper.AOT generates query and mapping code at build time for the native dashboard.[^persistence-design]
+Dapper.AOT connects the two changes by generating query and mapping code at build time for the native dashboard.[^persistence-design]
 
-There are two boundaries worth keeping:
+Two qualifications matter if you're considering AOT for your own app:
 
 - The dashboard's native executable does not require a separately installed .NET runtime, but the Aspire CLI still ensures a runtime is available for other parts of Aspire.
 - The dashboard's experimental Blazor AOT work does not make Native AOT a generally supported publishing option for arbitrary Blazor Web Apps.
-
-This is not a reason to retarget the catalog API or promise a particular speedup on your laptop. It is an improvement to the tool we use to observe the application.
 
 ## Protect what you keep
 
@@ -186,7 +176,7 @@ For production retention and access controls, use Application Insights or anothe
 
 ## Try this before the next refactor
 
-[Walkthrough 01](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/01-keep-the-failing-run) has the setup, including the one-time database secret, and every command used here. You need [Aspire CLI](https://aspire.dev/get-started/install-cli/) 13.6 or later. Start with its repeatable failure: capture it, pin it, change one thing, and repeat the same request. Then apply that discipline to an actual bug. The useful outcome is being able to explain the difference between runs with evidence.
+Before changing code for the next bug, capture the request that fails and pin its run. After the change, repeat that request and compare the two traces. You'll have something more useful in the review than "it worked after I restarted."
 
 A normal stop keeps the dashboard history, application data, and database volume, so you can come back to the pinned run later.
 

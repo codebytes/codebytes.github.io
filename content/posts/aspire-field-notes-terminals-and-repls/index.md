@@ -1,6 +1,7 @@
 ---
 title: "Put the Debugging Tools Next to the App"
 date: "2026-10-07T09:02:00-04:00"
+lastmod: "2026-10-08T23:04:45-04:00"
 categories:
   - "Development"
 tags:
@@ -20,16 +21,16 @@ header:
   teaser: "featured.png"
   og_image: "featured.png"
 excerpt_separator: "<!--more-->"
-description: "Use Aspire 13.6's terminal dock and database REPLs, distinguish their lifetimes, and automate a resource terminal without mistaking a successful tape for a successful application."
+description: "Query PostgreSQL from Aspire's terminal dock, then automate a Node REPL with a repeatable output check. The two terminal experiences work differently."
 ---
 
 The API can connect to the database, but you still need to answer a small question: which database did it actually reach?
 
-That often means finding a port, installing a client, and copying credentials from one place to another. Aspire 13.6 brings that diagnostic interaction next to the resource. The interesting part is not another terminal window. It is the resource context around it.
+That often means finding a port, installing a client, and copying credentials. In Aspire 13.6, you can open a database REPL from the resource's Actions menu with its connection already configured.
 
 <!--more-->
 
-This is part three of [Aspire Field Notes](/series/aspire-field-notes/). The `WithTerminal()` hosting API is experimental. Keep terminal automation in a deliberate development workflow rather than assuming it is a production administration interface.
+For this part of [Aspire Field Notes](/series/aspire-field-notes/), we'll query the catalog database, then try a separate Node terminal that can be automated. The two look similar in the dashboard, but they have different lifetimes and APIs.
 
 ## Three surfaces with different jobs
 
@@ -41,7 +42,7 @@ Mitch Denny's [terminal deep dive](https://devblogs.microsoft.com/aspire/aspire-
 | Resource terminal via `WithTerminal()` | Interact with a terminal-enabled process          | Terminal input reaches that live process                |
 | AppHost-owned terminal dock            | Run tools and resource REPLs beside the dashboard | Closing the viewer is not necessarily stopping the tool |
 
-Resource terminals started in 13.5. Aspire 13.6 adds the docked workflows and opt-in database/cache REPLs. That history matters when a sample uses one API but expects another surface's behavior.
+Resource terminals started in 13.5. Aspire 13.6 adds the docked workflows and opt-in database/cache REPLs.
 
 ## Inspect PostgreSQL without moving its password
 
@@ -54,17 +55,32 @@ if (builder.ExecutionContext.IsRunMode && builder.Configuration.GetValue<bool>("
 }
 ```
 
-It applies `WithRepl()` to the `postgres` server, not the `catalogdb` database. Start the catalog with `Diagnostics__EnableRepl=true`, then choose **postgres > Actions > REPL** in the dashboard, or run `aspire resource postgres repl`. Either path opens the `psql` client bundled in the container in the dashboard's terminal dock, already authenticated with the resource's credentials. The CLI command does not attach your shell, so switch to the dashboard to use the session; if the dock is hidden, press the backtick (`` ` ``) key. You do not need a separately installed PostgreSQL client.[^postgres]
+It applies `WithRepl()` to the `postgres` server, not the `catalogdb` database. The [PostgreSQL walkthrough](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/03-terminals-and-repls) has the setup and startup commands.
 
-The session starts in the `postgres` database. Connect to `catalogdb`, open a read-only transaction, and ask a narrow question, such as which products the API is serving:
+Start the catalog with `Diagnostics__EnableRepl=true`, then choose **postgres > Actions > REPL** in the dashboard, or run `aspire resource postgres repl`. Either opens the container's bundled `psql` client in the dashboard dock, authenticated with the resource's credentials. The CLI command doesn't attach your shell. Switch to the dashboard; if the dock is hidden, press the backtick (`` ` ``) key.[^postgres]
 
-{{< figure src="psql-repl-dock.png" alt="Aspire dashboard with the psql (postgres) terminal docked below the resources: it connects to catalogdb, begins a read-only transaction, and lists the mug, notebook, and sticker from catalog_items" figureClass="full-width" >}}
+The session starts in the `postgres` database. Connect to `catalogdb` and inspect the seeded products in a read-only transaction:
 
-The query uses the sample's real `catalog_items` table and returns the three seeded products.
+```sql
+\connect catalogdb
+BEGIN READ ONLY;
+SELECT
+    current_database(),
+    current_user;
+SELECT sku, name, price
+FROM catalog_items
+ORDER BY sku;
+SELECT count(*) AS products
+FROM catalog_items;
+ROLLBACK;
+\q
+```
+
+{{< figure src="psql-repl-dock.png" alt="Aspire dashboard with the psql (postgres) terminal docked below the resources: it connects to catalogdb, begins a read-only transaction, and lists the mug, notebook, and sticker from catalog_items" caption="The docked client connects to catalogdb and returns the three seeded products from catalog_items." figureClass="full-width" >}}
 
 The read-only transaction limits this example's queries. It does **not** make the REPL a read-only security boundary: the same credentials may be able to modify or delete data in another transaction.
 
-Exit `psql` with `\q` before closing the tab. Closing the tab alone can leave the client process alive inside the container. Running both the CLI command and the menu action opens two separate sessions, and each needs its own `\q`.
+The final `\q` matters: closing the tab alone can leave `psql` alive inside the container. Running both the CLI command and the menu action opens two sessions, and each needs its own `\q`.
 
 ## A useful shortcut is also a permission
 
@@ -72,7 +88,7 @@ REPL support is opt-in and local-run-only. It is available for PostgreSQL, MySQL
 
 Enable it only for people you intend to give the resource's actual access. A remotely shared dashboard or tunnel changes who can reach the interface; it does not make the database client harmless.
 
-For repeated team operations, a narrowly defined resource command can be a better interface than an unrestricted prompt. A command named `show-schema-version` communicates a different contract from "here is a shell." Its implementation still needs proper authorization and failure reporting.
+For a repeated team operation, consider a resource command such as `show-schema-version` instead of a full database prompt. Its implementation still needs authorization and clear failure reporting.
 
 ## A separate terminal experiment you can repeat
 
@@ -96,9 +112,9 @@ builder.AddExecutable("node-repl", "node", ".", "--interactive")
 builder.Build().Run();
 ```
 
-The scoped warning suppression marks a real experimental API. It is not a recommendation to disable warnings across an application. The empty `NODE_REPL_HISTORY` setting keeps the Node REPL from writing to your personal REPL history.
+`WithTerminal()` is experimental in 13.6, so the warning suppression is scoped to that call. The empty `NODE_REPL_HISTORY` setting keeps this experiment out of your personal Node REPL history.
 
-Start the Terminal AppHost and open `node-repl`'s **Console logs** page. For a resource with `WithTerminal()`, that page is the interactive terminal, sized 160×30 by the options above. `aspire terminal ps` lists the same session from a terminal.
+Start the Terminal AppHost and open `node-repl`'s **Console logs** page. For a resource with `WithTerminal()`, that page is the interactive terminal, sized 160x30 by the options above. `aspire terminal ps` lists the same session from a terminal.
 
 Begin from a fresh, idle Node prompt. Coordinate with anyone else viewing that terminal, because input and terminal size are shared. By default, `terminal attach` takes the primary role and resizes the terminal to your window, so attaching from a very small window can shrink it enough to break the output check. Restarting only `node-repl` can keep the reduced size. Attach again from a normal-size window and detach with **Ctrl+B D**, or stop and start the Terminal AppHost. Pass `--viewer` when you only want to watch.[^attach]
 
@@ -118,39 +134,39 @@ Wait+Screen@5s /FIELD_NOTES_42_RUN_NONCE/
 
 The companion's `terminal-smoke.mjs` helper fills in a fresh nonce, writes the tape, and plays it against `node-repl` with `aspire terminal tape play`. The dashboard terminal shows the line the tape typed and the result Node computed:
 
-{{< figure src="node-repl-terminal.png" alt="The node-repl terminal in the Aspire dashboard after tape playback: the typed console.log line and its output, FIELD_NOTES_42 followed by a fresh nonce" figureClass="full-width" >}}
+{{< figure src="node-repl-terminal.png" alt="The node-repl terminal in the Aspire dashboard after tape playback: the typed console.log line and its output, FIELD_NOTES_42 followed by a fresh nonce" caption="The computed FIELD_NOTES_42 marker appears below the input. A fresh nonce distinguishes it from earlier output." figureClass="full-width" >}}
 
 Each run uses a different marker. The typed JavaScript computes `6*7` and joins separate pieces, so input echo cannot contain the full `FIELD_NOTES_42_<nonce>` result. The helper also checks that the final screen contains that computed marker.
 
 `Wait+Screen` can match text left from an earlier attempt. A new nonce prevents the previous run's output from satisfying this run's assertion. `RUN_NONCE` is substituted by the helper, not by Aspire; do not reuse a generated nonce as a repeatability check.
 
-The helper uses five-second output waits, a 20-second playback deadline, and a 35-second outer process deadline. It saves the generated tape, final screen, and diagnostics. A missing prompt or wrong result therefore becomes a bounded failure.[^tapes]
+The helper uses five-second output waits, a 20-second playback deadline, and a 35-second outer process deadline. If it can't find the prompt or result, it fails within those limits and saves the tape, final screen, and diagnostics.[^tapes]
 
-The helper's `--negative-control` mode is a deliberate negative control. It generates a fresh tape that computes `6*8` while still waiting for 42, without editing the checked-in template. The helper reports a passing negative control only when the CLI exits with code 16, the screen actually contains the computed 48, and the expected-42 marker is absent. A missing prompt or broken connection cannot masquerade as that successful negative test.
+To check that the assertion can fail, run the helper with `--negative-control`. It computes `6*8` while still waiting for 42, without editing the checked-in template. The helper accepts this as a successful negative test only if the CLI exits with code 16, the screen contains the computed 48, and the expected-42 marker is absent. A broken connection won't satisfy those checks.
 
 ## Know what a tape can and cannot target
 
 Tape playback attaches to a resource configured with `WithTerminal()`. It does not create a shell, take exclusive input ownership, or stop the process after playback.
 
-It also **cannot target a `WithRepl()` client in the AppHost-owned dock**. The PostgreSQL workflow above and the Node terminal experiment are intentionally separate. A terminal-looking interface is not enough to make them interchangeable.
+It **cannot target a `WithRepl()` client in the AppHost-owned dock**. That's why the PostgreSQL session and Node experiment are separate.
 
 An exit code of zero means the tape completed. It does not prove that every program it typed into a shell succeeded. This companion additionally asserts the fresh computed value; for a business application, also verify an API response, state transition, or another independent result.
 
 When you finish, stop each AppHost with its own scoped `aspire stop --apphost` command. Do not use broad process-name cleanup on a machine where other applications may be running.
 
-## Text recordings, not release-demo videos
+## What a tape recording contains
 
 The tape command writes the final screen to stdout. The supported `Output` directive can record per-command text screens to a new `.txt` or `.ascii` destination.
 
-That is not a video recorder. Video, GIF, image, and asciicast output are not exposed by this Aspire command. A library underneath Aspire supporting a format does not mean the CLI supports it too.[^tapes]
+The Aspire command does not expose video, GIF, image, or asciicast output, even where its underlying library supports those formats.[^tapes]
 
 Keep recordings free of secrets. Hiding input from a recording is not the same as preventing it from reaching the process, and a later screen can display what the input caused.
 
-## The result to aim for
+## Use the smallest tool that answers the question
 
 Use a REPL to answer a narrow diagnostic question. Use a resource terminal when a program truly needs interactive input. Use a tape when that interaction should be repeatable, and pair it with an independent result check.
 
-The win is less context switching and less undocumented procedure, not giving every tool an unrestricted terminal.
+For the catalog question, a short SQL query is enough. The tape becomes useful when the interaction itself needs to be repeated.
 
 [Walkthrough 03](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/03-terminals-and-repls) has the setup and exact commands for both experiments: the catalog's opt-in PostgreSQL REPL and the separate Node terminal AppHost.
 

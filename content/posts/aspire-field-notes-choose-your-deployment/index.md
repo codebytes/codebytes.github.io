@@ -1,6 +1,7 @@
 ---
 title: "Same AppHost, Different Deployment Promises"
 date: "2026-10-07T09:05:00-04:00"
+lastmod: "2026-10-08T23:04:45-04:00"
 categories:
   - "Development"
 tags:
@@ -20,20 +21,71 @@ header:
   teaser: "featured.png"
   og_image: "featured.png"
 excerpt_separator: "<!--more-->"
-description: "Compare deployment contracts in Aspire 13.6, understand Express and Sandboxes preview boundaries, and review an upgrade before treating a local success as production readiness."
+description: "Inspect the catalog's generated Compose files, then compare Container Apps, Express, Sandboxes, and Kubernetes against the application's storage and networking needs."
 ---
 
-The catalog application works locally. Its references resolve, the database is ready, and we can follow a request through the dashboard. Now we add a deployment environment.
+The catalog application works locally. Its references resolve, the database is ready, and we can follow a request through the dashboard. What will change when we publish it?
 
-What should stay the same is the application's intent. What does not automatically stay the same is its networking, identity, storage, lifecycle, or operational support.
+The API still needs its database and inventory service. The frontend still calls `/api/catalog`. But the local proxy, file paths, credentials, and open ports all need a deployment-specific arrangement.
 
 <!--more-->
 
-This final part of [Aspire Field Notes](/series/aspire-field-notes/) is about choosing those promises deliberately. My [deployment and pipelines article](/posts/aspire-cli-part-2/) covers the command-oriented introduction; this is the 13.6 decision that comes after it.
+For this final part of [Aspire Field Notes](/series/aspire-field-notes/), we'll inspect the catalog's Compose output first, then look at where the cloud targets differ. My [deployment and pipelines article](/posts/aspire-cli-part-2/) covers the CLI commands in more detail.
 
-## Start with constraints, not a platform preference
+## Read the Compose output before running it
 
-For the catalog example, write down the requirements before selecting an integration:
+The companion publishes **Docker Compose** artifacts for review. It does not build container images, run `docker compose up`, or provision Azure resources. The cloud targets later in this post are comparisons with their documentation.
+
+[Walkthrough 06](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/06-choose-your-deployment) has the exact commands. Stop the running catalog AppHost, then publish with `Deployment__Target=compose`. In publish mode, this AppHost rejects a missing or unsupported target.
+
+`aspire publish --list-steps` lists the planned pipeline without executing its steps, though it still prepares and evaluates the AppHost. A real publish reports each step it executed:
+
+{{< figure src="publish-summary.png" alt="Terminal output from aspire publish with Deployment__Target=compose: 8 of 8 steps succeeded, a step timeline from validate-compute-environments through publish-compose, and Pipeline succeeded" caption="All eight publishing steps completed. The next step is to inspect what they generated." figureClass="full-width" >}}
+
+Publishing can build code or invoke tools through registered pipeline steps. Check any custom steps before running it; it isn't necessarily a passive file-generation operation.[^publish]
+
+Open `artifacts/compose/docker-compose.yaml`, `.env`, and the generated `web.Dockerfile`. The companion's `review-compose.mjs` script parses Compose configuration without interpolation and checks that:
+
+- `api`, `inventory`, `postgres`, and `web` are present.
+- The API has database and inventory references.
+- `DATA_PATH` is `/data`, with the named `catalog-state` volume mounted there.
+- The frontend's `/api/{**catch-all}` route preserves the `/api` prefix.
+- Only the frontend and optional dashboard expose host ports.
+- The intentional fault is disabled, and the database password is represented by a secret placeholder.
+
+These fields from a completed `review.json` show the storage and route checks in a more readable form:
+
+```json
+{
+  "apiDataPath": "/data",
+  "stateVolume": {
+    "read_only": false,
+    "source": "catalog-state",
+    "target": "/data",
+    "type": "volume"
+  },
+  "proxyPath": "/api/{**catch-all}",
+  "deployed": false
+}
+```
+
+The full result also records the Compose file's SHA-256 and contains no secret values. The script removes an earlier `review.json` before checking and writes a replacement only after every assertion passes. That prevents an old passing result from sitting beside newly generated files. It leaves credentials and deployment-specific image placeholders unresolved.
+
+The frontend configuration explains why `/api/catalog` survives the move from Vite to a published container:
+
+```csharp
+#pragma warning disable ASPIREJAVASCRIPT001 // PublishAsStaticWebsite is still experimental in 13.6.
+web.PublishAsStaticWebsite("/api", api, options => options.StripPrefix = false);
+#pragma warning restore ASPIREJAVASCRIPT001
+```
+
+`PublishAsStaticWebsite` dates from 13.3 and is still experimental in 13.6. It generates a static-site and YARP publishing model. `StripPrefix` defaults to `false`; the companion sets it explicitly so `/api/catalog` reaches the API unchanged. With `true`, the API would receive `/catalog`, which isn't its route. Vite's development proxy is no longer involved.
+
+Read the generated image references too. With 13.6.1, `web.Dockerfile` builds on `node:22-slim` and serves the frontend from `mcr.microsoft.com/dotnet/nightly/yarp:2.3-preview`. The Compose dashboard uses `mcr.microsoft.com/dotnet/nightly/aspire-dashboard:13.6`. Review those preview and nightly images against your image policy before deploying.
+
+## Choose a target from the application's requirements
+
+Compose gives us files to inspect, but choosing a production target needs a few more answers:
 
 - Does the API need private access to other services?
 - Which data must survive a restart, redeploy, or failed node?
@@ -42,9 +94,7 @@ For the catalog example, write down the requirements before selecting an integra
 - Who owns capacity, upgrades, ingress, and incident response?
 - Are preview services and packages acceptable for this workload?
 
-An AppHost makes these decisions easier to express. It does not remove the decisions.
-
-## Compare the contract you actually need
+Those answers narrow the choice:
 
 | Target or mode                   | Good reason to evaluate it                                               | Question to resolve first                                                       |
 | -------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
@@ -54,9 +104,9 @@ An AppHost makes these decisions easier to express. It does not remove the decis
 | Container Apps Express preview   | Explore a smaller environment model for suitable HTTP workloads          | Can the app accept its public-endpoint and feature constraints?                 |
 | Container Apps Sandboxes preview | Explore isolated sandbox execution and lifecycle policies                | Does the workload fit the currently narrow supported surface?                   |
 
-The last two are not spelling variations of ordinary Container Apps. They have different constraints and should not be recommended merely because they are new in 13.6.
+For any target, review generated routing, environment-variable names, mounts, secret references, and images. The two new Container Apps options deserve particular care because their defaults differ from regular Container Apps.
 
-## Express is simpler because it promises less
+## Check Express networking and defaults
 
 The `AsExpress()` API is experimental, reports `ASPIREACAEXPRESS001`, and selects the Container Apps Express preview environment type.[^express]
 
@@ -68,68 +118,27 @@ The changes include:
 - Referenced endpoints must be explicitly public; there is no private `.internal` hostname for this reference path.
 - HTTPS ingress is required.
 
-The local dashboard still works. A local run therefore cannot demonstrate that the managed dashboard or private service discovery will exist after deployment.
+The local dashboard still works, which can make the missing managed dashboard easy to overlook. Private service discovery also needs attention before selecting this target.
 
-Most importantly, `WithExternalHttpEndpoints()` exposes an endpoint; it does not add application authentication or authorization. Do not solve a deployment error about an internal reference by making it public without reviewing who can call it.
+`WithExternalHttpEndpoints()` exposes an endpoint; it does not add application authentication or authorization. If publishing rejects an internal reference, making it public changes who can reach the service. Review that access before changing the endpoint.
 
-For an application relying on protected cookies or other data-protection behavior, treat the missing automatic configuration as a requirement to resolve, not an implementation detail to discover during a restart.
+If the app relies on protected cookies or other .NET data-protection behavior, plan its configuration explicitly as well.
 
-## Sandboxes are a separate experiment
+## Sandboxes have different access and storage limits
 
 Azure Container Apps Sandboxes is a preview Azure service, and `Aspire.Hosting.Azure.Sandboxes` is a prerelease package. You need preview access in the target subscription and region.[^sandboxes]
 
-The companion does not contain a Sandbox deployment AppHost. If this target fits your requirements, use the [official Sandboxes setup](https://aspire.dev/deployment/azure/sandboxes/) in a separate, explicitly authorized experiment. It adds a sandbox group and suitable container-backed compute resources; it is not a drop-in replacement for the catalog's Compose target.
+The companion has no Sandbox deployment AppHost. The [official setup](https://aspire.dev/deployment/azure/sandboxes/) adds a sandbox group and suitable container-backed compute resources. Try it separately if its constraints fit your workload.
 
-The group affects publishing and deployment; a local run does not provision Azure sandboxes. Deployment requires permissions to create the group, registry, identities, and scoped role assignments. Review the generated plan and costs before authorizing it.
+A local run does not provision Azure sandboxes. Published Bicep describes the infrastructure; the deployment workflow creates sandboxes, disk images, ports, and URLs. Deployment requires permissions for the group, registry, identities, and scoped role assignments. Review that plan and its costs before authorizing it.
 
-Only external endpoints receive public HTTPS URLs. Sandbox endpoints require Microsoft Entra ID authentication by default unless a specific endpoint opts into anonymous access. Egress is deny-by-default.
+Only external endpoints receive public HTTPS URLs. Sandbox endpoints require Microsoft Entra ID authentication by default unless a specific endpoint opts into anonymous access. Egress is deny-by-default. Unlike Express, this target does supply default endpoint authentication.
 
-That is different from Express, where exposing an endpoint does not supply authentication. Treating these defaults as interchangeable would be a serious design mistake.
+The current integration excludes volumes and container mounts, TCP ports, private service discovery, and endpoint references across sandbox groups. Images must provide a Linux/amd64 manifest; Windows and ARM64 images are not supported.
 
-### Check the exclusions before writing the demo
+We therefore can't move the catalog's PostgreSQL container and volume over unchanged. The portable path from [part five](/posts/aspire-field-notes-portable-state-and-config/) doesn't supply storage on a target that lacks mounts.
 
-The documented Sandboxes integration does not currently support volumes or container mounts, TCP ports, private service discovery, or endpoint references across sandbox groups. Images must provide a Linux/amd64 manifest; Windows and ARM64 images are not supported.
-
-That immediately excludes moving our catalog's local PostgreSQL container and data volume over unchanged. A working local volume setting from [part five](/posts/aspire-field-notes-portable-state-and-config/) does not override a deployment target's limitations.
-
-The deployment identity, image-pull identity, and workload identities also have different jobs. Permission to pull an image from a registry does not grant the running application access to a database.
-
-## Publishing is a review point, not proof of a deployment
-
-For the runnable companion, we select **Docker Compose** and publish artifacts for review. No Azure resources are provisioned; the cloud targets above are comparisons against their documented contracts.
-
-Stop the running catalog AppHost, then publish with `Deployment__Target=compose`. In publish mode, the AppHost rejects a missing or unsupported target, so the target is never chosen implicitly. `aspire publish --list-steps` lists the planned pipeline without executing its steps; it still prepares and evaluates the AppHost. A real publish reports each step it executed:
-
-{{< figure src="publish-summary.png" alt="Terminal output from aspire publish with Deployment__Target=compose: 8 of 8 steps succeeded, a step timeline from validate-compute-environments through publish-compose, and Pipeline succeeded" figureClass="full-width" >}}
-
-Publishing executes registered pipeline steps and can build code or invoke tools. Review custom steps instead of treating it as a passive text renderer.[^publish] In this companion, publication does not build container images, run `docker compose up`, or deploy anything.
-
-Open `artifacts/compose/docker-compose.yaml`, `.env`, and the generated `web.Dockerfile`. The companion's `review-compose.mjs` script parses Compose configuration without interpolation and asserts:
-
-- `api`, `inventory`, `postgres`, and `web` are present.
-- The API has database and inventory references.
-- `DATA_PATH` is `/data`, and a named volume (`catalog-state` in the generated output) is mounted there.
-- The frontend's `/api/{**catch-all}` route preserves the `/api` prefix.
-- Only the frontend and optional dashboard expose host ports.
-- The intentional fault is disabled, and the database password is represented by a secret placeholder.
-
-The resulting `review.json` contains `deployed: false`, the reviewed Compose file's SHA-256, and no secret values. The review script deletes any earlier `review.json` before checking and writes a new one only when every assertion passes, so a stale passing result cannot sit beside newly generated files. It does not fill `.env` with credentials or resolve deployment-specific image placeholders.
-
-Read the generated image references as well. With 13.6.1, `web.Dockerfile` builds the frontend on `node:22-slim` and serves it from `mcr.microsoft.com/dotnet/nightly/yarp:2.3-preview`, and the Compose dashboard uses `mcr.microsoft.com/dotnet/nightly/aspire-dashboard:13.6`. Nightly and preview images are a deliberate review item before any real deployment; pin or replace them according to your own image policy.
-
-The frontend's publishing configuration explains why the browser route remains the same:
-
-```csharp
-#pragma warning disable ASPIREJAVASCRIPT001 // PublishAsStaticWebsite is still experimental in 13.6.
-web.PublishAsStaticWebsite("/api", api, options => options.StripPrefix = false);
-#pragma warning restore ASPIREJAVASCRIPT001
-```
-
-`PublishAsStaticWebsite` dates from 13.3 and is still experimental in 13.6. It generates a static-site and YARP publishing model. `StripPrefix` already defaults to `false`, so the generated route forwards `/api/catalog` unchanged; the companion sets it explicitly to document that contract. Setting it to `true` would remove the prefix, and the API would receive `/catalog` instead of its actual `/api/catalog` endpoint. Vite's development proxy is not the production server.
-
-For the separate Sandboxes target, published Bicep describes infrastructure while sandboxes, disk images, ports, and URLs are created through its deployment workflow. That is another reason a static publish folder is not a completed deployment.
-
-For other targets, inspect the generated routing, environment-variable names, mounts, secret references, and image configuration. A successful pipeline says its steps completed; it does not prove that an application-level request or access-control rule is correct.
+Also distinguish the deployment, image-pull, and workload identities. An identity that can pull an image doesn't necessarily have permission to query the database.
 
 ## What 13.6 improves for an existing deployment
 
@@ -140,9 +149,9 @@ The new preview targets are only part of the release. Existing Kubernetes and Az
 - AKS environments can provision persistent-volume resources.
 - Deployment state is scoped beneath `ASPIRE_HOME`, including separate identities for sibling single-file AppHosts.
 
-These changes make it easier to express the intended deployment. They are still reasons to compare the generated output before and after an upgrade, especially if a previous workaround compensated for an older behavior.
+Compare the generated output before and after upgrading, especially where you've worked around an older behavior.
 
-## Upgrade the behavior, not just the version number
+## Review migrations before rollout
 
 Use a branch and keep the prior known-good deployment artifacts available. The release has several changes that deserve conditional checks:
 
@@ -170,17 +179,9 @@ For your selected target, verify the same kind of operation we used to begin the
 4. A controlled dependency failure produces a useful, bounded response.
 5. Production telemetry reaches the intended backend rather than relying on a developer's local dashboard.
 
-Add cold-start, scale, or concurrency checks when they are part of the workload's requirements. Do not publish invented performance numbers to fill a results table; collect them for the environment you actually deploy.
+Measure cold starts, scale, or concurrency in the deployed environment when they matter to the workload.
 
-## The loop is the point
-
-We started by keeping a failure instead of losing it during a restart. We modeled the application, brought diagnostic tools to its resources, gave agents an evidence-based workflow, and made state and configuration explicit.
-
-Deployment should preserve that habit. Choose the target for the promises it can keep, and verify those promises with an application result.
-
-[Walkthrough 06](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/06-choose-your-deployment) has the exact Compose publishing and artifact-review commands. It stops at review, without building container images or applying a deployment.
-
-Return to the [series reading path](/series/aspire-field-notes/) when the next problem is local rather than deployed. The tool changes; the need for a clear observation and a repeatable check does not.
+The series started with `GET /api/catalog` failing while every service looked healthy. Keep that request in the deployment checks too. A completed publish is useful progress; the deployed route, identity, and dependencies still need to handle the request together.
 
 [^express]: [Container Apps Express behavior, limitations, and experimental diagnostic](https://aspire.dev/deployment/azure/container-apps/#express-environments).
 
