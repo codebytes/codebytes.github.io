@@ -1,6 +1,7 @@
 ---
 title: "Stop Losing the Bug When You Restart Aspire"
 date: "2026-10-07T09:00:00-04:00"
+lastmod: "2026-10-08T22:21:37-04:00"
 categories:
   - "Development"
 tags:
@@ -154,11 +155,19 @@ Schema compatibility matters across dashboard upgrades. Incompatible historical 
 
 If you must inspect or copy a database, follow the storage guidance, including SQLite's write-ahead log files. Do not edit dashboard databases with external tools.
 
+## Why keeping more evidence can use less memory
+
+James Newton-King's persistence deep dive explains the design behind this workflow. SQLite runs inside the dashboard, without another database server to manage. Dapper queries filter, count, sort, and page the stored telemetry before materializing the requested results. Keeping a run does not require keeping its entire history as live .NET objects.[^persistence-design]
+
+The article's large-telemetry comparison measured private memory at roughly 1,007 MB for Aspire 13.5 and 241 MB for 13.6. Its chart reports one run per version, after forced garbage collection. Those are the author's measurements for that workload, not results from this catalog sample or a promised reduction on your laptop.
+
 ## Why Native AOT belongs in this story
 
 The other dashboard improvement in 13.6 is less visible: it ships as a Native AOT executable.
 
 James Newton-King's engineering write-up explains the work across Blazor, Fluent UI, serialization, and Dapper. The practical benefit for this workflow is less startup and first-use JIT work when you repeatedly stop and start the dashboard.[^aot]
+
+The persistence implementation connects the two changes: Dapper.AOT generates query and mapping code at build time for the native dashboard.[^persistence-design]
 
 There are two boundaries worth keeping:
 
@@ -186,6 +195,8 @@ A normal stop keeps the dashboard history, application data, and database volume
 [^release]: Maddy Montaquila, [Aspire 13.6: Your dashboard gets memory](https://devblogs.microsoft.com/aspire/whats-new-aspire-13-6/), September 29, 2026.
 
 [^persistence]: [Dashboard persistence modes, captured data, retention, compatibility, and security](https://aspire.dev/dashboard/data-persistence/).
+
+[^persistence-design]: James Newton-King, [Adding persistence to the Aspire dashboard](https://devblogs.microsoft.com/aspire/aspire-dashboard-persistence/), October 8, 2026.
 
 [^client]: The 13.6.1 dashboard's [`DashboardClient`](https://github.com/microsoft/aspire/blob/v13.6.1/src/Aspire.Dashboard/ServiceClient/DashboardClient.cs) connects to the AppHost's resource service on first use, then watches resources for the dashboard's lifetime.
 
