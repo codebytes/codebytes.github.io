@@ -1,0 +1,4 @@
+{{- /* Renders the inner content only when the page at the given path is published in this build. */ -}}
+{{- with site.GetPage (.Get 0) -}}
+  {{- $.Inner -}}
+{{- end -}}

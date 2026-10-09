@@ -9,9 +9,13 @@ An application can start cleanly and still fail its first useful request. This s
 
 ## The reading path
 
-| Part | Post                                                                                                         | What you will do                                                                                                   |
-| ---- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| 1    | [Stop Losing the Bug When You Restart Aspire](/posts/aspire-field-notes-keep-the-failing-run/)               | Preserve a failure, compare diagnostic runs, and understand what the dashboard actually retains                    |
+| Part | Post                                                                                           | What you will do                                                                                |
+| ---- | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| 1    | [Stop Losing the Bug When You Restart Aspire](/posts/aspire-field-notes-keep-the-failing-run/) | Preserve a failure, compare diagnostic runs, and understand what the dashboard actually retains |
+
+More parts are coming soon.
+
+<!-- Hidden until each part is published. Move its row back into the table above, then restore the paragraph.
 | 2    | [A Polyglot App Is More Than a Process List](/posts/aspire-field-notes-model-the-whole-app/)                 | Connect configuration, readiness, and telemetry across languages, including the new Java and Rust hosting previews |
 | 3    | [Put the Debugging Tools Next to the App](/posts/aspire-field-notes-terminals-and-repls/)                    | Inspect a database through the terminal dock and build a bounded, repeatable terminal check                        |
 | 4    | [Give Your Coding Agent a Developer Loop, Not a Guess](/posts/aspire-field-notes-agents-with-evidence/)      | Scope an agent to the right AppHost and report a diagnosis grounded in runtime evidence                            |
@@ -19,6 +23,7 @@ An application can start cleanly and still fail its first useful request. This s
 | 6    | [Same AppHost, Different Deployment Promises](/posts/aspire-field-notes-choose-your-deployment/)             | Choose a deployment target from workload constraints rather than assume every publisher behaves alike              |
 
 Read them in order for the full story, or start with the problem you have today. The terminal experiment in part three can be run independently.
+-->
 
 ## The application behind the examples
 
@@ -30,14 +35,17 @@ Part three also has an independent Node terminal AppHost. Part six publishes Doc
 
 ## Companion walkthroughs
 
-| Part | Walkthrough                                                                                                                                                                  |
-| ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1    | [Baseline, failure, retained run, and recovery](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/01-keep-the-failing-run)                 |
+| Part | Walkthrough                                                                                                                                                  |
+| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1    | [Baseline, failure, retained run, and recovery](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/01-keep-the-failing-run) |
+
+<!-- Hidden until each part is published. Move its row back into the table above.
 | 2    | [Configuration, readiness, and telemetry across the catalog app](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/02-model-the-whole-app) |
 | 3    | [PostgreSQL REPL and an independent terminal experiment](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/03-terminals-and-repls)         |
 | 4    | [A scoped, evidence-driven agent investigation](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/04-agents-with-evidence)                 |
 | 5    | [Portable configuration and retained application state](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/05-portable-state-and-config)    |
 | 6    | [Compose publishing and artifact review](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/06-choose-your-deployment)                      |
+-->
 
 Start with the [collection README](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes) for prerequisites, the clone command, and the one-time database secret. The walkthroughs require [Aspire CLI](https://aspire.dev/get-started/install-cli/) 13.6 or later; this series targets 13.6.1.
 

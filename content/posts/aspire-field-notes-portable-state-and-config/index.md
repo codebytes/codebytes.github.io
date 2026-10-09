@@ -1,5 +1,6 @@
 ---
 title: "One Configuration Contract, From Laptop to Container"
+draft: true
 date: "2026-10-07T09:04:00-04:00"
 lastmod: "2026-10-08T23:04:45-04:00"
 categories:

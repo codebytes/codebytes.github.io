@@ -1,5 +1,6 @@
 ---
 title: "A Polyglot App Is More Than a Process List"
+draft: true
 date: "2026-10-07T09:01:00-04:00"
 lastmod: "2026-10-08T23:04:45-04:00"
 categories:

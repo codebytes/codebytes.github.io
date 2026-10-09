@@ -1,7 +1,6 @@
 ---
 title: "Stop Losing the Bug When You Restart Aspire"
-date: "2026-10-07T09:00:00-04:00"
-lastmod: "2026-10-08T23:04:45-04:00"
+date: "2026-10-09T09:00:00-04:00"
 categories:
   - "Development"
 tags:
@@ -180,7 +179,9 @@ Before changing code for the next bug, capture the request that fails and pin it
 
 A normal stop keeps the dashboard history, application data, and database volume, so you can come back to the pinned run later.
 
+{{% if-published "/posts/aspire-field-notes-model-the-whole-app" %}}
 [Next: model the whole application](/posts/aspire-field-notes-model-the-whole-app/) so configuration, readiness, and telemetry describe the same system.
+{{% /if-published %}}
 
 [^release]: Maddy Montaquila, [Aspire 13.6: Your dashboard gets memory](https://devblogs.microsoft.com/aspire/whats-new-aspire-13-6/), September 29, 2026.
 
