@@ -146,7 +146,7 @@ Unpin runs when you've finished investigating. If you need longer retention, use
 
 Historical runs are read-only. You can't restart resources from last Tuesday's run, change an old parameter, or replay a request from its trace.
 
-The dashboard starts watching the AppHost's resources only when a page first needs them. A run that nobody opens in a browser can keep traces and structured logs but no resource snapshot.[^client] When there is a snapshot, it shows the resources' latest state, not every change during the run.
+The dashboard starts watching the AppHost's resources only when a page first needs them. A run that nobody opens in a browser can keep traces and structured logs but no resource snapshot.[^client] When there is a snapshot, it shows each resource as the dashboard last saw it.
 
 Upgrades can strand old runs. The dashboard doesn't migrate its schema. A `Run` database from an incompatible version stays in the selector but won't open, and an incompatible `Resume` database is replaced. Before upgrading Aspire, save anything you still need from an old run.[^persistence]
 
