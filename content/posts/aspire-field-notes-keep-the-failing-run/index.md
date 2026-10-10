@@ -34,6 +34,8 @@ This is where [Aspire Field Notes](/series/aspire-field-notes/) starts: keeping 
 
 A failure in a business request does not have to show up in `/health`. When a downstream dependency rejects a call, the request fails while the service keeps running and its health endpoint stays healthy.
 
+{{< field-notes-request-path >}}
+
 A resource graph full of green indicators tells us about process and health state. To diagnose the failed request, we need its downstream calls, durations, and errors.
 
 Before changing code, make sure the application emits that evidence. The dashboard can receive OpenTelemetry, but it cannot reconstruct spans that the application never produced. For .NET, Service Defaults is a useful starting point. Node, Java, Python, and Rust still need the appropriate instrumentation.
@@ -102,6 +104,8 @@ AppHost-scoped CLI queries, such as `aspire otel traces --has-error`, read the l
 ### Keep the failure and compare recovery
 
 Open the run selector in the dashboard header. Hover or focus the **Live run** row to reveal **Pin run**, then pin the failing run. Stop the app, turn the fault off, start it again, and run **Load catalog**. The request returns a 200 and three products through the same call path.
+
+{{< field-notes-run-history >}}
 
 In the new dashboard, the run selector lists the pinned failing run beside the live one:
 
