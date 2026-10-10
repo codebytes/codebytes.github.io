@@ -144,7 +144,7 @@ Unpin runs when you've finished investigating. If you need longer retention, use
 
 ## What a historical run can tell you
 
-Historical runs are read-only. You can't restart resources from last Tuesday's run, change an old parameter, or replay a request from its trace.
+Historical runs are read-only. In last Tuesday's run, you can't restart a resource, run **Load catalog**, or change a parameter.
 
 The dashboard starts watching the AppHost's resources only when a page first needs them. A run that nobody opens in a browser can keep traces and structured logs but no resource snapshot.[^client] When there is a snapshot, it shows each resource as the dashboard last saw it.
 
@@ -160,7 +160,7 @@ In his large-telemetry test, private memory dropped from about 1,007 MB in Aspir
 
 The 13.6 dashboard also ships as a Native AOT executable. His AOT write-up covers the work across Blazor, Fluent UI, serialization, and Dapper. For this workflow, the payoff is less startup and JIT work each time you stop and start the dashboard.[^aot] Dapper.AOT ties the two changes together by generating query and mapping code at build time.[^persistence-design]
 
-Two caveats if you're tempted to try Native AOT in your own app:
+Two caveats:
 
 - The native dashboard doesn't need a separately installed .NET runtime, but the Aspire CLI still makes sure one is available for the rest of Aspire.
 - The dashboard's experimental Blazor AOT work doesn't make Native AOT a supported publishing option for Blazor Web Apps in general.
@@ -175,7 +175,7 @@ For production retention and access control, use Application Insights or another
 
 ## Try this before the next refactor
 
-A normal stop leaves dashboard history in place, so the pinned run is still there when you come back.
+Stopping the app leaves dashboard history in place, so the pinned run is still there when you come back.
 
 Next time you chase a bug, capture the failing request and pin its run before you change any code. After the fix, repeat the same request and compare the two traces. You'll have something better to show in the review than "it worked after I restarted."
 
