@@ -123,22 +123,22 @@ Go into the comparison with a question:
 
 | Question                        | What to compare                                                           |
 | ------------------------------- | ------------------------------------------------------------------------- |
-| Did the request succeed?        | The application's result, not just resource health                        |
+| Did the request succeed?        | Status code and response body the caller received                         |
 | Did the failure move elsewhere? | Errors and span relationships across the request                          |
 | Did a retry hide the problem?   | Downstream attempts and elapsed time, where instrumented                  |
 | Did the environment change?     | Resource properties, endpoints, and configuration relevant to the failure |
 
-Be careful with duration alone. A faster second request might reflect warmed caches or connection pools rather than the fix.
+Be careful with duration alone. Warm caches and connection pools can make a second request faster even if the fix changed nothing.
 
 ## How much history the dashboard keeps
 
 By default, the dashboard keeps up to 10 unpinned runs per application and prunes the oldest when a new run starts. Pinned runs don't count toward that limit.[^persistence]
 
-History is tracked by the dashboard's application name, not the checkout path. Two clones of the same AppHost share one history and the same 10-run limit. A burst of runs in one checkout can prune an unpinned reproduction from the other.
+The dashboard groups runs by application name, so two clones of the same AppHost share one history and the same 10-run limit. A burst of runs in one checkout can prune an unpinned reproduction from the other.
 
 Each run's database also caps console logs, structured logs, and traces at 100,000 each by default, shared across resources. Metric points have their own limit. If a run exceeds those caps, its oldest data is gone, pinned or not.
 
-Those caps count records, not bytes. Large attributes and high-cardinality metrics still use disk space, and deleted rows free space inside the database file without shrinking it.
+Those caps count records, so large attributes and high-cardinality metrics can still take up a lot of disk space. Deleted rows free space inside the database file without shrinking it.
 
 Unpin runs when you've finished investigating. If you need longer retention, use a telemetry backend with a retention policy and backups.
 
