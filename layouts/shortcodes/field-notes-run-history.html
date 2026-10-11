@@ -1,0 +1,46 @@
+<figure class="fn-motion fn-figure fn-runs not-prose" data-fn-motion="runs">
+  <div class="fn-runs-layout">
+    <div>
+      <div class="fn-board">
+        <div class="fn-board-head">
+          <span class="fn-caps">Run selector</span>
+          <span data-fn-step-label>Step 5 of 5</span>
+        </div>
+        <div class="fn-run-stage">
+          <span class="fn-lane fn-lane-live">Live run</span>
+          <span class="fn-lane fn-lane-earlier">Earlier runs</span>
+          <div class="fn-run fn-run-1" data-fn-from="1">
+            <span class="fn-run-name">Run 1</span>
+            <span class="fn-run-meta">fault off</span>
+            <span class="fn-chip fn-chip-ok">200</span>
+          </div>
+          <div class="fn-run fn-run-2" data-fn-from="2">
+            <span class="fn-run-name">Run 2</span>
+            <span class="fn-run-meta">fault on</span>
+            <span class="fn-chip fn-chip-pin">Pinned</span>
+            <span class="fn-chip fn-chip-bad">503</span>
+          </div>
+          <div class="fn-run fn-run-3" data-fn-from="4">
+            <span class="fn-run-name">Run 3</span>
+            <span class="fn-run-meta">fault off</span>
+            <span class="fn-chip fn-chip-ok">200</span>
+          </div>
+        </div>
+      </div>
+      <div class="fn-controls" hidden>
+        <button class="fn-button fn-button-primary" type="button" data-fn-action="play">Play steps</button>
+        <button class="fn-button" type="button" data-fn-action="back">Back</button>
+        <button class="fn-button" type="button" data-fn-action="next">Next</button>
+        <span class="fn-sr" data-fn-status role="status" aria-live="polite"></span>
+      </div>
+    </div>
+    <ol class="fn-steps" role="list">
+      <li>Run 1 is the baseline: <strong>Load catalog</strong> returns 200.</li>
+      <li>Restart with the fault on. Run 2 returns 503, and Run 1 moves to earlier runs.</li>
+      <li>Pin Run 2 and open its <code>api</code> and <code>inventory</code> console logs.</li>
+      <li>Restart with the fault off. Run 3 returns 200, and the pinned run stays.</li>
+      <li>Select Run 2 to compare its trace and logs with the recovery.</li>
+    </ol>
+  </div>
+  <figcaption>A restart ends the live run without discarding it. Pinning keeps the failure from aging out as newer runs arrive.</figcaption>
+</figure>

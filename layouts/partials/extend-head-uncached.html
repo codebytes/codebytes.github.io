@@ -1,0 +1,3 @@
+{{- if or (.HasShortcode "field-notes-request-path") (.HasShortcode "field-notes-run-history") -}}
+  {{- partial "field-notes-motion.html" . -}}
+{{- end -}}

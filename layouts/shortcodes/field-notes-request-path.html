@@ -1,0 +1,60 @@
+<figure class="fn-motion fn-figure fn-request not-prose" data-fn-motion="request">
+  <div class="fn-board">
+    <div class="fn-board-head">
+      <span>GET /api/catalog</span>
+      <span class="fn-legend fn-caps"><span class="fn-legend-dot"></span>Healthy</span>
+    </div>
+    <svg class="fn-request-map" viewbox="0 0 440 236" role="img" aria-label="The catalog request travels from web to api. Its catalogdb query succeeds, inventory returns HTTP 503, and the 503 travels back through api to web. All four resources stay healthy.">
+      <path class="fn-link fn-link-web" d="M116 76H168" fill="none" stroke="#b91c1c" stroke-width="4" />
+      <path class="fn-link fn-link-inventory" d="M272 76H324" fill="none" stroke="#b91c1c" stroke-width="4" />
+      <path class="fn-link fn-link-db" d="M220 104V168" fill="none" stroke="#15803d" stroke-width="4" />
+      <circle class="fn-request-dot" r="8" opacity="0" />
+      <g class="fn-node">
+        <rect class="fn-node-box" x="12" y="48" width="104" height="56" rx="12" fill="#fff" stroke="#cbd5e1" />
+        <text class="fn-node-label" x="64" y="82" text-anchor="middle" font-family="monospace" font-size="17" fill="#1e293b">web</text>
+        <circle class="fn-health" cx="104" cy="60" r="4.5" fill="#15803d" />
+        <circle class="fn-health-ring" cx="104" cy="60" r="4.5" fill="none" opacity="0" />
+      </g>
+      <g class="fn-node">
+        <rect class="fn-node-box" x="168" y="48" width="104" height="56" rx="12" fill="#fff" stroke="#cbd5e1" />
+        <text class="fn-node-label" x="220" y="82" text-anchor="middle" font-family="monospace" font-size="17" fill="#1e293b">api</text>
+        <circle class="fn-health" cx="260" cy="60" r="4.5" fill="#15803d" />
+        <circle class="fn-health-ring" cx="260" cy="60" r="4.5" fill="none" opacity="0" />
+      </g>
+      <g class="fn-node">
+        <rect class="fn-node-box" x="324" y="48" width="104" height="56" rx="12" fill="#fff" stroke="#cbd5e1" />
+        <text class="fn-node-label" x="376" y="82" text-anchor="middle" font-family="monospace" font-size="17" fill="#1e293b">inventory</text>
+        <circle class="fn-health" cx="416" cy="60" r="4.5" fill="#15803d" />
+        <circle class="fn-health-ring" cx="416" cy="60" r="4.5" fill="none" opacity="0" />
+      </g>
+      <g class="fn-node">
+        <rect class="fn-node-box" x="168" y="168" width="104" height="56" rx="12" fill="#fff" stroke="#cbd5e1" />
+        <text class="fn-node-label" x="220" y="202" text-anchor="middle" font-family="monospace" font-size="17" fill="#1e293b">catalogdb</text>
+        <circle class="fn-health" cx="260" cy="180" r="4.5" fill="#15803d" />
+        <circle class="fn-health-ring" cx="260" cy="180" r="4.5" fill="none" opacity="0" />
+      </g>
+      <g class="fn-badge fn-badge-db">
+        <rect class="fn-pill-ok" x="284" y="183" width="92" height="26" rx="13" fill="#dcfce7" stroke="#15803d" />
+        <text class="fn-pill-text fn-pill-text-ok" x="330" y="201" text-anchor="middle" font-family="monospace" font-size="14" fill="#15803d">query OK</text>
+      </g>
+      <g class="fn-badge fn-badge-inventory">
+        <rect class="fn-pill-bad" x="350" y="14" width="52" height="26" rx="13" fill="#fee2e2" stroke="#b91c1c" />
+        <text class="fn-pill-text fn-pill-text-bad" x="376" y="32" text-anchor="middle" font-family="monospace" font-size="14" fill="#b91c1c">503</text>
+      </g>
+      <g class="fn-badge fn-badge-api">
+        <rect class="fn-pill-bad" x="194" y="14" width="52" height="26" rx="13" fill="#fee2e2" stroke="#b91c1c" />
+        <text class="fn-pill-text fn-pill-text-bad" x="220" y="32" text-anchor="middle" font-family="monospace" font-size="14" fill="#b91c1c">503</text>
+      </g>
+      <g class="fn-badge fn-badge-web">
+        <rect class="fn-pill-bad" x="38" y="14" width="52" height="26" rx="13" fill="#fee2e2" stroke="#b91c1c" />
+        <text class="fn-pill-text fn-pill-text-bad" x="64" y="32" text-anchor="middle" font-family="monospace" font-size="14" fill="#b91c1c">503</text>
+      </g>
+    </svg>
+  </div>
+  <div class="fn-controls" hidden>
+    <button class="fn-button fn-button-primary" type="button" data-fn-action="toggle">Play request</button>
+    <button class="fn-button" type="button" data-fn-action="replay" disabled>Replay</button>
+    <span class="fn-status" data-fn-status role="status" aria-live="polite">Ready · plays once</span>
+  </div>
+  <figcaption>All four resources stay healthy while <code>GET /api/catalog</code> fails with a 503 from inventory.</figcaption>
+</figure>

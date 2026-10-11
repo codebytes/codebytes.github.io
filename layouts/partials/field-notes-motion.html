@@ -1,0 +1,175 @@
+{{- $css := resources.Get "css/field-notes-motion.css" | minify | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+<script>
+  (() => {
+    "use strict";
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    function setupRequest(root) {
+      const controls = root.querySelector(".fn-controls");
+      const toggle = root.querySelector('[data-fn-action="toggle"]');
+      const replay = root.querySelector('[data-fn-action="replay"]');
+      const status = root.querySelector("[data-fn-status]");
+      const labels = { idle: "Play request", running: "Pause", paused: "Resume", complete: "Play again" };
+      const messages = {
+        idle: "Ready · plays once",
+        running: "Playing · 7 seconds",
+        paused: "Paused",
+        complete: "Complete · replay to watch again",
+      };
+      let state = "idle";
+
+      const animations = () => root.getAnimations({ subtree: true });
+
+      function render() {
+        root.dataset.fnState = state;
+        toggle.textContent = labels[state];
+        replay.disabled = state === "idle";
+        status.textContent = messages[state];
+      }
+
+      function start() {
+        root.classList.remove("fn-armed");
+        // Reading layout between the class changes restarts every CSS animation from its first keyframe.
+        void root.offsetWidth;
+        root.classList.add("fn-armed");
+        state = "running";
+        render();
+      }
+
+      function pause() {
+        if (state !== "running") return;
+        // A CSS pause settles on the next frame; pin each clock to the moment Pause was pressed.
+        animations().forEach((animation) => {
+          if (animation.playState === "finished") return;
+          const time = animation.currentTime;
+          animation.pause();
+          animation.currentTime = time;
+        });
+        state = "paused";
+        render();
+      }
+
+      function resume() {
+        // play() would rewind animations that already finished, so resume only the paused clocks.
+        animations().forEach((animation) => {
+          if (animation.playState === "paused") animation.play();
+        });
+        state = "running";
+        render();
+      }
+
+      function sync() {
+        controls.hidden = reducedMotion.matches;
+        if (reducedMotion.matches) {
+          root.classList.remove("fn-armed");
+          state = "idle";
+          render();
+        }
+      }
+
+      toggle.addEventListener("click", () => {
+        if (state === "running") pause();
+        else if (state === "paused") resume();
+        else start();
+      });
+      replay.addEventListener("click", start);
+      root.addEventListener("animationend", () => {
+        if (state === "running" && animations().every((animation) => animation.playState === "finished")) {
+          state = "complete";
+          render();
+        }
+      });
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) pause();
+      });
+      reducedMotion.addEventListener("change", sync);
+      render();
+      sync();
+    }
+
+    function setupRuns(root) {
+      const controls = root.querySelector(".fn-controls");
+      const play = root.querySelector('[data-fn-action="play"]');
+      const back = root.querySelector('[data-fn-action="back"]');
+      const next = root.querySelector('[data-fn-action="next"]');
+      const status = root.querySelector("[data-fn-status]");
+      const label = root.querySelector("[data-fn-step-label]");
+      const runs = Array.from(root.querySelectorAll("[data-fn-from]"));
+      const steps = Array.from(root.querySelectorAll(".fn-steps > li"));
+      const total = steps.length;
+      let step = total;
+      let timer = 0;
+
+      function stopTimer() {
+        window.clearInterval(timer);
+        timer = 0;
+      }
+
+      function render() {
+        root.dataset.step = String(step);
+        runs.forEach((run) => run.setAttribute("aria-hidden", String(step < Number(run.dataset.fnFrom))));
+        steps.forEach((item, index) => {
+          if (index + 1 === step) item.setAttribute("aria-current", "step");
+          else item.removeAttribute("aria-current");
+        });
+        label.textContent = `Step ${step} of ${total}`;
+        back.disabled = step === 1;
+        next.disabled = step === total;
+        play.hidden = reducedMotion.matches;
+        play.textContent = timer ? "Pause" : "Play steps";
+      }
+
+      function show(target) {
+        step = Math.min(total, Math.max(1, target));
+        if (step === total) stopTimer();
+        render();
+        status.textContent = `Step ${step} of ${total}. ${steps[step - 1].textContent.replace(/\s+/g, " ").trim()}`;
+      }
+
+      play.addEventListener("click", () => {
+        if (timer) {
+          stopTimer();
+          render();
+          return;
+        }
+        if (step === total) show(1);
+        timer = window.setInterval(() => show(step + 1), 3000);
+        render();
+      });
+      back.addEventListener("click", () => {
+        stopTimer();
+        show(step - 1);
+      });
+      next.addEventListener("click", () => {
+        stopTimer();
+        show(step + 1);
+      });
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden && timer) {
+          stopTimer();
+          render();
+        }
+      });
+      reducedMotion.addEventListener("change", () => {
+        if (reducedMotion.matches) stopTimer();
+        render();
+      });
+      root.classList.add("fn-enhanced");
+      controls.hidden = false;
+      render();
+      // Commit the enhanced starting frame before enabling transitions, so nothing moves on load.
+      void root.offsetWidth;
+      root.classList.add("fn-ready");
+    }
+
+    function init() {
+      document.querySelectorAll('[data-fn-motion="request"]').forEach(setupRequest);
+      document.querySelectorAll('[data-fn-motion="runs"]').forEach(setupRuns);
+    }
+
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, { once: true });
+    else init();
+  })();
+</script>
