@@ -35,15 +35,15 @@ I regularly speak at conferences and meetups around the world. If you're interes
 <ul><li><a href="https://github.com/codebytes/azure-resiliency">Resilient by Design</a></li></ul>
 {{< /timelineItem >}}
 
-{{< timelineItem icon="comment" header="<a href='https://ndclondon.com/speakers/chris-ayers'>NDC London 2027</a>" badge="Jan 25-29" >}}
-<ul><li><a href="https://ndclondon.com/agenda/resilient-by-design">Resilient by Design</a></li><li><a href="https://ndclondon.com/agenda/shipping-with-ai-without-shipping-regret">Shipping with AI Without Shipping Regret</a></li></ul>
+{{< timelineItem icon="comment" header="<a href='https://ndclondon.com/'>NDC London 2027</a>" badge="Jan 25-29" >}}
+<ul><li><a href="https://github.com/codebytes/azure-resiliency">Resilient by Design</a></li><li><a href="https://github.com/codebytes/shipping-with-ai">Shipping with AI Without Shipping Regret</a></li></ul>
 {{< /timelineItem >}}
 
 {{< timelineItem icon="comment" header="<a href='https://www.iglooconf.fi/'>IglooConf 2027</a>" badge="Feb 4-5" >}}
 <ul><li><a href="https://github.com/codebytes/azure-resiliency">Resilient by Design</a></li></ul>
 {{< /timelineItem >}}
 
-{{< timelineItem icon="comment" header="<a href='https://confoo.ca/en/2027'>ConFoo Montréal 2027</a>" badge="Feb 24-26" >}}
+{{< timelineItem icon="comment" header="<a href='https://confoo.ca/'>ConFoo Montréal 2027</a>" badge="Feb 24-26" >}}
 <ul><li><a href="https://github.com/codebytes/container-security">Guardians of the Containers</a></li><li><a href="https://github.com/codebytes/aspire-polyglot">Polyglot Aspire: One AppHost, Many Languages</a></li></ul>
 {{< /timelineItem >}}
 
@@ -63,14 +63,14 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 | [Techorama Netherlands 2026](https://techorama.nl/) | Oct 28 | [MITRE ATT&CK for Developers](https://github.com/codebytes/mitre-attack-for-devs) |
 | | | [The Well-Architected Architect](https://github.com/codebytes/the-well-architected-architect) |
 | [HelloStavanger 2026](https://www.hellostavanger.no/) | Oct 21-22 | [Shipping with AI Without Shipping Regret](https://github.com/codebytes/shipping-with-ai) |
-| [Trondheim Developer Conference 2026](https://2026.trondheimdc.no/en/) | Oct 19 | [Aspire 13: One AppHost, Many Languages](https://github.com/codebytes/aspire-polyglot) |
+| [Trondheim Developer Conference 2026](https://trondheimdc.no/) | Oct 19 | [Aspire 13: One AppHost, Many Languages](https://github.com/codebytes/aspire-polyglot) |
 | [TechBash 2026](https://www.techbash.com/) | Oct 13-16 | [Aspire 13: One AppHost, Many Languages](https://github.com/codebytes/aspire-polyglot) |
 | | | [MITRE ATT&CK for Developers](https://github.com/codebytes/mitre-attack-for-devs) |
 | [The Cloud & AI Summit 2026](https://www.cloudandaisummit.com/) | Sep 30 - Oct 2 | [MITRE ATT&CK for Developers](https://github.com/codebytes/mitre-attack-for-devs) |
 | | | [Resilient by Design](https://github.com/codebytes/azure-resiliency) |
-| [Prairie Dev Con Winnipeg 2026](https://prairiedevcon.com/) | Sep 21-22 | [MITRE ATT&CK for Developers](https://github.com/codebytes/mitre-attack-for-devs) |
+| [Prairie Dev Con Winnipeg 2026](https://www.prairiedevcon.com/) | Sep 21-22 | [MITRE ATT&CK for Developers](https://github.com/codebytes/mitre-attack-for-devs) |
 | | | [Agent Skills, Plugins & Marketplaces](https://github.com/codebytes/agent-skills) |
-| [VS Live! San Diego 2026](https://vslive.com/events/sandiego-2026/home.aspx) | Sep 14-18 | [Aspire 13: One AppHost, Many Languages, Fewer Headaches?](https://github.com/codebytes/aspire-polyglot) |
+| [VS Live! San Diego 2026](https://vslive.com/) | Sep 14-18 | [Aspire 13: One AppHost, Many Languages, Fewer Headaches?](https://github.com/codebytes/aspire-polyglot) |
 | | | [Ensuring Azure Resiliency](https://github.com/codebytes/azure-resiliency) |
 | [KCDC 2026](https://www.kcdc.info/) | Sep 9-11 | [Refactoring Your Technical Identity](https://github.com/codebytes/refactoring-your-identity) |
 | | | [Aspire 13: One AppHost, Many Languages](https://github.com/codebytes/aspire-polyglot) |
@@ -88,7 +88,7 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 | [CodeStock 2026](http://codestock.org/) | Apr 9-10 | [Modern .NET Configuration Practices](https://github.com/codebytes/dotnet-configuration-in-depth) |
 | | | [Resilient by Design](https://github.com/codebytes/azure-resiliency) |
 | [Aspire Conf 2026](https://aspire.dev/aspireconf/) | Mar 23 | [One AppHost, Many Languages](https://github.com/codebytes/aspire-polyglot) |
-| [NDC Security 2026](https://ndc-security.com/) | Mar 2-5 | [MITRE ATT&CK for Developers](https://github.com/codebytes/mitre-attack-for-devs) |
+| [NDC Security 2026](https://ndcsecurity.com/) | Mar 2-5 | [MITRE ATT&CK for Developers](https://github.com/codebytes/mitre-attack-for-devs) |
 | [NDC London 2026](https://ndclondon.com/) | Jan 26-30 | [Modern .NET Configuration Practices](https://github.com/codebytes/dotnet-configuration-in-depth) |
 
 </details>
@@ -99,7 +99,7 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 | Event | Date | Talks |
 | --- | --- | --- |
 | [Build Stuff 2025 Lithuania](https://buildstuff.events/) | Dec 3-5 | [Modern .NET Configuration Practices](https://github.com/codebytes/dotnet-configuration-in-depth) |
-| [Live! 360 Orlando 2025](https://live360events.com/events/orlando-2025/) | Nov 16-21 | [.NET in a Box: Containerizing .NET Applications](https://github.com/codebytes/containerizing-dotnet) |
+| [Live! 360 Orlando 2025](https://live360events.com/) | Nov 16-21 | [.NET in a Box: Containerizing .NET Applications](https://github.com/codebytes/containerizing-dotnet) |
 | | | [Refactoring Your Developer Identity](https://github.com/codebytes/refactoring-your-identity) |
 | | | Cloud & Containers Live! Panel |
 | [TechBash 2025](https://www.techbash.com/) | Nov 4-7 | [Real World CI/CD with GitHub Actions](https://github.com/codebytes/github-actions-demos) |
@@ -107,10 +107,10 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 | | | [Resilient by Design](https://github.com/codebytes/azure-resiliency) |
 | [Techorama Netherlands 2025](https://techorama.nl/) | Oct | - |
 | [HelloStavanger 2025](https://hellostavanger.no/) | Oct | - |
-| [.NET DeveloperDays 2025](https://net.developerdays.pl/) | Oct 21-22 | [Refactoring Your Technical Identity](https://github.com/codebytes/refactoring-your-identity) |
+| [.NET DeveloperDays 2025](https://developerdays.eu/warsaw/) | Oct 21-22 | [Refactoring Your Technical Identity](https://github.com/codebytes/refactoring-your-identity) |
 | [Azure Dev Summit 2025](https://www.azuredevsummit.com/) | Oct | - |
 | [BSides St. Pete 2025](https://www.bsidesstpete.com/) | Oct | - |
-| [NDC Copenhagen 2025](https://cphdevfest.com/) | Sep 8-12 | [Modern .NET Configuration Practices](https://github.com/codebytes/dotnet-configuration-in-depth) |
+| [NDC Copenhagen 2025](https://ndccopenhagen.com/) | Sep 8-12 | [Modern .NET Configuration Practices](https://github.com/codebytes/dotnet-configuration-in-depth) |
 | [KCDC 2025](https://www.kcdc.info/) | Aug 13-15 | [The Power of Dev Containers and GitHub Codespaces](https://github.com/codebytes/dev-containers) |
 | [DevSum 2025](https://www.devsum.se/) | Jun 12-13 | [The Well-Architected Architect](https://github.com/codebytes/the-well-architected-architect) |
 | [Techorama Belgium 2025](https://techorama.be/) | May 26-28 | [Resilient by Design](https://github.com/codebytes/azure-resiliency) |
@@ -121,7 +121,7 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 | [Orlando Code Camp 2025](https://orlandocodecamp.com/) | Apr 5 | [Aspiring .NET with Ollama and Azure Open AI](https://github.com/codebytes/build-with-aspire) |
 | [VS Live! Las Vegas](https://vslive.com/) | Mar 10-14 | [.NET Configuration In Depth](https://github.com/codebytes/dotnet-configuration-in-depth) |
 | | | [Ensuring Azure Resiliency](https://github.com/codebytes/azure-resiliency) |
-| [Azure Spring Clean 2025](https://azurespringclean.com/) | Mar 3 | [The Well-Architected Architect](https://github.com/codebytes/the-well-architected-architect) |
+| [Azure Spring Clean 2025](https://www.azurespringclean.com/) | Mar 3 | [The Well-Architected Architect](https://github.com/codebytes/the-well-architected-architect) |
 | Tampa Bay Cyber Resilience Conference 2025 | Jan 31 | AI for Security and Resilience |
 | [CodeMash 2025](https://codemash.org/) | Jan 14-17 | [.NET in a Box: Containerizing .NET Applications](https://github.com/codebytes/containerizing-dotnet) |
 | | | [Real World CI/CD with GitHub Actions](https://github.com/codebytes/github-actions-demos) |
@@ -144,11 +144,11 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 | | | [.NET Configuration In Depth](https://github.com/codebytes/dotnet-configuration-in-depth) |
 | [TechBash 2024](https://www.techbash.com/) | Sep 24-27 | [.NET in a Box](https://github.com/codebytes/containerizing-dotnet) |
 | | | [CI/CD with GitHub Actions](https://github.com/codebytes/github-actions-demos) |
-| [Prairie Dev Con Winnipeg 2024](https://prairiedevcon.com/) | Sep 23-24 | [Monitoring with Azure Application Insights](https://github.com/codebytes/app-insights) |
+| [Prairie Dev Con Winnipeg 2024](https://www.prairiedevcon.com/) | Sep 23-24 | [Monitoring with Azure Application Insights](https://github.com/codebytes/app-insights) |
 | | | [.NET Aspire and AI](https://github.com/codebytes/build-with-aspire) |
 | [DevOps Days Tampa Bay 2024](https://devopsdays.org/events/2024-tampa/welcome/) | Sep 19 | Lead Organizer |
-| [Copenhagen Developer Festival 2024](https://cphdevfest.com/) | Aug 26-30 | [The Power of Dev Containers and GitHub Codespaces](https://github.com/codebytes/dev-containers) |
-| [Developer Week 2024](https://www.developer-week.de) | Jul 1-5 | [The Power of Dev Containers and GitHub Codespaces](https://github.com/codebytes/dev-containers) |
+| [Copenhagen Developer Festival 2024](https://ndccopenhagen.com/) | Aug 26-30 | [The Power of Dev Containers and GitHub Codespaces](https://github.com/codebytes/dev-containers) |
+| [Developer Week 2024](https://www.developer-world.de/dwx) | Jul 1-5 | [The Power of Dev Containers and GitHub Codespaces](https://github.com/codebytes/dev-containers) |
 | [KCDC 2024](https://www.kcdc.info/) | Jun 26-28 | [.NET Configuration In Depth](https://github.com/codebytes/dotnet-configuration-in-depth) |
 | | | [CI/CD with GitHub Actions](https://github.com/codebytes/github-actions-demos) |
 | [Microsoft Build 2024](https://build.microsoft.com/) | May 20-24 | .NET Aspire Expert Sessions |
@@ -163,7 +163,7 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 | | | [SRE, DevOps, and Platform Engineering](https://github.com/codebytes/sre-devops-platform-eng) |
 | [Orlando Code Camp 2024](https://orlandocodecamp.com/) | Feb 24 | [.NET in a Box: Containerizing .NET Applications](https://github.com/codebytes/containerizing-dotnet) |
 | [NDC Sydney 2024](https://ndcsydney.com/) | Feb 12-16 | [.NET in a Box: Containerizing .NET Applications](https://github.com/codebytes/containerizing-dotnet) |
-| [WeAreDevelopers Live 2024 (Season 7)](https://www.wearedevelopers.com/live) | Jan | - |
+| [WeAreDevelopers Live 2024 (Season 7)](https://www.wearedevelopers.com/) | Jan | - |
 | [90DaysOfDevOps - 2024 Community Edition](https://github.com/MichaelCade/90DaysOfDevOps) | Jan | [Working with Dev Containers](https://github.com/codebytes/dev-containers) |
 
 </details>
@@ -174,25 +174,25 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 | Event | Date | Talks |
 | --- | --- | --- |
 | [Festive Tech Calendar 2023](https://festivetechcalendar.com/) | Dec 27 | [Dev Containers in VS Code](https://github.com/codebytes/dev-containers) |
-| [Cloud With Chris](https://www.cloudwithchris.com/) | Dec | - |
+| [Cloud With Chris](https://chrisreddington.com/) | Dec | - |
 | [Granite State Code Camp 2023](https://www.granitestatecodecamp.org/) | Dec 2 | [CI/CD with GitHub Actions](https://github.com/codebytes/github-actions-demos) |
 | [.NET Conf 2023](https://dotnetconf.net/) | Nov 16 | [.NET Configuration In Depth](https://github.com/codebytes/dotnet-configuration-in-depth) |
 | [TechBash 2023](https://www.techbash.com/) | Nov 7 | [CI/CD with GitHub Actions (Workshop)](https://github.com/codebytes/github-actions-demos) |
 | | | [Securely Developing Infrastructure as Code (Workshop)](https://github.com/codebytes/secure-terraform-on-azure) |
-| [Tampa Code Camp 2023](https://www.meetup.com/tampacc/events/295790184/) | Oct 28 | [Working with Dev Containers](https://github.com/codebytes/dev-containers) |
+| [Tampa Code Camp 2023](https://www.meetup.com/tampacc/) | Oct 28 | [Working with Dev Containers](https://github.com/codebytes/dev-containers) |
 | | | Starting an Allyship Journey |
 | [All Day DevOps 2023](https://www.alldaydevops.com/) | Oct 26 | [Working with Dev Containers](https://github.com/codebytes/dev-containers) |
 | [NDC Porto 2023](https://ndcporto.com/) | Oct 16-20 | [Continuous Load Testing with GitHub Actions](https://github.com/codebytes/load-testing) |
-| [philly.NET Code Camp 2023](https://www.meetup.com/Philly-NET/events/290103448/) | Oct | - |
+| [philly.NET Code Camp 2023](https://www.meetup.com/philly-net/) | Oct | - |
 | [Techorama Netherlands 2023](https://www.techorama.nl/) | Oct 9-11 | [SRE, DevOps, and Platform Engineering: Unraveling the Differences](https://github.com/codebytes/sre-devops-platform-eng) |
 | | | [Kubernetes Resiliency](https://github.com/codebytes/kubernetes-resiliency) |
 | [BSides Orlando 2023](https://bsidesorlando.org/) | Oct 6 | [Securely Deploying Infrastructure as Code](https://github.com/codebytes/secure-terraform-on-azure) |
 | [Atlanta Developers' Conference 2023](https://www.atldevcon.com/) | Sep 9 | [Working with Dev Containers](https://github.com/codebytes/dev-containers) |
 | [HashiTalks: Build](https://hashi.co/build) | Aug 10 | [Securely Deploying Terraform](https://github.com/codebytes/secure-terraform-on-azure) |
-| [Developer Week 2023](https://www.developer-week.de) | Jun 26-30 | [.NET Configuration In Depth](https://github.com/codebytes/dotnet-configuration-in-depth) |
+| [Developer Week 2023](https://www.developer-world.de/dwx) | Jun 26-30 | [.NET Configuration In Depth](https://github.com/codebytes/dotnet-configuration-in-depth) |
 | | | [Securely Deploying Infrastructure as Code](https://github.com/codebytes/secure-terraform-on-azure) |
 | [KCDC 2023](https://www.kcdc.info/) | Jun 21-23 | [Securely Deploying Infrastructure as Code](https://github.com/codebytes/secure-terraform-on-azure) |
-| [Prairie Dev Con Winnipeg 2023](https://www.prairiedevcon.com/winnipeg) | Jun 12-13 | [Kubernetes Resiliency](https://github.com/codebytes/kubernetes-resiliency) |
+| [Prairie Dev Con Winnipeg 2023](https://www.prairiedevcon.com/) | Jun 12-13 | [Kubernetes Resiliency](https://github.com/codebytes/kubernetes-resiliency) |
 | | | [Securely Deploying Infrastructure as Code](https://github.com/codebytes/secure-terraform-on-azure) |
 | [DevSum 2023](https://www.devsum.se/) | May 24-26 | [Kubernetes Resiliency](https://github.com/codebytes/kubernetes-resiliency) |
 | [NDC Oslo 2023](https://ndcoslo.com/) | May 22-26 | [Kubernetes Resiliency](https://github.com/codebytes/kubernetes-resiliency) |
@@ -202,8 +202,8 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 | | | [Continuous Load Testing with GitHub Actions](https://github.com/codebytes/load-testing) |
 | [Orlando Code Camp 2023](https://orlandocodecamp.com/) | Mar 25 | Starting an Allyship Journey |
 | | | [Securely Deploying Terraform](https://github.com/codebytes/secure-terraform-on-azure) |
-| [Python Web Conf 2023](https://sixfeetup.com/company/events/python-web-conference-2023) | Mar 13-17 | [CI/CD with GitHub Actions](https://github.com/codebytes/github-actions-demos) |
-| [Come Cloud With Us](https://www.youtube.com/watch?v=wqG29Gck0ZY) | Mar 2 | [Building in the Cloud with Bicep](https://github.com/codebytes/build-with-bicep) |
+| [Python Web Conf 2023](https://pythonwebconf.com/) | Mar 13-17 | [CI/CD with GitHub Actions](https://github.com/codebytes/github-actions-demos) |
+| [Come Cloud With Us](https://www.meetup.com/comecloudwithus/) | Mar 2 | [Building in the Cloud with Bicep](https://github.com/codebytes/build-with-bicep) ([video](https://www.youtube.com/watch?v=wqG29Gck0ZY)) |
 | [DeveloperWeek 2023](https://www.developerweek.com/) | Feb 21-23 | [Feature Flags - The Art of the IF and Deployment](https://github.com/codebytes/feature-flags) |
 | [NDC Security 2023](https://ndcsecurity.com/) | Jan 16-19 | [Securely Deploying Infrastructure as Code](https://github.com/codebytes/secure-terraform-on-azure) |
 | [CodeMash 2023](https://codemash.org/) | Jan 10-13 | [Building in the Cloud with Bicep](https://github.com/codebytes/build-with-bicep) |
@@ -217,38 +217,38 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 | Event | Date | Talks |
 | --- | --- | --- |
 | [Festive Tech Calendar 2022](https://festivetechcalendar.com/) | Dec 29 | [Securely Deploying Infrastructure as Code](https://github.com/codebytes/secure-terraform-on-azure) |
-| [HashiTalks: Deploy](https://hashi.co/hashitalks-deploy) | Dec 7-8 | - |
-| [Conf42: DevSecOps 2022](https://www.conf42.com/devsecops2022) | Dec 1 | [CI/CD with GitHub Actions](https://www.conf42.com/DevSecOps_2022_Chris_Ayers_cicd_github_actions) |
+| HashiTalks: Deploy | Dec 7-8 | - |
+| [Conf42: DevSecOps 2022](https://www.conf42.com/devsecops2022) | Dec 1 | [CI/CD with GitHub Actions](https://github.com/codebytes/github-actions-demos) ([video](https://www.conf42.com/DevSecOps_2022_Chris_Ayers_cicd_github_actions)) |
 | [Granite State Code Camp 2022](https://www.granitestatecodecamp.org/) | Nov 12 | [Dev Containers in VS Code](https://github.com/codebytes/dev-containers) |
 | [.NET Conf 2022](https://dotnetconf.net/) | Nov 10 | [.NET Configuration In Depth](https://github.com/codebytes/dotnet-configuration-in-depth) |
 | [TechBash 2022](https://www.techbash.com/) | Nov 8-10 | [Building in the Cloud with Bicep](https://github.com/codebytes/build-with-bicep) |
 | | | [Feature Flags - The Art of the IF and Deployment](https://github.com/codebytes/feature-flags) |
 | | | [CI/CD with GitHub Actions](https://github.com/codebytes/github-actions-demos) |
 | [DevOpsDays Tampa Bay 2022](https://devopsdays.org/events/2022-tampa/welcome/) | Oct | Organizer |
-| [Learn Live: FastTrack for Azure](https://learn.microsoft.com/en-us/shows/learn-live/fasttrack-for-azure-season-1-ep06-supercharge-your-devops-skills-with-azure-load-testing) | Oct 25 | [Supercharge Your DevOps Skills with Azure Load Testing](https://www.youtube.com/watch?v=FFng7ki_vI8) |
+| [Learn Live: FastTrack for Azure](https://learn.microsoft.com/en-us/shows/learn-live/) | Oct 25 | [Supercharge Your DevOps Skills with Azure Load Testing](https://github.com/codebytes/load-testing) ([video](https://www.youtube.com/watch?v=FFng7ki_vI8)) |
 | [Momentum 2022](https://momentumdevcon.com/) | Oct 20 | [Feature Flags - The Art of the IF and Deployment](https://github.com/codebytes/feature-flags) |
-| [Tampa Code Camp 2022](https://www.meetup.com/TampaCC/events/284918793) | Oct 8 | [Building in the Cloud with Bicep](https://github.com/codebytes/build-with-bicep) |
+| [Tampa Code Camp 2022](https://www.meetup.com/tampacc/) | Oct 8 | [Building in the Cloud with Bicep](https://github.com/codebytes/build-with-bicep) |
 | | | [Dev Containers in VS Code](https://github.com/codebytes/dev-containers) |
-| [Strange Loop 2022](https://thestrangeloop.com/2022/sessions.html) | Sep 22 | [CI/CD with GitHub Actions (Workshop)](https://github.com/codebytes/github-actions-demos) |
+| [Strange Loop 2022](https://thestrangeloop.com/) | Sep 22 | [CI/CD with GitHub Actions (Workshop)](https://github.com/codebytes/github-actions-demos) |
 | Code PaLOUsa 2022 | Aug 17-19 | [Feature Flags - The Art of the IF and Deployment](https://github.com/codebytes/feature-flags) |
 | | | [CI/CD with GitHub Actions](https://github.com/codebytes/github-actions-demos) |
-| [On .NET Live](https://www.youtube.com/watch?v=6Fg54CEBVno) | Aug 15 | [Configuration in .NET 6](https://github.com/codebytes/dotnet-configuration-in-depth) |
+| [On .NET Live](https://learn.microsoft.com/en-us/shows/on-dotnet/) | Aug 15 | [Configuration in .NET 6](https://github.com/codebytes/dotnet-configuration-in-depth) ([video](https://www.youtube.com/watch?v=6Fg54CEBVno)) |
 | [KCDC 2022](https://www.kcdc.info/) | Aug 8-10 | [.NET Configuration In Depth](https://github.com/codebytes/dotnet-configuration-in-depth) |
 | | | [Feature Flags - The Art of the IF and Deployment](https://github.com/codebytes/feature-flags) |
 | [THAT Conference Wisconsin 2022](https://that.us/) | Jul 25-28 | [Building in the Cloud with Bicep](https://github.com/codebytes/build-with-bicep) |
 | [Cloud Lunch and Learn](https://www.cloudlunchlearn.com/) | Jul | - |
-| [Cincinnati Software Craftsmanship](https://www.youtube.com/watch?v=l1ZT3kRItKI) | Jul 6 | [CI/CD with GitHub Actions](https://github.com/codebytes/github-actions-demos) |
-| [Learn Live: FastTrack for Azure](https://learn.microsoft.com/en-us/shows/learn-live/fasttrack-for-azure-ep05-building-deploying-azure-github-actions) | Jun 29 | [Building and Deploying to Azure with GitHub Actions](https://www.youtube.com/watch?v=JIevEq6dcP0) |
-| [Azure Day Rome 2022](http://www.azureday.it) | Jun 24 | [Building in the Cloud with Bicep](https://github.com/codebytes/build-with-bicep) |
+| [Cincinnati Software Craftsmanship](https://www.meetup.com/cincinnati-software-craftsmanship/) | Jul 6 | [CI/CD with GitHub Actions](https://github.com/codebytes/github-actions-demos) ([video](https://www.youtube.com/watch?v=l1ZT3kRItKI)) |
+| [Learn Live: FastTrack for Azure](https://learn.microsoft.com/en-us/shows/learn-live/) | Jun 29 | [Building and Deploying to Azure with GitHub Actions](https://github.com/codebytes/github-actions-demos) ([video](https://www.youtube.com/watch?v=JIevEq6dcP0)) |
+| [Azure Day Rome 2022](https://azureday.it/) | Jun 24 | [Building in the Cloud with Bicep](https://github.com/codebytes/build-with-bicep) |
 | [THAT Conference Texas 2022](https://that.us/) | May 23-26 | [Feature Flags - The Art of the IF and Deployment](https://github.com/codebytes/feature-flags) |
-| [.NET DC User Group](https://www.youtube.com/watch?v=AHH84gEudQA) | May 17 | [Feature Flags - The Art of the IF and Deployment](https://github.com/codebytes/feature-flags) |
+| [.NET DC User Group](https://www.meetup.com/dotnetdc/) | May 17 | [Feature Flags - The Art of the IF and Deployment](https://github.com/codebytes/feature-flags) ([video](https://www.youtube.com/watch?v=AHH84gEudQA)) |
 | [CodeStock 2022](http://codestock.org/) | Apr 7-8 | [Feature Flags - The Art of the IF and Deployment](https://github.com/codebytes/feature-flags) |
 | | | [Monitoring and Troubleshooting with Application Insights](https://github.com/codebytes/app-insights) |
 | [Microsoft Azure + AI Conference Spring 2022](https://azureaiconf.com/) | Apr 5-7 | [Feature Flags - The Art of the IF and Deployment](https://github.com/codebytes/feature-flags) |
 | | | [CI/CD with GitHub Actions](https://github.com/codebytes/github-actions-demos) |
-| [Tampa Bay DevOps](https://www.youtube.com/watch?v=NUh66aVnE94) | Apr 1 | [Dev Containers in VS Code](https://github.com/codebytes/dev-containers) |
-| [philly.NET Code Camp 2022](https://www.meetup.com/Philly-NET/events/281245125/) | Mar 4 | [Monitoring and Troubleshooting with Azure Application Insights](https://www.youtube.com/watch?v=aiURxUCRLZI) |
-| [Cloud With Chris](https://www.cloudwithchris.com/episode/feature-flags-art-of-if-and-deployment/) | Feb 17 | [Feature Flags - The Art of the IF and Deployment](https://www.youtube.com/watch?v=f5AIx_90Bxo) |
+| Tampa Bay DevOps | Apr 1 | [Dev Containers in VS Code](https://github.com/codebytes/dev-containers) ([video](https://www.youtube.com/watch?v=NUh66aVnE94)) |
+| [philly.NET Code Camp 2022](https://www.meetup.com/philly-net/) | Mar 4 | [Monitoring and Troubleshooting with Azure Application Insights](https://github.com/codebytes/app-insights) ([video](https://www.youtube.com/watch?v=aiURxUCRLZI)) |
+| [Cloud With Chris](https://chrisreddington.com/) | Feb 17 | [Feature Flags - The Art of the IF and Deployment](https://github.com/codebytes/feature-flags) ([video](https://www.youtube.com/watch?v=f5AIx_90Bxo)) |
 | [DeveloperWeek 2022](https://www.developerweek.com/) | Feb 7-9 | [Feature Flags - The Art of the IF and Deployment](https://github.com/codebytes/feature-flags) |
 | [.NET Virtual Conference 2022](https://www.c-sharpcorner.com/events/net-conference-2022) | Jan 24-26 | [.NET Configuration In Depth](https://github.com/codebytes/dotnet-configuration-in-depth) |
 
@@ -270,15 +270,15 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 | [Festive Tech Calendar 2021](https://festivetechcalendar.com/) | Dec 15 | [CI/CD with GitHub Actions](https://github.com/codebytes/github-actions-demos) |
 | [Automation + DevOps Summit 2021](https://AutomationSummit.org) | Nov 15-17 | [Feature Flags - The Art of the IF and Deployment](https://github.com/codebytes/feature-flags) |
 | | | [Git Good with Advanced Git](https://github.com/codebytes/gitgood) |
-| [TechBash 2021 (postponed)](https://www.techbash.com/blog/2021/09/01/techbash-2021-postponed) | Oct | Not held |
+| [TechBash 2021 (postponed)](https://www.techbash.com/) | Oct | Not held |
 | [KCDC 2021](https://www.kcdc.info/) | Sep 15-17 | Hands-On with Docker and Kubernetes (Workshop) |
 | | | [CI/CD with GitHub Actions](https://github.com/codebytes/github-actions-demos) |
 | [Music City Tech 2021](http://www.musiccitytech.com) | Sep 15-17 | [Feature Flags - The Art of the IF and Deployment](https://github.com/codebytes/feature-flags) |
 | Code PaLOUsa 2021 | Aug 18-20 | [Git Good with Advanced Git](https://github.com/codebytes/gitgood) |
 | | | [Feature Flags - The Art of the IF and Deployment](https://github.com/codebytes/feature-flags) |
 | [THAT Conference Wisconsin 2021](https://that.us/) | Jul 27 | [Feature Flags - The Art of the IF and Deployment](https://github.com/codebytes/feature-flags) |
-| [Azure Day Rome 2021](http://www.azureday.it) | Jun 25 | [Monitoring and Troubleshooting with Azure Application Insights](https://github.com/codebytes/app-insights) |
-| [DevOps & Cloud Days](https://devopsandclouddays.com/) | Jun 23 | DevOps Is More Than Dev and Ops |
+| [Azure Day Rome 2021](https://azureday.it/) | Jun 25 | [Monitoring and Troubleshooting with Azure Application Insights](https://github.com/codebytes/app-insights) |
+| DevOps & Cloud Days | Jun 23 | DevOps Is More Than Dev and Ops |
 
 </details>
 
@@ -296,17 +296,17 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 
 | Event | Date | Talks |
 | --- | --- | --- |
-| [Azure Advent Calendar](https://azureadventcalendar.com/) | Dec 15 | [Azure Application Insights](https://www.youtube.com/watch?v=W-i6s46uxdM) |
-| [Granite State Code Camp 2019](http://www.granitestateusersgroups.net/code-camp/) | Nov | [Automate Azure DevOps](https://github.com/codebytes/automatingAzureDevOps) |
-| [Tampa Code Camp 2019](https://tampacc.org/) | Oct 26 | [Automate Azure DevOps](https://speakerdeck.com/cayers/automate-azure-devops) |
+| Azure Advent Calendar | Dec 15 | [Azure Application Insights](https://github.com/codebytes/app-insights) ([video](https://www.youtube.com/watch?v=W-i6s46uxdM)) |
+| [Granite State Code Camp 2019](https://www.granitestatecodecamp.org/) | Nov | [Automate Azure DevOps](https://github.com/codebytes/automatingAzureDevOps) |
+| [Tampa Code Camp 2019](https://www.meetup.com/tampacc/) | Oct 26 | [Automate Azure DevOps](https://github.com/codebytes/automatingAzureDevOps) ([slides](https://speakerdeck.com/cayers/automate-azure-devops)) |
 | | | [DevOps Is More Than a Title](https://speakerdeck.com/cayers/devops-is-more-than-a-title) |
-| [philly.NET Code Camp 2019.2](http://phillydotnet.org/2019-2.html) | Oct 19 | [Automate Azure DevOps](https://github.com/codebytes/automatingAzureDevOps) |
+| [philly.NET Code Camp 2019.2](https://www.meetup.com/philly-net/) | Oct 19 | [Automate Azure DevOps](https://github.com/codebytes/automatingAzureDevOps) |
 | | | [ASP.NET Core - Shift Left and Start Out Right](https://github.com/codebytes/asp.net-core-shift-left) |
-| [Tampa Bar Camp 2019](https://barcamptampabay.org/) | Oct 5 | What Is DevOps? |
-| [Global DevOps Bootcamp](https://www.eventbrite.com/e/global-devops-bootcamp-nebbia-technology-tickets-57006710606) | Jun 15 | Local Keynote, Orlando |
-| [Azure Global Bootcamp](https://global.azurebootcamp.net/locations/tampacc-global-azure-bootcamp/) | Apr 27 | Azure DevOps |
-| [Orlando Code Camp 2019](https://orlandocodecamp.com/) | Mar 30 | Application Insights |
-| [The .NETwork](https://www.meetup.com/meetup-group-HuzIqAmW/events/258770994/) | Feb 19 | [Dependency Injection and Unit Testing in .NET Core](https://github.com/codebytes/UnitTestingDemo) |
+| Tampa Bar Camp 2019 | Oct 5 | What Is DevOps? |
+| Global DevOps Bootcamp | Jun 15 | Local Keynote, Orlando |
+| [Azure Global Bootcamp](https://globalazure.net/) | Apr 27 | Azure DevOps |
+| [Orlando Code Camp 2019](https://orlandocodecamp.com/) | Mar 30 | [Application Insights](https://github.com/codebytes/app-insights) |
+| The .NETwork | Feb 19 | [Dependency Injection and Unit Testing in .NET Core](https://github.com/codebytes/UnitTestingDemo) |
 
 </details>
 
@@ -315,9 +315,9 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 
 | Event | Date | Talks |
 | --- | --- | --- |
-| [Tampa Code Camp 2018](https://tampacc.org/) | Oct 20 | Functional Programming |
+| [Tampa Code Camp 2018](https://www.meetup.com/tampacc/) | Oct 20 | Functional Programming |
 | | | Good Software Development Practices |
-| [Tampa Azure Meetup](https://www.meetup.com/microsoft-azure-tampa/events/253871033/) | Sep 13 | Application Insights - A Deep Dive |
+| [Tampa Azure Meetup](https://www.meetup.com/microsoft-azure-tampa/) | Sep 13 | [Application Insights - A Deep Dive](https://github.com/codebytes/app-insights) |
 
 </details>
 
@@ -326,8 +326,8 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 
 | Event | Date | Talks |
 | --- | --- | --- |
-| [Tampa Code Camp 2017](https://tampacc.org/) | Oct 28 | [Dependency Injection and Unit Testing](https://github.com/codebytes/UnitTestingDemo) |
-| [Tampa Bar Camp 2017](https://barcamptampabay.org/) | Oct 21 | Unit Testing |
+| [Tampa Code Camp 2017](https://www.meetup.com/tampacc/) | Oct 28 | [Dependency Injection and Unit Testing](https://github.com/codebytes/UnitTestingDemo) |
+| Tampa Bar Camp 2017 | Oct 21 | Unit Testing |
 
 </details>
 
@@ -336,7 +336,7 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 
 | Event | Date | Talks |
 | --- | --- | --- |
-| [Tampa Bar Camp 2016](https://barcamptampabay.org/) | Oct 1 | Raspberry Pi |
+| Tampa Bar Camp 2016 | Oct 1 | Raspberry Pi |
 
 </details>
 
