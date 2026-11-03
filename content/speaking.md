@@ -31,32 +31,20 @@ I regularly speak at conferences and meetups around the world. If you're interes
 
 {{< timeline >}}
 
-{{< timelineItem icon="comment" header="<a href='https://www.cloudandaisummit.com/'>The Cloud &amp; AI Summit 2026</a>" badge="Sep 30 - Oct 2" >}}
-<ul><li>MITRE ATT&CK for Developers</li><li>Resilient by Design</li></ul>
-{{< /timelineItem >}}
-
-{{< timelineItem icon="comment" header="<a href='https://www.techbash.com/'>TechBash 2026</a>" badge="Oct 13-16" >}}
-<ul><li>Aspire 13: One AppHost, Many Languages</li><li>MITRE ATT&CK for Developers</li></ul>
-{{< /timelineItem >}}
-
-{{< timelineItem icon="comment" header="<a href='https://2026.trondheimdc.no/en/'>Trondheim Developer Conference 2026</a>" badge="Oct 19" >}}
-<ul><li>Aspire 13: One AppHost, Many Languages</li></ul>
-{{< /timelineItem >}}
-
-{{< timelineItem icon="comment" header="<a href='https://www.hellostavanger.no/'>HelloStavanger 2026</a>" badge="Oct 21-22" >}}
-<ul><li>Shipping with AI Without Shipping Regret</li></ul>
-{{< /timelineItem >}}
-
-{{< timelineItem icon="comment" header="<a href='https://techorama.nl/'>Techorama Netherlands 2026</a>" badge="Oct 28" >}}
-<ul><li>MITRE ATT&CK for Developers</li><li>The Well-Architected Architect</li></ul>
-{{< /timelineItem >}}
-
 {{< timelineItem icon="comment" header="<a href='https://buildstuff.events/'>Build Stuff 2026 Lithuania</a>" badge="Dec 2-4" >}}
 <ul><li>Resilient by Design</li></ul>
 {{< /timelineItem >}}
 
 {{< timelineItem icon="comment" header="<a href='https://ndclondon.com/speakers/chris-ayers'>NDC London 2027</a>" badge="Jan 25-29" >}}
 <ul><li><a href="https://ndclondon.com/agenda/resilient-by-design">Resilient by Design</a></li><li><a href="https://ndclondon.com/agenda/shipping-with-ai-without-shipping-regret">Shipping with AI Without Shipping Regret</a></li></ul>
+{{< /timelineItem >}}
+
+{{< timelineItem icon="comment" header="<a href='https://www.iglooconf.fi/'>IglooConf 2027</a>" badge="Feb 4-5" >}}
+<ul><li>Resilient by Design</li></ul>
+{{< /timelineItem >}}
+
+{{< timelineItem icon="comment" header="<a href='https://confoo.ca/en/2027'>ConFoo Montréal 2027</a>" badge="Feb 24-26" >}}
+<ul><li>Guardians of the Containers</li><li>Polyglot Aspire: One AppHost, Many Languages</li></ul>
 {{< /timelineItem >}}
 
 {{< /timeline >}}
@@ -72,6 +60,14 @@ Events are grouped by year, newest first. Month-only dates reflect the available
 
 | Event | Date | Talks |
 | --- | --- | --- |
+| [Techorama Netherlands 2026](https://techorama.nl/) | Oct 28 | MITRE ATT&CK for Developers |
+| | | The Well-Architected Architect |
+| [HelloStavanger 2026](https://www.hellostavanger.no/) | Oct 21-22 | Shipping with AI Without Shipping Regret |
+| [Trondheim Developer Conference 2026](https://2026.trondheimdc.no/en/) | Oct 19 | Aspire 13: One AppHost, Many Languages |
+| [TechBash 2026](https://www.techbash.com/) | Oct 13-16 | Aspire 13: One AppHost, Many Languages |
+| | | MITRE ATT&CK for Developers |
+| [The Cloud & AI Summit 2026](https://www.cloudandaisummit.com/) | Sep 30 - Oct 2 | MITRE ATT&CK for Developers |
+| | | Resilient by Design |
 | [Prairie Dev Con Winnipeg 2026](https://prairiedevcon.com/) | Sep 21-22 | MITRE ATT&CK for Developers |
 | | | Agent Skills, Plugins & Marketplaces |
 | [VS Live! San Diego 2026](https://vslive.com/events/sandiego-2026/home.aspx) | Sep 14-18 | Aspire 13: One AppHost, Many Languages, Fewer Headaches? |
