@@ -9,14 +9,14 @@ An application can start cleanly and still fail its first useful request. This s
 
 ## The reading path
 
-| Part | Post                                                                                           | What you will do                                                                                |
-| ---- | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| 1    | [Stop Losing the Bug When You Restart Aspire](/posts/aspire-field-notes-keep-the-failing-run/) | Preserve a failure, compare diagnostic runs, and understand what the dashboard actually retains |
+| Part | Post                                                                                           | What you will do                                                                                                   |
+| ---- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| 1    | [Stop Losing the Bug When You Restart Aspire](/posts/aspire-field-notes-keep-the-failing-run/) | Preserve a failure, compare diagnostic runs, and understand what the dashboard actually retains                    |
+| 2    | [A Polyglot App Is More Than a Process List](/posts/aspire-field-notes-model-the-whole-app/)   | Connect configuration, readiness, and telemetry across languages, including the new Java and Rust hosting previews |
 
 More parts are coming soon.
 
 <!-- Hidden until each part is published. Move its row back into the table above, then restore the paragraph.
-| 2    | [A Polyglot App Is More Than a Process List](/posts/aspire-field-notes-model-the-whole-app/)                 | Connect configuration, readiness, and telemetry across languages, including the new Java and Rust hosting previews |
 | 3    | [Put the Debugging Tools Next to the App](/posts/aspire-field-notes-terminals-and-repls/)                    | Inspect a database through the terminal dock and build a bounded, repeatable terminal check                        |
 | 4    | [Give Your Coding Agent a Developer Loop, Not a Guess](/posts/aspire-field-notes-agents-with-evidence/)      | Scope an agent to the right AppHost and report a diagnosis grounded in runtime evidence                            |
 | 5    | [One Configuration Contract, From Laptop to Container](/posts/aspire-field-notes-portable-state-and-config/) | Keep application settings stable while paths, connection names, credentials, and storage change                    |
@@ -35,25 +35,25 @@ Part three also has an independent Node terminal AppHost. Part six publishes Doc
 
 ## Companion walkthroughs
 
-| Part | Walkthrough                                                                                                                                                  |
-| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 1    | [Baseline, failure, retained run, and recovery](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/01-keep-the-failing-run) |
+| Part | Walkthrough                                                                                                                                                                  |
+| ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1    | [Baseline, failure, retained run, and recovery](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/01-keep-the-failing-run)                 |
+| 2    | [Configuration, readiness, and telemetry across the catalog app](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/02-model-the-whole-app) |
 
 <!-- Hidden until each part is published. Move its row back into the table above.
-| 2    | [Configuration, readiness, and telemetry across the catalog app](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/02-model-the-whole-app) |
 | 3    | [PostgreSQL REPL and an independent terminal experiment](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/03-terminals-and-repls)         |
 | 4    | [A scoped, evidence-driven agent investigation](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/04-agents-with-evidence)                 |
 | 5    | [Portable configuration and retained application state](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/05-portable-state-and-config)    |
 | 6    | [Compose publishing and artifact review](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/06-choose-your-deployment)                      |
 -->
 
-Start with the [collection README](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes) for prerequisites, the clone command, and the one-time database secret. The walkthroughs require [Aspire CLI](https://aspire.dev/get-started/install-cli/) 13.6 or later; this series targets 13.6.1.
+Start with the [collection README](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes) for prerequisites, the clone command, and the one-time database secret. The current companion baseline is **Aspire CLI, AppHost SDK, and stable integrations 13.6.4**. The README also shows how to update both sample AppHosts with `aspire update`; upgrading the installed CLI does not change project package references.
 
 Use **Load catalog** on `web` in the dashboard, or `aspire resource web load-catalog`, to make the request and get its status and trace ID. The other helpers check state after a restart, fresh terminal output, and generated Compose routing and storage. None requires installing agent guidance.
 
 The [official Node.js weather-map sample](https://aspire.dev/reference/samples/aspire-with-node/) is an additional example of a frontend, instrumented API, and external dependency under a TypeScript AppHost. The Java and Rust sections explain optional preview integrations; those languages are not required to run the catalog companion.
 
-**Aspire 13.6.1** is the [first 13.6 patch](https://github.com/microsoft/aspire/releases/tag/v13.6.1), released October 7, 2026, with fixes for 13.6.0 regressions. The posts identify preview packages and experimental APIs as they come up. The companion keeps stable `AddProject` resources; there's no Project V2 migration or Azure deployment to perform.
+**Aspire 13.6.4** is the [current patch baseline](https://github.com/microsoft/aspire/releases/tag/v13.6.4). It improves resource-creation timeout recovery, fixes TypeScript publishing with parameterized Azure enum properties, and restricts CLI diagnostic logs to owner-only permissions on Unix. The earlier [13.6.2](https://github.com/microsoft/aspire/releases/tag/v13.6.2) and [13.6.3](https://github.com/microsoft/aspire/releases/tag/v13.6.3) patches include a MessagePack security update and resource-watch reliability fixes. The posts identify preview packages and experimental APIs as they come up. The companion keeps stable `AddProject` resources; there's no Project V2 migration or Azure deployment to perform.
 
 ## What this builds on
 

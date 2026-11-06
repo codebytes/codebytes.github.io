@@ -2,7 +2,7 @@
 title: "Same AppHost, Different Deployment Promises"
 draft: true
 date: "2026-10-07T09:05:00-04:00"
-lastmod: "2026-10-08T23:04:45-04:00"
+lastmod: "2026-11-05T19:45:00-05:00"
 categories:
   - "Development"
 tags:
@@ -82,7 +82,7 @@ web.PublishAsStaticWebsite("/api", api, options => options.StripPrefix = false);
 
 `PublishAsStaticWebsite` dates from 13.3 and is still experimental in 13.6. It generates a static-site and YARP publishing model. `StripPrefix` defaults to `false`; the companion sets it explicitly so `/api/catalog` reaches the API unchanged. With `true`, the API would receive `/catalog`, which isn't its route. Vite's development proxy is no longer involved.
 
-Read the generated image references too. With 13.6.1, `web.Dockerfile` builds on `node:22-slim` and serves the frontend from `mcr.microsoft.com/dotnet/nightly/yarp:2.3-preview`. The Compose dashboard uses `mcr.microsoft.com/dotnet/nightly/aspire-dashboard:13.6`. Review those preview and nightly images against your image policy before deploying.
+Read the generated image references too. Regenerating the artifacts with 13.6.4 still produces a `web.Dockerfile` that builds on `node:22-slim` and serves the frontend from `mcr.microsoft.com/dotnet/nightly/yarp:2.3-preview`. The Compose dashboard uses `mcr.microsoft.com/dotnet/nightly/aspire-dashboard:13.6`. Review those preview and nightly images against your image policy before deploying.
 
 ## Choose a target from the application's requirements
 

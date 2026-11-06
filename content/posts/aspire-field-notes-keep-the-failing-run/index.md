@@ -1,6 +1,7 @@
 ---
 title: "Stop Losing the Bug When You Restart Aspire"
 date: "2026-10-09T09:00:00-04:00"
+lastmod: "2026-11-05T19:45:00-05:00"
 categories:
   - "Development"
 tags:
@@ -60,7 +61,7 @@ The [companion catalog app](https://github.com/codebytes/blog-samples/tree/main/
 
 A development-only switch, `Inventory__FaultEnabled`, makes inventory return a 503 while its health endpoint stays green. Flipping it gives you a failure and a recovery to compare without breaking anything shared. Here you already know the cause. With a real bug, the trace has to support whatever fix you propose.
 
-If you're following along, [walkthrough 01](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/01-keep-the-failing-run) has the commands and links to the one-time setup, including the database secret. The sample targets Aspire 13.6.1 and requires Aspire CLI 13.6 or later.
+If you're following along, [walkthrough 01](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/01-keep-the-failing-run) has the commands and links to the one-time setup, including the database secret. The shared sample now targets Aspire 13.6.4, including the CLI, AppHost SDK, and stable integrations. The original article used 13.6.1.
 
 ### A request you can repeat
 
