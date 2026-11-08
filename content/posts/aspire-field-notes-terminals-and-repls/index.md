@@ -1,8 +1,8 @@
 ---
 title: "Put the Debugging Tools Next to the App"
-draft: true
-date: "2026-10-07T09:02:00-04:00"
-lastmod: "2026-11-07T20:48:49-05:00"
+draft: false
+date: "2026-11-07T21:15:21-05:00"
+lastmod: "2026-11-07T21:15:21-05:00"
 categories:
   - "Development"
 tags:
