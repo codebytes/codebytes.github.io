@@ -57,7 +57,7 @@ David Fowler's [developer-loop article](https://devblogs.microsoft.com/aspire/de
 
 Use the [sample README](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes) for prerequisites and the one-time PostgreSQL secret setup. Run all commands below from `aspire-field-notes/`.
 
-To run the companion, select the catalog AppHost explicitly because the repository also contains a separate terminal AppHost:
+To run the companion, select the catalog AppHost explicitly so startup does not depend on your current CLI selection:
 
 ```bash
 apphost=catalog/Catalog.AppHost/Catalog.AppHost.csproj
