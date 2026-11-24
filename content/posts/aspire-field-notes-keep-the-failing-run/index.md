@@ -57,11 +57,11 @@ A standalone dashboard still defaults to `None`. To pick up where it left off af
 
 ## Capture a baseline, a failure, and a recovery
 
-The [companion catalog app](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes) is small. A Vite frontend named `web` calls a catalog API named `api`. The API reads PostgreSQL's `catalogdb`, then makes one instrumented HTTP call to a separate `inventory` service, with no retry to hide a failure.
+The [companion catalog app](https://github.com/codebytes/blog-samples/tree/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes) is small. A Vite frontend named `web` calls a catalog API named `api`. The API reads PostgreSQL's `catalogdb`, then makes one instrumented HTTP call to a separate `inventory` service, with no retry to hide a failure.
 
 A development-only switch, `Inventory__FaultEnabled`, makes inventory return a 503 while its health endpoint stays green. Flipping it gives you a failure and a recovery to compare without breaking anything shared. Here you already know the cause. With a real bug, the trace has to support whatever fix you propose.
 
-If you're following along, [walkthrough 01](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/01-keep-the-failing-run) has the commands and links to the one-time setup, including the database secret. The shared sample now targets Aspire 13.6.4, including the CLI, AppHost SDK, and stable integrations. The original article used 13.6.1.
+If you're following along, [walkthrough 01](https://github.com/codebytes/blog-samples/tree/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/walkthroughs/01-keep-the-failing-run) has the commands and links to the one-time setup, including the database secret. The shared sample now targets Aspire 13.6.4, including the CLI, AppHost SDK, and stable integrations. The original article used 13.6.1.
 
 ### A request you can repeat
 
@@ -82,7 +82,7 @@ web.WithHttpCommand(
     });
 ```
 
-The [full registration](https://github.com/codebytes/blog-samples/blob/main/aspire-field-notes/catalog/Catalog.AppHost/AppHost.cs) also reports a non-success status as a failed command, so a broken request never looks like a passing one.
+The [full registration](https://github.com/codebytes/blog-samples/blob/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/catalog/Catalog.AppHost/AppHost.cs) also reports a non-success status as a failed command, so a broken request never looks like a passing one.
 
 With the fault off, **Load catalog** returns a 200 and three products. That's your baseline.
 
