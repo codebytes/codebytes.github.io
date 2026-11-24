@@ -21,7 +21,7 @@ The final part will cover deployment targets.
 
 ## The application behind the examples
 
-The code lives in the [`aspire-field-notes` collection in blog-samples](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes). The catalog has a Vite frontend named `web`, a catalog API named `api`, PostgreSQL's `catalogdb`, and a separate `inventory` service.
+The [Aspire 17 catalog sample](https://github.com/codebytes/blog-samples/tree/6c7c7425ca347e20934f0e9d840a1edbabf98eb9/aspire-field-notes) has a Vite frontend named `web`, a catalog API named `api`, PostgreSQL's `catalogdb`, and a separate `inventory` service.
 
 A development-only inventory fault makes `/api/catalog` return a 503 while resource health remains green. The `/api/state` endpoints let us save a note through `DATA_PATH` and read it after a restart. Both are local teaching examples.
 
@@ -60,4 +60,4 @@ Those articles reflect their publication versions. The [Aspire 17 release notes]
 [walk-2]: https://github.com/codebytes/blog-samples/tree/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/walkthroughs/02-model-the-whole-app
 [walk-3]: https://github.com/codebytes/blog-samples/tree/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/walkthroughs/03-terminals-and-repls
 [walk-4]: https://github.com/codebytes/blog-samples/tree/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/walkthroughs/04-agents-with-evidence
-[walk-5]: https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/05-portable-state-and-config
+[walk-5]: https://github.com/codebytes/blog-samples/tree/6c7c7425ca347e20934f0e9d840a1edbabf98eb9/aspire-field-notes/walkthroughs/05-portable-state-and-config

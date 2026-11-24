@@ -32,9 +32,9 @@ For part five of [Aspire Field Notes](/series/aspire-field-notes/), the catalog 
 
 ## Let the AppHost choose the path
 
-Earlier parts used `AddProject` to register the .NET services. In Aspire 17 that method is obsolete. Its replacement, `AddDotnetProject`, takes the path to the `.csproj`. Updating the CLI alone doesn't change the AppHost's packages. The portable volume setting already existed in 13.6 and works with the new project model.[^upgrade]
+Earlier parts used `AddProject` to register the .NET services. In Aspire 17 that method is obsolete. The [upgraded AppHost][apphost] uses `Microsoft.NET.Sdk` with the `Aspire.Hosting.AppHost` and `Aspire.Hosting.Dotnet` packages. It registers each service by passing its `.csproj` path to `AddDotnetProject`. Updating the CLI alone wouldn't change those project files.[^upgrade]
 
-Here's the configuration that matters on the catalog's `api` resource:
+The volume setting already existed in 13.6. Here's the configuration that carries over to the new `api` resource:
 
 ```csharp
 api.WithEnvironment("Catalog__Region", region)
@@ -48,6 +48,8 @@ api.WithEnvironment("Catalog__Region", region)
 | Local .NET process        | A directory for this workload in the AppHost's local store |
 | Published Compose service | `/data` inside the API container, backed by a named volume |
 
+On a local run, look under `catalog/Catalog.AppHost/obj/.aspire/volumes/` for `state.json`. Aspire picks the subdirectory for the workload and volume. A normal restart leaves it alone; deleting the AppHost's `obj` directory also deletes the note.
+
 The API reads the same key in both places:
 
 ```csharp
@@ -58,13 +60,12 @@ var state = new StateStore(builder.Configuration.Require("DATA_PATH"));
 
 ## Save a note and restart the catalog
 
-Use the [Part 5 walkthrough][walkthrough] and its linked setup instructions. You'll need Aspire CLI 17.0.0, the .NET SDK listed in the sample, Node.js, and a running container engine. In Bash, start in the checkout's `aspire-field-notes` directory:
+[Download the catalog revision used here][sample-zip] and open its `aspire-field-notes` directory. The [Part 5 walkthrough][walkthrough] links to the prerequisites: Aspire CLI 17.0.0, a .NET 10 SDK, Node.js, and a running container engine. Start the catalog in Bash or PowerShell:
 
 ```bash
-apphost=catalog/Catalog.AppHost/Catalog.AppHost.csproj
 node scripts/init-secret.mjs
-aspire start --apphost "$apphost" --isolated
-aspire wait web --apphost "$apphost"
+aspire start --apphost catalog --isolated
+aspire wait web --apphost catalog
 node scripts/state-smoke.mjs write
 ```
 
@@ -73,33 +74,32 @@ The helper writes a fresh note through the frontend's `/api/state` route, reads 
 In the same shell, stop and start the same AppHost. Leave its storage in place:
 
 ```bash
-aspire stop --apphost "$apphost"
-aspire start --apphost "$apphost" --isolated
-aspire wait web --apphost "$apphost"
+aspire stop --apphost catalog
+aspire start --apphost catalog --isolated
+aspire wait web --apphost catalog
 node scripts/state-smoke.mjs verify
 ```
 
-The API generates an `instanceId` at startup. If it's unchanged, you read the note twice from the same process and the check fails. If it changed, `verify` compares the saved `message`, `revision`, and `updatedUtc`. All three must match the first response.
+The API generates an `instanceId` at startup. On Windows with Docker and .NET SDK 10.0.404, the ID started with `e6472b25` before the restart and `7fd26907` afterward. Both responses had revision `1`, the same message, and the same `updatedUtc`. Running `verify` before the restart failed: an unchanged note from the same process doesn't count.
 
 You can also read the note in the frontend:
 
-{{< figure src="retained-note.png" alt="Catalog frontend showing an API instance ID and the saved message 'Saved before the restart' at revision 5." caption="Read saved note shows the instance ID alongside the state. The restart check compares both with the response from before the stop." figureClass="full-width" >}}
+{{< figure src="retained-note.png" alt="Catalog frontend showing an API instance ID and the saved message 'Saved before the restart' at revision 5." caption="In this earlier catalog run, Read saved note returned revision 5. The restart check compares the instance ID and state with the original response." figureClass="full-width" >}}
 
 ## Check what Compose will mount
 
-After checking the note, stop this AppHost. Generate the Compose files and run the companion's review:
+After checking the note, stop this AppHost and generate the Compose files:
 
 ```bash
-aspire stop --apphost "$apphost"
-Deployment__Target=compose aspire publish --apphost "$apphost" -o "$PWD/artifacts/compose" &&
-  node scripts/review-compose.mjs artifacts/compose
+aspire stop --apphost catalog
+aspire publish --apphost catalog -o artifacts/compose -- --Deployment:Target=compose
 ```
 
-Look at the `api` service in `artifacts/compose/docker-compose.yaml`. Its environment must set `DATA_PATH` to `/data`, **and** its named volume must mount at `/data`. Checking just the variable misses a real failure: if the directory is writable but no volume is mounted, a write can succeed and disappear when the container is replaced.
+Once publication succeeds, run `node scripts/review-compose.mjs artifacts/compose`. In the generated `docker-compose.yaml`, the `api` service has `DATA_PATH=/data` and a writable mount from the named volume `catalog-state` to `/data`. Check both. With just the environment variable, the API could write to the container's own filesystem and lose the note when the container is replaced.
 
 This command inspects deployment files. It doesn't start the Compose stack or prove that a deployed volume can be restored from backup. The catalog also serializes file writes within one API process. If two replicas need to update the same note, use storage that coordinates their writes.
 
-## Keep the database password with the database
+## Keep the database password stable across restarts
 
 The note and PostgreSQL use different storage. You can retain both and still lose database access: keeping the PostgreSQL volume preserves the password already set inside it. Setting a different AppHost secret on the next run doesn't rotate that password.
 
@@ -115,7 +115,9 @@ Before relying on a deployment, repeat the note test there with disposable data.
 [Next: choose a deployment target that can honor those expectations](/posts/aspire-field-notes-choose-your-deployment/).
 {{% /if-published %}}
 
-[walkthrough]: https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/05-portable-state-and-config
+[apphost]: https://github.com/codebytes/blog-samples/blob/6c7c7425ca347e20934f0e9d840a1edbabf98eb9/aspire-field-notes/catalog/Catalog.AppHost/Catalog.AppHost.csproj
+[sample-zip]: https://github.com/codebytes/blog-samples/archive/6c7c7425ca347e20934f0e9d840a1edbabf98eb9.zip
+[walkthrough]: https://github.com/codebytes/blog-samples/tree/6c7c7425ca347e20934f0e9d840a1edbabf98eb9/aspire-field-notes/walkthroughs/05-portable-state-and-config
 
 [^upgrade]: [What's new in Aspire 17.0](https://aspire.dev/whats-new/aspire-17/) and [migrating .NET project resources](https://aspire.dev/integrations/dotnet/migrate-dotnet-project-resource/).
 
