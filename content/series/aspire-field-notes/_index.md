@@ -35,7 +35,7 @@ A development-only inventory fault makes `/api/catalog` return a 503 while resou
 | 4    | [An agent investigation scoped to one failed request][walk-4]        |
 | 5    | [Portable configuration and retained application state][walk-5]      |
 
-Use the [13.6.4 catalog snapshot][catalog-13] to reproduce Parts 1 through 4. For Part 5, start with the Aspire 17 walkthrough above. Each walkthrough links to the prerequisites and PostgreSQL secret setup for its version.
+For Parts 1 through 4, [download the 13.6.4 sample revision][catalog-13] so the code matches the article you're reading. For Part 5, use the Aspire 17 walkthrough above. Each walkthrough links to the prerequisites and PostgreSQL secret setup for its version.
 
 Use **Load catalog** on `web` in the dashboard, or `aspire resource web load-catalog`, to make the request and get its status and trace ID. The other helpers check state after a restart, fresh terminal output, and generated Compose routing and storage. None requires installing agent guidance.
 
@@ -55,7 +55,7 @@ Those articles reflect their publication versions. The [Aspire 17 release notes]
 - [Mitch Denny's terminal deep dive](https://devblogs.microsoft.com/aspire/aspire-terminal-support/) and [James Newton-King's Native AOT dashboard article](https://devblogs.microsoft.com/aspire/aspire-dashboard-native-aot/) explain the engineering behind the new experiences.
 - [James Newton-King's persistence deep dive](https://devblogs.microsoft.com/aspire/aspire-dashboard-persistence/), published October 8, explains the SQLite and Dapper design behind part one's retained runs and lower-memory telemetry queries.
 
-[catalog-13]: https://github.com/codebytes/blog-samples/tree/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes
+[catalog-13]: https://github.com/codebytes/blog-samples/archive/9cfa104b225e00b0ba72165b920dce7f4ce35912.zip
 [walk-1]: https://github.com/codebytes/blog-samples/tree/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/walkthroughs/01-keep-the-failing-run
 [walk-2]: https://github.com/codebytes/blog-samples/tree/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/walkthroughs/02-model-the-whole-app
 [walk-3]: https://github.com/codebytes/blog-samples/tree/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/walkthroughs/03-terminals-and-repls

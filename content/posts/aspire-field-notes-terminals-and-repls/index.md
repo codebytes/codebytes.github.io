@@ -34,7 +34,7 @@ The main exercise in this part of [Aspire Field Notes](/series/aspire-field-note
 
 ## Start with the catalog
 
-Use **Aspire CLI and AppHost SDK 13.6.4** with the companion's .NET 10 SDK and Node.js prerequisites. The [sample README](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes) has the setup; run the commands below from `aspire-field-notes/`.
+Use **Aspire CLI and AppHost SDK 13.6.4** with the companion's .NET 10 SDK and Node.js prerequisites. The [sample README](https://github.com/codebytes/blog-samples/tree/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes) has the setup; run the commands below from `aspire-field-notes/`.
 
 Use the catalog AppHost from [part two](/posts/aspire-field-notes-model-the-whole-app/), with a running Docker or Podman engine and the README's one-time `postgres-password` secret setup. You do not need a local `psql` installation.
 
@@ -122,7 +122,7 @@ Both clients inspect the same database, but they have different lifetimes. The R
 
 The catalog AppHost includes `psql-client` by default in local run mode, alongside the API, frontend, and PostgreSQL server. No terminal opt-in flag is needed, and the client is excluded from published deployments. It uses the PostgreSQL server's pinned image version, but runs `psql` instead of another database server. Aspire supplies the server address, port, user, and password through resource expressions; the database name comes from `catalogdb`. There is no local `psql` installation or password to copy.
 
-These chained calls from the [client definition](https://github.com/codebytes/blog-samples/blob/main/aspire-field-notes/catalog/Catalog.AppHost/AppHost.cs) wire its connection and terminal:
+These chained calls from the [client definition](https://github.com/codebytes/blog-samples/blob/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/catalog/Catalog.AppHost/AppHost.cs) wire its connection and terminal:
 
 ```csharp
 .WithEnvironment("PGHOST", postgres.Resource.Host)
@@ -157,7 +157,7 @@ This client starts in `catalogdb`, unlike the docked REPL. You can inspect it ma
 
 ### Check the actual catalog, twice
 
-Run the checked-in [catalog-inspect.tape](https://github.com/codebytes/blog-samples/blob/main/aspire-field-notes/terminals/catalog-inspect.tape) directly from `aspire-field-notes/`:
+Run the checked-in [catalog-inspect.tape](https://github.com/codebytes/blog-samples/blob/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/terminals/catalog-inspect.tape) directly from `aspire-field-notes/`:
 
 ```bash
 aspire wait psql-client --apphost "$apphost" --status up --timeout 120 --non-interactive
@@ -194,7 +194,7 @@ Wait+Screen /^CATALOG_READY>[ \t\r\n]*$/
 
 ### Check that a wrong expectation fails
 
-The separate [negative-control tape](https://github.com/codebytes/blog-samples/blob/main/aspire-field-notes/terminals/catalog-inspect-negative.tape) first requires the real three-product baseline, then deliberately expects four in its result predicate. It does not add or remove a product:
+The separate [negative-control tape](https://github.com/codebytes/blog-samples/blob/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/terminals/catalog-inspect-negative.tape) first requires the real three-product baseline, then deliberately expects four in its result predicate. It does not add or remove a product:
 
 ```bash
 aspire terminal tape play psql-client \
@@ -231,7 +231,7 @@ Do not use broad process-name cleanup on a machine where other applications may 
 
 That is the practical point of this exercise: inspect stored data in context, without moving connection details between tools. It answers a database question, not every question about the application.
 
-[Walkthrough 03](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/03-terminals-and-repls) has the exact commands for this catalog diagnostic.
+[Walkthrough 03](https://github.com/codebytes/blog-samples/tree/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/walkthroughs/03-terminals-and-repls) has the exact commands for this catalog diagnostic.
 
 [Next: give a coding agent the same evidence-driven loop](/posts/aspire-field-notes-agents-with-evidence/).
 

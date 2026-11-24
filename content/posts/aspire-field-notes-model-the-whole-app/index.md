@@ -55,7 +55,7 @@ David Fowler's [developer-loop article](https://devblogs.microsoft.com/aspire/de
 
 ## Start with the companion
 
-Use the [sample README](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes) for prerequisites and the one-time PostgreSQL secret setup. Run all commands below from `aspire-field-notes/`.
+Use the [sample README](https://github.com/codebytes/blog-samples/tree/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes) for prerequisites and the one-time PostgreSQL secret setup. Run all commands below from `aspire-field-notes/`.
 
 To run the companion, select the catalog AppHost explicitly so startup does not depend on your current CLI selection:
 
@@ -64,7 +64,7 @@ apphost=catalog/Catalog.AppHost/Catalog.AppHost.csproj
 aspire start --apphost "$apphost" --isolated
 ```
 
-The `apphost` variable keeps the path reusable for later commands; only `aspire start` launches the application. In the dashboard, wait for **web** to become **Healthy**, open its HTTP endpoint, and click **Load catalog**. The [optional CLI checks](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/02-model-the-whole-app#optional-cli-verification) automate readiness and the catalog request; they are not extra startup requirements.
+The `apphost` variable keeps the path reusable for later commands; only `aspire start` launches the application. In the dashboard, wait for **web** to become **Healthy**, open its HTTP endpoint, and click **Load catalog**. The [optional CLI checks](https://github.com/codebytes/blog-samples/tree/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/walkthroughs/02-model-the-whole-app#optional-cli-verification) automate readiness and the catalog request; they are not extra startup requirements.
 
 ## Follow the catalog's service graph
 
@@ -89,7 +89,7 @@ api -->|"GET /inventory"| inventory
 
 The arrows show request traffic, not startup order. The API reads `catalogdb`, hosted by the `postgres` resource, before calling inventory. The AppHost supplies configuration and readiness relationships; it is not an HTTP hop in this path.
 
-The [catalog AppHost project](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/catalog/Catalog.AppHost) models five application resources, plus the `postgres-password` and `catalog-region` parameters:
+The [catalog AppHost project](https://github.com/codebytes/blog-samples/tree/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/catalog/Catalog.AppHost) models five application resources, plus the `postgres-password` and `catalog-region` parameters:
 
 | Resource    | Role                    | Contract to inspect                                                         |
 | ----------- | ----------------------- | --------------------------------------------------------------------------- |
@@ -114,7 +114,7 @@ var api = builder.AddProject<Projects.Catalog_Api>("api")
     .WaitFor(inventory);
 ```
 
-The full AppHost keeps the region and state-volume settings in a separate block for the [configuration/state walkthrough](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/05-portable-state-and-config). The shared API still requires those settings at startup; omitting them from this excerpt is not a request to remove them from the runnable companion.
+The full AppHost keeps the region and state-volume settings in a separate block for the [configuration/state walkthrough](https://github.com/codebytes/blog-samples/tree/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/walkthroughs/05-portable-state-and-config). The shared API still requires those settings at startup; omitting them from this excerpt is not a request to remove them from the runnable companion.
 
 Selecting **Load catalog** in the frontend makes the browser call `/api/catalog` on its own origin. Vite forwards the request to the API, which reads PostgreSQL and calls inventory once:
 
@@ -134,7 +134,7 @@ When adapting the sample, check that each probe's endpoint exists. Otherwise, th
 
 The AppHost's `.WithReference(inventory)` gives the API connection information. It does not create an HTTP client. Likewise, `.WithReference(catalogdb)` supplies database configuration but does not register a database client in the API.
 
-The relevant registrations in [`Catalog.Api/Program.cs`](https://github.com/codebytes/blog-samples/blob/main/aspire-field-notes/catalog/Catalog.Api/Program.cs) are:
+The relevant registrations in [`Catalog.Api/Program.cs`](https://github.com/codebytes/blog-samples/blob/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/catalog/Catalog.Api/Program.cs) are:
 
 ```csharp
 builder.AddServiceDefaults();
@@ -146,7 +146,7 @@ builder.Services.AddHttpClient("inventory", client =>
 });
 ```
 
-The API later calls `GetAsync("/inventory")`, so this client needs a base address. `http://inventory` identifies a logical service, not a fixed machine or port. The companion's [Service Defaults](https://github.com/codebytes/blog-samples/blob/main/aspire-field-notes/catalog/ServiceDefaults/Extensions.cs) registers the HTTP service-discovery handler that resolves the actual endpoint from the supplied configuration. `WithReference(inventory)` does not set the client's base address for it. `AddNpgsqlDataSource("catalogdb")` registers the database client using the named connection string.
+The API later calls `GetAsync("/inventory")`, so this client needs a base address. `http://inventory` identifies a logical service, not a fixed machine or port. The companion's [Service Defaults](https://github.com/codebytes/blog-samples/blob/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/catalog/ServiceDefaults/Extensions.cs) registers the HTTP service-discovery handler that resolves the actual endpoint from the supplied configuration. `WithReference(inventory)` does not set the client's base address for it. `AddNpgsqlDataSource("catalogdb")` registers the database client using the named connection string.
 
 The API also rejects missing `ConnectionStrings:catalogdb` or `services:inventory:http:0` configuration at startup. It does not quietly substitute a localhost service. Its OpenTelemetry setup lives in Service Defaults and the Npgsql integration; the AppHost reference is not the instrumentation.
 
@@ -171,7 +171,7 @@ var web = builder.AddViteApp("web", "../web")
 
 ## Keep server configuration out of the browser bundle
 
-The checked-in [`vite.config.mjs`](https://github.com/codebytes/blog-samples/blob/main/aspire-field-notes/catalog/web/vite.config.mjs) provides the health endpoint and configures the development proxy:
+The checked-in [`vite.config.mjs`](https://github.com/codebytes/blog-samples/blob/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/catalog/web/vite.config.mjs) provides the health endpoint and configures the development proxy:
 
 <!-- prettier-ignore -->
 ```javascript
@@ -200,9 +200,9 @@ export default defineConfig(({ command }) => ({
 }));
 ```
 
-[`apiTarget`](https://github.com/codebytes/blog-samples/blob/main/aspire-field-notes/catalog/web/proxy-config.mjs) reads `API_HTTP` from the server environment and rejects a missing value or a URL that is not an HTTP(S) origin. It also rejects embedded credentials, a path, query parameters, or a fragment. Browser code calls `/api/catalog` without learning the local API port.
+[`apiTarget`](https://github.com/codebytes/blog-samples/blob/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/catalog/web/proxy-config.mjs) reads `API_HTTP` from the server environment and rejects a missing value or a URL that is not an HTTP(S) origin. It also rejects embedded credentials, a path, query parameters, or a fragment. Browser code calls `/api/catalog` without learning the local API port.
 
-The production build does not need the injected URL. The companion does not use Vite's development or preview server for production; the [deployment walkthrough](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/06-choose-your-deployment) inspects the generated static-site and YARP proxy configuration instead.
+The production build does not need the injected URL. The companion does not use Vite's development or preview server for production; the [deployment walkthrough](https://github.com/codebytes/blog-samples/tree/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/walkthroughs/06-choose-your-deployment) inspects the generated static-site and YARP proxy configuration instead.
 
 Settings with Vite's `VITE_` prefix can be embedded in browser code; they are not an appropriate place for secrets or private server-only configuration.
 
@@ -212,7 +212,7 @@ Inspect just the settings you need in the dashboard. Do not paste the entire res
 
 ## A green graph can still return 503
 
-The [failure walkthrough](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/01-keep-the-failing-run) restarts the catalog with `Inventory__FaultEnabled=true`. Inventory continues to answer its health probe, but its `/inventory` business endpoint returns a real 503. The catalog API reports **Inventory unavailable** instead of hiding the failure.
+The [failure walkthrough](https://github.com/codebytes/blog-samples/tree/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/walkthroughs/01-keep-the-failing-run) restarts the catalog with `Inventory__FaultEnabled=true`. Inventory continues to answer its health probe, but its `/inventory` business endpoint returns a real 503. The catalog API reports **Inventory unavailable** instead of hiding the failure.
 
 Here is what the catalog run showed:
 
@@ -295,7 +295,7 @@ Take one operation through your application and check:
 
 A shared dashboard does not apply .NET retry handlers to Go or Node. Browser trace propagation also needs its own setup. Keep those responsibilities visible rather than assuming the graph handles them.
 
-Use [walkthrough 02](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/02-model-the-whole-app) for the detailed configuration and trace checks. When you finish, stop only this AppHost:
+Use [walkthrough 02](https://github.com/codebytes/blog-samples/tree/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/walkthroughs/02-model-the-whole-app) for the detailed configuration and trace checks. When you finish, stop only this AppHost:
 
 ```bash
 aspire stop --apphost "$apphost"

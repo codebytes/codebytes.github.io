@@ -37,11 +37,11 @@ The sample deliberately enables an inventory fault. We know the cause; the agent
 
 ## Start one failing catalog run
 
-Use **Aspire CLI and AppHost SDK 13.6.4** with the [sample README's prerequisites](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes): .NET 10, Node.js, and a running Docker or Podman engine. Run these commands from `aspire-field-notes/` in a dedicated checkout or worktree.
+Use **Aspire CLI and AppHost SDK 13.6.4** with the [sample README's prerequisites](https://github.com/codebytes/blog-samples/tree/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes): .NET 10, Node.js, and a running Docker or Podman engine. Run these commands from `aspire-field-notes/` in a dedicated checkout or worktree.
 
 If you own a catalog run from an earlier exercise, stop it first using its owning CLI or editor. Do not start a competing instance or stop another session's AppHost.
 
-Complete the README's [one-time PostgreSQL secret setup](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes#quick-start) if needed, then start the catalog:
+Complete the README's [one-time PostgreSQL secret setup](https://github.com/codebytes/blog-samples/tree/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes#quick-start) if needed, then start the catalog:
 
 ```bash
 apphost=catalog/Catalog.AppHost/Catalog.AppHost.csproj
@@ -97,7 +97,7 @@ alter another session's processes, or reveal credentials.
 
 **Expected:** that one `GET /api/catalog` through `web` returns HTTP 503, `Inventory unavailable`, and a trace ID. The CLI exits nonzero; the response includes `dependencyStatus: 503`. A missing trace ID or a different failure is a blocker, not a successful diagnosis. Do not hide it with `|| true`.
 
-The [checked-in command](https://github.com/codebytes/blog-samples/blob/main/aspire-field-notes/catalog/Catalog.AppHost/AppHost.cs) reports the response and trace ID; it does not verify the trace. That is the agent's next step. MCP is not required. If you use it, select this AppHost before invoking the same command with `execute_resource_command`.
+The [checked-in command](https://github.com/codebytes/blog-samples/blob/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/catalog/Catalog.AppHost/AppHost.cs) reports the response and trace ID; it does not verify the trace. That is the agent's next step. MCP is not required. If you use it, select this AppHost before invoking the same command with `execute_resource_command`.
 
 ## Check the agent's evidence
 
@@ -116,11 +116,11 @@ Keep the guard and both queries in one `&&` chain. In interactive Bash or zsh, a
 
 Telemetry export is asynchronous. If results are incomplete, wait a few seconds and repeat only these queries for the **same trace ID**, for at most 30 seconds. Another **Load catalog** call creates a different request, not more evidence for this one. After the deadline, report what is missing.
 
-The [API reads PostgreSQL first](https://github.com/codebytes/blog-samples/blob/main/aspire-field-notes/catalog/Catalog.Api/Program.cs), then makes one inventory request without retries. The expected trace has four spans: the API server, its database query, an inventory HTTP client, and that client's inventory server child.
+The [API reads PostgreSQL first](https://github.com/codebytes/blog-samples/blob/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/catalog/Catalog.Api/Program.cs), then makes one inventory request without retries. The expected trace has four spans: the API server, its database query, an inventory HTTP client, and that client's inventory server child.
 
 Inspect the span IDs and parent IDs, not just four matching names. The database query and inventory HTTP client are children of the API server span; the inventory server span is a child of that client span. All belong to the returned trace ID. The database query should complete, while the three HTTP spans report 503.
 
-The [inventory service](https://github.com/codebytes/blog-samples/blob/main/aspire-field-notes/catalog/Inventory.Api/Program.cs) originates the 503 when `Inventory:FaultEnabled` is true. Its problem title is `Intentional inventory outage`; its warning says `Intentional inventory failure: returning HTTP 503`. The API then logs `Inventory returned HTTP 503; no retry` and returns its own `Inventory unavailable` problem. Those are two different responses in the same request chain.
+The [inventory service](https://github.com/codebytes/blog-samples/blob/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/catalog/Inventory.Api/Program.cs) originates the 503 when `Inventory:FaultEnabled` is true. Its problem title is `Intentional inventory outage`; its warning says `Intentional inventory failure: returning HTTP 503`. The API then logs `Inventory returned HTTP 503; no retry` and returns its own `Inventory unavailable` problem. Those are two different responses in the same request chain.
 
 The fault leaves inventory's `/health` unaffected. Resource health does not prove that a business operation succeeds.
 
@@ -155,7 +155,7 @@ After retaining the evidence, stop only the catalog run you started:
 aspire stop --apphost "$apphost" --non-interactive
 ```
 
-The companion's [optional build and regression checks](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/04-agents-with-evidence#repeatable-regression-checks) are separate from this investigation. They do not prove that this request reached inventory once or that the live 503 matched the intended fault.
+The companion's [optional build and regression checks](https://github.com/codebytes/blog-samples/tree/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/walkthroughs/04-agents-with-evidence#repeatable-regression-checks) are separate from this investigation. They do not prove that this request reached inventory once or that the live 503 matched the intended fault.
 
 ## Optional: rebuild after an authorized change
 
@@ -175,7 +175,7 @@ The dashboard's **Actions** menu shows the same choices:
 
 Skills teach the agent how to use tools; runtime commands supply observations. Skip setup if your agent already has the guidance it needs. My [skills and plugins guide](/posts/agent-skills-plugins-marketplace/) explains that distinction.
 
-In **13.6.4**, `aspire agent init` installs selected skills, while new MCP configuration is an explicit opt-in.[^skills] [Walkthrough 04's optional setup](https://github.com/codebytes/blog-samples/tree/main/aspire-field-notes/walkthroughs/04-agents-with-evidence#optional-guidance-setup) targets the catalog workspace, chooses named workflow skills and the `github` location, and passes `--mcp=false`. Review generated `catalog/.github/skills/` before adopting it; do not enable remote skill fetching or override `aspireSkillsVersion` for this exercise.
+In **13.6.4**, `aspire agent init` installs selected skills, while new MCP configuration is an explicit opt-in.[^skills] [Walkthrough 04's optional setup](https://github.com/codebytes/blog-samples/tree/9cfa104b225e00b0ba72165b920dce7f4ce35912/aspire-field-notes/walkthroughs/04-agents-with-evidence#optional-guidance-setup) targets the catalog workspace, chooses named workflow skills and the `github` location, and passes `--mcp=false`. Review generated `catalog/.github/skills/` before adopting it; do not enable remote skill fetching or override `aspireSkillsVersion` for this exercise.
 
 The location scopes **skill files**, not every setup side effect. The tagged 13.6.4 implementation still registers user-level telemetry hooks for detected supported Copilot and Claude Code clients. `ASPIRE_CLI_TELEMETRY_OPTOUT=true` suppresses transmission while set; it does not prevent hook registration, and setting it for setup alone does not disable later hook executions. Accept those changes explicitly or use a disposable user profile.[^setup-scope]
 
