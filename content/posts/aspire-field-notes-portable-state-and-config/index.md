@@ -115,9 +115,9 @@ Before relying on a deployment, repeat the note test there with disposable data.
 [Next: choose a deployment target that can honor those expectations](/posts/aspire-field-notes-choose-your-deployment/).
 {{% /if-published %}}
 
-[apphost]: https://github.com/codebytes/blog-samples/blob/6c7c7425ca347e20934f0e9d840a1edbabf98eb9/aspire-field-notes/catalog/Catalog.AppHost/Catalog.AppHost.csproj
-[sample-zip]: https://github.com/codebytes/blog-samples/archive/6c7c7425ca347e20934f0e9d840a1edbabf98eb9.zip
-[walkthrough]: https://github.com/codebytes/blog-samples/tree/6c7c7425ca347e20934f0e9d840a1edbabf98eb9/aspire-field-notes/walkthroughs/05-portable-state-and-config
+[apphost]: https://github.com/codebytes/blog-samples/blob/4250daac0150d3422fe33ccd1ccd4d90e570d11c/aspire-field-notes/catalog/Catalog.AppHost/Catalog.AppHost.csproj
+[sample-zip]: https://github.com/codebytes/blog-samples/archive/4250daac0150d3422fe33ccd1ccd4d90e570d11c.zip
+[walkthrough]: https://github.com/codebytes/blog-samples/tree/4250daac0150d3422fe33ccd1ccd4d90e570d11c/aspire-field-notes/walkthroughs/05-portable-state-and-config
 
 [^upgrade]: [What's new in Aspire 17.0](https://aspire.dev/whats-new/aspire-17/) and [migrating .NET project resources](https://aspire.dev/integrations/dotnet/migrate-dotnet-project-resource/).
 
